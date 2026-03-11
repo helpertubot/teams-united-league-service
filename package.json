@@ -1,0 +1,23 @@
+{
+  "name": "league-standings-service",
+  "version": "2.0.0",
+  "description": "Multi-platform league standings collection service for Teams United",
+  "main": "index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^7.3.0",
+    "@google-cloud/functions-framework": "^3.3.0",
+    "@sparticuz/chromium": "^126.0.0",
+    "axios": "^1.13.6",
+    "cheerio": "^1.2.0",
+    "firebase-admin": "^12.7.0",
+    "googleapis": "^140.0.0",
+    "puppeteer-core": "^22.0.0"
+  },
+  "scripts": {
+    "start": "functions-framework --target=collectLeague --port=8080",
+    "test": "node test-adapters.js"
+  }
+}

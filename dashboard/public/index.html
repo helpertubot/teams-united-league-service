@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  ____                _           _ _
+ |  _ \ ___ _ __ _ __| | _____  _(_) |_ _   _
+ | |_) / _ \ '__| '__| |/ _ \ \/ / | __| | | |
+ |  __/  __/ |  | |  | |  __/>  <| | |_| |_| |
+ |_|   \___|_|  |_|  |_|\___/_/\_\_|\__|\__, |
+                                         |___/
+  ____                            _
+ / ___|___  _ __ ___  _ __  _   _| |_ ___ _ __
+| |   / _ \| '_ ` _ \| '_ \| | | | __/ _ \ '__|
+| |__| (_) | | | | | | |_) | |_| | ||  __/ |
+ \____\___/|_| |_| |_| .__/ \__,_|\__\___|_|
+                      |_|
+
+Built with Perplexity Computer — https://www.perplexity.ai/computer
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teams United — League Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" aria-label="Teams United logo" fill="none">
+          <rect x="2" y="2" width="28" height="28" rx="6" fill="#2E7D32"/>
+          <path d="M9 11h14v2H9zm0 4h10v2H9zm0 4h12v2H9z" fill="rgba(255,255,255,0.9)"/>
+          <circle cx="24" cy="21" r="3" fill="rgba(255,255,255,0.9)"/>
+        </svg>
+        <div class="topbar-titles">
+          <h1 class="topbar-brand">Teams United</h1>
+          <span class="topbar-subtitle">League Dashboard</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <span class="refresh-label" id="lastRefreshed">Loading...</span>
+        <button class="btn-refresh" id="btnRefresh" title="Refresh data" aria-label="Refresh data">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.65 2.35A7.96 7.96 0 008 0C3.58 0 .01 3.58.01 8S3.58 16 8 16c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 018 14 6 6 0 012 8a6 6 0 016-6c1.66 0 3.14.69 4.22 1.78L9 7h7V0l-2.35 2.35z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Sport Tabs -->
+    <nav class="sport-tabs" id="sportTabs" role="tablist">
+      <button class="sport-tab active" data-sport="soccer" role="tab" aria-selected="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5L6.5 5 3 5.5l2.5 2.5L5 11.5 8 10l3 1.5-.5-3.5L13 5.5 9.5 5z" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+        Soccer <span class="tab-badge" id="badge-soccer">0</span>
+      </button>
+      <button class="sport-tab" data-sport="baseball" role="tab" aria-selected="false">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M4 3c1.5 2 1.5 8 0 10M12 3c-1.5 2-1.5 8 0 10" stroke="currentColor" stroke-width="1"/></svg>
+        Baseball <span class="tab-badge" id="badge-baseball">0</span>
+      </button>
+      <button class="sport-tab" data-sport="basketball" role="tab" aria-selected="false">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M1 8h14M8 1v14M3 3c3 2 7 2 10 0M3 13c3-2 7-2 10 0" stroke="currentColor" stroke-width="1"/></svg>
+        Basketball <span class="tab-badge" id="badge-basketball">0</span>
+      </button>
+      <button class="sport-tab" data-sport="hockey" role="tab" aria-selected="false">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><ellipse cx="8" cy="8" rx="3" ry="2" stroke="currentColor" stroke-width="1"/></svg>
+        Hockey <span class="tab-badge" id="badge-hockey">0</span>
+      </button>
+      <button class="sport-tab" data-sport="lacrosse" role="tab" aria-selected="false">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="2" x2="8" y2="14" stroke="currentColor" stroke-width="1"/><line x1="2" y1="8" x2="14" y2="8" stroke="currentColor" stroke-width="1"/></svg>
+        Lacrosse <span class="tab-badge" id="badge-lacrosse">0</span>
+      </button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Filter Bar -->
+      <div class="filter-bar" id="filterBar">
+        <div class="filter-group">
+          <select id="filterLeague" class="filter-select">
+            <option value="">All Leagues</option>
+          </select>
+          <select id="filterStatus" class="filter-select">
+            <option value="">All Statuses</option>
+            <option value="active">Active</option>
+            <option value="pending_groups">Pending Groups</option>
+            <option value="pending_config">Pending Config</option>
+            <option value="pending_tabid">Pending Tab ID</option>
+            <option value="pending_adapter">Pending Adapter</option>
+            <option value="inactive">Inactive</option>
+          </select>
+          <select id="filterState" class="filter-select">
+            <option value="">All States</option>
+          </select>
+          <select id="filterGender" class="filter-select" disabled>
+            <option value="">All Genders</option>
+          </select>
+          <select id="filterAgeGroup" class="filter-select" disabled>
+            <option value="">All Age Groups</option>
+          </select>
+          <div class="search-wrapper">
+            <svg class="search-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><line x1="10.5" y1="10.5" x2="15" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <input type="text" id="filterSearch" class="filter-input" placeholder="Search...">
+          </div>
+          <button class="btn-clear" id="btnClearFilters">Clear Filters</button>
+        </div>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="kpi-row" id="kpiRow">
+        <div class="kpi-card">
+          <div class="kpi-label">Active Leagues</div>
+          <div class="kpi-value" id="kpiActive">—</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Total Divisions</div>
+          <div class="kpi-value" id="kpiDivisions">—</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">With Data</div>
+          <div class="kpi-value" id="kpiWithData">—</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Platforms</div>
+          <div class="kpi-value" id="kpiPlatforms">—</div>
+        </div>
+      </div>
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb" id="breadcrumb" style="display:none;">
+        <button class="breadcrumb-link" id="bcSport"></button>
+        <span class="breadcrumb-sep">›</span>
+        <button class="breadcrumb-link" id="bcLeague" style="display:none;"></button>
+        <span class="breadcrumb-sep" id="bcLeagueSep" style="display:none;">›</span>
+        <span class="breadcrumb-current" id="bcCurrent"></span>
+      </div>
+
+      <!-- Data Table Container -->
+      <div class="table-container" id="tableContainer">
+        <div class="loading-state" id="loadingState">
+          <div class="spinner"></div>
+          <span>Loading league data...</span>
+        </div>
+        <div class="error-state" id="errorState" style="display:none;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><line x1="12" y1="8" x2="12" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="16.5" r="1" fill="currentColor"/></svg>
+          <span id="errorMsg">Failed to load data. Try again.</span>
+          <button class="btn-retry" id="btnRetry">Retry</button>
+        </div>
+        <div class="empty-state" id="emptyState" style="display:none;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="2"/><line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="2"/><line x1="9" y1="9" x2="9" y2="21" stroke="currentColor" stroke-width="2"/></svg>
+          <span>No results match your filters</span>
+        </div>
+        <table class="data-table" id="dataTable" style="display:none;">
+          <thead id="tableHead"></thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+      <span>&copy; 2026 Teams United</span>
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

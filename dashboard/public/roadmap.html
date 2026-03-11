@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  ____                _           _ _
+ |  _ \ ___ _ __ _ __| | _____  _(_) |_ _   _
+ | |_) / _ \ '__| '__| |/ _ \ \/ / | __| | | |
+ |  __/  __/ |  | |  | |  __/>  <| | |_| |_| |
+ |_|   \___|_|  |_|  |_|\___|_/\_\_|\__|\__, |
+                                         |___/
+  ____                            _
+ / ___| ___  _ __ ___  _ __  _   _| |_ ___ _ __
+| |   / _ \| '_ ` _ \| '_ \| | | | __/ _ \ '__|
+| |__| (_) | | | | | | |_) | |_| | ||  __/ |
+ \____\___/|_| |_| |_| .__/ \__,_|\__\___|_|
+                      |_|
+
+Built with Perplexity Computer — https://www.perplexity.ai/computer
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teams United — Rollout Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #0f1219;
+  --bg-secondary: #161b26;
+  --bg-surface: #1c2233;
+  --bg-surface-2: #232b3e;
+  --bg-hover: #283046;
+  --bg-active: #2d3650;
+  --text-primary: #e8eaf0;
+  --text-secondary: #9ba3b5;
+  --text-muted: #6b7385;
+  --text-faint: #4a5068;
+  --green: #2E7D32;
+  --green-light: #43A047;
+  --green-dim: #1b4d1f;
+  --green-glow: rgba(46, 125, 50, 0.15);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-green: rgba(46, 125, 50, 0.4);
+  --red: #e53935;
+  --amber: #f9a825;
+  --blue: #42a5f5;
+  --cyan: #26c6da;
+  --purple: #ab47bc;
+  --orange: #ff7043;
+  --pink: #ec407a;
+  --teal: #26a69a;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 2px 8px rgba(0,0,0,0.4);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* --- Topbar --- */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 24px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+.topbar-left { display: flex; align-items: center; gap: 12px; }
+.topbar-brand { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; }
+.topbar-subtitle { font-size: 12px; color: var(--text-muted); }
+.topbar-titles { display: flex; flex-direction: column; gap: 1px; }
+.topbar-right { display: flex; align-items: center; gap: 12px; }
+.topbar-link {
+  font-size: 12px; color: var(--text-secondary); text-decoration: none;
+  padding: 6px 12px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  transition: all 180ms var(--ease);
+}
+.topbar-link:hover { background: var(--bg-hover); color: var(--text-primary); }
+.topbar-link.active { background: var(--green-dim); border-color: var(--border-green); color: var(--green-light); }
+.logo-icon { flex-shrink: 0; }
+
+/* --- Main Content --- */
+.content { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+
+/* --- Page Header --- */
+.page-header { margin-bottom: 32px; }
+.page-title { font-size: 28px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; }
+.page-desc { color: var(--text-secondary); font-size: 14px; max-width: 680px; }
+.updated-label {
+  display: inline-block; margin-top: 12px;
+  font-size: 11px; color: var(--text-muted);
+  background: var(--bg-surface); padding: 4px 10px; border-radius: var(--radius-sm);
+}
+
+/* --- Stats Cards --- */
+.stats-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px; margin-bottom: 40px;
+}
+.stat-card {
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 16px 20px;
+}
+.stat-label {
+  font-size: 11px; font-weight: 600; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;
+}
+.stat-value {
+  font-size: 24px; font-weight: 700;
+  font-variant-numeric: tabular-nums; letter-spacing: -0.03em;
+}
+.stat-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.stat-value.green { color: var(--green-light); }
+.stat-value.amber { color: var(--amber); }
+.stat-value.blue { color: var(--blue); }
+
+/* --- Sport Tabs --- */
+.sport-tabs {
+  display: flex; gap: 4px; margin-bottom: 0;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 0; overflow-x: auto;
+}
+.sport-tab {
+  font-size: 12px; font-weight: 600; color: var(--text-muted);
+  padding: 10px 16px; cursor: pointer; border: none; background: none;
+  border-bottom: 2px solid transparent;
+  transition: all 180ms var(--ease); white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+.sport-tab:hover { color: var(--text-secondary); background: var(--bg-hover); }
+.sport-tab.active { color: var(--text-primary); border-bottom-color: var(--green-light); }
+.sport-tab .tab-count {
+  font-size: 10px; font-weight: 500; color: var(--text-faint);
+  margin-left: 4px;
+}
+.sport-tab.active .tab-count { color: var(--green-light); }
+
+.sport-panel { display: none; padding-top: 24px; }
+.sport-panel.active { display: block; }
+
+/* --- Sport Section --- */
+.sport-section { margin-bottom: 32px; }
+.sport-header {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+}
+.sport-icon {
+  width: 28px; height: 28px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; flex-shrink: 0;
+}
+.sport-name { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; }
+.sport-stat {
+  font-size: 11px; color: var(--text-muted); background: var(--bg-surface);
+  padding: 3px 8px; border-radius: var(--radius-sm);
+}
+
+/* --- Platform Card --- */
+.platform-group { margin-bottom: 20px; }
+.platform-header {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 0; margin-bottom: 8px;
+}
+.platform-name {
+  font-size: 13px; font-weight: 600; color: var(--text-secondary);
+}
+.platform-badge {
+  font-size: 9px; font-weight: 600; padding: 2px 6px;
+  border-radius: 3px; text-transform: uppercase; letter-spacing: 0.06em;
+}
+.platform-badge.live { background: var(--green-dim); color: var(--green-light); }
+.platform-badge.pending { background: rgba(249, 168, 37, 0.12); color: var(--amber); }
+.platform-badge.planned { background: var(--bg-surface-2); color: var(--text-muted); }
+.platform-detail {
+  font-size: 12px; color: var(--text-muted); margin-left: auto;
+}
+
+/* --- Task List --- */
+.task-list { display: flex; flex-direction: column; gap: 5px; }
+.task {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px; background: var(--bg-surface);
+  border-radius: var(--radius-md); border: 1px solid var(--border);
+  font-size: 13px; transition: background 180ms var(--ease);
+}
+.task:hover { background: var(--bg-surface-2); }
+.task-check {
+  width: 18px; height: 18px; border-radius: 4px;
+  border: 1.5px solid var(--text-faint); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.task.done .task-check { background: var(--green); border-color: var(--green); }
+.task.in-progress .task-check { border-color: var(--amber); background: rgba(249, 168, 37, 0.1); }
+.task.done .task-label { color: var(--text-muted); text-decoration: line-through; }
+.task-label { flex: 1; }
+.task-tag {
+  font-size: 10px; font-weight: 600; padding: 2px 6px;
+  border-radius: 3px; text-transform: uppercase; letter-spacing: 0.05em;
+}
+.task-tag.build { background: rgba(66, 165, 245, 0.12); color: var(--blue); }
+.task-tag.deploy { background: var(--green-dim); color: var(--green-light); }
+.task-tag.research { background: rgba(171, 71, 188, 0.12); color: var(--purple); }
+.task-tag.config { background: rgba(38, 198, 218, 0.12); color: var(--cyan); }
+.task-tag.national { background: rgba(255, 112, 67, 0.12); color: var(--orange); }
+
+/* --- Phase Timeline --- */
+.section-header {
+  font-size: 16px; font-weight: 700; letter-spacing: -0.02em;
+  margin-bottom: 16px; margin-top: 48px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--border-light);
+}
+.timeline { position: relative; display: flex; flex-direction: column; }
+.timeline::before {
+  content: ''; position: absolute; left: 23px; top: 0; bottom: 0;
+  width: 2px; background: var(--border-light);
+}
+.phase { position: relative; padding-left: 60px; padding-bottom: 40px; }
+.phase:last-child { padding-bottom: 0; }
+.phase-dot {
+  position: absolute; left: 14px; top: 4px;
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 2px solid var(--text-faint); background: var(--bg-primary);
+  z-index: 1; display: flex; align-items: center; justify-content: center;
+}
+.phase-dot svg { display: none; }
+.phase.completed .phase-dot { border-color: var(--green); background: var(--green); }
+.phase.completed .phase-dot svg { display: block; }
+.phase.active .phase-dot {
+  border-color: var(--amber); background: var(--bg-primary);
+  box-shadow: 0 0 0 4px rgba(249, 168, 37, 0.15);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+.phase.upcoming .phase-dot { border-color: var(--text-faint); }
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(249, 168, 37, 0.15); }
+  50% { box-shadow: 0 0 0 8px rgba(249, 168, 37, 0.08); }
+}
+.phase-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+.phase-name { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+.phase-badge {
+  font-size: 10px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.08em; padding: 3px 8px; border-radius: var(--radius-sm);
+}
+.phase.completed .phase-badge { background: var(--green-dim); color: var(--green-light); }
+.phase.active .phase-badge { background: rgba(249, 168, 37, 0.12); color: var(--amber); }
+.phase.upcoming .phase-badge { background: var(--bg-surface); color: var(--text-muted); }
+.phase-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+.phase-desc { color: var(--text-secondary); font-size: 13px; margin-bottom: 16px; max-width: 650px; }
+
+/* --- State Map Row --- */
+.state-row {
+  display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;
+}
+.state-chip {
+  font-size: 11px; font-weight: 600; padding: 4px 10px;
+  border-radius: var(--radius-sm); border: 1px solid var(--border);
+  background: var(--bg-surface);
+}
+.state-chip.active { border-color: var(--border-green); background: var(--green-dim); color: var(--green-light); }
+.state-chip.partial { border-color: rgba(249, 168, 37, 0.3); color: var(--amber); }
+.state-chip.pending { color: var(--text-muted); }
+
+/* --- Divider --- */
+.section-divider {
+  height: 1px; background: var(--border-light);
+  margin: 32px 0;
+}
+
+/* --- National Badge --- */
+.national-tag {
+  font-size: 9px; font-weight: 600; padding: 2px 5px;
+  border-radius: 3px; text-transform: uppercase;
+  background: rgba(255, 112, 67, 0.12); color: var(--orange);
+  margin-left: 6px; letter-spacing: 0.04em;
+}
+
+/* --- Architecture --- */
+.arch-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px; margin-bottom: 32px;
+}
+.arch-card {
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 16px;
+}
+.arch-card-title {
+  font-size: 13px; font-weight: 600; margin-bottom: 4px;
+  display: flex; align-items: center; gap: 8px;
+}
+.arch-card-title .icon {
+  width: 20px; height: 20px; border-radius: 4px;
+  display: flex; align-items: center; justify-content: center; font-size: 11px;
+}
+.arch-card-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+
+/* --- Footer --- */
+.dashboard-footer {
+  padding: 16px 24px; text-align: center;
+  font-size: 11px; color: var(--text-faint);
+  border-top: 1px solid var(--border);
+}
+.dashboard-footer a { color: var(--text-muted); text-decoration: none; margin-left: 16px; }
+.dashboard-footer a:hover { color: var(--text-secondary); }
+
+/* --- Sport Overview Cards (All Sports tab) --- */
+.sport-overview-card {
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 16px 18px;
+  transition: border-color 180ms var(--ease), background 180ms var(--ease);
+  cursor: pointer;
+}
+.sport-overview-card:hover { border-color: var(--border-light); background: var(--bg-surface-2); }
+.sport-overview-card.planned { opacity: 0.6; }
+.sport-overview-card.planned:hover { opacity: 0.8; }
+.sport-overview-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 6px; font-size: 14px; font-weight: 600;
+}
+.sport-overview-body { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+.sport-overview-states { font-size: 11px; color: var(--text-muted); }
+
+/* --- Stat card transition --- */
+.stat-card { transition: all 300ms var(--ease); }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .content { padding: 20px 16px 60px; }
+  .page-title { font-size: 22px; }
+  .stats-row { grid-template-columns: 1fr 1fr; }
+  .phase { padding-left: 48px; }
+  .timeline::before { left: 19px; }
+  .phase-dot { left: 10px; }
+  .phase-header { flex-direction: column; gap: 4px; }
+  .arch-grid { grid-template-columns: 1fr; }
+  .sport-tabs { gap: 0; }
+  .sport-tab { padding: 8px 12px; }
+}
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" aria-label="Teams United logo" fill="none">
+        <rect x="2" y="2" width="28" height="28" rx="6" fill="#2E7D32"/>
+        <path d="M9 11h14v2H9zm0 4h10v2H9zm0 4h12v2H9z" fill="rgba(255,255,255,0.9)"/>
+        <circle cx="24" cy="21" r="3" fill="rgba(255,255,255,0.9)"/>
+      </svg>
+      <div class="topbar-titles">
+        <h1 class="topbar-brand">Teams United</h1>
+        <span class="topbar-subtitle">Rollout Plan</span>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <a href="./index.html" class="topbar-link">League Dashboard</a>
+      <a href="./roadmap.html" class="topbar-link active">Rollout Plan</a>
+      <a href="./improvement-plan.html" class="topbar-link">Improvement Plan</a>
+    </div>
+  </header>
+
+  <div class="content">
+    <div class="page-header">
+      <div class="page-title">League Standings Rollout</div>
+      <div class="page-desc">Multi-sport, multi-platform league standings collection. Phase 1 focused on WA, OR, ID, MT, CA with national league integrations (ECNL, etc.) included where easily available.</div>
+      <div class="updated-label">Last updated: March 11, 2026</div>
+    </div>
+
+    <!-- Stats: Dynamic per sport -->
+    <div class="stats-row" id="stats-row">
+      <div class="stat-card" id="stat-card-1">
+        <div class="stat-label" id="stat-label-1">Phase 1 States</div>
+        <div class="stat-value green" id="stat-value-1">5 states</div>
+        <div class="stat-sub" id="stat-sub-1">WA, OR, ID, MT, CA</div>
+      </div>
+      <div class="stat-card" id="stat-card-2">
+        <div class="stat-label" id="stat-label-2">Active Leagues</div>
+        <div class="stat-value" id="stat-value-2">140</div>
+        <div class="stat-sub" id="stat-sub-2">33 regional + 15 national</div>
+      </div>
+      <div class="stat-card" id="stat-card-3">
+        <div class="stat-label" id="stat-label-3">Sports Covered</div>
+        <div class="stat-value amber" id="stat-value-3">4 of 9</div>
+        <div class="stat-sub" id="stat-sub-3">Baseball, Soccer, Hockey, Basketball, Lacrosse</div>
+      </div>
+      <div class="stat-card" id="stat-card-4">
+        <div class="stat-label" id="stat-label-4">Platforms</div>
+        <div class="stat-value blue" id="stat-value-4">8</div>
+        <div class="stat-sub" id="stat-sub-4">GC, GotSport, TGS, Demosphere, SportsAffinity, Pointstreak, LeagueApps, SportsConnect</div>
+      </div>
+    </div>
+
+    <!-- State Coverage: Dynamic per sport -->
+    <div class="state-row" id="state-row">
+      <div class="state-chip active">WA &mdash; 128 active</div>
+      <div class="state-chip active">CA &mdash; 11 active</div>
+      <div class="state-chip active">OR &mdash; 9 leagues</div>
+      <div class="state-chip active">ID &mdash; 2 leagues</div>
+      <div class="state-chip active">MT &mdash; 5 leagues</div>
+    </div>
+
+    <!-- ======================== SPORT TABS ======================== -->
+    <h2 class="section-header" style="margin-top: 32px;">Rollout by Sport</h2>
+
+    <div class="sport-tabs">
+      <button class="sport-tab active" onclick="showSport('all', this)">&#127919; All Sports <span class="tab-count">150</span></button>
+      <button class="sport-tab" onclick="showSport('baseball', this)">&#9918; Baseball <span class="tab-count">115</span></button>
+      <button class="sport-tab" onclick="showSport('soccer', this)">&#9917; Soccer <span class="tab-count">28</span></button>
+      <button class="sport-tab" onclick="showSport('hockey', this)">&#127954; Hockey <span class="tab-count">3</span></button>
+      <button class="sport-tab" onclick="showSport('basketball', this)">&#127936; Basketball <span class="tab-count">7</span></button>
+      <button class="sport-tab" onclick="showSport('lacrosse', this)">&#129353; Lacrosse <span class="tab-count">2</span></button>
+      <button class="sport-tab" onclick="showSport('football', this)">&#127944; Football <span class="tab-count">0</span></button>
+      <button class="sport-tab" onclick="showSport('volleyball', this)">&#127952; Volleyball <span class="tab-count">0</span></button>
+    </div>
+
+    <!-- ====== ALL SPORTS OVERVIEW ====== -->
+    <div id="sport-all" class="sport-panel active">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+        <div class="sport-overview-card">
+          <div class="sport-overview-header">
+            <span>&#9918; Baseball</span>
+            <span class="platform-badge live">127 leagues</span>
+          </div>
+          <div class="sport-overview-body">2 platforms &middot; GC (120), Pointstreak (6) &middot; All SportsConnect migrated to GC</div>
+          <div class="sport-overview-states">WA (114 active + 14 new LL), CA (10), OR, ID, MT + national</div>
+        </div>
+        <div class="sport-overview-card">
+          <div class="sport-overview-header">
+            <span>&#9917; Soccer</span>
+            <span class="platform-badge live">20 leagues</span>
+          </div>
+          <div class="sport-overview-body">4 platforms &middot; GotSport (15), TGS/ECNL (6), Demosphere (1), SportsAffinity (1)</div>
+          <div class="sport-overview-states">WA, CA + national &middot; OR/ID/MT pending</div>
+        </div>
+        <div class="sport-overview-card">
+          <div class="sport-overview-header">
+            <span>&#127936; Basketball</span>
+            <span class="platform-badge live">7 leagues</span>
+          </div>
+          <div class="sport-overview-body">1 platform &middot; LeagueApps (7)</div>
+          <div class="sport-overview-states">OR &middot; pending config</div>
+        </div>
+        <div class="sport-overview-card">
+          <div class="sport-overview-header">
+            <span>&#127954; Hockey</span>
+            <span class="platform-badge live">2 leagues</span>
+          </div>
+          <div class="sport-overview-body">1 platform &middot; Pointstreak (3)</div>
+          <div class="sport-overview-states">National + MT</div>
+        </div>
+        <div class="sport-overview-card">
+          <div class="sport-overview-header">
+            <span>&#129353; Lacrosse</span>
+            <span class="platform-badge live">2 leagues</span>
+          </div>
+          <div class="sport-overview-body">1 platform &middot; LeagueApps (2)</div>
+          <div class="sport-overview-states">Phase 1 discovery pending</div>
+        </div>
+        <div class="sport-overview-card planned">
+          <div class="sport-overview-header">
+            <span>&#127944; Football</span>
+            <span class="platform-badge planned">0 leagues</span>
+          </div>
+          <div class="sport-overview-body">No platform yet &middot; Research pending</div>
+          <div class="sport-overview-states">MaxPreps, Hudl, GC to be evaluated</div>
+        </div>
+        <div class="sport-overview-card planned">
+          <div class="sport-overview-header">
+            <span>&#127952; Volleyball</span>
+            <span class="platform-badge planned">0 leagues</span>
+          </div>
+          <div class="sport-overview-body">No platform yet &middot; Research pending</div>
+          <div class="sport-overview-states">AES, GC to be evaluated</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== BASEBALL ====== -->
+    <div id="sport-baseball" class="sport-panel">
+
+      <div class="platform-group">
+        <div class="platform-header">
+          <span class="platform-name">GameChanger</span>
+          <span class="platform-badge live">Live</span>
+          <span class="platform-detail">115 active leagues &middot; WA, CA, OR, ID, MT + national</span>
+        </div>
+        <div class="task-list">
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">GC adapter built + discoverGC Cloud Function deployed</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">GC public API confirmed: standings, teams, events (no auth)</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">Non-Phase 1 leagues purged &middot; All SportsConnect migrated to GC (120 total)</span>
+            <span class="task-tag config">Config</span>
+          </div>
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">All WA/OR/ID/MT SportsConnect leagues mapped to GC org IDs</span>
+            <span class="task-tag config">Config</span>
+          </div>
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">collectAll run &middot; 1,580 divisions, 16,279 standings across 114 active leagues</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">14 missing WA Little Leagues added &middot; 1 GC match (Fall City), 13 pending_config</span>
+            <span class="task-tag config">Config</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Run GC discovery for OR, ID, MT, CA baseball</span>
+            <span class="task-tag config">Config</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Enhanced GC adapter — retries, circuit breaker, batch</span>
+            <span class="task-tag build">Build</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-group">
+        <div class="platform-header">
+          <span class="platform-name">SportsConnect</span>
+          <span class="platform-badge live">Complete</span>
+          <span class="platform-detail">0 remaining &middot; All migrated to GC</span>
+        </div>
+        <div class="task-list">
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">SC adapter built, 6 leagues with standings active</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">Confirmed dead-end: only 2/124 leagues publish standings on SC</span>
+            <span class="task-tag research">Research</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Migrate remaining SC leagues to GC where possible</span>
+            <span class="task-tag config">Config</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-group">
+        <div class="platform-header">
+          <span class="platform-name">Pointstreak</span>
+          <span class="platform-badge live">Live</span>
+          <span class="platform-detail">4 active &middot; WA + 2 national</span>
+        </div>
+        <div class="task-list">
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">West Coast League (WA/OR/BC), AA Pro Baseball, Atlantic League</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Discover Pointstreak baseball leagues in OR, ID, MT, CA</span>
+            <span class="task-tag config">Config</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ====== SOCCER ====== -->
+    <div id="sport-soccer" class="sport-panel">
+
+      <div class="platform-group">
+        <div class="platform-header">
+          <span class="platform-name">TGS / ECNL</span>
+          <span class="platform-badge live">Live</span>
+          <span class="platform-detail">6 active</span>
+          <span class="national-tag">National</span>
+        </div>
+        <div class="task-list">
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">ECNL Boys, ECNL Girls, Regional League Boys/Girls, Pre-ECNL Boys/Girls</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">TGS adapter v3 — public Script API, 520 divisions, 5,487 standings</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Discover additional TGS-powered national soccer leagues (GA, MLS NEXT, etc.)</span>
+            <span class="task-tag research">Research</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-group">
+        <div class="platform-header">
+          <span class="platform-name">GotSport</span>
+          <span class="platform-badge live">Live</span>
+          <span class="platform-detail">15 active &middot; WA, CA + national</span>
+        </div>
+        <div class="task-list">
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">GotSport adapter live — WA, CA, plus multi-state leagues</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Discover GotSport soccer leagues in OR, ID, MT</span>
+            <span class="task-tag config">Config</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Non-Phase 1 leagues purged from all platforms</span>
+            <span class="task-tag config">Config</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-group">
+        <div class="platform-header">
+          <span class="platform-name">Demosphere</span>
+          <span class="platform-badge live">Live</span>
+          <span class="platform-detail">1 active &middot; WA + 1 national</span>
+        </div>
+        <div class="task-list">
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">WA Demosphere league + National Capital Soccer League active</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Discover Demosphere soccer leagues in OR, ID, MT, CA</span>
+            <span class="task-tag config">Config</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-group">
+        <div class="platform-header">
+          <span class="platform-name">SportsAffinity</span>
+          <span class="platform-badge live">Live</span>
+          <span class="platform-detail">1 active &middot; WA</span>
+        </div>
+        <div class="task-list">
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">RCL (WA) active via SportsAffinity adapter</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Discover SportsAffinity soccer leagues in OR, ID, MT, CA</span>
+            <span class="task-tag config">Config</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ====== HOCKEY ====== -->
+    <div id="sport-hockey" class="sport-panel">
+
+      <div class="platform-group">
+        <div class="platform-header">
+          <span class="platform-name">Pointstreak</span>
+          <span class="platform-badge live">Live</span>
+          <span class="platform-detail">3 active</span>
+          <span class="national-tag">National</span>
+        </div>
+        <div class="task-list">
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">HPHL (national), FL, MA leagues active via Pointstreak</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Discover Pointstreak hockey leagues in WA, OR, ID, MT, CA</span>
+            <span class="task-tag config">Config</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Research additional hockey platforms (LiveBarn, GameSheet, etc.)</span>
+            <span class="task-tag research">Research</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ====== BASKETBALL ====== -->
+    <div id="sport-basketball" class="sport-panel">
+
+      <div class="platform-group">
+        <div class="platform-header">
+          <span class="platform-name">LeagueApps</span>
+          <span class="platform-badge live">Live</span>
+          <span class="platform-detail">7 active &middot; CT, NJ, NV, NY</span>
+        </div>
+        <div class="task-list">
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">LeagueApps adapter live — 7 basketball leagues active</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Discover LeagueApps basketball leagues in WA, OR, ID, MT, CA</span>
+            <span class="task-tag config">Config</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Deactivate non-Phase 1 basketball leagues (CT, NJ, NV, NY)</span>
+            <span class="task-tag config">Config</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-group">
+        <div class="platform-header">
+          <span class="platform-name">GameChanger</span>
+          <span class="platform-badge planned">Planned</span>
+          <span class="platform-detail">GC supports basketball orgs</span>
+        </div>
+        <div class="task-list">
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Run GC discovery for basketball in WA, OR, ID, MT, CA</span>
+            <span class="task-tag config">Config</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ====== LACROSSE ====== -->
+    <div id="sport-lacrosse" class="sport-panel">
+
+      <div class="platform-group">
+        <div class="platform-header">
+          <span class="platform-name">LeagueApps</span>
+          <span class="platform-badge live">Live</span>
+          <span class="platform-detail">2 active &middot; IL, RI</span>
+        </div>
+        <div class="task-list">
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">LeagueApps adapter supports lacrosse — 2 leagues active</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Discover LeagueApps lacrosse leagues in WA, OR, ID, MT, CA</span>
+            <span class="task-tag config">Config</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Deactivate non-Phase 1 lacrosse leagues (IL, RI)</span>
+            <span class="task-tag config">Config</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-group">
+        <div class="platform-header">
+          <span class="platform-name">GameChanger</span>
+          <span class="platform-badge planned">Planned</span>
+          <span class="platform-detail">GC supports lacrosse orgs</span>
+        </div>
+        <div class="task-list">
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Run GC discovery for lacrosse in WA, OR, CA</span>
+            <span class="task-tag config">Config</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ====== FOOTBALL ====== -->
+    <div id="sport-football" class="sport-panel">
+      <div class="platform-group">
+        <div class="platform-header">
+          <span class="platform-name">No active platform yet</span>
+          <span class="platform-badge planned">Planned</span>
+        </div>
+        <div class="task-list">
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Research football standings platforms (MaxPreps, Hudl, GameChanger)</span>
+            <span class="task-tag research">Research</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Run GC discovery for football in Phase 1 states</span>
+            <span class="task-tag config">Config</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== VOLLEYBALL ====== -->
+    <div id="sport-volleyball" class="sport-panel">
+      <div class="platform-group">
+        <div class="platform-header">
+          <span class="platform-name">No active platform yet</span>
+          <span class="platform-badge planned">Planned</span>
+        </div>
+        <div class="task-list">
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Research volleyball standings platforms (AES, GameChanger)</span>
+            <span class="task-tag research">Research</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Run GC discovery for volleyball in Phase 1 states</span>
+            <span class="task-tag config">Config</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================== PHASES ======================== -->
+    <h2 class="section-header">Rollout Phases</h2>
+
+    <div class="timeline">
+      <!-- Phase 0: Foundation -->
+      <div class="phase completed">
+        <div class="phase-dot">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="phase-header">
+          <span class="phase-name">Phase 0 — Foundation</span>
+          <span class="phase-badge">Completed</span>
+        </div>
+        <div class="phase-meta">Completed Feb 2026 &middot; WA state only</div>
+        <div class="phase-desc">Core infrastructure: 9 Cloud Functions, Firestore, league dashboard, Google Sheets sync, deploy VM, season monitoring.</div>
+        <div class="task-list">
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">9 Cloud Functions deployed (collect, discover, get, update, monitor)</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">8 platform adapters: GC, GotSport, TGS, Demosphere, SportsAffinity, Pointstreak, LeagueApps, SportsConnect</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">League dashboard + Google Sheets daily sync (cron: 6:30 AM UTC)</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">Deploy VM (deploy-agent) for GCP operations</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 1: 5 States -->
+      <div class="phase active">
+        <div class="phase-dot"></div>
+        <div class="phase-header">
+          <span class="phase-name">Phase 1 — 5 States, All Sports</span>
+          <span class="phase-badge">In Progress</span>
+        </div>
+        <div class="phase-meta">Target: March–April 2026 &middot; WA, OR, ID, MT, CA &middot; ~$25/mo</div>
+        <div class="phase-desc">Deep coverage across all sports in 5 states. Deactivate out-of-scope leagues. Run per-sport discovery for OR, ID, MT, CA. National league integrations (ECNL, HPHL, etc.) included.</div>
+        <div class="task-list">
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">GC discovery function deployed + first run (59 orgs found)</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">Deactivated 42 non-Phase 1 GC leagues (kept 18 in WA/CA)</span>
+            <span class="task-tag config">Config</span>
+          </div>
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">ECNL national integration — 6 leagues, 520 divisions, 5,487 standings</span>
+            <span class="task-tag deploy">Live</span>
+          </div>
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">114 WA baseball leagues active on GC + 14 new LL docs added (1 GC-matched, 13 pending)</span>
+            <span class="task-tag config">Config</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Run multi-sport discovery for OR, ID, MT, CA (all platforms)</span>
+            <span class="task-tag config">Config</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Deactivate non-Phase 1 leagues across all sports</span>
+            <span class="task-tag config">Config</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Research football + volleyball platforms for Phase 1 states</span>
+            <span class="task-tag research">Research</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Validate data accuracy: spot-check standings across all sports</span>
+            <span class="task-tag config">Config</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase upcoming">
+        <div class="phase-dot"></div>
+        <div class="phase-header">
+          <span class="phase-name">Phase 2 — Regional Expansion (15 States)</span>
+          <span class="phase-badge">Planned</span>
+        </div>
+        <div class="phase-meta">Target: May–June 2026 &middot; +10 states &middot; ~$42/mo</div>
+        <div class="phase-desc">Expand to neighboring states and major youth sports markets. Add batch processing, season detection, and state-based dashboards.</div>
+        <div class="task-list">
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Cloud Tasks queue + batch collection orchestrator</span>
+            <span class="task-tag build">Build</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Season detection — skip off-season orgs, auto-resume</span>
+            <span class="task-tag build">Build</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Expand all sports to +10 states (AZ, CO, NV, TX, GA, etc.)</span>
+            <span class="task-tag config">Config</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Dashboard: state filter, regional views, per-sport breakdown</span>
+            <span class="task-tag build">Build</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase upcoming">
+        <div class="phase-dot"></div>
+        <div class="phase-header">
+          <span class="phase-name">Phase 3 — National Coverage</span>
+          <span class="phase-badge">Planned</span>
+        </div>
+        <div class="phase-meta">Target: July–August 2026 &middot; 50 states &middot; ~$85/mo</div>
+        <div class="phase-desc">All 50 states, all sports. Auto-discovery for new leagues. National search dashboard. Full reporting backend replaces Google Sheets.</div>
+        <div class="task-list">
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Run all-sport discovery for remaining 35 states</span>
+            <span class="task-tag config">Config</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Auto-discovery: weekly scan for new leagues across all platforms</span>
+            <span class="task-tag build">Build</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">National search dashboard — filter by state, sport, platform</span>
+            <span class="task-tag build">Build</span>
+          </div>
+          <div class="task">
+            <div class="task-check"></div>
+            <span class="task-label">Database-backed reporting replaces Google Sheets</span>
+            <span class="task-tag build">Build</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Architecture -->
+    <h2 class="section-header">Architecture</h2>
+    <div class="arch-grid">
+      <div class="arch-card">
+        <div class="arch-card-title">
+          <span class="icon" style="background: var(--green-dim); color: var(--green-light);">D</span>
+          Discovery Functions
+        </div>
+        <div class="arch-card-desc">discoverGC + discoverGroups — search by state + sport, validate via public APIs, register in Firestore. Works across all platforms.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-card-title">
+          <span class="icon" style="background: rgba(66, 165, 245, 0.12); color: var(--blue);">A</span>
+          8 Platform Adapters
+        </div>
+        <div class="arch-card-desc">GC, GotSport, TGS, Demosphere, SportsAffinity, Pointstreak, LeagueApps, SportsConnect. Unified standings format.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-card-title">
+          <span class="icon" style="background: rgba(171, 71, 188, 0.12); color: var(--purple);">C</span>
+          Collection Engine
+        </div>
+        <div class="arch-card-desc">collectLeague + collectAll. Daily standings collection via Cloud Functions. Season monitor detects active/inactive leagues.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-card-title">
+          <span class="icon" style="background: rgba(249, 168, 37, 0.12); color: var(--amber);">F</span>
+          Firestore + Sheets
+        </div>
+        <div class="arch-card-desc">Firestore for league registry + standings. Google Sheets daily sync for dashboard access. 50K reads/day free tier.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-card-title">
+          <span class="icon" style="background: rgba(38, 198, 218, 0.12); color: var(--cyan);">M</span>
+          Season Monitor
+        </div>
+        <div class="arch-card-desc">Automated health checks. Detects stale data, off-season leagues, and newly-added leagues. Auto-onboards new discoveries.</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-card-title">
+          <span class="icon" style="background: rgba(229, 57, 53, 0.12); color: var(--red);">V</span>
+          Deploy VM
+        </div>
+        <div class="arch-card-desc">deploy-agent VM for GCP operations. Hosts league-standings service, manages Cloud Function deployments, runs ad-hoc tasks.</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="dashboard-footer">
+    <span>&copy; 2026 Teams United</span>
+    <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+  </footer>
+
+  <script>
+  // Sport-specific data for dynamic stat cards
+  const sportData = {
+    all: {
+      cards: [
+        { label: 'Phase 1 States', value: '5 states', color: 'green', sub: 'WA, OR, ID, MT, CA' },
+        { label: 'Active Leagues', value: '128+', color: '', sub: '115 baseball + soccer + hockey + basketball + lacrosse' },
+        { label: 'Sports Covered', value: '5 of 9', color: 'amber', sub: 'Baseball, Soccer, Hockey, Basketball, Lacrosse' },
+        { label: 'Platforms', value: '8', color: 'blue', sub: 'GC, GotSport, TGS, Demosphere, SportsAffinity, Pointstreak, LeagueApps, SportsConnect' }
+      ],
+      states: [
+        { name: 'WA', detail: '128+ active', status: 'active' },
+        { name: 'CA', detail: '11 active', status: 'active' },
+        { name: 'OR', detail: 'discovery pending', status: 'pending' },
+        { name: 'ID', detail: 'discovery pending', status: 'pending' },
+        { name: 'MT', detail: 'discovery pending', status: 'pending' }
+      ]
+    },
+    baseball: {
+      cards: [
+        { label: 'Active States', value: '2', color: 'green', sub: 'WA, CA' },
+        { label: 'Active Leagues', value: '115', color: '', sub: '114 GC active + 1 Fall City + 4 Pointstreak' },
+        { label: 'Divisions', value: '1,580', color: 'green', sub: '16,279 standings collected across 114 leagues' },
+        { label: 'Platforms', value: '3', color: 'blue', sub: 'GameChanger, SportsConnect, Pointstreak' }
+      ],
+      states: [
+        { name: 'WA', detail: '114 GC active + 14 new LL + 4 Pointstreak', status: 'active' },
+        { name: 'CA', detail: '2 GC active', status: 'active' },
+        { name: 'OR', detail: 'discovery pending', status: 'pending' },
+        { name: 'ID', detail: 'discovery pending', status: 'pending' },
+        { name: 'MT', detail: 'discovery pending', status: 'pending' }
+      ]
+    },
+    soccer: {
+      cards: [
+        { label: 'Active States', value: '2 + national', color: 'green', sub: 'WA, CA + ECNL national' },
+        { label: 'Active Leagues', value: '28', color: '', sub: '15 GotSport + 6 TGS + 1 Demo + 1 SA' },
+        { label: 'Divisions', value: '520+', color: 'amber', sub: 'ECNL alone: 520 divisions, 5,487 standings' },
+        { label: 'Platforms', value: '4', color: 'blue', sub: 'GotSport, TGS/ECNL, Demosphere, SportsAffinity' }
+      ],
+      states: [
+        { name: 'WA', detail: 'GotSport + SA + Demo', status: 'active' },
+        { name: 'CA', detail: 'GotSport active', status: 'active' },
+        { name: 'National', detail: 'ECNL (6 leagues)', status: 'active' },
+        { name: 'OR', detail: 'discovery pending', status: 'pending' },
+        { name: 'ID', detail: 'discovery pending', status: 'pending' },
+        { name: 'MT', detail: 'discovery pending', status: 'pending' }
+      ]
+    },
+    hockey: {
+      cards: [
+        { label: 'Coverage', value: 'National', color: 'green', sub: 'HPHL + regional leagues' },
+        { label: 'Active Leagues', value: '3', color: '', sub: 'All via Pointstreak' },
+        { label: 'Phase 1 States', value: '0 regional', color: 'amber', sub: 'WA, OR, ID, MT, CA discovery pending' },
+        { label: 'Platforms', value: '1', color: 'blue', sub: 'Pointstreak (LiveBarn, GameSheet TBD)' }
+      ],
+      states: [
+        { name: 'National', detail: 'HPHL via Pointstreak', status: 'active' },
+        { name: 'WA', detail: 'discovery pending', status: 'pending' },
+        { name: 'OR', detail: 'discovery pending', status: 'pending' },
+        { name: 'ID', detail: 'discovery pending', status: 'pending' },
+        { name: 'MT', detail: 'discovery pending', status: 'pending' },
+        { name: 'CA', detail: 'discovery pending', status: 'pending' }
+      ]
+    },
+    basketball: {
+      cards: [
+        { label: 'Active States', value: '4', color: 'amber', sub: 'CT, NJ, NV, NY (non-Phase 1)' },
+        { label: 'Active Leagues', value: '7', color: '', sub: 'All via LeagueApps' },
+        { label: 'Phase 1 States', value: '0', color: 'amber', sub: 'WA, OR, ID, MT, CA discovery pending' },
+        { label: 'Platforms', value: '1 + 1 planned', color: 'blue', sub: 'LeagueApps (live), GameChanger (planned)' }
+      ],
+      states: [
+        { name: 'CT', detail: 'LeagueApps active', status: 'active' },
+        { name: 'NJ', detail: 'LeagueApps active', status: 'active' },
+        { name: 'NV', detail: 'LeagueApps active', status: 'active' },
+        { name: 'NY', detail: 'LeagueApps active', status: 'active' },
+        { name: 'WA', detail: 'GC discovery pending', status: 'pending' },
+        { name: 'CA', detail: 'GC discovery pending', status: 'pending' }
+      ]
+    },
+    lacrosse: {
+      cards: [
+        { label: 'Active States', value: '2', color: 'amber', sub: 'IL, RI (non-Phase 1)' },
+        { label: 'Active Leagues', value: '2', color: '', sub: 'All via LeagueApps' },
+        { label: 'Phase 1 States', value: '0', color: 'amber', sub: 'WA, OR, CA discovery pending' },
+        { label: 'Platforms', value: '1 + 1 planned', color: 'blue', sub: 'LeagueApps (live), GameChanger (planned)' }
+      ],
+      states: [
+        { name: 'IL', detail: 'LeagueApps active', status: 'active' },
+        { name: 'RI', detail: 'LeagueApps active', status: 'active' },
+        { name: 'WA', detail: 'discovery pending', status: 'pending' },
+        { name: 'OR', detail: 'discovery pending', status: 'pending' },
+        { name: 'CA', detail: 'discovery pending', status: 'pending' }
+      ]
+    },
+    football: {
+      cards: [
+        { label: 'Status', value: 'Planned', color: 'amber', sub: 'No active platform yet' },
+        { label: 'Active Leagues', value: '0', color: '', sub: 'Research phase' },
+        { label: 'Research Targets', value: '3', color: 'blue', sub: 'MaxPreps, Hudl, GameChanger' },
+        { label: 'Platforms', value: '0', color: '', sub: 'Platform selection pending' }
+      ],
+      states: [
+        { name: 'WA', detail: 'research pending', status: 'pending' },
+        { name: 'OR', detail: 'research pending', status: 'pending' },
+        { name: 'ID', detail: 'research pending', status: 'pending' },
+        { name: 'MT', detail: 'research pending', status: 'pending' },
+        { name: 'CA', detail: 'research pending', status: 'pending' }
+      ]
+    },
+    volleyball: {
+      cards: [
+        { label: 'Status', value: 'Planned', color: 'amber', sub: 'No active platform yet' },
+        { label: 'Active Leagues', value: '0', color: '', sub: 'Research phase' },
+        { label: 'Research Targets', value: '2', color: 'blue', sub: 'AES, GameChanger' },
+        { label: 'Platforms', value: '0', color: '', sub: 'Platform selection pending' }
+      ],
+      states: [
+        { name: 'WA', detail: 'research pending', status: 'pending' },
+        { name: 'OR', detail: 'research pending', status: 'pending' },
+        { name: 'ID', detail: 'research pending', status: 'pending' },
+        { name: 'MT', detail: 'research pending', status: 'pending' },
+        { name: 'CA', detail: 'research pending', status: 'pending' }
+      ]
+    }
+  };
+
+  function updateStats(sport) {
+    const data = sportData[sport];
+    if (!data) return;
+
+    // Update stat cards
+    data.cards.forEach((card, i) => {
+      const n = i + 1;
+      document.getElementById('stat-label-' + n).textContent = card.label;
+      const valEl = document.getElementById('stat-value-' + n);
+      valEl.textContent = card.value;
+      valEl.className = 'stat-value' + (card.color ? ' ' + card.color : '');
+      document.getElementById('stat-sub-' + n).textContent = card.sub;
+    });
+
+    // Update state chips
+    const stateRow = document.getElementById('state-row');
+    stateRow.innerHTML = data.states.map(s =>
+      `<div class="state-chip ${s.status}">${s.name} &mdash; ${s.detail}</div>`
+    ).join('');
+  }
+
+  function showSport(sport, btn) {
+    // Update panels
+    document.querySelectorAll('.sport-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.sport-tab').forEach(t => t.classList.remove('active'));
+    const panel = document.getElementById('sport-' + sport);
+    if (panel) panel.classList.add('active');
+    if (btn) btn.classList.add('active');
+
+    // Update stats + state chips
+    updateStats(sport);
+  }
+
+  // Make overview cards clickable to switch to that sport
+  document.querySelectorAll('.sport-overview-card').forEach(card => {
+    card.addEventListener('click', function() {
+      const headerText = this.querySelector('.sport-overview-header span').textContent.trim();
+      const sportMap = {
+        'Baseball': 'baseball', 'Soccer': 'soccer', 'Hockey': 'hockey',
+        'Basketball': 'basketball', 'Lacrosse': 'lacrosse',
+        'Football': 'football', 'Volleyball': 'volleyball'
+      };
+      // Find sport name in header text (emoji prefix)
+      for (const [name, key] of Object.entries(sportMap)) {
+        if (headerText.includes(name)) {
+          // Find and click the matching tab button
+          document.querySelectorAll('.sport-tab').forEach(tab => {
+            if (tab.textContent.includes(name)) {
+              showSport(key, tab);
+            }
+          });
+          break;
+        }
+      }
+    });
+  });
+  </script>
+</body>
+</html>

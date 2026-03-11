@@ -1,0 +1,729 @@
+/* ========================================
+   Teams United — League Dashboard
+   App Logic
+   ======================================== */
+
+(function () {
+  'use strict';
+
+  // --- Constants ---
+  const API_BASE = 'https://us-central1-teams-united.cloudfunctions.net';
+  const SPORTS = ['soccer', 'baseball', 'basketball', 'hockey', 'lacrosse'];
+  const AUTO_SEASON_LEAGUES = new Set([
+    'ecnl-boys', 'ecnl-girls', 'ecnl-rl-boys', 'ecnl-rl-girls',
+    'pre-ecnl-boys', 'pre-ecnl-girls'
+  ]);
+
+  // --- State ---
+  const state = {
+    leagues: [],
+    divisionCache: {},   // leagueId -> divisions[]
+    standingsCache: {},   // divisionId -> standings[]
+    activeSport: 'soccer',
+    selectedLeague: null, // league object or null
+    selectedDivision: null, // division object or null
+    view: 'leagues',      // 'leagues' | 'divisions' | 'standings'
+    sortCol: null,
+    sortDir: 'asc',
+    lastRefreshed: null
+  };
+
+  // --- DOM References ---
+  const dom = {
+    sportTabs: document.getElementById('sportTabs'),
+    filterLeague: document.getElementById('filterLeague'),
+    filterStatus: document.getElementById('filterStatus'),
+    filterState: document.getElementById('filterState'),
+    filterGender: document.getElementById('filterGender'),
+    filterAgeGroup: document.getElementById('filterAgeGroup'),
+    filterSearch: document.getElementById('filterSearch'),
+    btnClearFilters: document.getElementById('btnClearFilters'),
+    btnRefresh: document.getElementById('btnRefresh'),
+    btnRetry: document.getElementById('btnRetry'),
+    lastRefreshed: document.getElementById('lastRefreshed'),
+    kpiActive: document.getElementById('kpiActive'),
+    kpiDivisions: document.getElementById('kpiDivisions'),
+    kpiWithData: document.getElementById('kpiWithData'),
+    kpiPlatforms: document.getElementById('kpiPlatforms'),
+    breadcrumb: document.getElementById('breadcrumb'),
+    bcSport: document.getElementById('bcSport'),
+    bcLeague: document.getElementById('bcLeague'),
+    bcLeagueSep: document.getElementById('bcLeagueSep'),
+    bcCurrent: document.getElementById('bcCurrent'),
+    tableContainer: document.getElementById('tableContainer'),
+    loadingState: document.getElementById('loadingState'),
+    errorState: document.getElementById('errorState'),
+    emptyState: document.getElementById('emptyState'),
+    dataTable: document.getElementById('dataTable'),
+    tableHead: document.getElementById('tableHead'),
+    tableBody: document.getElementById('tableBody')
+  };
+
+  // --- API Helpers ---
+  async function fetchJSON(url) {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.json();
+  }
+
+  async function loadLeagues() {
+    const data = await fetchJSON(`${API_BASE}/getLeagues`);
+    state.leagues = data.leagues || [];
+    state.lastRefreshed = new Date();
+    return state.leagues;
+  }
+
+  async function loadDivisions(leagueId) {
+    if (state.divisionCache[leagueId]) return state.divisionCache[leagueId];
+    const data = await fetchJSON(`${API_BASE}/getDivisions?league=${encodeURIComponent(leagueId)}`);
+    const divs = data.divisions || [];
+    state.divisionCache[leagueId] = divs;
+    return divs;
+  }
+
+  async function loadStandings(divisionId) {
+    if (state.standingsCache[divisionId]) return state.standingsCache[divisionId];
+    const data = await fetchJSON(`${API_BASE}/getStandings?division=${encodeURIComponent(divisionId)}`);
+    const standings = data.standings || [];
+    state.standingsCache[divisionId] = standings;
+    return standings;
+  }
+
+  // Preload division counts for visible leagues
+  async function preloadDivisionCounts(leagues) {
+    const uncached = leagues.filter(l => !state.divisionCache[l.id]);
+    const batches = [];
+    for (let i = 0; i < uncached.length; i += 10) {
+      batches.push(uncached.slice(i, i + 10));
+    }
+    for (const batch of batches) {
+      await Promise.allSettled(batch.map(l => loadDivisions(l.id)));
+    }
+  }
+
+  // --- Render Helpers ---
+  function showView(view) {
+    dom.loadingState.style.display = 'none';
+    dom.errorState.style.display = 'none';
+    dom.emptyState.style.display = 'none';
+    dom.dataTable.style.display = 'none';
+    if (view === 'loading') dom.loadingState.style.display = '';
+    else if (view === 'error') dom.errorState.style.display = '';
+    else if (view === 'empty') dom.emptyState.style.display = '';
+    else if (view === 'table') dom.dataTable.style.display = '';
+  }
+
+  function formatStatus(status) {
+    if (!status) return '';
+    const label = status.replace(/_/g, ' ');
+    let cls = 'status-pending';
+    if (status === 'active') cls = 'status-active';
+    else if (status === 'inactive') cls = 'status-inactive';
+    return `<span class="status-badge ${cls}">${label}</span>`;
+  }
+
+  function formatTimestamp(date) {
+    if (!date) return '—';
+    const now = new Date();
+    const diff = Math.floor((now - date) / 1000);
+    if (diff < 60) return 'Updated just now';
+    if (diff < 3600) return `Updated ${Math.floor(diff / 60)}m ago`;
+    return `Updated ${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+  }
+
+  function capitalize(str) {
+    if (!str) return '';
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  // --- KPI Update ---
+  function updateKPIs() {
+    const sportLeagues = state.leagues.filter(l => l.sport === state.activeSport);
+    const active = sportLeagues.filter(l => l.status === 'active');
+    const platforms = new Set(sportLeagues.map(l => l.platform).filter(Boolean));
+
+    let totalDivs = 0;
+    let withData = 0;
+    sportLeagues.forEach(l => {
+      const divs = state.divisionCache[l.id];
+      if (divs) {
+        totalDivs += divs.length;
+        if (divs.length > 0) withData++;
+      }
+    });
+
+    animateNumber(dom.kpiActive, active.length);
+    animateNumber(dom.kpiDivisions, totalDivs);
+    animateNumber(dom.kpiWithData, withData);
+    animateNumber(dom.kpiPlatforms, platforms.size);
+  }
+
+  function animateNumber(el, target) {
+    const current = parseInt(el.textContent) || 0;
+    if (current === target) { el.textContent = target; return; }
+    const diff = target - current;
+    const steps = Math.min(Math.abs(diff), 20);
+    const stepTime = Math.max(15, 300 / steps);
+    let step = 0;
+    const increment = diff / steps;
+
+    function tick() {
+      step++;
+      if (step >= steps) {
+        el.textContent = target;
+        return;
+      }
+      el.textContent = Math.round(current + increment * step);
+      setTimeout(tick, stepTime);
+    }
+    tick();
+  }
+
+  // --- Sport Badge Counts ---
+  function updateBadges() {
+    SPORTS.forEach(sport => {
+      const count = state.leagues.filter(l => l.sport === sport).length;
+      const badge = document.getElementById(`badge-${sport}`);
+      if (badge) badge.textContent = count;
+    });
+  }
+
+  // --- Filter Logic ---
+  function getFilteredLeagues() {
+    let leagues = state.leagues.filter(l => l.sport === state.activeSport);
+    const status = dom.filterStatus.value;
+    const stateFilter = dom.filterState.value;
+    const search = dom.filterSearch.value.toLowerCase().trim();
+
+    if (status) leagues = leagues.filter(l => l.status === status);
+    if (stateFilter) {
+      if (stateFilter === 'national') {
+        leagues = leagues.filter(l => l.state && l.state.toLowerCase().includes('national'));
+      } else {
+        leagues = leagues.filter(l => {
+          if (!l.state) return false;
+          const leagueStates = l.state.split(',').map(s => s.trim().toUpperCase());
+          return leagueStates.includes(stateFilter.toUpperCase());
+        });
+      }
+    }
+    if (search) leagues = leagues.filter(l =>
+      l.name.toLowerCase().includes(search) ||
+      (l.platform || '').toLowerCase().includes(search) ||
+      (l.state || '').toLowerCase().includes(search) ||
+      (l.region || '').toLowerCase().includes(search) ||
+      l.id.toLowerCase().includes(search)
+    );
+
+    return leagues;
+  }
+
+  function getFilteredDivisions() {
+    const leagueId = state.selectedLeague ? state.selectedLeague.id : null;
+    if (!leagueId) return [];
+    let divs = state.divisionCache[leagueId] || [];
+    const gender = dom.filterGender.value;
+    const ageGroup = dom.filterAgeGroup.value;
+    const status = dom.filterStatus.value;
+    const search = dom.filterSearch.value.toLowerCase().trim();
+
+    if (gender) divs = divs.filter(d => d.gender && d.gender.toLowerCase() === gender.toLowerCase());
+    if (ageGroup) divs = divs.filter(d => d.ageGroup === ageGroup);
+    if (status) divs = divs.filter(d => d.status === status);
+    if (search) divs = divs.filter(d =>
+      d.name.toLowerCase().includes(search) ||
+      (d.ageGroup || '').toLowerCase().includes(search) ||
+      (d.gender || '').toLowerCase().includes(search) ||
+      (d.level || '').toLowerCase().includes(search)
+    );
+
+    return divs;
+  }
+
+  function getFilteredStandings() {
+    const divId = state.selectedDivision ? state.selectedDivision.id : null;
+    if (!divId) return [];
+    let standings = state.standingsCache[divId] || [];
+    const search = dom.filterSearch.value.toLowerCase().trim();
+
+    if (search) standings = standings.filter(s =>
+      s.teamName.toLowerCase().includes(search)
+    );
+
+    return standings;
+  }
+
+  // --- Populate League Dropdown ---
+  function populateLeagueDropdown() {
+    const leagues = state.leagues.filter(l => l.sport === state.activeSport);
+    leagues.sort((a, b) => a.name.localeCompare(b.name));
+    dom.filterLeague.innerHTML = '<option value="">All Leagues</option>';
+    leagues.forEach(l => {
+      const opt = document.createElement('option');
+      opt.value = l.id;
+      opt.textContent = l.name;
+      dom.filterLeague.appendChild(opt);
+    });
+  }
+
+  // --- Populate State Dropdown ---
+  function populateStateDropdown() {
+    const leagues = state.leagues.filter(l => l.sport === state.activeSport);
+    // Parse comma-separated state fields into individual states
+    const stateSet = new Set();
+    leagues.forEach(l => {
+      if (l.state) {
+        l.state.split(',').forEach(s => {
+          const trimmed = s.trim().toUpperCase();
+          if (trimmed && trimmed !== 'NATIONAL') stateSet.add(trimmed);
+        });
+      }
+    });
+    const states = [...stateSet].sort();
+    // Add 'national' as a special entry if any league has it
+    const hasNational = leagues.some(l => l.state && l.state.toLowerCase().includes('national'));
+
+    dom.filterState.innerHTML = '<option value="">All States</option>';
+    if (hasNational) {
+      const opt = document.createElement('option');
+      opt.value = 'national';
+      opt.textContent = 'National';
+      dom.filterState.appendChild(opt);
+    }
+    states.forEach(st => {
+      const opt = document.createElement('option');
+      opt.value = st;
+      opt.textContent = st;
+      dom.filterState.appendChild(opt);
+    });
+  }
+
+  // --- Populate Gender/AgeGroup Dropdowns ---
+  function populateDivisionFilters() {
+    const divs = state.selectedLeague ? (state.divisionCache[state.selectedLeague.id] || []) : [];
+
+    // Gender
+    const genders = [...new Set(divs.map(d => d.gender).filter(Boolean))].sort();
+    dom.filterGender.innerHTML = '<option value="">All Genders</option>';
+    genders.forEach(g => {
+      const opt = document.createElement('option');
+      opt.value = g;
+      opt.textContent = capitalize(g);
+      dom.filterGender.appendChild(opt);
+    });
+    dom.filterGender.disabled = genders.length === 0;
+
+    // Age Group
+    const ageGroups = [...new Set(divs.map(d => d.ageGroup).filter(Boolean))].sort();
+    dom.filterAgeGroup.innerHTML = '<option value="">All Age Groups</option>';
+    ageGroups.forEach(ag => {
+      const opt = document.createElement('option');
+      opt.value = ag;
+      opt.textContent = ag;
+      dom.filterAgeGroup.appendChild(opt);
+    });
+    dom.filterAgeGroup.disabled = ageGroups.length === 0;
+  }
+
+  // --- Sorting ---
+  function sortData(data, col, dir) {
+    if (!col) return data;
+    const sorted = [...data];
+    sorted.sort((a, b) => {
+      let va = a[col];
+      let vb = b[col];
+      // Handle division count
+      if (col === '_divCount') {
+        va = (state.divisionCache[a.id] || []).length;
+        vb = (state.divisionCache[b.id] || []).length;
+      }
+      if (col === '_autoSeason') {
+        va = AUTO_SEASON_LEAGUES.has(a.id) ? 1 : 0;
+        vb = AUTO_SEASON_LEAGUES.has(b.id) ? 1 : 0;
+      }
+      if (typeof va === 'number' && typeof vb === 'number') {
+        return dir === 'asc' ? va - vb : vb - va;
+      }
+      va = (va || '').toString().toLowerCase();
+      vb = (vb || '').toString().toLowerCase();
+      if (va < vb) return dir === 'asc' ? -1 : 1;
+      if (va > vb) return dir === 'asc' ? 1 : -1;
+      return 0;
+    });
+    return sorted;
+  }
+
+  function handleSort(col) {
+    if (state.sortCol === col) {
+      state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      state.sortCol = col;
+      state.sortDir = 'asc';
+    }
+    renderTable();
+  }
+
+  // --- Breadcrumb ---
+  function updateBreadcrumb() {
+    if (state.view === 'leagues') {
+      dom.breadcrumb.style.display = 'none';
+      return;
+    }
+    dom.breadcrumb.style.display = '';
+    dom.bcSport.textContent = capitalize(state.activeSport);
+    dom.bcSport.onclick = () => navigateToSport();
+
+    if (state.view === 'divisions') {
+      dom.bcLeague.style.display = 'none';
+      dom.bcLeagueSep.style.display = 'none';
+      dom.bcCurrent.textContent = state.selectedLeague ? state.selectedLeague.name : '';
+    } else if (state.view === 'standings') {
+      dom.bcLeague.style.display = '';
+      dom.bcLeagueSep.style.display = '';
+      dom.bcLeague.textContent = state.selectedLeague ? state.selectedLeague.name : '';
+      dom.bcLeague.onclick = () => navigateToLeague(state.selectedLeague);
+      dom.bcCurrent.textContent = state.selectedDivision ? state.selectedDivision.name : '';
+    }
+  }
+
+  // --- Table Rendering ---
+  function renderTableHeader(columns) {
+    dom.tableHead.innerHTML = '';
+    const tr = document.createElement('tr');
+    columns.forEach(c => {
+      const th = document.createElement('th');
+      th.className = c.numeric ? 'col-num' : '';
+      if (state.sortCol === c.key) th.classList.add('sorted');
+      th.innerHTML = `${c.label}<span class="sort-arrow">${state.sortCol === c.key ? (state.sortDir === 'asc' ? '▲' : '▼') : '▲'}</span>`;
+      th.addEventListener('click', () => handleSort(c.key));
+      tr.appendChild(th);
+    });
+    dom.tableHead.appendChild(tr);
+  }
+
+  function renderTable() {
+    if (state.view === 'leagues') renderLeagueTable();
+    else if (state.view === 'divisions') renderDivisionTable();
+    else if (state.view === 'standings') renderStandingsTable();
+    updateBreadcrumb();
+  }
+
+  function renderLeagueTable() {
+    const columns = [
+      { key: 'name', label: 'League Name' },
+      { key: 'platform', label: 'Platform' },
+      { key: 'status', label: 'Status' },
+      { key: 'state', label: 'State' },
+      { key: 'region', label: 'Region' },
+      { key: '_divCount', label: 'Divisions', numeric: true },
+      { key: '_autoSeason', label: 'Auto-Update' }
+    ];
+    renderTableHeader(columns);
+
+    let leagues = getFilteredLeagues();
+    leagues = sortData(leagues, state.sortCol, state.sortDir);
+
+    dom.tableBody.innerHTML = '';
+    if (leagues.length === 0) {
+      showView('empty');
+      return;
+    }
+    showView('table');
+
+    leagues.forEach((l, i) => {
+      const tr = document.createElement('tr');
+      tr.className = 'clickable fade-in';
+      tr.style.animationDelay = `${Math.min(i * 20, 400)}ms`;
+      tr.addEventListener('click', () => navigateToLeague(l));
+
+      const divCount = (state.divisionCache[l.id] || []).length;
+      const autoSeason = AUTO_SEASON_LEAGUES.has(l.id);
+
+      tr.innerHTML = `
+        <td title="${escapeHtml(l.name)}">${escapeHtml(l.name)}</td>
+        <td>${escapeHtml(l.platform || '—')}</td>
+        <td>${formatStatus(l.status)}</td>
+        <td>${escapeHtml(l.state || '—')}</td>
+        <td>${escapeHtml(l.region || '—')}</td>
+        <td class="col-num">${divCount}</td>
+        <td>${autoSeason ? '<span class="auto-yes">Yes</span>' : '<span class="auto-no">No</span>'}</td>
+      `;
+      dom.tableBody.appendChild(tr);
+    });
+  }
+
+  function renderDivisionTable() {
+    const columns = [
+      { key: 'name', label: 'Division Name' },
+      { key: 'ageGroup', label: 'Age Group' },
+      { key: 'gender', label: 'Gender' },
+      { key: 'level', label: 'Level' },
+      { key: 'status', label: 'Status' }
+    ];
+    renderTableHeader(columns);
+
+    let divs = getFilteredDivisions();
+    divs = sortData(divs, state.sortCol, state.sortDir);
+
+    dom.tableBody.innerHTML = '';
+    if (divs.length === 0) {
+      showView('empty');
+      return;
+    }
+    showView('table');
+
+    divs.forEach((d, i) => {
+      const tr = document.createElement('tr');
+      tr.className = 'clickable fade-in';
+      tr.style.animationDelay = `${Math.min(i * 20, 400)}ms`;
+      tr.addEventListener('click', () => navigateToDivision(d));
+
+      tr.innerHTML = `
+        <td title="${escapeHtml(d.name)}">${escapeHtml(d.name)}</td>
+        <td>${escapeHtml(d.ageGroup || '—')}</td>
+        <td>${capitalize(d.gender || '—')}</td>
+        <td>${escapeHtml(d.level || '—')}</td>
+        <td>${formatStatus(d.status)}</td>
+      `;
+      dom.tableBody.appendChild(tr);
+    });
+  }
+
+  function renderStandingsTable() {
+    const columns = [
+      { key: 'position', label: '#', numeric: true },
+      { key: 'teamName', label: 'Team' },
+      { key: 'gamesPlayed', label: 'GP', numeric: true },
+      { key: 'wins', label: 'W', numeric: true },
+      { key: 'losses', label: 'L', numeric: true },
+      { key: 'ties', label: 'T', numeric: true },
+      { key: 'points', label: 'Pts', numeric: true },
+      { key: 'scored', label: 'GF', numeric: true },
+      { key: 'allowed', label: 'GA', numeric: true },
+      { key: 'differential', label: 'GD', numeric: true }
+    ];
+    renderTableHeader(columns);
+
+    let standings = getFilteredStandings();
+    standings = sortData(standings, state.sortCol, state.sortDir);
+
+    dom.tableBody.innerHTML = '';
+    if (standings.length === 0) {
+      showView('empty');
+      return;
+    }
+    showView('table');
+
+    standings.forEach((s, i) => {
+      const tr = document.createElement('tr');
+      tr.className = 'fade-in';
+      tr.style.animationDelay = `${Math.min(i * 20, 400)}ms`;
+
+      const posClass = s.position <= 3 ? 'top-3' : '';
+      const diffClass = s.differential > 0 ? 'diff-positive' : s.differential < 0 ? 'diff-negative' : 'diff-zero';
+      const diffPrefix = s.differential > 0 ? '+' : '';
+
+      tr.innerHTML = `
+        <td class="col-num"><span class="pos-badge ${posClass}">${s.position}</span></td>
+        <td title="${escapeHtml(s.teamName)}">${escapeHtml(s.teamName)}</td>
+        <td class="col-num">${s.gamesPlayed ?? '—'}</td>
+        <td class="col-num">${s.wins ?? '—'}</td>
+        <td class="col-num">${s.losses ?? '—'}</td>
+        <td class="col-num">${s.ties ?? '—'}</td>
+        <td class="col-num"><strong>${s.points ?? '—'}</strong></td>
+        <td class="col-num">${s.scored ?? '—'}</td>
+        <td class="col-num">${s.allowed ?? '—'}</td>
+        <td class="col-num"><span class="${diffClass}">${diffPrefix}${s.differential ?? '—'}</span></td>
+      `;
+      dom.tableBody.appendChild(tr);
+    });
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  // --- Navigation ---
+  function navigateToSport() {
+    state.selectedLeague = null;
+    state.selectedDivision = null;
+    state.view = 'leagues';
+    state.sortCol = null;
+    state.sortDir = 'asc';
+    dom.filterLeague.value = '';
+    dom.filterState.value = '';
+    dom.filterGender.value = '';
+    dom.filterAgeGroup.value = '';
+    dom.filterGender.disabled = true;
+    dom.filterAgeGroup.disabled = true;
+    populateStateDropdown();
+    renderTable();
+    updateKPIs();
+  }
+
+  async function navigateToLeague(league) {
+    state.selectedLeague = league;
+    state.selectedDivision = null;
+    state.view = 'divisions';
+    state.sortCol = null;
+    state.sortDir = 'asc';
+
+    dom.filterLeague.value = league.id;
+
+    showView('loading');
+    dom.loadingState.querySelector('span').textContent = `Loading divisions for ${league.name}...`;
+
+    try {
+      await loadDivisions(league.id);
+      populateDivisionFilters();
+      renderTable();
+    } catch (err) {
+      showView('error');
+      document.getElementById('errorMsg').textContent = `Failed to load divisions: ${err.message}`;
+    }
+  }
+
+  async function navigateToDivision(division) {
+    state.selectedDivision = division;
+    state.view = 'standings';
+    state.sortCol = null;
+    state.sortDir = 'asc';
+
+    showView('loading');
+    dom.loadingState.querySelector('span').textContent = `Loading standings for ${division.name}...`;
+
+    try {
+      await loadStandings(division.id);
+      renderTable();
+    } catch (err) {
+      showView('error');
+      document.getElementById('errorMsg').textContent = `Failed to load standings: ${err.message}`;
+    }
+  }
+
+  // --- Event Handlers ---
+  function bindEvents() {
+    // Sport tabs
+    dom.sportTabs.addEventListener('click', (e) => {
+      const tab = e.target.closest('.sport-tab');
+      if (!tab) return;
+      const sport = tab.dataset.sport;
+      if (sport === state.activeSport && state.view === 'leagues') return;
+
+      document.querySelectorAll('.sport-tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+
+      state.activeSport = sport;
+      populateLeagueDropdown();
+      populateStateDropdown();
+      navigateToSport();
+    });
+
+    // League dropdown
+    dom.filterLeague.addEventListener('change', () => {
+      const val = dom.filterLeague.value;
+      if (!val) {
+        navigateToSport();
+      } else {
+        const league = state.leagues.find(l => l.id === val);
+        if (league) navigateToLeague(league);
+      }
+    });
+
+    // Other filters — just re-render
+    dom.filterStatus.addEventListener('change', () => renderTable());
+    dom.filterState.addEventListener('change', () => renderTable());
+    dom.filterGender.addEventListener('change', () => renderTable());
+    dom.filterAgeGroup.addEventListener('change', () => renderTable());
+
+    // Search with debounce
+    let searchTimeout;
+    dom.filterSearch.addEventListener('input', () => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => renderTable(), 200);
+    });
+
+    // Clear filters
+    dom.btnClearFilters.addEventListener('click', () => {
+      dom.filterStatus.value = '';
+      dom.filterState.value = '';
+      dom.filterGender.value = '';
+      dom.filterAgeGroup.value = '';
+      dom.filterSearch.value = '';
+      if (state.view === 'leagues') {
+        dom.filterLeague.value = '';
+      }
+      renderTable();
+    });
+
+    // Refresh
+    dom.btnRefresh.addEventListener('click', () => initApp(true));
+    dom.btnRetry.addEventListener('click', () => initApp(false));
+  }
+
+  // --- Update Refresh Timestamp ---
+  function startRefreshTimer() {
+    setInterval(() => {
+      dom.lastRefreshed.textContent = formatTimestamp(state.lastRefreshed);
+    }, 30000);
+  }
+
+  // --- Init ---
+  async function initApp(forceRefresh) {
+    showView('loading');
+    dom.loadingState.querySelector('span').textContent = 'Loading league data...';
+    dom.btnRefresh.classList.add('spinning');
+
+    if (forceRefresh) {
+      state.divisionCache = {};
+      state.standingsCache = {};
+    }
+
+    try {
+      await loadLeagues();
+      updateBadges();
+      populateLeagueDropdown();
+      populateStateDropdown();
+
+      // Preload division counts for current sport
+      const sportLeagues = state.leagues.filter(l => l.sport === state.activeSport);
+      await preloadDivisionCounts(sportLeagues);
+
+      updateKPIs();
+      dom.lastRefreshed.textContent = formatTimestamp(state.lastRefreshed);
+
+      // Restore or default view
+      if (state.selectedDivision && state.view === 'standings') {
+        renderTable();
+      } else if (state.selectedLeague && state.view === 'divisions') {
+        renderTable();
+      } else {
+        state.view = 'leagues';
+        renderTable();
+      }
+
+      // Preload division counts for all other sports in background
+      const otherLeagues = state.leagues.filter(l => l.sport !== state.activeSport);
+      preloadDivisionCounts(otherLeagues).then(() => {
+        updateKPIs();
+      });
+
+    } catch (err) {
+      showView('error');
+      document.getElementById('errorMsg').textContent = `Failed to load data: ${err.message}`;
+    } finally {
+      dom.btnRefresh.classList.remove('spinning');
+    }
+  }
+
+  // --- Start ---
+  bindEvents();
+  startRefreshTimer();
+  initApp(false);
+
+})();

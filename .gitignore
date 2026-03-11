@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# GC auth tokens (sensitive)
+gc-token.json
+*-token.json
+
+# Temp/ad-hoc scripts
+add-14-wa-leagues.js
+deeper-gc-search.js
+fix-and-collect.js
+analyze-gc.js
+check-*.js
+find-*.js
+pull-gc-*.js
+gc-auth*.js
+gc-batch-discover.js
+gc-clean-siblings.js
+gc-cleanup*.js
+gc-client-search.js
+gc-deep-search.js
+gc-discover-new.js
+gc-finish-auth.js
+gc-fix-*.js
+gc-full-auth.js
+gc-map-leagues*.js
+gc-password.js
+gc-purge*.js
+gc-refresh.js
+gc-remap*.js
+gc-search*.js
+gc-test-search.js
+gc-web-search.js
+get-pending-*.js
+sc-to-gc*.js
+activate-ll.js
+deactivate-*.js
+delete-inactive.js
+cleanup-*.js
+fix-*.js
+list-gc.js
+query-leagues.js
+read-gmail.js
+reg_mt.js
+register-*.js
+test-*.js
+update-roadmap.js
+final-stats.js
+discovered_groups.json
+
+# Build artifacts
+*.tar.gz
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
