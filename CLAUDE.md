@@ -90,23 +90,38 @@ Cloud Scheduler (weekly) → seasonMonitor → health checks, season discovery, 
 { teamName, position, gamesPlayed, wins, losses, ties, points, scored, allowed, differential, ... }
 ```
 
-## Current State (March 2026)
+## Current State (March 11, 2026)
 
 ### Stats
-- ~257 total leagues in Firestore
-- ~114 active baseball leagues (WA/CA primarily)
-- 1,580 divisions, 16,279 standings
-- 5 sports: Baseball, Soccer, Hockey, Basketball, Lacrosse
+- 183 total leagues in Firestore
+- 122 active, 44 pending_config, 12 pending_tabid
+- 1,623 divisions, 16,587 standings
+- 6 sports: Baseball (141), Soccer (39), Hockey (2), Lacrosse (1), Softball (planned)
+- 8 adapters: GameChanger, SportsConnect, SportsAffinity, GotSport, TGS, Demosphere, Pointstreak, LeagueApps
 
 ### Phase 1 Rollout States
-**WA** (Washington) — primary, most coverage
+**WA** (Washington) — primary, most coverage. Baseball ~70 active, Soccer 8 active + 13 pending
 **CA** (California) — good GameChanger coverage
-**OR** (Oregon) — zero coverage, needs discovery
-**ID** (Idaho) — zero coverage, needs discovery
-**MT** (Montana) — zero coverage, needs discovery
+**OR** (Oregon) — soccer expansion next after WA cleanup
+**ID** (Idaho) — some soccer (Idaho Premier League on GotSport)
+**MT** (Montana) — minimal coverage, needs discovery
+
+### WA Soccer Expansion (just completed)
+- 39 total WA soccer leagues registered (was 15)
+- 8 active collecting: RCL, SSUL, NPSL, EWSL, WPL Spring 11U-14U, WPL Girls HS, WPL Dev League, LWYSA
+- 13 pending_config, 3 pending_tabid
+- Platforms: GotSport (11), SportsAffinity (4), Demosphere (10), SportsConnect (8), TGS/ECNL (6)
+- **Known issues**: See `tasks/wa-soccer-seasonal-fix.md` for 30 data hygiene issues to fix
+
+### Softball (planned)
+- Shares platforms with baseball: GameChanger, SportsConnect, LeagueApps
+- WA discovery needed — ASA, USSSA, NSA league structures
+- Minimal new adapter work expected
 
 ### Recent Additions
+- WA Soccer Expansion: 19 new leagues registered across 3 tiers
 - 14 WA Little League programs discovered (SportsConnect): 1 GC-matched, 13 pending tabId resolution
+- Google Sheets sync RETIRED — dashboard is now GCS-hosted HTML
 
 ## Scripts (`scripts/`)
 
@@ -116,6 +131,7 @@ Cloud Scheduler (weekly) → seasonMonitor → health checks, season discovery, 
 | `deactivate-non-phase1.js` | Deactivate leagues outside WA/OR/ID/MT/CA | `node scripts/deactivate-non-phase1.js [--dry-run]` |
 | `discover-or-id-mt.js` | Discover GC + known leagues in OR/ID/MT | `node scripts/discover-or-id-mt.js [--dry-run] [--state=OR]` |
 | `resolve-sportsconnect-pending.js` | Auto-discover SC standings tabIds | `node scripts/resolve-sportsconnect-pending.js [--dry-run] [--fix]` |
+| `wa-soccer-expansion.js` | Register 21 WA soccer leagues (3 tiers) | `node scripts/wa-soccer-expansion.js [--dry-run] [--tier=1]` |
 
 Run scripts on the deploy VM via:
 ```bash
@@ -127,24 +143,26 @@ curl -X POST http://35.209.45.82:8080/exec \
 ## Operational Priorities (ordered)
 
 ### Immediate (do now)
-1. **Deploy memory upgrade** — Puppeteer OOMs at 488MB on GC/SC adapters
-   - Run `scripts/deploy-memory-upgrade.sh` on deploy VM
-2. **Deactivate non-Phase 1 leagues** — ~27 active leagues outside WA/OR/ID/MT/CA waste daily collection cycles
-   - Run `scripts/deactivate-non-phase1.js` on deploy VM
-3. **Discover OR/ID/MT leagues** — zero coverage in 3 Phase 1 states
-   - Run `scripts/discover-or-id-mt.js` on deploy VM (does GC search + registers known LL programs)
-4. **Resolve pending SC leagues** — 13+ Little League programs need standingsTabId for spring 2026
+1. **Fix WA soccer data hygiene** — See `tasks/wa-soccer-seasonal-fix.md`
+   - Normalize sport casing ("Soccer" → "soccer")
+   - Add missing seasonStart/seasonEnd to 16 active soccer leagues
+   - Add discoveryConfig to 11 GotSport leagues for season monitor auto-discovery
+   - Set EWSL to dormant (fall 2025 season ended)
+2. **Resolve pending SC leagues** — 13+ Little League programs need standingsTabId for spring 2026
    - Run `scripts/resolve-sportsconnect-pending.js --fix` on deploy VM
+3. **Verify spring 2026 data flows** — SSUL (Apr 18), SC leagues (Apr 12-18), EWSL spring TBD
 
 ### Short-term
-5. Verify spring 2026 season data is flowing for all active leagues
-6. Add more OR/ID/MT leagues from other platforms (LeagueApps, Pointstreak)
-7. Dashboard improvements — add rollout progress tracker
+4. **Soccer OR expansion** — after WA soccer is clean, expand to Oregon
+5. **Softball WA discovery** — find ASA/USSSA/NSA softball leagues on GameChanger
+6. Re-map 34 pending_config baseball leagues to correct GC org IDs
+7. Add more OR/ID/MT leagues from other platforms
 
 ### Medium-term
-8. Phase 2 planning — expand to additional states (likely CO, NV, AZ, UT)
+8. Build TeamSideline adapter (unlocks Thurston + Lewis County soccer)
 9. Improve collectAll parallelism — currently sequential, could batch by platform
-10. Add alerts/notifications for seasonMonitor issues (Slack/email integration)
+10. League Request feature — allow users to request a league be added
+11. Phase 2 state expansion planning (CO, NV, AZ, UT)
 
 ## Important Notes
 
