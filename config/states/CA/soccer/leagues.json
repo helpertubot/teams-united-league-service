@@ -1,0 +1,38 @@
+{
+  "_description": "CA soccer leagues — extracted from scripts/setup/expand-soccer-ca-id-mt.js",
+  "_lastUpdated": "2026-03-12",
+  "leagues": [
+    {
+      "id": "socal-soccer-league",
+      "name": "SOCAL Soccer League",
+      "region": "Southern California",
+      "sourcePlatform": "gotsport",
+      "eventId": "43086",
+      "notes": "Largest SoCal competitive youth soccer league. 170+ clubs, U7-U19. Pending groups — too large for WebFetch."
+    },
+    {
+      "id": "ccsl-cal-north",
+      "name": "CCSL (Cal North Competitive Soccer League)",
+      "region": "Northern California",
+      "sourcePlatform": "gotsport",
+      "eventId": "6160",
+      "notes": "Cal North (US Youth Soccer affiliate). 50+ year history. 45 groups discovered."
+    },
+    {
+      "id": "norcal-premier-npl",
+      "name": "NorCal Premier NPL",
+      "region": "Northern California",
+      "sourcePlatform": "gotsport",
+      "eventId": "41823",
+      "notes": "US Club Soccer NPL. 55 groups discovered."
+    },
+    {
+      "id": "norcal-premier",
+      "name": "NorCal Premier League",
+      "region": "Northern California",
+      "sourcePlatform": "gotsport",
+      "eventId": "44142",
+      "notes": "Updated event ID to 44142 (Fall 2025-26). Pending groups — too large for WebFetch."
+    }
+  ]
+}

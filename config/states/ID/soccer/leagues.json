@@ -1,0 +1,38 @@
+{
+  "_description": "ID soccer leagues — extracted from scripts/setup/expand-soccer-ca-id-mt.js",
+  "_lastUpdated": "2026-03-12",
+  "leagues": [
+    {
+      "id": "isl-id-spring",
+      "name": "Idaho State League",
+      "region": "Statewide",
+      "sourcePlatform": "gotsport",
+      "eventId": "50328",
+      "notes": "Spring 2026. 12 groups. Idaho Rush, Boise Timbers/Thorns, Idaho Surf, ALBION SC Idaho."
+    },
+    {
+      "id": "d3l-id",
+      "name": "D3 League",
+      "region": "Southwest Idaho",
+      "sourcePlatform": "gotsport",
+      "eventId": "45057",
+      "notes": "Boise/Treasure Valley competitive. 32 groups, U9-U16. Gold/Silver/Bronze tiers."
+    },
+    {
+      "id": "srl-id-spring",
+      "name": "Snake River League",
+      "region": "Southeast Idaho",
+      "sourcePlatform": "gotsport",
+      "eventId": "50506",
+      "notes": "Spring 2026. 46+ groups, U9-U19. Idaho Falls area."
+    },
+    {
+      "id": "id-premier-league",
+      "name": "Idaho Premier League",
+      "region": "Statewide",
+      "sourcePlatform": "gotsport",
+      "eventId": "45021",
+      "notes": "Updated event ID to 45021 (2025-26). 17 groups."
+    }
+  ]
+}

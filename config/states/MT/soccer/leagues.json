@@ -1,0 +1,22 @@
+{
+  "_description": "MT soccer leagues — extracted from scripts/setup/expand-soccer-ca-id-mt.js",
+  "_lastUpdated": "2026-03-12",
+  "leagues": [
+    {
+      "id": "mssl-mt-spring",
+      "name": "Montana State Spring League",
+      "region": "Statewide",
+      "sourcePlatform": "gotsport",
+      "eventId": "43710",
+      "notes": "MSSL Spring 2026. ~40 groups. 26 member clubs: Billings United, Strikers FC, Montana Surf, Helena YSA, Montana Rush."
+    },
+    {
+      "id": "mssl-mt-fall",
+      "name": "Montana State Fall League",
+      "region": "Statewide",
+      "sourcePlatform": "gotsport",
+      "eventId": "45401",
+      "notes": "Fall 2025 season ended. Dormant — monitor will discover Fall 2026 event."
+    }
+  ]
+}
