@@ -123,6 +123,6 @@ Check the response for:
 - No errors on the soccer leagues
 
 ## Remote Access
-- Deploy VM: SSH to Runpod at 103.196.86.102:18024 (user: root)
-- Firestore: accessible from deploy VM via `@google-cloud/firestore`
+- Firestore: accessible from the deploy environment via `@google-cloud/firestore`
 - Working directory: `/home/deploy/workspace/league-standings/`
+- SSH and VM details are in your environment, not in this file
