@@ -29,7 +29,7 @@
  * }
  */
 
-const { launchBrowser } = require('../browser');
+const { launchBrowser, applyStealthOverrides } = require('../browser');
 const { inferAgeGroup } = require('../lib/age-group-parser');
 
 const PLATFORM_ID = 'sportsconnect';
@@ -56,13 +56,14 @@ async function collectStandings(leagueConfig) {
 
     const page = await browser.newPage();
     await page.setViewport({ width: 1280, height: 900 });
-    await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 TeamsUnited-Standings/1.0');
+    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36');
+    await applyStealthOverrides(page);
 
     console.log(`SportsConnect: Navigating to ${standingsUrl}`);
     await page.goto(standingsUrl, { waitUntil: 'networkidle2', timeout: 60000 });
 
     // Wait for the page to fully render
-    await sleep(2000);
+    await sleep(3000);
 
     // Find the Program dropdown — its ID contains 'dropDownSeasons'
     const programDropdown = await findDropdown(page, 'dropDownSeasons');
@@ -144,6 +145,36 @@ async function collectStandings(leagueConfig) {
         if (checkedExternal) {
           console.log('SportsConnect:     Checked "Include external teams" checkbox');
           await waitForPostback(page);
+        }
+
+        // Wait for a standings table to appear in the DOM
+        try {
+          await page.waitForSelector('table', { timeout: 10000 });
+        } catch (e) {
+          console.log(`SportsConnect:     No table element appeared within 10s`);
+        }
+
+        // Debug: log table count and page state
+        const debugInfo = await page.evaluate(() => {
+          const tables = document.querySelectorAll('table');
+          const tableInfo = [];
+          tables.forEach((t, i) => {
+            const rows = t.querySelectorAll('tr');
+            const firstRowText = rows.length > 0 ? rows[0].textContent.trim().substring(0, 100) : '';
+            tableInfo.push({ index: i, rows: rows.length, firstRow: firstRowText });
+          });
+          return {
+            tableCount: tables.length,
+            tables: tableInfo,
+            webdriver: navigator.webdriver,
+            url: window.location.href,
+          };
+        });
+        console.log(`SportsConnect:     DEBUG tables: ${debugInfo.tableCount}, webdriver: ${debugInfo.webdriver}`);
+        if (debugInfo.tableCount > 0) {
+          debugInfo.tables.forEach(t => {
+            console.log(`SportsConnect:       table[${t.index}]: ${t.rows} rows, header: "${t.firstRow}"`);
+          });
         }
 
         // Extract the standings table

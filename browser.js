@@ -62,6 +62,7 @@ async function launchBrowser(opts = {}) {
     '--disable-default-apps',
     '--no-first-run',
     '--disable-features=IsolateOrigins,site-per-process',
+    '--disable-blink-features=AutomationControlled',
   ];
 
   // ── Path 1: Full puppeteer (VM / local dev) ──
@@ -121,7 +122,7 @@ async function launchBrowser(opts = {}) {
       args: [...chromiumArgs, ...defaultArgs],
       defaultViewport: chromium.defaultViewport,
       executablePath,
-      headless: chromium.headless,
+      headless: 'new',  // Use new headless mode — less detectable than old headless
       protocolTimeout: 120000,
       ...opts,
     });
@@ -263,8 +264,36 @@ async function resilientGoto(page, url, options = {}) {
   throw lastError;
 }
 
+/**
+ * Apply anti-detection overrides to a page before navigation.
+ * Hides common headless Chrome indicators that some sites check.
+ */
+async function applyStealthOverrides(page) {
+  await page.evaluateOnNewDocument(() => {
+    // Hide webdriver flag
+    Object.defineProperty(navigator, 'webdriver', { get: () => false });
+
+    // Fake plugins array (headless has 0 plugins)
+    Object.defineProperty(navigator, 'plugins', {
+      get: () => [
+        { name: 'Chrome PDF Plugin', filename: 'internal-pdf-viewer' },
+        { name: 'Chrome PDF Viewer', filename: 'mhjfbmdgcfjbbpaeojofohoefgiehjai' },
+        { name: 'Native Client', filename: 'internal-nacl-plugin' },
+      ],
+    });
+
+    // Fake languages
+    Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
+
+    // Remove chrome.runtime that automation adds
+    if (window.chrome) {
+      window.chrome.runtime = undefined;
+    }
+  });
+}
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-module.exports = { launchBrowser, resilientGoto };
+module.exports = { launchBrowser, resilientGoto, applyStealthOverrides };
