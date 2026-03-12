@@ -134,32 +134,23 @@ async function collectStandings(leagueConfig) {
         }
 
         // Ensure "Include external teams" checkbox is checked if present
-        await page.evaluate(() => {
+        const checkedExternal = await page.evaluate(() => {
           const checkboxes = document.querySelectorAll('input[type="checkbox"]');
           for (const cb of checkboxes) {
             if (cb.id && cb.id.includes('chkExternalTeams') && !cb.checked) {
               cb.click();
+              return true;
             }
           }
+          return false;
         });
-
-        // Now extract the standings table
-        const tableData = await extractStandingsTable(page);
-        if (tableData.rows.length === 0) {
-          // Debug: log what tables exist on the page
-          const debugInfo = await page.evaluate(() => {
-            const tables = document.querySelectorAll('table');
-            return Array.from(tables).map(t => {
-              const firstRow = t.querySelector('tr');
-              const headerTexts = firstRow
-                ? Array.from(firstRow.querySelectorAll('th, td')).map(c => c.textContent.trim().substring(0, 15))
-                : [];
-              return { rows: t.querySelectorAll('tr').length, headers: headerTexts.slice(0, 6) };
-            }).filter(t => t.rows > 1);
-          });
-          console.log(`SportsConnect:     DEBUG tables on page: ${JSON.stringify(debugInfo)}`);
+        if (checkedExternal) {
+          console.log('SportsConnect:     Checked "Include external teams" checkbox');
+          await waitForPostback(page);
         }
-        
+
+        // Extract the standings table
+        const tableData = await extractStandingsTable(page);
         if (tableData.rows.length === 0) {
           console.log(`SportsConnect:     No standings data for this division`);
           continue;
@@ -273,23 +264,12 @@ async function getDropdownOptions(page, selector) {
  * Select a value in a dropdown and trigger ASP.NET postback
  */
 async function selectDropdownValue(page, selector, value) {
-  await page.evaluate((sel, val) => {
-    const dropdown = document.querySelector(sel);
-    if (!dropdown) return;
-    
-    // Set the value
-    dropdown.value = val;
-    
-    // Trigger change event — ASP.NET WebForms listens for this
-    const event = new Event('change', { bubbles: true });
-    dropdown.dispatchEvent(event);
-    
-    // Also trigger the ASP.NET __doPostBack if needed
-    // The onchange handler is typically: __doPostBack('dnn$ctr...name', '')
-    if (dropdown.onchange) {
-      dropdown.onchange();
-    }
-  }, selector, value);
+  // Use Puppeteer's built-in page.select() — it sets the value and dispatches
+  // exactly ONE change event via native browser behavior, which properly triggers
+  // ASP.NET's inline onchange handler (__doPostBack) exactly once.
+  // Previous approach called both dispatchEvent(change) AND onchange(), causing
+  // a double postback that destroyed the rendered page state.
+  await page.select(selector, value);
 }
 
 /**
