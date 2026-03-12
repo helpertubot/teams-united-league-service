@@ -121,16 +121,44 @@ async function collectStandings(leagueConfig) {
         if (scheduleDropdown) {
           const scheduleOptions = await getDropdownOptions(page, scheduleDropdown);
           const validSchedules = scheduleOptions.filter(s => s.value && s.value !== '0' && s.text !== 'Schedule');
-          
+          console.log(`SportsConnect:     Schedule dropdown found, ${validSchedules.length} valid schedules`);
+
           if (validSchedules.length > 0) {
+            console.log(`SportsConnect:     Selecting schedule "${validSchedules[0].text}"`);
             // Select first valid schedule
             await selectDropdownValue(page, scheduleDropdown, validSchedules[0].value);
             await waitForPostback(page);
           }
+        } else {
+          console.log('SportsConnect:     No schedule dropdown found');
         }
+
+        // Ensure "Include external teams" checkbox is checked if present
+        await page.evaluate(() => {
+          const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+          for (const cb of checkboxes) {
+            if (cb.id && cb.id.includes('chkExternalTeams') && !cb.checked) {
+              cb.click();
+            }
+          }
+        });
 
         // Now extract the standings table
         const tableData = await extractStandingsTable(page);
+        if (tableData.rows.length === 0) {
+          // Debug: log what tables exist on the page
+          const debugInfo = await page.evaluate(() => {
+            const tables = document.querySelectorAll('table');
+            return Array.from(tables).map(t => {
+              const firstRow = t.querySelector('tr');
+              const headerTexts = firstRow
+                ? Array.from(firstRow.querySelectorAll('th, td')).map(c => c.textContent.trim().substring(0, 15))
+                : [];
+              return { rows: t.querySelectorAll('tr').length, headers: headerTexts.slice(0, 6) };
+            }).filter(t => t.rows > 1);
+          });
+          console.log(`SportsConnect:     DEBUG tables on page: ${JSON.stringify(debugInfo)}`);
+        }
         
         if (tableData.rows.length === 0) {
           console.log(`SportsConnect:     No standings data for this division`);
