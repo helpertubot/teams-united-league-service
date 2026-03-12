@@ -92,9 +92,8 @@ async function collectStandings(leagueConfig) {
     for (const program of targetPrograms) {
       console.log(`SportsConnect: Selecting program "${program.text}" (${program.value})`);
 
-      // Select the program — triggers ASP.NET postback
+      // Select the program — triggers ASP.NET postback (navigation handled internally)
       await selectDropdownValue(page, programDropdown, program.value);
-      await waitForPostback(page);
 
       // Find Division dropdown
       const divisionDropdown = await findDropdown(page, 'dropDownDivisions');
@@ -112,9 +111,8 @@ async function collectStandings(leagueConfig) {
       for (const div of targetDivisions) {
         console.log(`SportsConnect:   Division "${div.text}" (${div.value})`);
 
-        // Select division — triggers another postback
+        // Select division — triggers another postback (navigation handled internally)
         await selectDropdownValue(page, divisionDropdown, div.value);
-        await waitForPostback(page);
 
         // Find Schedule dropdown and get first schedule
         const scheduleDropdown = await findDropdown(page, 'dropDownEvents');
@@ -125,9 +123,8 @@ async function collectStandings(leagueConfig) {
 
           if (validSchedules.length > 0) {
             console.log(`SportsConnect:     Selecting schedule "${validSchedules[0].text}"`);
-            // Select first valid schedule
+            // Select first valid schedule (navigation handled internally)
             await selectDropdownValue(page, scheduleDropdown, validSchedules[0].value);
-            await waitForPostback(page);
           }
         } else {
           console.log('SportsConnect:     No schedule dropdown found');
@@ -264,31 +261,33 @@ async function getDropdownOptions(page, selector) {
  * Select a value in a dropdown and trigger ASP.NET postback
  */
 async function selectDropdownValue(page, selector, value) {
-  // Use Puppeteer's built-in page.select() — it sets the value and dispatches
-  // exactly ONE change event via native browser behavior, which properly triggers
-  // ASP.NET's inline onchange handler (__doPostBack) exactly once.
-  // Previous approach called both dispatchEvent(change) AND onchange(), causing
-  // a double postback that destroyed the rendered page state.
-  await page.select(selector, value);
+  // Use page.select() + Promise.all pattern. page.select() properly triggers
+  // ASP.NET's onchange → __doPostBack. Promise.all ensures the navigation
+  // watcher is set up before the postback starts.
+  try {
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: 'networkidle2', timeout: 30000 }),
+      page.select(selector, value),
+    ]);
+  } catch (err) {
+    // UpdatePanel (AJAX) postback — no full navigation, just wait
+    await sleep(3000);
+  }
+  await sleep(1000);
 }
 
 /**
- * Wait for ASP.NET postback to complete
- * Postbacks cause a full page reload — wait for navigation + idle
+ * Wait for ASP.NET postback to complete (used for non-select triggers like checkbox clicks)
  */
 async function waitForPostback(page) {
   try {
-    // Wait for navigation (ASP.NET postback causes full page reload)
-    await page.waitForNavigation({ 
-      waitUntil: 'networkidle2', 
-      timeout: 30000 
+    await page.waitForNavigation({
+      waitUntil: 'networkidle2',
+      timeout: 30000
     });
   } catch (err) {
-    // Sometimes the postback is handled client-side with UpdatePanel
-    // In that case, just wait a bit for AJAX to complete
     await sleep(3000);
   }
-  // Extra wait for any JavaScript rendering
   await sleep(1000);
 }
 
