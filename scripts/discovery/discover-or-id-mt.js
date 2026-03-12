@@ -15,7 +15,7 @@ const axios = require('axios');
 const db = new Firestore();
 
 // ── GameChanger discovery (reuses logic from discover-gc.js) ──
-const { discoverOrgIds, validateOrg, registerOrg, mapSport, getTeamCount } = require('../discover-gc');
+const { discoverOrgIds, validateOrg, registerOrg, mapSport, getTeamCount } = require('../../discover-gc');
 
 const PHASE1_NEW_STATES = ['OR', 'ID', 'MT'];
 const SPORTS = ['baseball', 'softball'];

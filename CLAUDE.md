@@ -90,28 +90,31 @@ Cloud Scheduler (weekly) → seasonMonitor → health checks, season discovery, 
 { teamName, position, gamesPlayed, wins, losses, ties, points, scored, allowed, differential, ... }
 ```
 
-## Current State (March 11, 2026)
+## Current State (March 12, 2026)
 
 ### Stats
-- 183 total leagues in Firestore
-- 122 active, 44 pending_config, 12 pending_tabid
-- 1,623 divisions, 16,587 standings
-- 6 sports: Baseball (141), Soccer (39), Hockey (2), Lacrosse (1), Softball (planned)
-- 8 adapters: GameChanger, SportsConnect, SportsAffinity, GotSport, TGS, Demosphere, Pointstreak, LeagueApps
+- ~193 total leagues in Firestore
+- ~132 active, ~38 pending_config, 12 pending_tabid, 2 pending_groups
+- 1,623+ divisions, 16,587+ standings
+- 6 sports: Baseball (141), Soccer (49+), Hockey (2), Lacrosse (1), Softball (planned)
+- 9 adapters: GameChanger, SportsConnect, SportsAffinity, SportsAffinity-ASP, GotSport, TGS, Demosphere, Pointstreak, LeagueApps
 
 ### Phase 1 Rollout States
 **WA** (Washington) — primary, most coverage. Baseball ~70 active, Soccer 8 active + 13 pending
-**CA** (California) — good GameChanger coverage
-**OR** (Oregon) — soccer expansion next after WA cleanup
-**ID** (Idaho) — some soccer (Idaho Premier League on GotSport)
-**MT** (Montana) — minimal coverage, needs discovery
+**CA** (California) — good GameChanger coverage, 2 soccer active + 2 pending_groups
+**OR** (Oregon) — soccer resolved: 5 active, 2 dormant, 3 deactivated
+**ID** (Idaho) — 4 soccer leagues active (ISL, D3L, SRL, IPL)
+**MT** (Montana) — 1 soccer active (MSSL Spring), 1 dormant (MSSL Fall)
 
-### WA Soccer Expansion (just completed)
-- 39 total WA soccer leagues registered (was 15)
-- 8 active collecting: RCL, SSUL, NPSL, EWSL, WPL Spring 11U-14U, WPL Girls HS, WPL Dev League, LWYSA
-- 13 pending_config, 3 pending_tabid
-- Platforms: GotSport (11), SportsAffinity (4), Demosphere (10), SportsConnect (8), TGS/ECNL (6)
-- **Known issues**: See `tasks/wa-soccer-seasonal-fix.md` for 30 data hygiene issues to fix
+### OR Soccer (completed March 12)
+- 5 activated: OYSA Spring Competitive, OYSA Spring South, OYSA Dev League, OYSA Valley Academy, PMSL
+- 2 dormant: OYSA Winter (season ended), USYS NW Conference (2025-26 not created)
+- 3 deactivated: ALBION SC Portland, GPSD (adult), Oregon Soccer Club (stale)
+
+### CA/ID/MT Soccer Expansion (completed March 12)
+- 8 new leagues registered, 2 existing updated
+- 7 leagues activated with discovered groups (246 total groups)
+- 2 CA leagues pending_groups: SOCAL Soccer League (43086), NorCal Premier (44142) — too large for WebFetch
 
 ### Softball (planned)
 - Shares platforms with baseball: GameChanger, SportsConnect, LeagueApps
@@ -119,25 +122,71 @@ Cloud Scheduler (weekly) → seasonMonitor → health checks, season discovery, 
 - Minimal new adapter work expected
 
 ### Recent Additions
-- WA Soccer Expansion: 19 new leagues registered across 3 tiers
-- 14 WA Little League programs discovered (SportsConnect): 1 GC-matched, 13 pending tabId resolution
+- OR soccer resolution: all 9 pending_config leagues resolved
+- CA/ID/MT soccer expansion: 8 new GotSport leagues + 2 updates
+- Fall City LL registered (SportsConnect, already active)
 - Google Sheets sync RETIRED — dashboard is now GCS-hosted HTML
 
 ## Scripts (`scripts/`)
 
+Scripts are organized into subdirectories by purpose:
+
+### `scripts/discovery/` — League & group discovery
+| Script | Purpose | Usage |
+|---|---|---|
+| `discover-or-id-mt.js` | Discover GC + known leagues in OR/ID/MT | `node scripts/discovery/discover-or-id-mt.js [--dry-run] [--state=OR]` |
+| `discover-and-activate-gotsport.js` | Discover GotSport groups & activate leagues | `node scripts/discovery/discover-and-activate-gotsport.js [--dry-run]` |
+| `resolve-sportsconnect-pending.js` | Auto-discover SC standings tabIds | `node scripts/discovery/resolve-sportsconnect-pending.js [--dry-run] [--fix]` |
+| `discovered_groups_new.json` | Pre-discovered GotSport group data | Data file for update-groups.js |
+
+### `scripts/activation/` — League status changes
+| Script | Purpose | Usage |
+|---|---|---|
+| `activate-or-soccer.js` | Activate/dormant/deactivate OR soccer leagues | `node scripts/activation/activate-or-soccer.js [--dry-run]` |
+| `deactivate-non-phase1.js` | Deactivate leagues outside WA/OR/ID/MT/CA | `node scripts/activation/deactivate-non-phase1.js [--dry-run]` |
+
+### `scripts/maintenance/` — Data fixes & cleanup
+| Script | Purpose | Usage |
+|---|---|---|
+| `fix-soccer-casing.js` | Normalize sport casing ("Soccer" → "soccer") | `node scripts/maintenance/fix-soccer-casing.js [--dry-run]` |
+| `fix-soccer-discovery-config.js` | Add discoveryConfig to GotSport leagues | `node scripts/maintenance/fix-soccer-discovery-config.js [--dry-run]` |
+| `fix-soccer-season-dates.js` | Add missing seasonStart/seasonEnd | `node scripts/maintenance/fix-soccer-season-dates.js [--dry-run]` |
+| `fix-regions.js` | Fix/add region fields | `node scripts/maintenance/fix-regions.js [--dry-run]` |
+
+### `scripts/setup/` — League registration
+| Script | Purpose | Usage |
+|---|---|---|
+| `wa-soccer-expansion.js` | Register 21 WA soccer leagues (3 tiers) | `node scripts/setup/wa-soccer-expansion.js [--dry-run] [--tier=1]` |
+| `or-soccer-expansion.js` | Register 7 OR soccer leagues | `node scripts/setup/or-soccer-expansion.js [--dry-run]` |
+| `expand-soccer-ca-id-mt.js` | Register CA/ID/MT soccer leagues | `node scripts/setup/expand-soccer-ca-id-mt.js [--dry-run]` |
+| `setup-fall-city-ll.js` | Register Fall City LL (SportsConnect) | `node scripts/setup/setup-fall-city-ll.js [--dry-run]` |
+
+### Root scripts
 | Script | Purpose | Usage |
 |---|---|---|
 | `deploy-memory-upgrade.sh` | Deploy collectLeague/collectAll with 1024MB | `bash scripts/deploy-memory-upgrade.sh` |
-| `deactivate-non-phase1.js` | Deactivate leagues outside WA/OR/ID/MT/CA | `node scripts/deactivate-non-phase1.js [--dry-run]` |
-| `discover-or-id-mt.js` | Discover GC + known leagues in OR/ID/MT | `node scripts/discover-or-id-mt.js [--dry-run] [--state=OR]` |
-| `resolve-sportsconnect-pending.js` | Auto-discover SC standings tabIds | `node scripts/resolve-sportsconnect-pending.js [--dry-run] [--fix]` |
-| `wa-soccer-expansion.js` | Register 21 WA soccer leagues (3 tiers) | `node scripts/wa-soccer-expansion.js [--dry-run] [--tier=1]` |
+
+## Config (`config/`)
+
+League configuration data organized by state and sport:
+
+```
+config/
+├── national/              # (future) cross-state config
+└── states/
+    ├── WA/soccer/leagues.json   # 21 leagues across 3 tiers
+    ├── OR/soccer/leagues.json   # 7 leagues (OYSA, PMSL, USYS NW)
+    ├── CA/soccer/leagues.json   # 4 leagues (SOCAL, CCSL, NorCal)
+    ├── ID/soccer/leagues.json   # 4 leagues (ISL, D3L, SRL, IPL)
+    └── MT/soccer/leagues.json   # 2 leagues (MSSL spring/fall)
+```
 
 Run scripts on the deploy VM via:
 ```bash
 curl -X POST http://35.209.45.82:8080/exec \
   -H 'Content-Type: application/json' \
-  -d '{"cmd":"cd /path/to/service && node scripts/deactivate-non-phase1.js --dry-run"}'
+  -H 'Authorization: Bearer <token>' \
+  -d '{"command":"cd /home/deploy/workspace/league-standings && node scripts/setup/expand-soccer-ca-id-mt.js --dry-run"}'
 ```
 
 ## Operational Priorities (ordered)
@@ -153,10 +202,11 @@ curl -X POST http://35.209.45.82:8080/exec \
 3. **Verify spring 2026 data flows** — SSUL (Apr 18), SC leagues (Apr 12-18), EWSL spring TBD
 
 ### Short-term
-4. **Soccer OR expansion** — after WA soccer is clean, expand to Oregon
-5. **Softball WA discovery** — find ASA/USSSA/NSA softball leagues on GameChanger
-6. Re-map 34 pending_config baseball leagues to correct GC org IDs
-7. Add more OR/ID/MT leagues from other platforms
+4. ~~**Soccer OR expansion**~~ — DONE (March 12): 5 active, 2 dormant, 3 deactivated
+5. **Discover groups for SOCAL (43086) and NorCal Premier (44142)** — need browser-based discovery (too large for WebFetch)
+6. **Softball WA discovery** — find ASA/USSSA/NSA softball leagues on GameChanger
+7. Re-map 34 pending_config baseball leagues to correct GC org IDs
+8. Add more OR/ID/MT leagues from other platforms
 
 ### Medium-term
 8. Build TeamSideline adapter (unlocks Thurston + Lewis County soccer)
