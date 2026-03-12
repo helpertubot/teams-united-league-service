@@ -3,6 +3,8 @@
 ## Priority: High
 ## Sport: Soccer
 ## State: Oregon (OR)
+## Status: COMPLETED — leagues registered, pending API recovery
+## Completed: March 11, 2026
 ## Affects: League coverage expansion, SportsAffinity adapter, region assignments
 
 ---
@@ -57,31 +59,22 @@ https://sctour.sportsaffinity.com/api/standings?organizationId={GUID}&tournament
 
 - **WA reference**: WA's organizationId is `7379E8F5-2B0D-4729-BDF9-967A08999A37` (shared across RCL-WA and SSUL-WA). Each season gets a different `seasonGuid`/`tournamentId`.
 
-### How to find the OYSA organizationId
+### OYSA organizationId — FOUND
 
-The organizationId GUID is NOT visible in the page HTML. It's used internally by SportsAffinity's API layer. To find it, try these approaches:
+**OYSA organizationId: `e458918e-4e02-4816-b41d-7d7a079fe51c`**
 
-1. **Intercept network requests**: Load a standings page on `oysa.sportsaffinity.com` with browser DevTools Network tab open. Click through divisions/flights. Look for any XHR/fetch calls to `sctour.sportsaffinity.com/api/*` and capture the `organizationId` param.
+Discovered by Claude Code via Google's index of `sctour.sportsaffinity.com` — the URL pattern `/schedules/{orgId}/{seasonGuid}` revealed the GUID in indexed schedule pages matching "OYSA OR oregon".
 
-2. **Try the tournaments listing endpoint**: 
-   ```
-   https://sctour.sportsaffinity.com/api/tournaments?organizationId={GUID}
-   ```
-   If you find a candidate GUID, this endpoint should return a list of seasons.
+Note: `77BF583F-4685-429C-8775-D23B3DBBFDC9` was a false positive — that's Iowa State League (ISL), not Oregon.
 
-3. **Check Blazor app config**: SportsAffinity has been migrating to Blazor WebAssembly. Check:
-   - `https://oysa.sportsaffinity.com/_framework/blazor.boot.json`
-   - Any `appsettings.json` referenced in the Blazor bootstrap
-   
-4. **Search SportsAffinity HTML thoroughly**: Look in ALL `<script>` tags, hidden inputs, data attributes, cookie values, and `__VIEWSTATE` fields for any GUID that's ~36 chars in standard GUID format.
+**PMSL organizationId: `6857D9A0-8945-44E1-84E8-F3DECC87D56C`** (Portland Metro Soccer League — separate org from OYSA)
 
-5. **Try brute patterns**: SportsAffinity might use a predictable pattern. WA's org GUID starts with `7379E8F5`. Try GUIDs found in other page elements (club GUIDs, team GUIDs) — one might be the org.
+### BLOCKER: SportsAffinity API is down
 
-6. **Alternative**: If the API absolutely can't be cracked, consider using Puppeteer/Playwright to parse the HTML standings pages directly at URLs like:
-   ```
-   https://oysa.sportsaffinity.com/tour/public/info/schedule_standings.asp?sessionguid=&flightguid={flightGuid}&tournamentguid={seasonGuid}
-   ```
-   This is a fallback — the JSON API is strongly preferred.
+`sctour.sportsaffinity.com` returns Azure 404 for all endpoints — both the old `/api/standings` REST endpoint and the newer Blazor `/standings/` pages. This affects ALL SportsAffinity leagues (WA included). Once the platform recovers:
+1. Verify OYSA org GUID: `GET /api/tournaments?organizationId=e458918e-4e02-4816-b41d-7d7a079fe51c`
+2. Discover season GUIDs for each OYSA league
+3. Update `sourceConfig.seasonGuid` and set `status: 'active'`
 
 ---
 
