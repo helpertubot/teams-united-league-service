@@ -15,6 +15,7 @@
  */
 
 const axios = require('axios');
+const { inferAgeGroup } = require('../lib/age-group-parser');
 
 const PLATFORM_ID = 'gamechanger';
 const API_BASE = 'https://api.team-manager.gc.com/public';
@@ -139,8 +140,8 @@ async function collectFromOrg(orgId, leagueConfig) {
       leagueId: leagueConfig.id,
       seasonId: leagueConfig.seasonId || `${seasonYear || new Date().getFullYear()}`,
       name: divisionName,
-      ageGroup: leagueConfig.sourceConfig.ageGroup || 'open',
-      gender: leagueConfig.sourceConfig.gender || 'mixed',
+      ageGroup: leagueConfig.sourceConfig.ageGroup || inferAgeGroup(divisionName).ageGroup,
+      gender: leagueConfig.sourceConfig.gender || inferAgeGroup(divisionName).gender,
       level: null,
       platformDivisionId: orgId,
       status: 'active',

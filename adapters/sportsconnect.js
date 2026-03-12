@@ -30,6 +30,7 @@
  */
 
 const { launchBrowser } = require('../browser');
+const { inferAgeGroup } = require('../lib/age-group-parser');
 
 const PLATFORM_ID = 'sportsconnect';
 
@@ -404,46 +405,15 @@ async function extractStandingsTable(page) {
  * "Majors - Little League Baseball Ages 10 to 12"
  * "AA - Player Pitch - Little League Baseball Ages 6 to 8"
  * "Minors - Little League Softball Ages 9 to 11"
+ *
+ * Delegates to the shared age-group-parser, with metadata overrides.
  */
 function parseDivisionInfo(divName, meta) {
-  let ageGroup = meta.ageGroup || 'mixed';
-  let gender = meta.gender || 'mixed';
-
-  if (!divName) return { ageGroup, gender };
-
-  const lower = divName.toLowerCase();
-
-  // Detect gender from name
-  if (lower.includes('softball') || lower.includes('girls')) {
-    gender = 'girls';
-  } else if (lower.includes('baseball') || lower.includes('boys')) {
-    gender = 'boys';
-  }
-
-  // Try to extract age range
-  const ageMatch = divName.match(/ages?\s+(\d+)\s*(?:to|-)\s*(\d+)/i);
-  if (ageMatch) {
-    ageGroup = `${ageMatch[1]}U-${ageMatch[2]}U`;
-  }
-
-  // Detect division level from common LL nomenclature
-  if (lower.includes('t-ball') || lower.includes('tee ball') || lower.includes('tball')) {
-    ageGroup = ageGroup === 'mixed' ? '4U-6U' : ageGroup;
-  } else if (lower.includes('coach pitch') || lower.includes('machine pitch')) {
-    ageGroup = ageGroup === 'mixed' ? '5U-8U' : ageGroup;
-  } else if (lower.includes('minor')) {
-    ageGroup = ageGroup === 'mixed' ? '7U-11U' : ageGroup;
-  } else if (lower.includes('major')) {
-    ageGroup = ageGroup === 'mixed' ? '9U-12U' : ageGroup;
-  } else if (lower.includes('intermediate') || lower.includes('50/70')) {
-    ageGroup = ageGroup === 'mixed' ? '11U-13U' : ageGroup;
-  } else if (lower.includes('junior')) {
-    ageGroup = ageGroup === 'mixed' ? '12U-14U' : ageGroup;
-  } else if (lower.includes('senior')) {
-    ageGroup = ageGroup === 'mixed' ? '13U-16U' : ageGroup;
-  }
-
-  return { ageGroup, gender };
+  const defaults = {
+    ageGroup: meta.ageGroup || 'unknown',
+    gender: meta.gender || 'unknown',
+  };
+  return inferAgeGroup(divName, defaults);
 }
 
 function slugify(text) {

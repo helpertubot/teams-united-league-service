@@ -18,6 +18,7 @@
 
 const axios = require('axios');
 const cheerio = require('cheerio');
+const { inferAgeGroup } = require('../lib/age-group-parser');
 
 const PLATFORM_ID = 'pointstreak';
 
@@ -109,8 +110,8 @@ async function collectStandings(leagueConfig) {
       leagueId: leagueConfig.id,
       seasonId: leagueConfig.seasonId || '2025-2026',
       name: divisionName,
-      ageGroup: divMeta.ageGroup || 'open',
-      gender: divMeta.gender || 'mixed',
+      ageGroup: divMeta.ageGroup || inferAgeGroup(divisionName).ageGroup,
+      gender: divMeta.gender || inferAgeGroup(divisionName).gender,
       level: divMeta.level || null,
       platformDivisionId: platformDivId,
       status: 'active',
@@ -261,8 +262,8 @@ async function collectByDivision(leagueConfig, divisionIds, meta) {
       leagueId: leagueConfig.id,
       seasonId: leagueConfig.seasonId || '2025-2026',
       name: divisionName,
-      ageGroup: divMeta.ageGroup || 'open',
-      gender: divMeta.gender || 'mixed',
+      ageGroup: divMeta.ageGroup || inferAgeGroup(divisionName).ageGroup,
+      gender: divMeta.gender || inferAgeGroup(divisionName).gender,
       level: divMeta.level || null,
       platformDivisionId: divId,
       status: 'active',
