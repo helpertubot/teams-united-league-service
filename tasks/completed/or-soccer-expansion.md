@@ -59,22 +59,24 @@ https://sctour.sportsaffinity.com/api/standings?organizationId={GUID}&tournament
 
 - **WA reference**: WA's organizationId is `7379E8F5-2B0D-4729-BDF9-967A08999A37` (shared across RCL-WA and SSUL-WA). Each season gets a different `seasonGuid`/`tournamentId`.
 
-### OYSA organizationId — FOUND
+### CORRECTION: OYSA uses legacy ASP system, NOT SCTour JSON API
 
-**OYSA organizationId: `e458918e-4e02-4816-b41d-7d7a079fe51c`**
+Initial assumption was wrong — OYSA does NOT use the same `sctour.sportsaffinity.com` JSON API as WA. OYSA runs on the **legacy SportsAffinity ASP system** at `oysa.sportsaffinity.com` with completely different URL patterns.
 
-Discovered by Claude Code via Google's index of `sctour.sportsaffinity.com` — the URL pattern `/schedules/{orgId}/{seasonGuid}` revealed the GUID in indexed schedule pages matching "OYSA OR oregon".
+- The SCTour org GUID `e458918e-4e02-4816-b41d-7d7a079fe51c` was incorrect
+- `77BF583F-4685-429C-8775-D23B3DBBFDC9` was Iowa State League (ISL), not Oregon
+- **PMSL organizationId: `6857D9A0-8945-44E1-84E8-F3DECC87D56C`** (Portland Metro Soccer League — separate org)
 
-Note: `77BF583F-4685-429C-8775-D23B3DBBFDC9` was a false positive — that's Iowa State League (ISL), not Oregon.
+### What Claude Code built
 
-**PMSL organizationId: `6857D9A0-8945-44E1-84E8-F3DECC87D56C`** (Portland Metro Soccer League — separate org from OYSA)
+1. **`scripts/or-soccer-expansion.js`** — Fixed: uses 5 verified tournament GUIDs from OYSA's live tournament list page. Changed `sourcePlatform` to `sportsaffinity-asp` for all OYSA leagues.
+2. **`adapters/sportsaffinity-asp.js`** — NEW Puppeteer-based adapter for the legacy ASP system. Auto-discovers flight GUIDs from `accepted_list.asp` pages, then scrapes standings from `schedule_standings.asp` pages.
+3. **`registry.js`** — Updated: registered the new adapter (now 9 total platforms).
 
-### BLOCKER: SportsAffinity API is down
-
-`sctour.sportsaffinity.com` returns Azure 404 for all endpoints — both the old `/api/standings` REST endpoint and the newer Blazor `/standings/` pages. This affects ALL SportsAffinity leagues (WA included). Once the platform recovers:
-1. Verify OYSA org GUID: `GET /api/tournaments?organizationId=e458918e-4e02-4816-b41d-7d7a079fe51c`
-2. Discover season GUIDs for each OYSA league
-3. Update `sourceConfig.seasonGuid` and set `status: 'active'`
+### Platform status
+- **SCTour JSON API** (`sctour.sportsaffinity.com`): Still returning Azure 404 — affects WA RCL + SSUL
+- **Legacy ASP system** (`oysa.sportsaffinity.com`): Serving pages (JS-rendered) — OYSA adapter can work
+- `status.affinity.co` is Affinity CRM, a completely different company. SportsAffinity (Stack Sports) has no public status page.
 
 ---
 
