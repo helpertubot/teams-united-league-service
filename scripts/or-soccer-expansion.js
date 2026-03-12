@@ -2,22 +2,30 @@
  * Register OR Soccer Leagues — Oregon Expansion
  *
  * Registers discovered Oregon youth soccer leagues into Firestore.
- * Covers OYSA competitive leagues (SportsAffinity), PMSL, and ECNL/TGS
- * conferences that include Oregon teams.
+ * Covers OYSA competitive leagues, PMSL, and US Youth Soccer NW Conference.
  *
- * OYSA SportsAffinity organizationId discovery:
- *   Found via indexed sctour.sportsaffinity.com URLs that matched "OYSA OR oregon":
- *   - /schedules/e458918e-4e02-4816-b41d-7d7a079fe51c/8bb24159-... (league schedules)
- *   URL path structure is /schedules/{orgId}/{seasonGuid}, confirmed by comparison
- *   with known Iowa org (77BF583F) and WA org (7379E8F5) URL patterns.
+ * IMPORTANT: OYSA uses the OLD SportsAffinity ASP system at oysa.sportsaffinity.com,
+ * NOT the SCTour JSON API used by WA (WYS). The old ASP system has completely
+ * different URL patterns and requires browser automation:
  *
- * IMPORTANT: The sctour.sportsaffinity.com API is currently returning Azure 404
- * for ALL endpoints (as of March 2026). The old /api/standings endpoint and the
- * newer Blazor /standings/ pages are both down. Leagues are registered as
- * pending_config until the API recovers or a migration is identified.
+ *   Tournament list: oysa.sportsaffinity.com/tour/public/info/tournamentlist.asp?section=gaming
+ *   Accepted teams:  oysa.sportsaffinity.com/tour/public/info/accepted_list.asp?tournamentguid={GUID}
+ *   Standings:        oysa.sportsaffinity.com/tour/public/info/schedule_standings.asp?tournamentguid={GUID}&flightguid={GUID}
  *
- * PMSL (Portland Metro Soccer League) uses a separate SportsAffinity org:
- *   6857D9A0-8945-44E1-84E8-F3DECC87D56C (from indexed standings URL on sctour)
+ * The accepted_list and standings pages are JavaScript SPAs that require Puppeteer
+ * to render. Flight GUIDs (divisions within a tournament) are discovered dynamically
+ * from the accepted_list page.
+ *
+ * Tournament GUIDs discovered from the tournament list page (March 2026):
+ *   2A349A09-F127-445D-9252-62C4D1029140 — 2026 OYSA Spring League
+ *   D07BB454-E1CA-42C9-837D-DADFAADD9FCF — 2026 OYSA Spring League - South
+ *   72AD07B7-EE2C-43F5-9108-EDEB82F6B58A — 2026 OYSA Winter League
+ *   B7972C4B-4CA9-4F0F-91A2-6859C6AA36A2 — 2026 OYSA Spring Development League
+ *   5CDA2778-13D0-4E1D-BDC1-6EE6F3161633 — 2026 Spring Valley Academy League
+ *
+ * PMSL (Portland Metro Soccer League) — separate org, also old ASP system.
+ * PMSL org GUID 6857D9A0 was found on indexed sctour.sportsaffinity.com pages,
+ * but PMSL may also use the old ASP system. Needs verification.
  *
  * Run on deploy VM:
  *   node scripts/or-soccer-expansion.js [--dry-run]
@@ -26,126 +34,121 @@
 const { Firestore } = require('@google-cloud/firestore');
 const db = new Firestore();
 
-// ═══════════════════════════════════════════════════════════════
-// OYSA Competitive Leagues (SportsAffinity)
-// ═══════════════════════════════════════════════════════════════
-//
-// OYSA 2025-26 league structure (3 conferences):
-//   - Fall U11-U15 Competitive (Sep–Jan)
-//   - Winter U15-U19 Competitive (Nov–Feb)
-//   - Spring U11-U14 Competitive (Mar–Jun)
-//   - Valley Academy League U9-U10 (Developmental)
-//   - Development League U8 (Developmental)
-//
-// organizationId: e458918e-4e02-4816-b41d-7d7a079fe51c
-// Verified from: sctour.sportsaffinity.com/schedules/{orgId}/{seasonGuid}
-//
-// Season GUIDs found/indexed:
-//   8bb24159-807d-4e6b-964a-cea1c7861cf7 — one season (likely Fall 2025)
-//
-// NOTE: Additional season GUIDs need discovery once the SportsAffinity API
-// recovers. Use the tournaments endpoint:
-//   GET sctour.sportsaffinity.com/api/tournaments?organizationId={orgId}
-
-const OYSA_ORG_ID = 'e458918e-4e02-4816-b41d-7d7a079fe51c';
-const PMSL_ORG_ID = '6857D9A0-8945-44E1-84E8-F3DECC87D56C';
-
 const LEAGUES = [
-  // ── OYSA Fall Competitive (U11-U15) ──
-  {
-    id: 'oysa-fall-competitive',
-    name: 'OYSA Fall Competitive League (U11-U15)',
-    state: 'OR',
-    sport: 'soccer',
-    region: 'Statewide',
-    sourcePlatform: 'sportsaffinity',
-    status: 'pending_config',
-    autoUpdate: false,
-    sourceConfig: {
-      organizationId: OYSA_ORG_ID,
-      seasonGuid: '8bb24159-807d-4e6b-964a-cea1c7861cf7', // needs verification — may be this season
-    },
-    seasonStart: '2025-09-06',
-    seasonEnd: '2026-01-31',
-    notes: 'OYSA Fall competitive, U11-U15. 3 conferences (local/statewide/platform). SportsAffinity API currently offline (Azure 404 as of Mar 2026). seasonGuid needs verification once API recovers. organizationId discovered from indexed sctour.sportsaffinity.com schedule URLs.',
-  },
-
-  // ── OYSA Winter Competitive (U15-U19) ──
-  {
-    id: 'oysa-winter-competitive',
-    name: 'OYSA Winter Competitive League (U15-U19)',
-    state: 'OR',
-    sport: 'soccer',
-    region: 'Statewide',
-    sourcePlatform: 'sportsaffinity',
-    status: 'pending_config',
-    autoUpdate: false,
-    sourceConfig: {
-      organizationId: OYSA_ORG_ID,
-      // seasonGuid TBD — needs discovery via API when it recovers
-    },
-    seasonStart: '2025-11-01',
-    seasonEnd: '2026-02-28',
-    notes: 'OYSA Winter competitive, U15-U19. seasonGuid needs discovery once SportsAffinity API recovers. Use GET /api/tournaments?organizationId={orgId} to find.',
-  },
-
-  // ── OYSA Spring Competitive (U11-U14) ──
+  // ── OYSA Spring League (U11-U14 Competitive) ──
   {
     id: 'oysa-spring-competitive',
     name: 'OYSA Spring Competitive League (U11-U14)',
     state: 'OR',
     sport: 'soccer',
     region: 'Statewide',
-    sourcePlatform: 'sportsaffinity',
+    sourcePlatform: 'sportsaffinity-asp',
     status: 'pending_config',
     autoUpdate: false,
     sourceConfig: {
-      organizationId: OYSA_ORG_ID,
-      // seasonGuid TBD — needs discovery via API when it recovers
+      baseUrl: 'https://oysa.sportsaffinity.com',
+      tournamentGuid: '2A349A09-F127-445D-9252-62C4D1029140',
+      // flightGuids: [] — needs discovery via browser on accepted_list page
     },
     seasonStart: '2026-03-07',
     seasonEnd: '2026-06-15',
-    notes: 'OYSA Spring competitive, U11-U14. seasonGuid needs discovery once SportsAffinity API recovers.',
+    notes: 'OYSA Spring competitive, U11-U14. Uses OLD SportsAffinity ASP system (not SCTour JSON API). Tournament GUID verified from oysa.sportsaffinity.com tournament list. Flight GUIDs (divisions) need browser-based discovery from accepted_list page.',
   },
 
-  // ── OYSA Valley Academy League (U9-U10) — Developmental ──
+  // ── OYSA Spring League South ──
   {
-    id: 'oysa-valley-academy',
-    name: 'OYSA Valley Academy League (U9-U10)',
+    id: 'oysa-spring-south',
+    name: 'OYSA Spring League - South',
     state: 'OR',
     sport: 'soccer',
-    region: 'Willamette Valley',
-    sourcePlatform: 'sportsaffinity',
+    region: 'Southern Oregon',
+    sourcePlatform: 'sportsaffinity-asp',
     status: 'pending_config',
     autoUpdate: false,
     sourceConfig: {
-      organizationId: OYSA_ORG_ID,
-      // seasonGuid TBD
+      baseUrl: 'https://oysa.sportsaffinity.com',
+      tournamentGuid: 'D07BB454-E1CA-42C9-837D-DADFAADD9FCF',
     },
-    notes: 'OYSA Valley Academy developmental league, U9-U10. seasonGuid needs discovery.',
+    seasonStart: '2026-03-07',
+    seasonEnd: '2026-06-15',
+    notes: 'OYSA Spring League South region. Separate tournament from main Spring League. Tournament GUID from oysa.sportsaffinity.com.',
+  },
+
+  // ── OYSA Winter League (U15-U19 Competitive) ──
+  {
+    id: 'oysa-winter-competitive',
+    name: 'OYSA Winter Competitive League (U15-U19)',
+    state: 'OR',
+    sport: 'soccer',
+    region: 'Statewide',
+    sourcePlatform: 'sportsaffinity-asp',
+    status: 'pending_config',
+    autoUpdate: false,
+    sourceConfig: {
+      baseUrl: 'https://oysa.sportsaffinity.com',
+      tournamentGuid: '72AD07B7-EE2C-43F5-9108-EDEB82F6B58A',
+    },
+    seasonStart: '2025-11-01',
+    seasonEnd: '2026-02-28',
+    notes: 'OYSA Winter competitive, U15-U19. Tournament GUID from oysa.sportsaffinity.com. Flight GUIDs need browser discovery.',
+  },
+
+  // ── OYSA Spring Development League (U8) ──
+  {
+    id: 'oysa-dev-league',
+    name: 'OYSA Spring Development League (U8)',
+    state: 'OR',
+    sport: 'soccer',
+    region: 'Statewide',
+    sourcePlatform: 'sportsaffinity-asp',
+    status: 'pending_config',
+    autoUpdate: false,
+    sourceConfig: {
+      baseUrl: 'https://oysa.sportsaffinity.com',
+      tournamentGuid: 'B7972C4B-4CA9-4F0F-91A2-6859C6AA36A2',
+    },
+    notes: 'OYSA developmental league, U8. Tournament GUID from oysa.sportsaffinity.com.',
+  },
+
+  // ── OYSA Valley Academy League (U9-U10) ──
+  {
+    id: 'oysa-valley-academy',
+    name: 'OYSA Spring Valley Academy League (U9-U10)',
+    state: 'OR',
+    sport: 'soccer',
+    region: 'Willamette Valley',
+    sourcePlatform: 'sportsaffinity-asp',
+    status: 'pending_config',
+    autoUpdate: false,
+    sourceConfig: {
+      baseUrl: 'https://oysa.sportsaffinity.com',
+      tournamentGuid: '5CDA2778-13D0-4E1D-BDC1-6EE6F3161633',
+    },
+    notes: 'OYSA Valley Academy developmental league, U9-U10. Tournament GUID from oysa.sportsaffinity.com.',
   },
 
   // ── PMSL (Portland Metro Soccer League) ──
+  // PMSL org was found on indexed sctour pages but may use old ASP system too.
+  // Registering as pending until platform is confirmed.
   {
     id: 'pmsl-or',
     name: 'Portland Metro Soccer League (PMSL)',
     state: 'OR',
     sport: 'soccer',
     region: 'Portland Metro',
-    sourcePlatform: 'sportsaffinity',
+    sourcePlatform: 'sportsaffinity', // may be sportsaffinity-asp — needs verification
     status: 'pending_config',
     autoUpdate: false,
     sourceConfig: {
-      organizationId: PMSL_ORG_ID,
-      seasonGuid: '72FE5B3C-57AA-44DC-AE48-95DA4D0536E4', // from indexed standings URL: 24/25 PMSL (Fall)
+      organizationId: '6857D9A0-8945-44E1-84E8-F3DECC87D56C',
+      seasonGuid: '72FE5B3C-57AA-44DC-AE48-95DA4D0536E4', // from indexed sctour standings URL
     },
     seasonStart: '2025-09-01',
     seasonEnd: '2026-06-30',
-    notes: 'Portland Metro Soccer League. Separate SportsAffinity org from OYSA. Indexed standings page showed flights: 13UB-15UG PL. API currently offline. seasonGuid from indexed 24/25 PMSL (Fall) standings URL.',
+    notes: 'Portland Metro Soccer League. Org GUID from indexed sctour.sportsaffinity.com standings URL. SCTour API currently offline (Azure 404). May use old ASP system instead — needs verification when API recovers.',
   },
 
   // ── US Youth Soccer Northwest Conference (GotSport) ──
-  // Multi-state league including OR, WA, ID, WY, MT, AK, HI teams
   {
     id: 'usys-nw-conference',
     name: 'US Youth Soccer Northwest Conference',
@@ -159,7 +162,7 @@ const LEAGUES = [
       leagueEventId: '24590', // 2023-2024 event, needs current season ID
       groups: [],
     },
-    notes: 'Multi-state conference: OR, WA, ID, WY, MT, AK, HI. GotSport event 24590 is 2023-2024. Need to find current 2025-2026 event ID and group IDs. U13-U19 boys and girls.',
+    notes: 'Multi-state conference: OR, WA, ID, WY, MT, AK, HI. GotSport event 24590 is 2023-2024. Need current 2025-2026 event ID and group IDs. U13-U19 boys and girls.',
   },
 ];
 
@@ -222,20 +225,22 @@ async function main() {
   }
 
   // Status breakdown
-  const pending = LEAGUES.filter(l => l.status === 'pending_config');
-  const active = LEAGUES.filter(l => l.status === 'active');
+  const byPlatform = {};
+  for (const l of LEAGUES) {
+    byPlatform[l.sourcePlatform] = (byPlatform[l.sourcePlatform] || 0) + 1;
+  }
 
-  console.log(`\n--- Status Breakdown ---`);
-  console.log(`Active (ready to collect): ${active.length}`);
-  console.log(`Pending config: ${pending.length}`);
-  pending.forEach(l => console.log(`  - ${l.id}: ${l.name}`));
+  console.log('\n--- Platform Breakdown ---');
+  for (const [platform, count] of Object.entries(byPlatform)) {
+    console.log(`  ${platform}: ${count} leagues`);
+  }
 
   console.log('\n--- Next Steps ---');
-  console.log('1. Monitor sctour.sportsaffinity.com for API recovery');
-  console.log('2. Once API is back, verify OYSA organizationId: ' + OYSA_ORG_ID);
-  console.log('3. Discover season GUIDs via GET /api/tournaments?organizationId=' + OYSA_ORG_ID);
-  console.log('4. Update sourceConfig.seasonGuid for each league');
-  console.log('5. Set status to active and autoUpdate to true');
+  console.log('1. Build sportsaffinity-asp adapter (Puppeteer-based) for OYSA old ASP pages');
+  console.log('2. Discover flight GUIDs from accepted_list pages for each tournament');
+  console.log('3. Verify PMSL platform (sctour JSON API vs old ASP)');
+  console.log('4. Find current USYS NW Conference GotSport event ID');
+  console.log('5. Once adapter is ready, update status to active and autoUpdate to true');
 
   // Log the run
   if (!dryRun) {
