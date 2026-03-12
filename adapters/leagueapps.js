@@ -20,6 +20,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { launchBrowser, resilientGoto } = require('../browser');
+const { inferAgeGroup } = require('../lib/age-group-parser');
 
 const PLATFORM_ID = 'leagueapps';
 
@@ -176,8 +177,8 @@ async function collectStandings(leagueConfig) {
         leagueId: leagueConfig.id,
         seasonId: leagueConfig.seasonId || '2025-2026',
         name: divName,
-        ageGroup: program.ageGroup || 'open',
-        gender: program.gender || 'mixed',
+        ageGroup: program.ageGroup || inferAgeGroup(divName).ageGroup,
+        gender: program.gender || inferAgeGroup(divName).gender,
         level: program.level || null,
         platformDivisionId: program.path,
         status: 'active',

@@ -19,9 +19,11 @@
  * - gamechanger: Browser automation (youth baseball/softball — #1 scoring app)
  * - leagueapps: HTML parser (baseball, soccer, basketball, lacrosse — thousands of orgs)
  * - sportsconnect: Browser automation (Little League, PONY — SportsConnect/Blue Sombrero ASP.NET sites)
+ * - sportsaffinity-asp: Browser automation (OYSA — legacy SportsAffinity ASP system)
  */
 
 const sportsaffinity = require('./adapters/sportsaffinity');
+const sportsaffinityAsp = require('./adapters/sportsaffinity-asp');
 const gotsport = require('./adapters/gotsport');
 const pointstreak = require('./adapters/pointstreak');
 const demosphere = require('./adapters/demosphere');
@@ -39,6 +41,7 @@ const adapters = {
   [gamechanger.PLATFORM_ID]: gamechanger,
   [leagueapps.PLATFORM_ID]: leagueapps,
   [sportsconnect.PLATFORM_ID]: sportsconnect,
+  [sportsaffinityAsp.PLATFORM_ID]: sportsaffinityAsp,
 };
 
 /**
