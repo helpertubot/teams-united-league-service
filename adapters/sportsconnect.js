@@ -244,8 +244,12 @@ async function fetchPage(url) {
  * The __EVENTTARGET is the control ID (with $ separators, not _ separators)
  * that triggered the postback, and __EVENTARGUMENT is usually empty.
  *
+ * SportsConnect uses DNN (DotNetNuke) which stores form state in _VSTATE
+ * instead of __VIEWSTATE, and requires all hidden fields + current dropdown
+ * values to be posted back.
+ *
  * @param {string} url - The page URL
- * @param {Object} formState - Extracted form state (__VIEWSTATE etc.)
+ * @param {Object} formState - Extracted form state (all hidden fields + dropdown values)
  * @param {string} dropdownId - The dropdown HTML ID (underscore-separated)
  * @param {string} value - The selected value
  * @returns {string} Response HTML
@@ -255,17 +259,23 @@ async function postback(url, formState, dropdownId, value) {
   const eventTarget = dropdownId.replace(/_/g, '$');
 
   const formData = new URLSearchParams();
-  formData.append('__EVENTTARGET', eventTarget);
-  formData.append('__EVENTARGUMENT', '');
-  formData.append('__VIEWSTATE', formState.__VIEWSTATE || '');
-  formData.append('__VIEWSTATEGENERATOR', formState.__VIEWSTATEGENERATOR || '');
-  formData.append('__EVENTVALIDATION', formState.__EVENTVALIDATION || '');
-  if (formState.__VIEWSTATEENCRYPTED !== undefined) {
-    formData.append('__VIEWSTATEENCRYPTED', formState.__VIEWSTATEENCRYPTED || '');
+
+  // Include all hidden fields from the form
+  for (const [key, val] of Object.entries(formState.hiddenFields || {})) {
+    formData.append(key, val);
   }
 
-  // Include the dropdown's own value in the form data
-  formData.append(eventTarget, value);
+  // Override the event target/argument
+  formData.set('__EVENTTARGET', eventTarget);
+  formData.set('__EVENTARGUMENT', '');
+
+  // Include all dropdown current values
+  for (const [key, val] of Object.entries(formState.dropdownValues || {})) {
+    formData.set(key, val);
+  }
+
+  // Set the changed dropdown to the new value
+  formData.set(eventTarget, value);
 
   const resp = await axios.post(url, formData.toString(), {
     timeout: 60000,
@@ -280,21 +290,35 @@ async function postback(url, formState, dropdownId, value) {
 }
 
 /**
- * Extract ASP.NET form state fields from HTML
+ * Extract all form state from HTML — hidden fields and dropdown values.
+ * SportsConnect/DNN uses _VSTATE instead of __VIEWSTATE.
  */
 function extractFormState(html) {
-  const state = {};
-  const fields = ['__VIEWSTATE', '__VIEWSTATEGENERATOR', '__EVENTVALIDATION', '__VIEWSTATEENCRYPTED'];
+  const $ = cheerio.load(html);
+  const hiddenFields = {};
+  const dropdownValues = {};
 
-  for (const field of fields) {
-    const regex = new RegExp(`<input[^>]*name="${field}"[^>]*value="([^"]*)"`, 'i');
-    const match = html.match(regex);
-    if (match) {
-      state[field] = match[1];
+  // Collect all hidden inputs
+  $('input[type="hidden"]').each(function () {
+    const name = $(this).attr('name');
+    const val = $(this).attr('value') || '';
+    if (name) {
+      hiddenFields[name] = val;
     }
-  }
+  });
 
-  return state;
+  // Collect current dropdown values (selected options)
+  $('select').each(function () {
+    const name = $(this).attr('name');
+    if (name) {
+      const selected = $(this).find('option:selected').attr('value');
+      if (selected !== undefined) {
+        dropdownValues[name] = selected;
+      }
+    }
+  });
+
+  return { hiddenFields, dropdownValues };
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -466,8 +490,8 @@ function groupByDivisionPrefix(rows) {
   // Known LL/youth division prefixes
   const KNOWN_PREFIXES = new Set([
     'A', 'AA', 'AAA', 'AAAA',
-    'T-BALL', 'TBALL', 'TEE BALL',
-    'MAJORS', 'MINORS',
+    'T-BALL', 'TBALL', 'TEE BALL', 'TEE-BALL',
+    'MAJORS', 'MINORS', 'COAST',
     'COACH PITCH', 'PLAYER PITCH', 'MACHINE PITCH',
     'FARM', 'ROOKIE', 'JUNIOR', 'SENIOR', 'BIG LEAGUE',
     'INTERMEDIATE',
