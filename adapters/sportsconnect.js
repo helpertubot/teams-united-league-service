@@ -1,24 +1,29 @@
 /**
  * SportsConnect / Blue Sombrero Adapter
- * 
- * Browser automation adapter for SportsConnect (Blue Sombrero / Stack Sports) standings.
+ *
+ * Pure HTTP adapter for SportsConnect (Blue Sombrero / Stack Sports) standings.
  * Used by: Little League International, PONY Baseball, many youth rec leagues
- * 
+ *
  * SportsConnect is the official website platform for Little League — most of the
  * 15,000+ Little League programs worldwide use it. Owned by DICK'S Sporting Goods
  * (same parent as GameChanger).
- * 
+ *
  * URL Pattern: https://{domain}/Default.aspx?tabid={STANDINGS_TAB_ID}
  *   - Custom domains: svll.net, kirklandnationalll.com, etc.
  *   - Blue Sombrero hosted: tshq.bluesombrero.com/Default.aspx?tabid={id}
  *   - clubs.bluesombrero.com/Default.aspx?tabid={id}
- * 
- * IMPORTANT: This is an ASP.NET WebForms app. Standings data loads via postback
- * after cascading dropdown selections: Program → Division → Schedule → Table.
- * There is NO JSON API — must render with Puppeteer.
- * 
+ *
+ * This adapter replays ASP.NET WebForms postbacks via HTTP POST instead of using
+ * Puppeteer. Each dropdown selection (Program → Division → Schedule) is a postback
+ * that returns a full page with updated form state (__VIEWSTATE, __EVENTVALIDATION).
+ *
+ * The standings table is a Telerik RadGrid with CSS classes:
+ *   - rgMasterTable: the main table
+ *   - rgRow / rgAltRow: data rows
+ *   - rgHeader: header row
+ *
  * Columns: Sort Order, Team, GP, W, L, T, GR, BYES, PCT, STRK, GB, RS, RA, RPG, APG, DIFF
- * 
+ *
  * sourceConfig schema:
  * {
  *   baseUrl: 'https://www.svll.net',           // League website root
@@ -29,7 +34,8 @@
  * }
  */
 
-const { launchBrowser } = require('../browser');
+const axios = require('axios');
+const cheerio = require('cheerio');
 const { inferAgeGroup } = require('../lib/age-group-parser');
 
 const PLATFORM_ID = 'sportsconnect';
@@ -50,34 +56,27 @@ async function collectStandings(leagueConfig) {
   const standings = [];
   const now = new Date().toISOString();
 
-  let browser;
   try {
-    browser = await launchBrowser();
+    // Step 1: GET the initial page to get form state and dropdowns
+    console.log(`SportsConnect: Fetching ${standingsUrl}`);
+    let html = await fetchPage(standingsUrl);
+    let formState = extractFormState(html);
+    let $ = cheerio.load(html);
 
-    const page = await browser.newPage();
-    await page.setViewport({ width: 1280, height: 900 });
-    await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 TeamsUnited-Standings/1.0');
-
-    console.log(`SportsConnect: Navigating to ${standingsUrl}`);
-    await page.goto(standingsUrl, { waitUntil: 'networkidle2', timeout: 60000 });
-
-    // Wait for the page to fully render
-    await sleep(2000);
-
-    // Find the Program dropdown — its ID contains 'dropDownSeasons'
-    const programDropdown = await findDropdown(page, 'dropDownSeasons');
-    if (!programDropdown) {
+    // Find the dropdown IDs (they contain partial names like 'dropDownSeasons')
+    const programDropdownId = findDropdownId($, 'dropDownSeasons');
+    if (!programDropdownId) {
       console.warn('SportsConnect: Program dropdown not found');
       return { divisions, standings };
     }
 
-    // Get available programs
-    const availablePrograms = await getDropdownOptions(page, programDropdown);
+    // Get available programs from dropdown
+    const availablePrograms = getDropdownOptions($, programDropdownId);
     console.log(`SportsConnect: Found ${availablePrograms.length} programs: ${availablePrograms.map(p => p.text).join(', ')}`);
 
     // Filter to specified programs or use all non-default ones
     let targetPrograms = availablePrograms.filter(p => p.value && p.value !== '0' && p.text !== 'Program');
-    
+
     if (programs && programs.length > 0) {
       const targetIds = new Set(programs.map(p => p.programId));
       targetPrograms = targetPrograms.filter(p => targetIds.has(p.value));
@@ -92,19 +91,20 @@ async function collectStandings(leagueConfig) {
     for (const program of targetPrograms) {
       console.log(`SportsConnect: Selecting program "${program.text}" (${program.value})`);
 
-      // Select the program — triggers ASP.NET postback
-      await selectDropdownValue(page, programDropdown, program.value);
-      await waitForPostback(page);
+      // POST to select program — triggers ASP.NET postback
+      html = await postback(standingsUrl, formState, programDropdownId, program.value);
+      formState = extractFormState(html);
+      $ = cheerio.load(html);
 
       // Find Division dropdown
-      const divisionDropdown = await findDropdown(page, 'dropDownDivisions');
-      if (!divisionDropdown) {
+      const divisionDropdownId = findDropdownId($, 'dropDownDivisions');
+      if (!divisionDropdownId) {
         console.warn(`SportsConnect: Division dropdown not found for program "${program.text}"`);
         continue;
       }
 
       // Get available divisions
-      const availableDivisions = await getDropdownOptions(page, divisionDropdown);
+      const availableDivisions = getDropdownOptions($, divisionDropdownId);
       const targetDivisions = availableDivisions.filter(d => d.value && d.value !== '0' && d.text !== 'Division');
       console.log(`SportsConnect: Found ${targetDivisions.length} divisions for "${program.text}"`);
 
@@ -112,26 +112,27 @@ async function collectStandings(leagueConfig) {
       for (const div of targetDivisions) {
         console.log(`SportsConnect:   Division "${div.text}" (${div.value})`);
 
-        // Select division — triggers another postback
-        await selectDropdownValue(page, divisionDropdown, div.value);
-        await waitForPostback(page);
+        // POST to select division
+        html = await postback(standingsUrl, formState, divisionDropdownId, div.value);
+        formState = extractFormState(html);
+        $ = cheerio.load(html);
 
-        // Find Schedule dropdown and get first schedule
-        const scheduleDropdown = await findDropdown(page, 'dropDownEvents');
-        if (scheduleDropdown) {
-          const scheduleOptions = await getDropdownOptions(page, scheduleDropdown);
+        // Find Schedule dropdown and select first schedule if present
+        const scheduleDropdownId = findDropdownId($, 'dropDownEvents');
+        if (scheduleDropdownId) {
+          const scheduleOptions = getDropdownOptions($, scheduleDropdownId);
           const validSchedules = scheduleOptions.filter(s => s.value && s.value !== '0' && s.text !== 'Schedule');
-          
+
           if (validSchedules.length > 0) {
-            // Select first valid schedule
-            await selectDropdownValue(page, scheduleDropdown, validSchedules[0].value);
-            await waitForPostback(page);
+            html = await postback(standingsUrl, formState, scheduleDropdownId, validSchedules[0].value);
+            formState = extractFormState(html);
+            $ = cheerio.load(html);
           }
         }
 
-        // Now extract the standings table
-        const tableData = await extractStandingsTable(page);
-        
+        // Parse standings from the response HTML
+        const tableData = parseStandingsTable(html);
+
         if (tableData.rows.length === 0) {
           console.log(`SportsConnect:     No standings data for this division`);
           continue;
@@ -139,7 +140,7 @@ async function collectStandings(leagueConfig) {
 
         // Look up program metadata if provided
         const programMeta = (programs || []).find(p => p.programId === program.value) || {};
-        
+
         // Parse ageGroup and gender from division name
         const { ageGroup, gender } = parseDivisionInfo(div.text, programMeta);
 
@@ -190,214 +191,254 @@ async function collectStandings(leagueConfig) {
         console.log(`SportsConnect:     Collected ${tableData.rows.length} teams`);
 
         // Small delay between divisions to be respectful
-        await sleep(1000);
+        await sleep(500);
       }
 
       // Delay between programs
-      await sleep(500);
+      await sleep(300);
     }
 
   } catch (err) {
-    console.error(`SportsConnect: Browser automation failed: ${err.message}`);
-  } finally {
-    if (browser) await browser.close();
+    console.error(`SportsConnect: Collection failed: ${err.message}`);
   }
 
   return { divisions, standings };
 }
 
 // ═══════════════════════════════════════════════════════════════
-// HELPER FUNCTIONS
+// HTTP HELPERS
 // ═══════════════════════════════════════════════════════════════
 
 /**
- * Find a dropdown on the page by partial ID match
+ * Fetch a page via GET
+ */
+async function fetchPage(url) {
+  const resp = await axios.get(url, {
+    timeout: 30000,
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 TeamsUnited-Standings/1.0',
+      'Accept': 'text/html,application/xhtml+xml',
+    },
+    maxRedirects: 5,
+  });
+  return resp.data;
+}
+
+/**
+ * Execute an ASP.NET postback via HTTP POST
+ *
+ * ASP.NET WebForms postbacks send the entire form state back to the server.
+ * The __EVENTTARGET is the control ID (with $ separators, not _ separators)
+ * that triggered the postback, and __EVENTARGUMENT is usually empty.
+ *
+ * @param {string} url - The page URL
+ * @param {Object} formState - Extracted form state (__VIEWSTATE etc.)
+ * @param {string} dropdownId - The dropdown HTML ID (underscore-separated)
+ * @param {string} value - The selected value
+ * @returns {string} Response HTML
+ */
+async function postback(url, formState, dropdownId, value) {
+  // ASP.NET __EVENTTARGET uses $ separators, not underscores
+  const eventTarget = dropdownId.replace(/_/g, '$');
+
+  const formData = new URLSearchParams();
+  formData.append('__EVENTTARGET', eventTarget);
+  formData.append('__EVENTARGUMENT', '');
+  formData.append('__VIEWSTATE', formState.__VIEWSTATE || '');
+  formData.append('__VIEWSTATEGENERATOR', formState.__VIEWSTATEGENERATOR || '');
+  formData.append('__EVENTVALIDATION', formState.__EVENTVALIDATION || '');
+  if (formState.__VIEWSTATEENCRYPTED !== undefined) {
+    formData.append('__VIEWSTATEENCRYPTED', formState.__VIEWSTATEENCRYPTED || '');
+  }
+
+  // Include the dropdown's own value in the form data
+  formData.append(eventTarget, value);
+
+  const resp = await axios.post(url, formData.toString(), {
+    timeout: 60000,
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 TeamsUnited-Standings/1.0',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept': 'text/html,application/xhtml+xml',
+    },
+    maxRedirects: 5,
+  });
+  return resp.data;
+}
+
+/**
+ * Extract ASP.NET form state fields from HTML
+ */
+function extractFormState(html) {
+  const state = {};
+  const fields = ['__VIEWSTATE', '__VIEWSTATEGENERATOR', '__EVENTVALIDATION', '__VIEWSTATEENCRYPTED'];
+
+  for (const field of fields) {
+    const regex = new RegExp(`<input[^>]*name="${field}"[^>]*value="([^"]*)"`, 'i');
+    const match = html.match(regex);
+    if (match) {
+      state[field] = match[1];
+    }
+  }
+
+  return state;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// HTML PARSING HELPERS
+// ═══════════════════════════════════════════════════════════════
+
+/**
+ * Find a dropdown element ID by partial name match
  * SportsConnect dropdown IDs are like: dnn_ctr{NUM}_ViewStandings_dropDownSeasons
  */
-async function findDropdown(page, partialId) {
-  const selector = await page.evaluate((partial) => {
-    const selects = document.querySelectorAll('select');
-    for (const sel of selects) {
-      if (sel.id && sel.id.includes(partial)) {
-        return `#${sel.id}`;
-      }
+function findDropdownId($, partialId) {
+  let found = null;
+  $('select').each(function () {
+    const id = $(this).attr('id');
+    if (id && id.includes(partialId)) {
+      found = id;
+      return false; // break
     }
-    return null;
-  }, partialId);
-  return selector;
-}
-
-/**
- * Get all options from a dropdown
- */
-async function getDropdownOptions(page, selector) {
-  return page.evaluate((sel) => {
-    const dropdown = document.querySelector(sel);
-    if (!dropdown) return [];
-    return Array.from(dropdown.options).map(opt => ({
-      value: opt.value,
-      text: opt.text.trim(),
-    }));
-  }, selector);
-}
-
-/**
- * Select a value in a dropdown and trigger ASP.NET postback
- */
-async function selectDropdownValue(page, selector, value) {
-  await page.evaluate((sel, val) => {
-    const dropdown = document.querySelector(sel);
-    if (!dropdown) return;
-    
-    // Set the value
-    dropdown.value = val;
-    
-    // Trigger change event — ASP.NET WebForms listens for this
-    const event = new Event('change', { bubbles: true });
-    dropdown.dispatchEvent(event);
-    
-    // Also trigger the ASP.NET __doPostBack if needed
-    // The onchange handler is typically: __doPostBack('dnn$ctr...name', '')
-    if (dropdown.onchange) {
-      dropdown.onchange();
-    }
-  }, selector, value);
-}
-
-/**
- * Wait for ASP.NET postback to complete
- * Postbacks cause a full page reload — wait for navigation + idle
- */
-async function waitForPostback(page) {
-  try {
-    // Wait for navigation (ASP.NET postback causes full page reload)
-    await page.waitForNavigation({ 
-      waitUntil: 'networkidle2', 
-      timeout: 30000 
-    });
-  } catch (err) {
-    // Sometimes the postback is handled client-side with UpdatePanel
-    // In that case, just wait a bit for AJAX to complete
-    await sleep(3000);
-  }
-  // Extra wait for any JavaScript rendering
-  await sleep(1000);
-}
-
-/**
- * Extract the standings table data from the current page state
- */
-async function extractStandingsTable(page) {
-  return page.evaluate(() => {
-    const rows = [];
-    
-    // Find the standings table — look for tables preceded by an h4 "Standings"
-    // or tables containing typical standings headers
-    const tables = document.querySelectorAll('table');
-    let standingsTable = null;
-
-    for (const table of tables) {
-      // Check if this table has standings-like headers
-      const headerRow = table.querySelector('thead tr') || table.querySelector('tr:first-child');
-      if (!headerRow) continue;
-
-      const headerCells = headerRow.querySelectorAll('th, td');
-      const headerTexts = Array.from(headerCells).map(c => c.textContent.trim().toUpperCase());
-      
-      // Must have Team and W columns at minimum
-      const hasTeam = headerTexts.some(h => h === 'TEAM' || h === 'TEAMS');
-      const hasWins = headerTexts.some(h => h === 'W');
-      
-      if (hasTeam && hasWins) {
-        standingsTable = table;
-        break;
-      }
-    }
-
-    if (!standingsTable) {
-      // Fallback: look for table with standingTextbox inputs (SportsConnect specific)
-      for (const table of tables) {
-        if (table.querySelector('.standingTextbox, input[class*="standing"]')) {
-          standingsTable = table;
-          break;
-        }
-      }
-    }
-
-    if (!standingsTable) return { rows: [], headers: [] };
-
-    // Parse headers
-    const headerRow = standingsTable.querySelector('thead tr') || standingsTable.querySelector('tr:first-child');
-    const headers = [];
-    if (headerRow) {
-      headerRow.querySelectorAll('th, td').forEach(cell => {
-        headers.push(cell.textContent.trim().toUpperCase());
-      });
-    }
-
-    // Build column index map
-    const colMap = {};
-    headers.forEach((h, i) => {
-      const key = h.replace(/\s+/g, '');
-      if (key === 'TEAM' || key === 'TEAMS') colMap.team = i;
-      else if (key === 'GP') colMap.gp = i;
-      else if (key === 'W') colMap.w = i;
-      else if (key === 'L') colMap.l = i;
-      else if (key === 'T') colMap.t = i;
-      else if (key === 'GR') colMap.gr = i;
-      else if (key === 'BYES' || key === 'BYCS') colMap.byes = i;
-      else if (key === 'PCT') colMap.pct = i;
-      else if (key === 'STRK') colMap.strk = i;
-      else if (key === 'GB') colMap.gb = i;
-      else if (key === 'RS') colMap.rs = i;
-      else if (key === 'RA') colMap.ra = i;
-      else if (key === 'RPG') colMap.rpg = i;
-      else if (key === 'APG') colMap.apg = i;
-      else if (key === 'DIFF') colMap.diff = i;
-      else if (key === 'SORTORDER') colMap.sortOrder = i;
-    });
-
-    // Default team column to 1 (0 is usually Sort Order)
-    if (colMap.team === undefined) colMap.team = 1;
-
-    // Parse data rows — skip header row
-    const tbody = standingsTable.querySelector('tbody');
-    const dataRows = tbody 
-      ? tbody.querySelectorAll('tr')
-      : standingsTable.querySelectorAll('tr:not(:first-child)');
-
-    dataRows.forEach(row => {
-      const cells = row.querySelectorAll('td');
-      if (cells.length < 4) return; // Skip rows with too few cells
-
-      const getCellText = (idx) => {
-        if (idx === undefined || idx >= cells.length) return '';
-        return cells[idx].textContent.trim();
-      };
-
-      const teamName = getCellText(colMap.team);
-      if (!teamName || teamName === 'Team' || teamName === 'TEAM') return;
-
-      rows.push({
-        team: teamName,
-        gp: getCellText(colMap.gp),
-        w: getCellText(colMap.w),
-        l: getCellText(colMap.l),
-        t: getCellText(colMap.t),
-        gr: getCellText(colMap.gr),
-        pct: getCellText(colMap.pct),
-        strk: getCellText(colMap.strk),
-        gb: getCellText(colMap.gb),
-        rs: getCellText(colMap.rs),
-        ra: getCellText(colMap.ra),
-        rpg: getCellText(colMap.rpg),
-        apg: getCellText(colMap.apg),
-        diff: getCellText(colMap.diff),
-      });
-    });
-
-    return { rows, headers };
   });
+  return found;
+}
+
+/**
+ * Get all options from a dropdown by its ID
+ */
+function getDropdownOptions($, dropdownId) {
+  const options = [];
+  $(`#${dropdownId} option`).each(function () {
+    options.push({
+      value: $(this).attr('value') || '',
+      text: $(this).text().trim(),
+    });
+  });
+  return options;
+}
+
+/**
+ * Parse the standings table from HTML response
+ *
+ * SportsConnect uses Telerik RadGrid for standings tables.
+ * Data rows have CSS classes "rgRow" or "rgAltRow".
+ * Headers are in "rgHeader" rows inside <thead>.
+ * We match directly on these classes instead of relying on <tbody> tags,
+ * which RadGrid may not consistently emit.
+ */
+function parseStandingsTable(html) {
+  // Find the rgMasterTable
+  const tableStart = html.indexOf('rgMasterTable');
+  if (tableStart === -1) {
+    console.log('SportsConnect: No rgMasterTable found in response');
+    return { rows: [], headers: [] };
+  }
+
+  // Get everything from the table onwards
+  const afterTable = html.substring(tableStart);
+
+  // Extract headers from the rgHeader row
+  const headers = [];
+  const headerMatch = afterTable.match(/<tr[^>]*class="[^"]*rgHeader[^"]*"[^>]*>([\s\S]*?)<\/tr>/i);
+  if (headerMatch) {
+    const thRegex = /<th[^>]*>([\s\S]*?)<\/th>/gi;
+    let hMatch;
+    while ((hMatch = thRegex.exec(headerMatch[1])) !== null) {
+      // Strip HTML tags from header text
+      const text = hMatch[1].replace(/<[^>]+>/g, '').trim().toUpperCase();
+      headers.push(text);
+    }
+  }
+
+  // Build column index map
+  const colMap = {};
+  headers.forEach((h, i) => {
+    const key = h.replace(/\s+/g, '');
+    if (key === 'TEAM' || key === 'TEAMS') colMap.team = i;
+    else if (key === 'GP') colMap.gp = i;
+    else if (key === 'W') colMap.w = i;
+    else if (key === 'L') colMap.l = i;
+    else if (key === 'T') colMap.t = i;
+    else if (key === 'GR') colMap.gr = i;
+    else if (key === 'BYES' || key === 'BYCS') colMap.byes = i;
+    else if (key === 'PCT') colMap.pct = i;
+    else if (key === 'STRK') colMap.strk = i;
+    else if (key === 'GB') colMap.gb = i;
+    else if (key === 'RS') colMap.rs = i;
+    else if (key === 'RA') colMap.ra = i;
+    else if (key === 'RPG') colMap.rpg = i;
+    else if (key === 'APG') colMap.apg = i;
+    else if (key === 'DIFF') colMap.diff = i;
+    else if (key === 'SORTORDER') colMap.sortOrder = i;
+  });
+
+  // Default team column to 1 (0 is usually Sort Order)
+  if (colMap.team === undefined) colMap.team = 1;
+
+  console.log(`SportsConnect: Found ${headers.length} headers: ${headers.join(', ')}`);
+
+  // Extract data rows using rgRow/rgAltRow classes
+  // This is the key fix: we match directly on RadGrid data row classes
+  // instead of relying on <tbody> which may not exist or may be nested
+  const rows = [];
+  const trRegex = /<tr[^>]*class="[^"]*rg(?:Row|AltRow)[^"]*"[^>]*>([\s\S]*?)<\/tr>/gi;
+  let rMatch;
+  while ((rMatch = trRegex.exec(afterTable)) !== null) {
+    const cells = [];
+    const tdRegex = /<td[^>]*>([\s\S]*?)<\/td>/gi;
+    let cMatch;
+    while ((cMatch = tdRegex.exec(rMatch[1])) !== null) {
+      // Strip HTML tags and trim
+      const text = cMatch[1].replace(/<[^>]+>/g, '').trim();
+      cells.push(text);
+    }
+
+    if (cells.length < 4) continue; // Skip rows with too few cells
+
+    const getCellText = (idx) => {
+      if (idx === undefined || idx >= cells.length) return '';
+      return cells[idx];
+    };
+
+    const teamName = getCellText(colMap.team);
+    if (!teamName || teamName === 'Team' || teamName === 'TEAM') continue;
+
+    rows.push({
+      team: teamName,
+      gp: getCellText(colMap.gp),
+      w: getCellText(colMap.w),
+      l: getCellText(colMap.l),
+      t: getCellText(colMap.t),
+      gr: getCellText(colMap.gr),
+      pct: getCellText(colMap.pct),
+      strk: getCellText(colMap.strk),
+      gb: getCellText(colMap.gb),
+      rs: getCellText(colMap.rs),
+      ra: getCellText(colMap.ra),
+      rpg: getCellText(colMap.rpg),
+      apg: getCellText(colMap.apg),
+      diff: getCellText(colMap.diff),
+    });
+  }
+
+  console.log(`SportsConnect: Parsed ${rows.length} data rows`);
+
+  return { rows, headers };
+}
+
+/**
+ * Extract division prefix from division name — just the first word.
+ *
+ * Examples:
+ *   "A Baseball (League Ages 6-7)" → "A"
+ *   "AA Baseball (League Ages 7-8)" → "AA"
+ *   "Coast/Majors Baseball" → "Coast/Majors"
+ *   "Minors - Little League Baseball" → "Minors"
+ */
+function extractDivisionPrefix(divName) {
+  if (!divName) return null;
+  return divName.split(/\s+/)[0];
 }
 
 /**
