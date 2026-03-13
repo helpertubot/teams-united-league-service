@@ -24,6 +24,8 @@ require('./discover-groups');
 // discover-gc.js self-registers the discoverGC Cloud Function
 require('./discover-gc');
 
+const { resolveLLAgeGroup, isLittleLeague } = require('./lib/little-league-ages');
+
 const db = new Firestore();
 
 functions.http('collectLeague', async (req, res) => {
@@ -84,6 +86,23 @@ functions.http('collectLeague', async (req, res) => {
     }
 
     console.log(`${platform}: Collected ${divisions.length} divisions, ${standings.length} standings in ${Date.now() - startTime}ms`);
+
+    // 3b. Post-process: fill missing ageGroup for Little League divisions
+    if (isLittleLeague(leagueConfig.name)) {
+      let filled = 0;
+      for (const div of divisions) {
+        if (!div.ageGroup || div.ageGroup === 'unknown') {
+          const resolved = resolveLLAgeGroup(div.level, div.name);
+          if (resolved) {
+            div.ageGroup = resolved;
+            filled++;
+          }
+        }
+      }
+      if (filled > 0) {
+        console.log(`Little League age fix: filled ${filled}/${divisions.length} divisions for "${leagueConfig.name}"`);
+      }
+    }
 
     // 4. Write divisions to Firestore
     const divBatch = db.batch();
@@ -200,6 +219,16 @@ functions.http('collectAll', async (req, res) => {
             'sourceConfig.orgName': collectResult._rotatedToOrgName || null,
             lastSeasonRotation: new Date().toISOString(),
           });
+        }
+
+        // Post-process: fill missing ageGroup for Little League divisions
+        if (isLittleLeague(leagueConfig.name)) {
+          for (const div of divisions) {
+            if (!div.ageGroup || div.ageGroup === 'unknown') {
+              const resolved = resolveLLAgeGroup(div.level, div.name);
+              if (resolved) div.ageGroup = resolved;
+            }
+          }
         }
 
         // Write divisions

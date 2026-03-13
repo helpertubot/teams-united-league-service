@@ -37,6 +37,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { inferAgeGroup } = require('../lib/age-group-parser');
+const { resolveLLAgeGroup } = require('../lib/little-league-ages');
 
 const PLATFORM_ID = 'sportsconnect';
 
@@ -116,6 +117,9 @@ async function collectStandings(leagueConfig) {
       formState = extractFormState(html);
       $ = cheerio.load(html);
 
+      // Build division age map from the division dropdown (contains age ranges)
+      const divAgeMap = buildDivisionAgeMap($);
+
       // Parse standings from the program response (contains all teams)
       const tableData = parseStandingsTable(html);
 
@@ -142,7 +146,7 @@ async function collectStandings(leagueConfig) {
           : slugify(program.text);
         const divisionId = `${leagueConfig.id}-${divSlug}`;
 
-        const { ageGroup, gender } = parseDivisionInfo(divName, programMeta);
+        const { ageGroup, gender } = parseDivisionInfo(divName, programMeta, divAgeMap);
 
         divisions.push({
           id: divisionId,
@@ -157,7 +161,7 @@ async function collectStandings(leagueConfig) {
         });
 
         groupRows.forEach((row, idx) => {
-          standings.push({
+          const standing = {
             teamName: row.cleanTeam || row.team,
             coach: row.coach || null,
             position: idx + 1,
@@ -165,7 +169,6 @@ async function collectStandings(leagueConfig) {
             wins: parseInt(row.w) || 0,
             losses: parseInt(row.l) || 0,
             ties: parseInt(row.t) || 0,
-            points: 0,
             scored: parseInt(row.rs) || 0,
             allowed: parseInt(row.ra) || 0,
             differential: parseInt(row.diff) || 0,
@@ -175,16 +178,23 @@ async function collectStandings(leagueConfig) {
             gamesRemaining: parseInt(row.gr) || null,
             runsPerGame: row.rpg ? parseFloat(row.rpg) : null,
             allowedPerGame: row.apg ? parseFloat(row.apg) : null,
-            shutouts: 0,
-            yellowCards: 0,
-            redCards: 0,
-            clubKey: null,
-            teamKey: null,
+            sport: (leagueConfig.sport || 'baseball').toLowerCase(),
             leagueId: leagueConfig.id,
             divisionId,
             seasonId: leagueConfig.seasonId || '2025-2026',
             collectedAt: now,
-          });
+          };
+
+          // Add sport-specific fields
+          const sport = standing.sport;
+          if (sport === 'soccer' || sport === 'hockey' || sport === 'lacrosse') {
+            standing.points = 0;
+            standing.yellowCards = 0;
+            standing.redCards = 0;
+            standing.shutouts = 0;
+          }
+
+          standings.push(standing);
         });
 
         console.log(`SportsConnect:   ${divName}: ${groupRows.length} teams`);
@@ -526,19 +536,86 @@ function groupByDivisionPrefix(rows) {
 }
 
 /**
+ * Build a map of division prefix → { ageGroup, gender } from the division
+ * dropdown options that appear after selecting a program.
+ *
+ * Division dropdown options typically look like:
+ *   "A Baseball (League Ages 6-7)"
+ *   "AA Baseball (League Ages 7-8)"
+ *   "Coast/Majors Baseball (League Ages 10-12)"
+ *
+ * We extract the first word(s) as the prefix and run inferAgeGroup on the
+ * full option text so the "(League Ages X-Y)" part gets parsed.
+ */
+function buildDivisionAgeMap($) {
+  const map = {};
+  const divDropdownId = findDropdownId($, 'dropDownDivisions') || findDropdownId($, 'dropDownLeagues');
+  if (!divDropdownId) return map;
+
+  const options = getDropdownOptions($, divDropdownId);
+  for (const opt of options) {
+    if (!opt.value || opt.value === '0' || !opt.text || opt.text === 'Division') continue;
+
+    // Extract prefix: everything before " Baseball", " Softball", or the first parenthesis
+    const prefixMatch = opt.text.match(/^(.+?)\s+(?:Baseball|Softball|Hockey|Lacrosse)/i)
+      || opt.text.match(/^(.+?)\s*\(/);
+    if (!prefixMatch) continue;
+
+    const prefix = prefixMatch[1].trim();
+    const inferred = inferAgeGroup(opt.text, { ageGroup: 'unknown', gender: 'unknown' });
+
+    if (inferred.ageGroup !== 'unknown' || inferred.gender !== 'unknown') {
+      map[prefix.toUpperCase()] = inferred;
+    }
+  }
+
+  console.log(`SportsConnect: Division age map from dropdown: ${JSON.stringify(map)}`);
+  return map;
+}
+
+/**
  * Parse age group and gender from division name strings like:
  * "Majors - Little League Baseball Ages 10 to 12"
  * "AA - Player Pitch - Little League Baseball Ages 6 to 8"
  * "Minors - Little League Softball Ages 9 to 11"
  *
- * Delegates to the shared age-group-parser, with metadata overrides.
+ * Uses three-tier lookup:
+ *   1. inferAgeGroup on the full division name (catches "Ages X-Y" patterns)
+ *   2. Division dropdown age map (parsed from dropdown option text)
+ *   3. SC_LEVEL_AGE_FALLBACK for common LL letter grades (A, AA, AAA, etc.)
  */
-function parseDivisionInfo(divName, meta) {
+function parseDivisionInfo(divName, meta, divAgeMap) {
   const defaults = {
     ageGroup: meta.ageGroup || 'unknown',
     gender: meta.gender || 'unknown',
   };
-  return inferAgeGroup(divName, defaults);
+
+  // First: try inferAgeGroup on the full name
+  const inferred = inferAgeGroup(divName, defaults);
+  if (inferred.ageGroup !== 'unknown') return inferred;
+
+  // Second: check the division dropdown age map
+  if (divAgeMap) {
+    // Try matching the division prefix (the part before " - ")
+    const prefixPart = divName.split(/\s*-\s*/)[0].trim().toUpperCase();
+    if (divAgeMap[prefixPart]) {
+      return {
+        ageGroup: divAgeMap[prefixPart].ageGroup || inferred.ageGroup,
+        gender: divAgeMap[prefixPart].gender || inferred.gender,
+      };
+    }
+  }
+
+  // Third: shared Little League age mapping (covers A, AA, AAA, Majors, etc.)
+  const llAge = resolveLLAgeGroup(null, divName);
+  if (llAge) {
+    return {
+      ageGroup: llAge,
+      gender: inferred.gender,
+    };
+  }
+
+  return inferred;
 }
 
 function slugify(text) {
