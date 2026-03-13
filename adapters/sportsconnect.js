@@ -40,6 +40,23 @@ const { inferAgeGroup } = require('../lib/age-group-parser');
 
 const PLATFORM_ID = 'sportsconnect';
 
+// ── SC / Little League letter-grade → age group fallback ──
+// Used when the division dropdown doesn't contain explicit age ranges.
+const SC_LEVEL_AGE_FALLBACK = {
+  'A':              '4U-6U',
+  'TEE BALL':       '4U-6U',
+  'T-BALL':         '4U-6U',
+  'AA':             '7U-8U',
+  'COACH PITCH':    '7U-8U',
+  'AAA':            '9U-10U',
+  'MINORS':         '9U-10U',
+  'COAST':          '10U-12U',
+  'COAST/MAJORS':   '10U-12U',
+  'MAJORS':         '10U-12U',
+  'JUNIORS':        '13U-14U',
+  'SENIORS':        '15U-16U',
+};
+
 /**
  * Collect standings for a SportsConnect league
  * @param {Object} leagueConfig
@@ -116,6 +133,9 @@ async function collectStandings(leagueConfig) {
       formState = extractFormState(html);
       $ = cheerio.load(html);
 
+      // Build division age map from the division dropdown (contains age ranges)
+      const divAgeMap = buildDivisionAgeMap($);
+
       // Parse standings from the program response (contains all teams)
       const tableData = parseStandingsTable(html);
 
@@ -142,7 +162,7 @@ async function collectStandings(leagueConfig) {
           : slugify(program.text);
         const divisionId = `${leagueConfig.id}-${divSlug}`;
 
-        const { ageGroup, gender } = parseDivisionInfo(divName, programMeta);
+        const { ageGroup, gender } = parseDivisionInfo(divName, programMeta, divAgeMap);
 
         divisions.push({
           id: divisionId,
@@ -532,19 +552,86 @@ function groupByDivisionPrefix(rows) {
 }
 
 /**
+ * Build a map of division prefix → { ageGroup, gender } from the division
+ * dropdown options that appear after selecting a program.
+ *
+ * Division dropdown options typically look like:
+ *   "A Baseball (League Ages 6-7)"
+ *   "AA Baseball (League Ages 7-8)"
+ *   "Coast/Majors Baseball (League Ages 10-12)"
+ *
+ * We extract the first word(s) as the prefix and run inferAgeGroup on the
+ * full option text so the "(League Ages X-Y)" part gets parsed.
+ */
+function buildDivisionAgeMap($) {
+  const map = {};
+  const divDropdownId = findDropdownId($, 'dropDownDivisions') || findDropdownId($, 'dropDownLeagues');
+  if (!divDropdownId) return map;
+
+  const options = getDropdownOptions($, divDropdownId);
+  for (const opt of options) {
+    if (!opt.value || opt.value === '0' || !opt.text || opt.text === 'Division') continue;
+
+    // Extract prefix: everything before " Baseball", " Softball", or the first parenthesis
+    const prefixMatch = opt.text.match(/^(.+?)\s+(?:Baseball|Softball|Hockey|Lacrosse)/i)
+      || opt.text.match(/^(.+?)\s*\(/);
+    if (!prefixMatch) continue;
+
+    const prefix = prefixMatch[1].trim();
+    const inferred = inferAgeGroup(opt.text, { ageGroup: 'unknown', gender: 'unknown' });
+
+    if (inferred.ageGroup !== 'unknown' || inferred.gender !== 'unknown') {
+      map[prefix.toUpperCase()] = inferred;
+    }
+  }
+
+  console.log(`SportsConnect: Division age map from dropdown: ${JSON.stringify(map)}`);
+  return map;
+}
+
+/**
  * Parse age group and gender from division name strings like:
  * "Majors - Little League Baseball Ages 10 to 12"
  * "AA - Player Pitch - Little League Baseball Ages 6 to 8"
  * "Minors - Little League Softball Ages 9 to 11"
  *
- * Delegates to the shared age-group-parser, with metadata overrides.
+ * Uses three-tier lookup:
+ *   1. inferAgeGroup on the full division name (catches "Ages X-Y" patterns)
+ *   2. Division dropdown age map (parsed from dropdown option text)
+ *   3. SC_LEVEL_AGE_FALLBACK for common LL letter grades (A, AA, AAA, etc.)
  */
-function parseDivisionInfo(divName, meta) {
+function parseDivisionInfo(divName, meta, divAgeMap) {
   const defaults = {
     ageGroup: meta.ageGroup || 'unknown',
     gender: meta.gender || 'unknown',
   };
-  return inferAgeGroup(divName, defaults);
+
+  // First: try inferAgeGroup on the full name
+  const inferred = inferAgeGroup(divName, defaults);
+  if (inferred.ageGroup !== 'unknown') return inferred;
+
+  // Second: check the division dropdown age map
+  if (divAgeMap) {
+    // Try matching the division prefix (the part before " - ")
+    const prefixPart = divName.split(/\s*-\s*/)[0].trim().toUpperCase();
+    if (divAgeMap[prefixPart]) {
+      return {
+        ageGroup: divAgeMap[prefixPart].ageGroup || inferred.ageGroup,
+        gender: divAgeMap[prefixPart].gender || inferred.gender,
+      };
+    }
+  }
+
+  // Third: SC letter-grade fallback
+  const prefixPart = divName.split(/\s*-\s*/)[0].trim().toUpperCase();
+  if (SC_LEVEL_AGE_FALLBACK[prefixPart]) {
+    return {
+      ageGroup: SC_LEVEL_AGE_FALLBACK[prefixPart],
+      gender: inferred.gender,
+    };
+  }
+
+  return inferred;
 }
 
 function slugify(text) {
