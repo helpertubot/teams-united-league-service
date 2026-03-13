@@ -37,25 +37,9 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { inferAgeGroup } = require('../lib/age-group-parser');
+const { resolveLLAgeGroup } = require('../lib/little-league-ages');
 
 const PLATFORM_ID = 'sportsconnect';
-
-// ── SC / Little League letter-grade → age group fallback ──
-// Used when the division dropdown doesn't contain explicit age ranges.
-const SC_LEVEL_AGE_FALLBACK = {
-  'A':              '4U-6U',
-  'TEE BALL':       '4U-6U',
-  'T-BALL':         '4U-6U',
-  'AA':             '7U-8U',
-  'COACH PITCH':    '7U-8U',
-  'AAA':            '9U-10U',
-  'MINORS':         '9U-10U',
-  'COAST':          '10U-12U',
-  'COAST/MAJORS':   '10U-12U',
-  'MAJORS':         '10U-12U',
-  'JUNIORS':        '13U-14U',
-  'SENIORS':        '15U-16U',
-};
 
 /**
  * Collect standings for a SportsConnect league
@@ -622,11 +606,11 @@ function parseDivisionInfo(divName, meta, divAgeMap) {
     }
   }
 
-  // Third: SC letter-grade fallback
-  const prefixPart = divName.split(/\s*-\s*/)[0].trim().toUpperCase();
-  if (SC_LEVEL_AGE_FALLBACK[prefixPart]) {
+  // Third: shared Little League age mapping (covers A, AA, AAA, Majors, etc.)
+  const llAge = resolveLLAgeGroup(null, divName);
+  if (llAge) {
     return {
-      ageGroup: SC_LEVEL_AGE_FALLBACK[prefixPart],
+      ageGroup: llAge,
       gender: inferred.gender,
     };
   }
