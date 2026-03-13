@@ -489,19 +489,56 @@
     });
   }
 
-  function renderStandingsTable() {
-    const columns = [
+  // Sport-specific column definitions for standings tables
+  const STANDINGS_COLUMNS = {
+    soccer: [
       { key: 'position', label: '#', numeric: true },
       { key: 'teamName', label: 'Team' },
       { key: 'gamesPlayed', label: 'GP', numeric: true },
       { key: 'wins', label: 'W', numeric: true },
       { key: 'losses', label: 'L', numeric: true },
       { key: 'ties', label: 'T', numeric: true },
-      { key: 'points', label: 'Pts', numeric: true },
+      { key: 'points', label: 'Pts', numeric: true, bold: true },
       { key: 'scored', label: 'GF', numeric: true },
       { key: 'allowed', label: 'GA', numeric: true },
-      { key: 'differential', label: 'GD', numeric: true }
-    ];
+      { key: 'differential', label: 'GD', numeric: true, diff: true },
+    ],
+    baseball: [
+      { key: 'position', label: '#', numeric: true },
+      { key: 'teamName', label: 'Team' },
+      { key: 'gamesPlayed', label: 'GP', numeric: true },
+      { key: 'wins', label: 'W', numeric: true },
+      { key: 'losses', label: 'L', numeric: true },
+      { key: 'ties', label: 'T', numeric: true },
+      { key: 'winPct', label: 'PCT', numeric: true, bold: true, fmt: v => v != null ? v.toFixed(3) : '—' },
+      { key: 'scored', label: 'RS', numeric: true },
+      { key: 'allowed', label: 'RA', numeric: true },
+      { key: 'differential', label: 'DIFF', numeric: true, diff: true },
+      { key: 'gamesBack', label: 'GB', numeric: true },
+      { key: 'streak', label: 'STRK', numeric: false },
+    ],
+    basketball: [
+      { key: 'position', label: '#', numeric: true },
+      { key: 'teamName', label: 'Team' },
+      { key: 'gamesPlayed', label: 'GP', numeric: true },
+      { key: 'wins', label: 'W', numeric: true },
+      { key: 'losses', label: 'L', numeric: true },
+      { key: 'winPct', label: 'PCT', numeric: true, bold: true, fmt: v => v != null ? v.toFixed(3) : '—' },
+      { key: 'scored', label: 'PF', numeric: true },
+      { key: 'allowed', label: 'PA', numeric: true },
+      { key: 'differential', label: 'DIFF', numeric: true, diff: true },
+      { key: 'streak', label: 'STRK', numeric: false },
+      { key: 'gamesBack', label: 'GB', numeric: true },
+    ],
+  };
+  // Hockey and lacrosse use same layout as soccer
+  STANDINGS_COLUMNS.hockey = STANDINGS_COLUMNS.soccer;
+  STANDINGS_COLUMNS.lacrosse = STANDINGS_COLUMNS.soccer;
+  STANDINGS_COLUMNS.softball = STANDINGS_COLUMNS.baseball;
+
+  function renderStandingsTable() {
+    const sport = (state.selectedLeague && state.selectedLeague.sport || 'soccer').toLowerCase();
+    const columns = STANDINGS_COLUMNS[sport] || STANDINGS_COLUMNS.soccer;
     renderTableHeader(columns);
 
     let standings = getFilteredStandings();
@@ -519,22 +556,27 @@
       tr.className = 'fade-in';
       tr.style.animationDelay = `${Math.min(i * 20, 400)}ms`;
 
-      const posClass = s.position <= 3 ? 'top-3' : '';
-      const diffClass = s.differential > 0 ? 'diff-positive' : s.differential < 0 ? 'diff-negative' : 'diff-zero';
-      const diffPrefix = s.differential > 0 ? '+' : '';
+      tr.innerHTML = columns.map(col => {
+        const val = s[col.key];
+        if (col.key === 'position') {
+          const posClass = val <= 3 ? 'top-3' : '';
+          return `<td class="col-num"><span class="pos-badge ${posClass}">${val}</span></td>`;
+        }
+        if (col.key === 'teamName') {
+          return `<td title="${escapeHtml(val)}">${escapeHtml(val)}</td>`;
+        }
+        const display = col.fmt ? col.fmt(val) : (val ?? '—');
+        if (col.diff) {
+          const diffClass = val > 0 ? 'diff-positive' : val < 0 ? 'diff-negative' : 'diff-zero';
+          const prefix = val > 0 ? '+' : '';
+          return `<td class="col-num"><span class="${diffClass}">${prefix}${display}</span></td>`;
+        }
+        if (col.bold) {
+          return `<td class="col-num"><strong>${display}</strong></td>`;
+        }
+        return `<td class="${col.numeric ? 'col-num' : ''}">${display}</td>`;
+      }).join('');
 
-      tr.innerHTML = `
-        <td class="col-num"><span class="pos-badge ${posClass}">${s.position}</span></td>
-        <td title="${escapeHtml(s.teamName)}">${escapeHtml(s.teamName)}</td>
-        <td class="col-num">${s.gamesPlayed ?? '—'}</td>
-        <td class="col-num">${s.wins ?? '—'}</td>
-        <td class="col-num">${s.losses ?? '—'}</td>
-        <td class="col-num">${s.ties ?? '—'}</td>
-        <td class="col-num"><strong>${s.points ?? '—'}</strong></td>
-        <td class="col-num">${s.scored ?? '—'}</td>
-        <td class="col-num">${s.allowed ?? '—'}</td>
-        <td class="col-num"><span class="${diffClass}">${diffPrefix}${s.differential ?? '—'}</span></td>
-      `;
       dom.tableBody.appendChild(tr);
     });
   }

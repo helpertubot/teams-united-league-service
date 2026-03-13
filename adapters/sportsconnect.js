@@ -157,7 +157,7 @@ async function collectStandings(leagueConfig) {
         });
 
         groupRows.forEach((row, idx) => {
-          standings.push({
+          const standing = {
             teamName: row.cleanTeam || row.team,
             coach: row.coach || null,
             position: idx + 1,
@@ -165,7 +165,6 @@ async function collectStandings(leagueConfig) {
             wins: parseInt(row.w) || 0,
             losses: parseInt(row.l) || 0,
             ties: parseInt(row.t) || 0,
-            points: 0,
             scored: parseInt(row.rs) || 0,
             allowed: parseInt(row.ra) || 0,
             differential: parseInt(row.diff) || 0,
@@ -175,16 +174,23 @@ async function collectStandings(leagueConfig) {
             gamesRemaining: parseInt(row.gr) || null,
             runsPerGame: row.rpg ? parseFloat(row.rpg) : null,
             allowedPerGame: row.apg ? parseFloat(row.apg) : null,
-            shutouts: 0,
-            yellowCards: 0,
-            redCards: 0,
-            clubKey: null,
-            teamKey: null,
+            sport: (leagueConfig.sport || 'baseball').toLowerCase(),
             leagueId: leagueConfig.id,
             divisionId,
             seasonId: leagueConfig.seasonId || '2025-2026',
             collectedAt: now,
-          });
+          };
+
+          // Add sport-specific fields
+          const sport = standing.sport;
+          if (sport === 'soccer' || sport === 'hockey' || sport === 'lacrosse') {
+            standing.points = 0;
+            standing.yellowCards = 0;
+            standing.redCards = 0;
+            standing.shutouts = 0;
+          }
+
+          standings.push(standing);
         });
 
         console.log(`SportsConnect:   ${divName}: ${groupRows.length} teams`);
