@@ -141,54 +141,67 @@ async function collectStandings(leagueConfig) {
         // Look up program metadata if provided
         const programMeta = (programs || []).find(p => p.programId === program.value) || {};
 
-        // Parse ageGroup and gender from division name
-        const { ageGroup, gender } = parseDivisionInfo(div.text, programMeta);
+        // Team names may embed a division prefix: "A / Miller / Cubs"
+        // meaning Division=A, Coach=Miller, Team=Cubs.
+        // Group rows by that prefix so each sub-division gets its own division doc.
+        const grouped = groupByDivisionPrefix(tableData.rows);
 
-        const divisionId = `${leagueConfig.id}-${slugify(program.text)}-${slugify(div.text)}`;
+        for (const [prefix, groupRows] of Object.entries(grouped)) {
+          // Build division name: combine dropdown division + prefix when present
+          const hasPrefix = prefix !== '_none';
+          const divName = hasPrefix ? `${prefix} - ${div.text}` : div.text;
+          const divSlug = hasPrefix
+            ? `${slugify(program.text)}-${slugify(prefix)}`
+            : `${slugify(program.text)}-${slugify(div.text)}`;
+          const divisionId = `${leagueConfig.id}-${divSlug}`;
 
-        divisions.push({
-          id: divisionId,
-          leagueId: leagueConfig.id,
-          seasonId: leagueConfig.seasonId || '2025-2026',
-          name: `${div.text}`,
-          ageGroup,
-          gender,
-          level: null,
-          platformDivisionId: div.value,
-          status: 'active',
-        });
+          const { ageGroup, gender } = parseDivisionInfo(divName, programMeta);
 
-        tableData.rows.forEach((row, idx) => {
-          standings.push({
-            teamName: row.team,
-            position: idx + 1,
-            gamesPlayed: parseInt(row.gp) || 0,
-            wins: parseInt(row.w) || 0,
-            losses: parseInt(row.l) || 0,
-            ties: parseInt(row.t) || 0,
-            points: 0, // Youth baseball doesn't use points
-            scored: parseInt(row.rs) || 0,
-            allowed: parseInt(row.ra) || 0,
-            differential: parseInt(row.diff) || 0,
-            winPct: row.pct ? parseFloat(row.pct) : null,
-            gamesBack: row.gb || null,
-            streak: row.strk || null,
-            gamesRemaining: parseInt(row.gr) || null,
-            runsPerGame: row.rpg ? parseFloat(row.rpg) : null,
-            allowedPerGame: row.apg ? parseFloat(row.apg) : null,
-            shutouts: 0,
-            yellowCards: 0,
-            redCards: 0,
-            clubKey: null,
-            teamKey: null,
+          divisions.push({
+            id: divisionId,
             leagueId: leagueConfig.id,
-            divisionId,
             seasonId: leagueConfig.seasonId || '2025-2026',
-            collectedAt: now,
+            name: divName,
+            ageGroup,
+            gender,
+            level: hasPrefix ? prefix : null,
+            platformDivisionId: div.value,
+            status: 'active',
           });
-        });
 
-        console.log(`SportsConnect:     Collected ${tableData.rows.length} teams`);
+          groupRows.forEach((row, idx) => {
+            standings.push({
+              teamName: row.cleanTeam || row.team,
+              coach: row.coach || null,
+              position: idx + 1,
+              gamesPlayed: parseInt(row.gp) || 0,
+              wins: parseInt(row.w) || 0,
+              losses: parseInt(row.l) || 0,
+              ties: parseInt(row.t) || 0,
+              points: 0,
+              scored: parseInt(row.rs) || 0,
+              allowed: parseInt(row.ra) || 0,
+              differential: parseInt(row.diff) || 0,
+              winPct: row.pct ? parseFloat(row.pct) : null,
+              gamesBack: row.gb || null,
+              streak: row.strk || null,
+              gamesRemaining: parseInt(row.gr) || null,
+              runsPerGame: row.rpg ? parseFloat(row.rpg) : null,
+              allowedPerGame: row.apg ? parseFloat(row.apg) : null,
+              shutouts: 0,
+              yellowCards: 0,
+              redCards: 0,
+              clubKey: null,
+              teamKey: null,
+              leagueId: leagueConfig.id,
+              divisionId,
+              seasonId: leagueConfig.seasonId || '2025-2026',
+              collectedAt: now,
+            });
+          });
+
+          console.log(`SportsConnect:     ${divName}: ${groupRows.length} teams`);
+        }
 
         // Small delay between divisions to be respectful
         await sleep(500);
@@ -231,8 +244,12 @@ async function fetchPage(url) {
  * The __EVENTTARGET is the control ID (with $ separators, not _ separators)
  * that triggered the postback, and __EVENTARGUMENT is usually empty.
  *
+ * SportsConnect uses DNN (DotNetNuke) which stores form state in _VSTATE
+ * instead of __VIEWSTATE, and requires all hidden fields + current dropdown
+ * values to be posted back.
+ *
  * @param {string} url - The page URL
- * @param {Object} formState - Extracted form state (__VIEWSTATE etc.)
+ * @param {Object} formState - Extracted form state (all hidden fields + dropdown values)
  * @param {string} dropdownId - The dropdown HTML ID (underscore-separated)
  * @param {string} value - The selected value
  * @returns {string} Response HTML
@@ -242,17 +259,23 @@ async function postback(url, formState, dropdownId, value) {
   const eventTarget = dropdownId.replace(/_/g, '$');
 
   const formData = new URLSearchParams();
-  formData.append('__EVENTTARGET', eventTarget);
-  formData.append('__EVENTARGUMENT', '');
-  formData.append('__VIEWSTATE', formState.__VIEWSTATE || '');
-  formData.append('__VIEWSTATEGENERATOR', formState.__VIEWSTATEGENERATOR || '');
-  formData.append('__EVENTVALIDATION', formState.__EVENTVALIDATION || '');
-  if (formState.__VIEWSTATEENCRYPTED !== undefined) {
-    formData.append('__VIEWSTATEENCRYPTED', formState.__VIEWSTATEENCRYPTED || '');
+
+  // Include all hidden fields from the form
+  for (const [key, val] of Object.entries(formState.hiddenFields || {})) {
+    formData.append(key, val);
   }
 
-  // Include the dropdown's own value in the form data
-  formData.append(eventTarget, value);
+  // Override the event target/argument
+  formData.set('__EVENTTARGET', eventTarget);
+  formData.set('__EVENTARGUMENT', '');
+
+  // Include all dropdown current values
+  for (const [key, val] of Object.entries(formState.dropdownValues || {})) {
+    formData.set(key, val);
+  }
+
+  // Set the changed dropdown to the new value
+  formData.set(eventTarget, value);
 
   const resp = await axios.post(url, formData.toString(), {
     timeout: 60000,
@@ -267,21 +290,35 @@ async function postback(url, formState, dropdownId, value) {
 }
 
 /**
- * Extract ASP.NET form state fields from HTML
+ * Extract all form state from HTML — hidden fields and dropdown values.
+ * SportsConnect/DNN uses _VSTATE instead of __VIEWSTATE.
  */
 function extractFormState(html) {
-  const state = {};
-  const fields = ['__VIEWSTATE', '__VIEWSTATEGENERATOR', '__EVENTVALIDATION', '__VIEWSTATEENCRYPTED'];
+  const $ = cheerio.load(html);
+  const hiddenFields = {};
+  const dropdownValues = {};
 
-  for (const field of fields) {
-    const regex = new RegExp(`<input[^>]*name="${field}"[^>]*value="([^"]*)"`, 'i');
-    const match = html.match(regex);
-    if (match) {
-      state[field] = match[1];
+  // Collect all hidden inputs
+  $('input[type="hidden"]').each(function () {
+    const name = $(this).attr('name');
+    const val = $(this).attr('value') || '';
+    if (name) {
+      hiddenFields[name] = val;
     }
-  }
+  });
 
-  return state;
+  // Collect current dropdown values (selected options)
+  $('select').each(function () {
+    const name = $(this).attr('name');
+    if (name) {
+      const selected = $(this).find('option:selected').attr('value');
+      if (selected !== undefined) {
+        dropdownValues[name] = selected;
+      }
+    }
+  });
+
+  return { hiddenFields, dropdownValues };
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -439,6 +476,70 @@ function parseStandingsTable(html) {
 function extractDivisionPrefix(divName) {
   if (!divName) return null;
   return divName.split(/\s+/)[0];
+}
+
+/**
+ * Group table rows by the division prefix embedded in team names.
+ * SportsConnect team names often follow: "A / Miller / Cubs"
+ * meaning Division=A, Coach=Miller, Team=Cubs.
+ *
+ * Known prefixes: A, AA, AAA, T-Ball, Majors, Minors, etc.
+ * If no prefix pattern is detected, all rows go under '_none'.
+ */
+function groupByDivisionPrefix(rows) {
+  // Known LL/youth division prefixes
+  const KNOWN_PREFIXES = new Set([
+    'A', 'AA', 'AAA', 'AAAA',
+    'T-BALL', 'TBALL', 'TEE BALL', 'TEE-BALL',
+    'MAJORS', 'MINORS', 'COAST',
+    'COACH PITCH', 'PLAYER PITCH', 'MACHINE PITCH',
+    'FARM', 'ROOKIE', 'JUNIOR', 'SENIOR', 'BIG LEAGUE',
+    'INTERMEDIATE',
+    '50/70',
+    'CHALLENGER',
+  ]);
+
+  const groups = {};
+  let prefixCount = 0;
+
+  for (const row of rows) {
+    const parts = row.team.split(/\s*\/\s*/);
+    let prefix = '_none';
+    let coach = null;
+    let cleanTeam = row.team;
+
+    if (parts.length >= 3) {
+      // "A / Miller / Cubs" → prefix=A, coach=Miller, team=Cubs
+      const candidate = parts[0].trim().toUpperCase();
+      if (KNOWN_PREFIXES.has(candidate)) {
+        prefix = parts[0].trim();
+        coach = parts[1].trim();
+        cleanTeam = parts.slice(2).join(' / ').trim();
+        prefixCount++;
+      }
+    } else if (parts.length === 2) {
+      // "A / Cubs" or "Miller / Cubs" — check if first part is a known prefix
+      const candidate = parts[0].trim().toUpperCase();
+      if (KNOWN_PREFIXES.has(candidate)) {
+        prefix = parts[0].trim();
+        cleanTeam = parts[1].trim();
+        prefixCount++;
+      }
+    }
+
+    if (!groups[prefix]) groups[prefix] = [];
+    groups[prefix].push({ ...row, cleanTeam, coach });
+  }
+
+  // If very few rows matched prefixes, don't split — treat as one division
+  if (prefixCount > 0 && prefixCount < rows.length * 0.3) {
+    // Less than 30% matched — probably not a prefix pattern, merge back
+    const merged = {};
+    merged['_none'] = rows.map(r => ({ ...r, cleanTeam: r.team, coach: null }));
+    return merged;
+  }
+
+  return groups;
 }
 
 /**
