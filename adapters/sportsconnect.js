@@ -358,14 +358,14 @@ function parseStandingsTable(html) {
   // Get everything from the table onwards
   const afterTable = html.substring(tableStart);
 
-  // Extract headers from the rgHeader row
+  // Extract headers from <thead> — RadGrid puts class="rgHeader" on individual
+  // <th> elements, not on the <tr>, so we match the <thead> block instead
   const headers = [];
-  const headerMatch = afterTable.match(/<tr[^>]*class="[^"]*rgHeader[^"]*"[^>]*>([\s\S]*?)<\/tr>/i);
-  if (headerMatch) {
+  const theadMatch = afterTable.match(/<thead[^>]*>([\s\S]*?)<\/thead>/i);
+  if (theadMatch) {
     const thRegex = /<th[^>]*>([\s\S]*?)<\/th>/gi;
     let hMatch;
-    while ((hMatch = thRegex.exec(headerMatch[1])) !== null) {
-      // Strip HTML tags from header text
+    while ((hMatch = thRegex.exec(theadMatch[1])) !== null) {
       const text = hMatch[1].replace(/<[^>]+>/g, '').trim().toUpperCase();
       headers.push(text);
     }
