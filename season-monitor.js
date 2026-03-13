@@ -355,6 +355,8 @@ async function discoverNewSeason(league) {
       return discoverGameChanger(league);
     case 'leagueapps':
       return discoverLeagueApps(league);
+    case 'sportsaffinity-asp':
+      return discoverSportsAffinityAsp(league);
     case 'tgs':
       return discoverTGS(league);
     default:
@@ -424,6 +426,102 @@ async function discoverSportsAffinity(league) {
     };
   } catch (err) {
     return { found: false, notes: `API error: ${err.message}` };
+  }
+}
+
+
+// ─── SportsAffinity ASP (Legacy) Discovery ──────────────────
+// The old ASP system uses tournamentGuid (changes per season) on a stable baseUrl.
+// Discovery: HTTP-fetch the tournament list page and regex-search for tournament
+// GUIDs matching the league's discoveryConfig.namePattern. Uses HTTP only (no
+// Puppeteer) since the monitor runs at 256MB. If the page needs JS rendering,
+// we flag it as needs_attention for manual resolution.
+async function discoverSportsAffinityAsp(league) {
+  const axios = require('axios');
+  const config = league.sourceConfig || {};
+  const discovery = league.discoveryConfig || {};
+  const baseUrl = config.baseUrl || discovery.baseUrl;
+
+  if (!baseUrl) {
+    return { found: false, notes: 'No baseUrl configured for ASP discovery' };
+  }
+
+  const namePattern = discovery.namePattern;
+  if (!namePattern) {
+    return { found: false, notes: 'No discoveryConfig.namePattern set — cannot match tournaments. Set namePattern to enable auto-discovery.' };
+  }
+
+  const listUrl = `${baseUrl}/tour/public/info/tournamentlist.asp?section=gaming`;
+
+  try {
+    const resp = await axios.get(listUrl, {
+      timeout: 15000,
+      headers: { 'User-Agent': 'TeamsUnited-SeasonMonitor/1.0' },
+    });
+
+    const html = resp.data;
+
+    // The ASP tournament list page may be server-rendered or JS-rendered.
+    // Try to extract tournament GUIDs and names from the HTML.
+    const guidPattern = /tournamentguid=([A-Fa-f0-9-]+)/gi;
+    const matches = [];
+    let match;
+    while ((match = guidPattern.exec(html)) !== null) {
+      const guid = match[1].toUpperCase();
+      if (!matches.some(m => m.guid === guid)) {
+        matches.push({ guid, position: match.index });
+      }
+    }
+
+    if (matches.length === 0) {
+      // Page may be JS-rendered — we can't parse it without Puppeteer
+      return { found: false, notes: 'Tournament list page has no GUIDs in HTML (likely JS-rendered). Needs manual discovery with Puppeteer.' };
+    }
+
+    // Try to extract tournament names near each GUID
+    const currentGuid = (config.tournamentGuid || '').toUpperCase();
+    const nameRegex = new RegExp(namePattern, 'i');
+    let bestCandidate = null;
+
+    for (const m of matches) {
+      if (m.guid === currentGuid) continue; // Skip current tournament
+
+      // Extract surrounding text to find the tournament name
+      const contextStart = Math.max(0, m.position - 200);
+      const contextEnd = Math.min(html.length, m.position + 200);
+      const context = html.substring(contextStart, contextEnd);
+
+      // Look for text content near the GUID link
+      const textMatch = context.match(/>([^<]{5,100})</g);
+      if (textMatch) {
+        for (const tm of textMatch) {
+          const text = tm.replace(/^>|<$/g, '').trim();
+          if (nameRegex.test(text)) {
+            bestCandidate = { guid: m.guid, name: text };
+            break;
+          }
+        }
+      }
+
+      if (bestCandidate) break;
+    }
+
+    if (!bestCandidate) {
+      // Found GUIDs but none matched the name pattern
+      const guidList = matches.map(m => m.guid).join(', ');
+      return { found: false, notes: `Found ${matches.length} tournament GUIDs but none matched namePattern "${namePattern}". GUIDs: ${guidList}` };
+    }
+
+    // Found a candidate — flag for attention rather than auto-activating,
+    // since we can't verify flights without Puppeteer
+    return {
+      found: true,
+      newConfig: { ...config, tournamentGuid: bestCandidate.guid },
+      seasonId: deriveSeasonIdFromDate(new Date()),
+      notes: `Discovered matching tournament: "${bestCandidate.name}" (GUID: ${bestCandidate.guid}). Auto-activated — verify flights on next collection.`,
+    };
+  } catch (err) {
+    return { found: false, notes: `ASP tournament list fetch failed: ${err.message}` };
   }
 }
 
@@ -908,6 +1006,10 @@ async function validateNewLeague(league) {
         if (!config.organizationId) return { status: 'error', notes: 'Missing organizationId in sourceConfig', action: 'fix_config' };
         if (!config.seasonGuid && !config.tournamentId) return { status: 'error', notes: 'Missing seasonGuid in sourceConfig', action: 'fix_config' };
         break;
+      case 'sportsaffinity-asp':
+        if (!config.baseUrl) return { status: 'error', notes: 'Missing baseUrl in sourceConfig', action: 'fix_config' };
+        if (!config.tournamentGuid) return { status: 'error', notes: 'Missing tournamentGuid in sourceConfig', action: 'fix_config' };
+        break;
       case 'gotsport':
         if (!config.leagueEventId && !config.eventId) return { status: 'error', notes: 'Missing leagueEventId in sourceConfig', action: 'fix_config' };
         if (!config.groups || config.groups.length === 0) return { status: 'needs_attention', notes: 'No groups configured — division standings cannot be collected', action: 'configure_groups' };
@@ -962,6 +1064,10 @@ function getSourceTestUrl(league) {
     case 'sportsaffinity': {
       const saSeasonId = config.seasonGuid || config.tournamentId;
       return `${config.baseUrl || 'https://sctour.sportsaffinity.com'}/api/standings?organizationId=${config.organizationId}&tournamentId=${saSeasonId}`;
+    }
+    case 'sportsaffinity-asp': {
+      const aspBase = config.baseUrl || 'https://oysa.sportsaffinity.com';
+      return `${aspBase}/tour/public/info/accepted_list.asp?tournamentguid=${config.tournamentGuid}`;
     }
     case 'gotsport': {
       const gsEventId = config.leagueEventId || config.eventId;

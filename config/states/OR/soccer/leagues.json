@@ -1,12 +1,17 @@
 {
-  "_description": "OR soccer leagues — extracted from scripts/setup/or-soccer-expansion.js",
-  "_lastUpdated": "2026-03-12",
+  "_description": "OR soccer leagues — Phase 1 + Phase 2 expansion",
+  "_lastUpdated": "2026-03-13",
+  "_phase1Script": "scripts/setup/or-soccer-expansion.js",
+  "_phase2Script": "scripts/setup/or-soccer-expansion-phase2.js",
+  "_discoveryScript": "scripts/discovery/discover-oysa-tournaments.js",
   "leagues": [
     {
       "id": "oysa-spring-competitive",
       "name": "OYSA Spring Competitive League (U11-U14)",
       "region": "Statewide",
       "sourcePlatform": "sportsaffinity-asp",
+      "status": "active",
+      "discoveryConfig": { "namePattern": "Spring.*Competitive|Spring.*League" },
       "notes": "Uses OLD SportsAffinity ASP system. Tournament GUID 2A349A09."
     },
     {
@@ -14,6 +19,8 @@
       "name": "OYSA Spring League - South",
       "region": "Southern Oregon",
       "sourcePlatform": "sportsaffinity-asp",
+      "status": "active",
+      "discoveryConfig": { "namePattern": "Spring.*South" },
       "notes": "Tournament GUID D07BB454."
     },
     {
@@ -21,6 +28,8 @@
       "name": "OYSA Winter Competitive League (U15-U19)",
       "region": "Statewide",
       "sourcePlatform": "sportsaffinity-asp",
+      "status": "dormant",
+      "discoveryConfig": { "namePattern": "Winter.*Competitive|Winter.*League" },
       "notes": "Tournament GUID 72AD07B7. Season ended Feb 2026."
     },
     {
@@ -28,6 +37,8 @@
       "name": "OYSA Spring Development League (U8)",
       "region": "Statewide",
       "sourcePlatform": "sportsaffinity-asp",
+      "status": "active",
+      "discoveryConfig": { "namePattern": "Development|Dev.*League" },
       "notes": "Tournament GUID B7972C4B."
     },
     {
@@ -35,21 +46,43 @@
       "name": "OYSA Spring Valley Academy League (U9-U10)",
       "region": "Willamette Valley",
       "sourcePlatform": "sportsaffinity-asp",
+      "status": "active",
+      "discoveryConfig": { "namePattern": "Valley.*Academy" },
       "notes": "Tournament GUID 5CDA2778."
+    },
+    {
+      "id": "oysa-fall-competitive",
+      "name": "OYSA Fall Competitive League",
+      "region": "Statewide",
+      "sourcePlatform": "sportsaffinity-asp",
+      "status": "dormant",
+      "discoveryConfig": { "namePattern": "Fall.*Competitive|Fall.*League" },
+      "notes": "Phase 2. Season Sep-Nov. GUID TBD from discovery. Registered for auto-discovery."
+    },
+    {
+      "id": "oysa-fall-south",
+      "name": "OYSA Fall League - South",
+      "region": "Southern Oregon",
+      "sourcePlatform": "sportsaffinity-asp",
+      "status": "dormant",
+      "discoveryConfig": { "namePattern": "Fall.*South" },
+      "notes": "Phase 2. Season Sep-Nov. GUID TBD from discovery. Registered for auto-discovery."
     },
     {
       "id": "pmsl-or",
       "name": "Portland Metro Soccer League (PMSL)",
       "region": "Portland Metro",
       "sourcePlatform": "sportsaffinity",
-      "notes": "SCTour JSON API. Org GUID 6857D9A0."
+      "status": "pending_config",
+      "notes": "SCTour JSON API down (Azure 404). Org GUID 6857D9A0. Needs platform verification — may switch to sportsaffinity-asp."
     },
     {
       "id": "usys-nw-conference",
       "name": "US Youth Soccer Northwest Conference",
       "region": "Pacific Northwest",
       "sourcePlatform": "gotsport",
-      "notes": "Multi-state: OR, WA, ID, WY, MT, AK, HI. GotSport event 34040."
+      "status": "dormant",
+      "notes": "Multi-state: OR, WA, ID, WY, MT, AK, HI. GotSport event 34040 (2024-2025). Waiting for 2025-2026 event."
     }
   ]
 }
