@@ -570,6 +570,7 @@
     state.sortDir = 'asc';
 
     dom.filterLeague.value = league.id;
+    dom.filterSearch.value = '';
 
     showView('loading');
     dom.loadingState.querySelector('span').textContent = `Loading divisions for ${league.name}...`;
@@ -589,6 +590,7 @@
     state.view = 'standings';
     state.sortCol = null;
     state.sortDir = 'asc';
+    dom.filterSearch.value = '';
 
     showView('loading');
     dom.loadingState.querySelector('span').textContent = `Loading standings for ${division.name}...`;
