@@ -1,18 +1,15 @@
 /**
  * Register OR Soccer Leagues — Phase 2
  *
- * Registers newly discovered Oregon youth soccer leagues into Firestore.
+ * Registers newly discovered Oregon youth soccer league seasons into Firestore.
  * Phase 1 (or-soccer-expansion.js) registered the initial 5 OYSA + PMSL + USYS NW.
  * Phase 2 covers:
- *   - OYSA Fall leagues (dormant — season ended, registered for auto-discovery)
- *   - Any newly discovered PCL/SCL-specific tournaments
- *   - PMSL platform resolution (switched to sportsaffinity-asp if applicable)
- *
- * All dormant leagues include discoveryConfig so the season monitor can
- * auto-discover new tournament GUIDs when new seasons are created.
+ *   - OYSA Fall league seasons (dormant — season ended, registered for auto-discovery)
+ *   - Any newly discovered league seasons from discover-or-soccer-seasons.js
+ *   - Updates to existing leagues (add discoveryConfig for season monitor)
  *
  * Run discovery first:
- *   node scripts/discovery/discover-oysa-tournaments.js
+ *   node scripts/discovery/discover-or-soccer-seasons.js
  *
  * Then register:
  *   node scripts/setup/or-soccer-expansion-phase2.js [--dry-run]
@@ -23,9 +20,8 @@ const db = new Firestore();
 
 // ═══════════════════════════════════════════════════════════════
 // LEAGUES TO REGISTER
-// Update this array based on discover-oysa-tournaments.js output.
-// GUIDs below are placeholders marked with TODO where discovery
-// output is needed.
+// Update this array based on discover-or-soccer-seasons.js output.
+// GUIDs below are null where discovery output is needed.
 // ═══════════════════════════════════════════════════════════════
 
 const LEAGUES = [
@@ -43,7 +39,7 @@ const LEAGUES = [
     autoUpdate: false,
     sourceConfig: {
       baseUrl: 'https://oysa.sportsaffinity.com',
-      tournamentGuid: null, // TODO: populate from discovery output
+      tournamentGuid: null, // Populate from discovery — or leave null for season monitor auto-discovery
     },
     seasonStart: '2025-09-01',
     seasonEnd: '2025-11-30',
@@ -51,7 +47,7 @@ const LEAGUES = [
       baseUrl: 'https://oysa.sportsaffinity.com',
       namePattern: 'Fall.*Competitive|Fall.*League',
     },
-    notes: 'OYSA Fall competitive league. Season ended Nov 2025. Registered for auto-discovery of Fall 2026 season.',
+    notes: 'OYSA Fall competitive league season. Season ended Nov 2025. Registered for auto-discovery of Fall 2026.',
   },
 
   // ── OYSA Fall League South ──
@@ -66,7 +62,7 @@ const LEAGUES = [
     autoUpdate: false,
     sourceConfig: {
       baseUrl: 'https://oysa.sportsaffinity.com',
-      tournamentGuid: null, // TODO: populate from discovery output
+      tournamentGuid: null, // Populate from discovery — or leave null for season monitor auto-discovery
     },
     seasonStart: '2025-09-01',
     seasonEnd: '2025-11-30',
@@ -74,14 +70,14 @@ const LEAGUES = [
       baseUrl: 'https://oysa.sportsaffinity.com',
       namePattern: 'Fall.*South',
     },
-    notes: 'OYSA Fall South region. Registered for auto-discovery.',
+    notes: 'OYSA Fall South region league season. Registered for auto-discovery.',
   },
 ];
 
 // ═══════════════════════════════════════════════════════════════
 // UPDATES TO EXISTING LEAGUES
 // Add discoveryConfig to existing OYSA leagues so the season
-// monitor can auto-discover new tournament GUIDs.
+// monitor can auto-discover new season GUIDs.
 // ═══════════════════════════════════════════════════════════════
 
 const UPDATES = [
@@ -127,10 +123,12 @@ async function main() {
 
   console.log(`\n=== OR Soccer Expansion Phase 2 ${dryRun ? '(DRY RUN)' : ''} ===\n`);
 
-  // Filter out leagues with null tournamentGuid (need discovery first)
+  // Dormant leagues can be registered even without a GUID — the season monitor
+  // will auto-discover the GUID when the new season is created.
+  // But we still skip if tournamentGuid is explicitly null AND status is active.
   const readyLeagues = LEAGUES.filter(l => {
-    if (l.sourceConfig.tournamentGuid === null) {
-      console.log(`  ⏭ Skipping ${l.id} — tournamentGuid is null (run discovery first)`);
+    if (l.status === 'active' && l.sourceConfig.tournamentGuid === null) {
+      console.log(`  Skip ${l.id} — active league needs a tournamentGuid (run discovery first)`);
       return false;
     }
     return true;
@@ -207,7 +205,7 @@ async function main() {
       }
 
       await doc.ref.update({ discoveryConfig: update.discoveryConfig });
-      console.log(`  ↻ Updated: ${update.id} — added discoveryConfig`);
+      console.log(`  ~ Updated: ${update.id} — added discoveryConfig`);
       results.updated.push(update.id);
     } catch (err) {
       console.error(`  ! Error updating ${update.id}: ${err.message}`);
@@ -221,12 +219,6 @@ async function main() {
   console.log(`Updated: ${results.updated.length}`);
   console.log(`Skipped: ${results.skipped.length}`);
   console.log(`Errors: ${results.errors.length}`);
-
-  const skippedNull = LEAGUES.length - readyLeagues.length;
-  if (skippedNull > 0) {
-    console.log(`\n⚠ ${skippedNull} league(s) skipped due to null tournamentGuid.`);
-    console.log('  Run discover-oysa-tournaments.js first, then update the GUIDs in this script.');
-  }
 
   // Log the run
   if (!dryRun && (results.created.length > 0 || results.updated.length > 0)) {

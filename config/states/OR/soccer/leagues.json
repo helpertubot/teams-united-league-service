@@ -3,7 +3,7 @@
   "_lastUpdated": "2026-03-13",
   "_phase1Script": "scripts/setup/or-soccer-expansion.js",
   "_phase2Script": "scripts/setup/or-soccer-expansion-phase2.js",
-  "_discoveryScript": "scripts/discovery/discover-oysa-tournaments.js",
+  "_discoveryScript": "scripts/discovery/discover-or-soccer-seasons.js",
   "leagues": [
     {
       "id": "oysa-spring-competitive",
