@@ -78,8 +78,25 @@ async function collectStandings(leagueConfig) {
     let targetPrograms = availablePrograms.filter(p => p.value && p.value !== '0' && p.text !== 'Program');
 
     if (programs && programs.length > 0) {
+      // Explicit program list from sourceConfig
       const targetIds = new Set(programs.map(p => p.programId));
       targetPrograms = targetPrograms.filter(p => targetIds.has(p.value));
+    } else {
+      // Auto-filter by league sport (e.g. baseball league skips softball programs)
+      const leagueSport = (leagueConfig.sport || '').toLowerCase();
+      if (leagueSport) {
+        targetPrograms = targetPrograms.filter(p => {
+          const pText = p.text.toLowerCase();
+          return pText.includes(leagueSport);
+        });
+      }
+
+      // Prefer the current/latest year — skip prior-year programs if current-year exists
+      const currentYear = new Date().getFullYear().toString();
+      const hasCurrentYear = targetPrograms.some(p => p.text.includes(currentYear));
+      if (hasCurrentYear) {
+        targetPrograms = targetPrograms.filter(p => p.text.includes(currentYear));
+      }
     }
 
     if (targetPrograms.length === 0) {
@@ -92,119 +109,85 @@ async function collectStandings(leagueConfig) {
       console.log(`SportsConnect: Selecting program "${program.text}" (${program.value})`);
 
       // POST to select program — triggers ASP.NET postback
+      // The program postback response includes ALL teams in the rgMasterTable
+      // with division prefixes embedded in team names (e.g. "A / Miller / Cubs").
+      // Individual division postbacks are NOT needed — they often return empty tables.
       html = await postback(standingsUrl, formState, programDropdownId, program.value);
       formState = extractFormState(html);
       $ = cheerio.load(html);
 
-      // Find Division dropdown
-      const divisionDropdownId = findDropdownId($, 'dropDownDivisions');
-      if (!divisionDropdownId) {
-        console.warn(`SportsConnect: Division dropdown not found for program "${program.text}"`);
+      // Parse standings from the program response (contains all teams)
+      const tableData = parseStandingsTable(html);
+
+      if (tableData.rows.length === 0) {
+        console.log(`SportsConnect: No standings data for program "${program.text}"`);
         continue;
       }
 
-      // Get available divisions
-      const availableDivisions = getDropdownOptions($, divisionDropdownId);
-      const targetDivisions = availableDivisions.filter(d => d.value && d.value !== '0' && d.text !== 'Division');
-      console.log(`SportsConnect: Found ${targetDivisions.length} divisions for "${program.text}"`);
+      console.log(`SportsConnect: Found ${tableData.rows.length} total teams for "${program.text}"`);
 
-      // Iterate through each division
-      for (const div of targetDivisions) {
-        console.log(`SportsConnect:   Division "${div.text}" (${div.value})`);
+      // Look up program metadata if provided
+      const programMeta = (programs || []).find(p => p.programId === program.value) || {};
 
-        // POST to select division
-        html = await postback(standingsUrl, formState, divisionDropdownId, div.value);
-        formState = extractFormState(html);
-        $ = cheerio.load(html);
+      // Team names embed a division prefix: "A / Miller / Cubs"
+      // meaning Division=A, Coach=Miller, Team=Cubs.
+      // Group rows by that prefix so each sub-division gets its own division doc.
+      const grouped = groupByDivisionPrefix(tableData.rows);
 
-        // Find Schedule dropdown and select first schedule if present
-        const scheduleDropdownId = findDropdownId($, 'dropDownEvents');
-        if (scheduleDropdownId) {
-          const scheduleOptions = getDropdownOptions($, scheduleDropdownId);
-          const validSchedules = scheduleOptions.filter(s => s.value && s.value !== '0' && s.text !== 'Schedule');
+      for (const [prefix, groupRows] of Object.entries(grouped)) {
+        const hasPrefix = prefix !== '_none';
+        const divName = hasPrefix ? `${prefix} - ${program.text}` : program.text;
+        const divSlug = hasPrefix
+          ? `${slugify(program.text)}-${slugify(prefix)}`
+          : slugify(program.text);
+        const divisionId = `${leagueConfig.id}-${divSlug}`;
 
-          if (validSchedules.length > 0) {
-            html = await postback(standingsUrl, formState, scheduleDropdownId, validSchedules[0].value);
-            formState = extractFormState(html);
-            $ = cheerio.load(html);
-          }
-        }
+        const { ageGroup, gender } = parseDivisionInfo(divName, programMeta);
 
-        // Parse standings from the response HTML
-        const tableData = parseStandingsTable(html);
+        divisions.push({
+          id: divisionId,
+          leagueId: leagueConfig.id,
+          seasonId: leagueConfig.seasonId || '2025-2026',
+          name: divName,
+          ageGroup,
+          gender,
+          level: hasPrefix ? prefix : null,
+          platformDivisionId: null,
+          status: 'active',
+        });
 
-        if (tableData.rows.length === 0) {
-          console.log(`SportsConnect:     No standings data for this division`);
-          continue;
-        }
-
-        // Look up program metadata if provided
-        const programMeta = (programs || []).find(p => p.programId === program.value) || {};
-
-        // Team names may embed a division prefix: "A / Miller / Cubs"
-        // meaning Division=A, Coach=Miller, Team=Cubs.
-        // Group rows by that prefix so each sub-division gets its own division doc.
-        const grouped = groupByDivisionPrefix(tableData.rows);
-
-        for (const [prefix, groupRows] of Object.entries(grouped)) {
-          // Build division name: combine dropdown division + prefix when present
-          const hasPrefix = prefix !== '_none';
-          const divName = hasPrefix ? `${prefix} - ${div.text}` : div.text;
-          const divSlug = hasPrefix
-            ? `${slugify(program.text)}-${slugify(prefix)}`
-            : `${slugify(program.text)}-${slugify(div.text)}`;
-          const divisionId = `${leagueConfig.id}-${divSlug}`;
-
-          const { ageGroup, gender } = parseDivisionInfo(divName, programMeta);
-
-          divisions.push({
-            id: divisionId,
+        groupRows.forEach((row, idx) => {
+          standings.push({
+            teamName: row.cleanTeam || row.team,
+            coach: row.coach || null,
+            position: idx + 1,
+            gamesPlayed: parseInt(row.gp) || 0,
+            wins: parseInt(row.w) || 0,
+            losses: parseInt(row.l) || 0,
+            ties: parseInt(row.t) || 0,
+            points: 0,
+            scored: parseInt(row.rs) || 0,
+            allowed: parseInt(row.ra) || 0,
+            differential: parseInt(row.diff) || 0,
+            winPct: row.pct ? parseFloat(row.pct) : null,
+            gamesBack: row.gb || null,
+            streak: row.strk || null,
+            gamesRemaining: parseInt(row.gr) || null,
+            runsPerGame: row.rpg ? parseFloat(row.rpg) : null,
+            allowedPerGame: row.apg ? parseFloat(row.apg) : null,
+            shutouts: 0,
+            yellowCards: 0,
+            redCards: 0,
+            clubKey: null,
+            teamKey: null,
             leagueId: leagueConfig.id,
+            divisionId,
             seasonId: leagueConfig.seasonId || '2025-2026',
-            name: divName,
-            ageGroup,
-            gender,
-            level: hasPrefix ? prefix : null,
-            platformDivisionId: div.value,
-            status: 'active',
+            collectedAt: now,
           });
+        });
 
-          groupRows.forEach((row, idx) => {
-            standings.push({
-              teamName: row.cleanTeam || row.team,
-              coach: row.coach || null,
-              position: idx + 1,
-              gamesPlayed: parseInt(row.gp) || 0,
-              wins: parseInt(row.w) || 0,
-              losses: parseInt(row.l) || 0,
-              ties: parseInt(row.t) || 0,
-              points: 0,
-              scored: parseInt(row.rs) || 0,
-              allowed: parseInt(row.ra) || 0,
-              differential: parseInt(row.diff) || 0,
-              winPct: row.pct ? parseFloat(row.pct) : null,
-              gamesBack: row.gb || null,
-              streak: row.strk || null,
-              gamesRemaining: parseInt(row.gr) || null,
-              runsPerGame: row.rpg ? parseFloat(row.rpg) : null,
-              allowedPerGame: row.apg ? parseFloat(row.apg) : null,
-              shutouts: 0,
-              yellowCards: 0,
-              redCards: 0,
-              clubKey: null,
-              teamKey: null,
-              leagueId: leagueConfig.id,
-              divisionId,
-              seasonId: leagueConfig.seasonId || '2025-2026',
-              collectedAt: now,
-            });
-          });
-
-          console.log(`SportsConnect:     ${divName}: ${groupRows.length} teams`);
-        }
-
-        // Small delay between divisions to be respectful
-        await sleep(500);
+        console.log(`SportsConnect:   ${divName}: ${groupRows.length} teams`);
       }
 
       // Delay between programs
