@@ -92,18 +92,18 @@ Cloud Scheduler (weekly) → seasonMonitor → health checks, season discovery, 
 { teamName, position, gamesPlayed, wins, losses, ties, points, scored, allowed, differential, ... }
 ```
 
-## Current State (March 12, 2026)
+## Current State (March 13, 2026)
 
 ### Stats
-- ~193 total leagues in Firestore
-- ~132 active, ~38 pending_config, 12 pending_tabid, 2 pending_groups
+- ~197 total leagues in Firestore
+- ~138 active, ~38 pending_config, 8 pending_tabid, 0 pending_groups
 - 1,623+ divisions, 16,587+ standings
-- 6 sports: Baseball (141), Soccer (49+), Hockey (2), Lacrosse (1), Softball (planned)
+- 7 sports: Baseball (141), Soccer (49+), Hockey (2), Lacrosse (1), Softball (4 active), Basketball (discovery ran — 0 found)
 - 9 adapters: GameChanger, SportsConnect, SportsAffinity, SportsAffinity-ASP, GotSport, TGS, Demosphere, Pointstreak, LeagueApps
 
 ### Phase 1 Rollout States
-**WA** (Washington) — primary, most coverage. Baseball ~70 active, Soccer 8 active + 13 pending
-**CA** (California) — good GameChanger coverage, 2 soccer active + 2 pending_groups
+**WA** (Washington) — primary, most coverage. Baseball ~70 active, Soccer 8 active + 13 pending, Softball 4 active
+**CA** (California) — good GameChanger coverage, 4 soccer active (NorCal Premier 709 groups, SOCAL 526 groups)
 **OR** (Oregon) — soccer resolved: 5 active, 2 dormant, 3 deactivated
 **ID** (Idaho) — 4 soccer leagues active (ISL, D3L, SRL, IPL)
 **MT** (Montana) — 1 soccer active (MSSL Spring), 1 dormant (MSSL Fall)
@@ -116,14 +116,26 @@ Cloud Scheduler (weekly) → seasonMonitor → health checks, season discovery, 
 ### CA/ID/MT Soccer Expansion (completed March 12)
 - 8 new leagues registered, 2 existing updated
 - 7 leagues activated with discovered groups (246 total groups)
-- 2 CA leagues pending_groups: SOCAL Soccer League (43086), NorCal Premier (44142) — too large for WebFetch
+- 2 CA leagues resolved: SOCAL Soccer League (526 groups), NorCal Premier (709 groups) — activated March 13
 
-### Softball (planned)
-- Shares platforms with baseball: GameChanger, SportsConnect, LeagueApps
-- WA discovery needed — ASA, USSSA, NSA league structures
-- Minimal new adapter work expected
+### Softball (March 13 — discovery complete)
+- Discovery ran across all Phase 1 states (WA, OR, ID, MT, CA)
+- **WA: 7 found** — all via SportsConnect (existing LL orgs with softball programs)
+  - 4 registered with tabIds (active): Edmonds (1004892), Federal Way (1263355), Ballard (1218908), NW Seattle (2519652)
+  - 3 more have softball content but no discoverable tabId: Spokane YSA, Pacwest LL, Bellevue National LL
+- **OR/ID/MT/CA: 0 found** — no GC softball orgs, no GotSport/LeagueApps softball
+- No GC softball orgs found anywhere — softball leagues likely use ASA/USSSA/NSA association websites
+
+### Basketball (March 13 — discovery complete)
+- Discovery ran across all Phase 1 states — **0 results**
+- No GC basketball orgs, no LeagueApps/SportsEngine/GotSport matches via DuckDuckGo
+- Youth basketball likely lives on platforms we don't yet support (SportsEngine, local rec sites)
+- CA had rate-limiting (403) errors from DuckDuckGo
 
 ### Recent Additions
+- **Pending resolution** (March 13): resolve-all-pending.js activated 2 CA soccer leagues (NorCal 709 groups, SOCAL 526 groups)
+- **Softball discovery** (March 13): 4 WA softball leagues registered via SportsConnect
+- **Basketball discovery** (March 13): ran across 5 states, 0 leagues found on supported platforms
 - OR soccer resolution: all 9 pending_config leagues resolved
 - CA/ID/MT soccer expansion: 8 new GotSport leagues + 2 updates
 - **OR Soccer Expansion**: 6 OYSA/PMSL leagues registered via `sportsaffinity-asp` adapter
@@ -152,6 +164,9 @@ Scripts are organized into subdirectories by purpose:
 | `discover-or-id-mt.js` | Discover GC + known leagues in OR/ID/MT | `node scripts/discovery/discover-or-id-mt.js [--dry-run] [--state=OR]` |
 | `discover-and-activate-gotsport.js` | Discover GotSport groups & activate leagues | `node scripts/discovery/discover-and-activate-gotsport.js [--dry-run]` |
 | `resolve-sportsconnect-pending.js` | Auto-discover SC standings tabIds | `node scripts/discovery/resolve-sportsconnect-pending.js [--dry-run] [--fix]` |
+| `resolve-all-pending.js` | Resolve ALL pending leagues (tabid, config, groups, platform, adapter) | `node scripts/discovery/resolve-all-pending.js [--dry-run] [--fix] [--category=X]` |
+| `discover-softball.js` | Discover softball leagues across Phase 1 states | `node scripts/discovery/discover-softball.js [--save] [--json] [--state=WA]` |
+| `discover-basketball.js` | Discover basketball leagues across Phase 1 states | `node scripts/discovery/discover-basketball.js [--save] [--json] [--state=WA]` |
 | `discovered_groups_new.json` | Pre-discovered GotSport group data | Data file for update-groups.js |
 
 ### `scripts/activation/` — League status changes
@@ -293,10 +308,12 @@ Always `cd` into this directory before running scripts or deploys.
 
 ### Short-term
 4. ~~**Soccer OR expansion**~~ — DONE (March 12): 5 active, 2 dormant, 3 deactivated
-5. **Discover groups for SOCAL (43086) and NorCal Premier (44142)** — need browser-based discovery (too large for WebFetch)
-6. **Softball WA discovery** — find ASA/USSSA/NSA softball leagues on GameChanger
-7. Re-map 34 pending_config baseball leagues to correct GC org IDs
-8. Add more OR/ID/MT leagues from other platforms
+5. ~~**Discover groups for SOCAL and NorCal Premier**~~ — DONE (March 13): SOCAL 526 groups, NorCal 709 groups activated
+6. ~~**Softball WA discovery**~~ — DONE (March 13): 4 WA softball leagues registered (SportsConnect), 0 GC orgs found
+7. ~~**Basketball discovery**~~ — DONE (March 13): 0 leagues found on supported platforms across 5 states
+8. Re-map 34 pending_config baseball leagues to correct GC org IDs
+9. Add more OR/ID/MT leagues from other platforms
+10. Resolve 3 WA softball SC leagues missing tabIds (Spokane YSA, Pacwest LL, Bellevue National LL)
 
 ### Medium-term
 8. Build TeamSideline adapter (unlocks Thurston + Lewis County soccer)

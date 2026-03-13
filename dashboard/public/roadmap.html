@@ -406,7 +406,7 @@ body {
     <!-- State Coverage: Dynamic per sport -->
     <div class="state-row" id="state-row">
       <div class="state-chip active">WA &mdash; 128 active</div>
-      <div class="state-chip active">CA &mdash; 11 active</div>
+      <div class="state-chip active">CA &mdash; 13 active</div>
       <div class="state-chip active">OR &mdash; 9 leagues</div>
       <div class="state-chip active">ID &mdash; 2 leagues</div>
       <div class="state-chip active">MT &mdash; 5 leagues</div>
@@ -416,9 +416,9 @@ body {
     <h2 class="section-header" style="margin-top: 32px;">Rollout by Sport</h2>
 
     <div class="sport-tabs">
-      <button class="sport-tab active" onclick="showSport('all', this)">&#127919; All Sports <span class="tab-count">150</span></button>
+      <button class="sport-tab active" onclick="showSport('all', this)">&#127919; All Sports <span class="tab-count">158</span></button>
       <button class="sport-tab" onclick="showSport('baseball', this)">&#9918; Baseball <span class="tab-count">115</span></button>
-      <button class="sport-tab" onclick="showSport('soccer', this)">&#9917; Soccer <span class="tab-count">28</span></button>
+      <button class="sport-tab" onclick="showSport('soccer', this)">&#9917; Soccer <span class="tab-count">30</span></button>
       <button class="sport-tab" onclick="showSport('hockey', this)">&#127954; Hockey <span class="tab-count">3</span></button>
       <button class="sport-tab" onclick="showSport('basketball', this)">&#127936; Basketball <span class="tab-count">7</span></button>
       <button class="sport-tab" onclick="showSport('lacrosse', this)">&#129353; Lacrosse <span class="tab-count">2</span></button>
@@ -442,8 +442,8 @@ body {
             <span>&#9917; Soccer</span>
             <span class="platform-badge live">20 leagues</span>
           </div>
-          <div class="sport-overview-body">4 platforms &middot; GotSport (15), TGS/ECNL (6), Demosphere (1), SportsAffinity (1)</div>
-          <div class="sport-overview-states">WA, CA + national &middot; OR/ID/MT pending</div>
+          <div class="sport-overview-body">4 platforms &middot; GotSport (17), TGS/ECNL (6), Demosphere (1), SportsAffinity (1)</div>
+          <div class="sport-overview-states">WA, CA (NorCal 709 + SOCAL 526 groups), OR, ID, MT</div>
         </div>
         <div class="sport-overview-card">
           <div class="sport-overview-header">
@@ -468,6 +468,14 @@ body {
           </div>
           <div class="sport-overview-body">1 platform &middot; LeagueApps (2)</div>
           <div class="sport-overview-states">Phase 1 discovery pending</div>
+        </div>
+        <div class="sport-overview-card">
+          <div class="sport-overview-header">
+            <span>&#129358; Softball</span>
+            <span class="platform-badge live">4 leagues</span>
+          </div>
+          <div class="sport-overview-body">1 platform &middot; SportsConnect (4 active, 3 pending tabId)</div>
+          <div class="sport-overview-states">WA &middot; Existing LL orgs with softball programs</div>
         </div>
         <div class="sport-overview-card planned">
           <div class="sport-overview-header">
@@ -755,10 +763,10 @@ body {
           <span class="platform-detail">GC supports basketball orgs</span>
         </div>
         <div class="task-list">
-          <div class="task">
-            <div class="task-check"></div>
-            <span class="task-label">Run GC discovery for basketball in WA, OR, ID, MT, CA</span>
-            <span class="task-tag config">Config</span>
+          <div class="task done">
+            <div class="task-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <span class="task-label">GC basketball discovery ran (Mar 13) — 0 orgs found across 5 states</span>
+            <span class="task-tag config">Done</span>
           </div>
         </div>
       </div>
@@ -1072,8 +1080,8 @@ body {
     all: {
       cards: [
         { label: 'Phase 1 States', value: '5 states', color: 'green', sub: 'WA, OR, ID, MT, CA' },
-        { label: 'Active Leagues', value: '128+', color: '', sub: '115 baseball + soccer + hockey + basketball + lacrosse' },
-        { label: 'Sports Covered', value: '5 of 9', color: 'amber', sub: 'Baseball, Soccer, Hockey, Basketball, Lacrosse' },
+        { label: 'Active Leagues', value: '138+', color: '', sub: '115 baseball + soccer + hockey + basketball + lacrosse + softball' },
+        { label: 'Sports Covered', value: '6 of 9', color: 'amber', sub: 'Baseball, Soccer, Hockey, Basketball, Lacrosse, Softball' },
         { label: 'Platforms', value: '8', color: 'blue', sub: 'GC, GotSport, TGS, Demosphere, SportsAffinity, Pointstreak, LeagueApps, SportsConnect' }
       ],
       states: [
