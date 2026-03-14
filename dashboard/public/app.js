@@ -422,7 +422,17 @@
     renderTableHeader(columns);
 
     let leagues = getFilteredLeagues();
-    leagues = sortData(leagues, state.sortCol, state.sortDir);
+    // Default sort: active first, then alphabetical by name
+    if (!state.sortCol) {
+      leagues.sort((a, b) => {
+        const aActive = a.status === 'active' ? 0 : 1;
+        const bActive = b.status === 'active' ? 0 : 1;
+        if (aActive !== bActive) return aActive - bActive;
+        return (a.name || '').localeCompare(b.name || '');
+      });
+    } else {
+      leagues = sortData(leagues, state.sortCol, state.sortDir);
+    }
 
     dom.tableBody.innerHTML = '';
     if (leagues.length === 0) {
