@@ -93,7 +93,17 @@
   async function loadStandings(divisionId) {
     if (state.standingsCache[divisionId]) return state.standingsCache[divisionId];
     const data = await fetchJSON(`${API_BASE}/getStandings?division=${encodeURIComponent(divisionId)}`);
-    const standings = data.standings || [];
+    let standings = data.standings || [];
+
+    // Client-side dedup by teamName — belt and suspenders against backend dupes
+    const seen = new Map();
+    standings = standings.filter(s => {
+      const key = s.teamName;
+      if (seen.has(key)) return false;
+      seen.set(key, true);
+      return true;
+    });
+
     state.standingsCache[divisionId] = standings;
     return standings;
   }
