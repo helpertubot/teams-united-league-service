@@ -9,6 +9,7 @@
   "dependencies": {
     "@google-cloud/firestore": "^7.3.0",
     "@google-cloud/functions-framework": "^3.3.0",
+    "@google-cloud/storage": "^7.7.0",
     "@sparticuz/chromium": "^126.0.0",
     "axios": "^1.13.6",
     "cheerio": "^1.2.0",

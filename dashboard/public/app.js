@@ -8,6 +8,7 @@
 
   // --- Constants ---
   const API_BASE = 'https://us-central1-teams-united.cloudfunctions.net';
+  const SUMMARY_URL = 'https://storage.googleapis.com/tu-league-dashboard/leagues-summary.json';
   const SPORTS = ['soccer', 'baseball', 'basketball', 'hockey', 'lacrosse'];
   const AUTO_SEASON_LEAGUES = new Set([
     'ecnl-boys', 'ecnl-girls', 'ecnl-rl-boys', 'ecnl-rl-girls',
@@ -67,10 +68,18 @@
   }
 
   async function loadLeagues() {
-    const data = await fetchJSON(`${API_BASE}/getLeagues`);
-    state.leagues = data.leagues || [];
-    state.lastRefreshed = new Date();
-    return state.leagues;
+    // Try static GCS summary first (fast CDN), fallback to Cloud Function
+    try {
+      const data = await fetchJSON(SUMMARY_URL);
+      state.leagues = data.leagues || [];
+      state.lastRefreshed = new Date();
+      return state.leagues;
+    } catch {
+      const data = await fetchJSON(`${API_BASE}/getLeagues`);
+      state.leagues = data.leagues || [];
+      state.lastRefreshed = new Date();
+      return state.leagues;
+    }
   }
 
   async function loadDivisions(leagueId) {
@@ -89,16 +98,10 @@
     return standings;
   }
 
-  // Preload division counts for visible leagues
-  async function preloadDivisionCounts(leagues) {
-    const uncached = leagues.filter(l => !state.divisionCache[l.id]);
-    const batches = [];
-    for (let i = 0; i < uncached.length; i += 10) {
-      batches.push(uncached.slice(i, i + 10));
-    }
-    for (const batch of batches) {
-      await Promise.allSettled(batch.map(l => loadDivisions(l.id)));
-    }
+  // Division count helper — uses divisionCount from API, falls back to cache
+  function getDivisionCount(league) {
+    if (league.divisionCount != null) return league.divisionCount;
+    return (state.divisionCache[league.id] || []).length;
   }
 
   // --- Render Helpers ---
@@ -145,11 +148,9 @@
     let totalDivs = 0;
     let withData = 0;
     sportLeagues.forEach(l => {
-      const divs = state.divisionCache[l.id];
-      if (divs) {
-        totalDivs += divs.length;
-        if (divs.length > 0) withData++;
-      }
+      const count = getDivisionCount(l);
+      totalDivs += count;
+      if (count > 0) withData++;
     });
 
     animateNumber(dom.kpiActive, active.length);
@@ -334,8 +335,8 @@
       let vb = b[col];
       // Handle division count
       if (col === '_divCount') {
-        va = (state.divisionCache[a.id] || []).length;
-        vb = (state.divisionCache[b.id] || []).length;
+        va = getDivisionCount(a);
+        vb = getDivisionCount(b);
       }
       if (col === '_autoSeason') {
         va = AUTO_SEASON_LEAGUES.has(a.id) ? 1 : 0;
@@ -436,7 +437,7 @@
       tr.style.animationDelay = `${Math.min(i * 20, 400)}ms`;
       tr.addEventListener('click', () => navigateToLeague(l));
 
-      const divCount = (state.divisionCache[l.id] || []).length;
+      const divCount = getDivisionCount(l);
       const autoSeason = AUTO_SEASON_LEAGUES.has(l.id);
 
       tr.innerHTML = `
@@ -733,11 +734,6 @@
       updateBadges();
       populateLeagueDropdown();
       populateStateDropdown();
-
-      // Preload division counts for current sport
-      const sportLeagues = state.leagues.filter(l => l.sport === state.activeSport);
-      await preloadDivisionCounts(sportLeagues);
-
       updateKPIs();
       dom.lastRefreshed.textContent = formatTimestamp(state.lastRefreshed);
 
@@ -750,12 +746,6 @@
         state.view = 'leagues';
         renderTable();
       }
-
-      // Preload division counts for all other sports in background
-      const otherLeagues = state.leagues.filter(l => l.sport !== state.activeSport);
-      preloadDivisionCounts(otherLeagues).then(() => {
-        updateKPIs();
-      });
 
     } catch (err) {
       showView('error');
