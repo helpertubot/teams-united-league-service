@@ -509,6 +509,18 @@ functions.http('getStandings', async (req, res) => {
 
     let standings = snap.docs.map(doc => doc.data());
 
+    // Dedup by teamName — prefer documents with composite keys (longer IDs)
+    // over legacy auto-generated Firestore IDs
+    const teamMap = new Map();
+    snap.docs.forEach(doc => {
+      const data = doc.data();
+      const key = data.teamName;
+      if (!teamMap.has(key) || doc.id.length > teamMap.get(key).id.length) {
+        teamMap.set(key, { id: doc.id, data });
+      }
+    });
+    standings = Array.from(teamMap.values()).map(v => v.data);
+
     standings.sort((a, b) => {
       if (a.position && b.position) return a.position - b.position;
       return (b.points || 0) - (a.points || 0);
