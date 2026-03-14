@@ -14,6 +14,7 @@
 
 const functions = require('@google-cloud/functions-framework');
 const { Firestore } = require('@google-cloud/firestore');
+const { Storage } = require('@google-cloud/storage');
 const { getAdapter, listPlatforms } = require('./registry');
 // season-monitor.js exports hashStandings AND self-registers the 'seasonMonitor' Cloud Function
 const { hashStandings } = require('./season-monitor');
@@ -303,18 +304,51 @@ functions.http('collectAll', async (req, res) => {
       }
     }
 
-    // After all collections, trigger Google Sheets sync
+    // After all collections, generate static leagues-summary.json for dashboard CDN
     try {
-      const axios = require('axios');
-      const sheetsUrl = process.env.FUNCTION_TARGET 
-        ? 'https://us-central1-teams-united.cloudfunctions.net/updateSheet'
-        : 'http://localhost:8080/updateSheet';
-      console.log('collectAll: Triggering Google Sheets sync...');
-      await axios.post(sheetsUrl, {}, { timeout: 120000 }).catch(e => {
-        console.warn('collectAll: Sheets sync failed (non-fatal):', e.message);
+      console.log('collectAll: Generating leagues-summary.json...');
+      const allLeaguesSnap = await db.collection('leagues').get();
+      const divSnap = await db.collection('divisions').select('leagueId').get();
+      const divCounts = {};
+      for (const doc of divSnap.docs) {
+        const lid = doc.data().leagueId;
+        divCounts[lid] = (divCounts[lid] || 0) + 1;
+      }
+
+      const summaryLeagues = allLeaguesSnap.docs
+        .map(doc => ({ id: doc.id, ...doc.data() }))
+        .filter(l => l.status !== 'template')
+        .map(l => ({
+          id: l.id,
+          name: l.name,
+          sport: l.sport,
+          state: l.state || l.states || '',
+          platform: l.sourcePlatform,
+          status: l.status,
+          region: l.region || null,
+          autoUpdate: l.autoUpdate || false,
+          lastCollected: l.lastCollected || null,
+          lastDataChange: l.lastDataChange || null,
+          monitorStatus: l.monitorStatus || null,
+          divisionCount: divCounts[l.id] || 0,
+        }));
+
+      const summary = {
+        generatedAt: new Date().toISOString(),
+        count: summaryLeagues.length,
+        leagues: summaryLeagues,
+      };
+
+      const storage = new Storage();
+      const bucket = storage.bucket('tu-league-dashboard');
+      const file = bucket.file('leagues-summary.json');
+      await file.save(JSON.stringify(summary), {
+        contentType: 'application/json',
+        metadata: { cacheControl: 'public, max-age=300' },
       });
-    } catch (sheetsErr) {
-      console.warn('collectAll: Sheets sync trigger failed (non-fatal):', sheetsErr.message);
+      console.log(`collectAll: leagues-summary.json uploaded (${summaryLeagues.length} leagues)`);
+    } catch (summaryErr) {
+      console.warn('collectAll: Summary generation failed (non-fatal):', summaryErr.message);
     }
 
     res.json({ collected: results.length, results });
@@ -337,6 +371,7 @@ functions.http('getLeagues', async (req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
   res.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.set('Cache-Control', 'public, max-age=300');
   if (req.method === 'OPTIONS') return res.status(204).send('');
 
   try {
@@ -365,6 +400,14 @@ functions.http('getLeagues', async (req, res) => {
     // Don't return templates
     leagues = leagues.filter(l => l.status !== 'template');
 
+    // Compute division counts per league in a single Firestore query
+    const divSnap = await db.collection('divisions').select('leagueId').get();
+    const divCounts = {};
+    for (const doc of divSnap.docs) {
+      const lid = doc.data().leagueId;
+      divCounts[lid] = (divCounts[lid] || 0) + 1;
+    }
+
     const cleaned = leagues.map(l => ({
       id: l.id,
       name: l.name,
@@ -377,6 +420,7 @@ functions.http('getLeagues', async (req, res) => {
       lastCollected: l.lastCollected || null,
       lastDataChange: l.lastDataChange || null,
       monitorStatus: l.monitorStatus || null,
+      divisionCount: divCounts[l.id] || 0,
     }));
 
     res.json({ count: cleaned.length, leagues: cleaned });
@@ -394,6 +438,7 @@ functions.http('getDivisions', async (req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
   res.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.set('Cache-Control', 'public, max-age=300');
   if (req.method === 'OPTIONS') return res.status(204).send('');
 
   try {
@@ -449,6 +494,7 @@ functions.http('getStandings', async (req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
   res.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.set('Cache-Control', 'public, max-age=300');
   if (req.method === 'OPTIONS') return res.status(204).send('');
 
   try {
@@ -462,6 +508,18 @@ functions.http('getStandings', async (req, res) => {
       .get();
 
     let standings = snap.docs.map(doc => doc.data());
+
+    // Dedup by teamName — prefer documents with composite keys (longer IDs)
+    // over legacy auto-generated Firestore IDs
+    const teamMap = new Map();
+    snap.docs.forEach(doc => {
+      const data = doc.data();
+      const key = data.teamName;
+      if (!teamMap.has(key) || doc.id.length > teamMap.get(key).id.length) {
+        teamMap.set(key, { id: doc.id, data });
+      }
+    });
+    standings = Array.from(teamMap.values()).map(v => v.data);
 
     standings.sort((a, b) => {
       if (a.position && b.position) return a.position - b.position;
