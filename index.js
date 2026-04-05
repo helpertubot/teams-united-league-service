@@ -189,6 +189,7 @@ functions.http('collectLeague', async (req, res) => {
 /**
  * collectAll Cloud Function — Updated for multi-platform
  * Triggered daily by Cloud Scheduler. Collects ALL active leagues.
+ * Uses parallel batches to fit within the 540s function timeout.
  */
 functions.http('collectAll', async (req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
@@ -199,9 +200,8 @@ functions.http('collectAll', async (req, res) => {
       .where('status', '==', 'active')
       .get();
 
-    const results = [];
-    
-    for (const doc of leaguesSnap.docs) {
+    // Collect a single league — returns a result object
+    async function collectOne(doc) {
       const leagueConfig = { id: doc.id, ...doc.data() };
       const platform = leagueConfig.sourcePlatform;
 
@@ -254,7 +254,7 @@ functions.http('collectAll', async (req, res) => {
         const currentHash = hashStandings(standings);
         const previousHash = leagueConfig.lastStandingsHash || null;
         const dataChanged = currentHash !== previousHash && standings.length > 0;
-        
+
         const leagueUpdates = {
           lastStandingsHash: currentHash,
           lastCollected: new Date().toISOString(),
@@ -264,7 +264,7 @@ functions.http('collectAll', async (req, res) => {
         }
         await doc.ref.update(leagueUpdates);
 
-        results.push({
+        const result = {
           leagueId: doc.id,
           platform,
           divisions: divisions.length,
@@ -272,7 +272,7 @@ functions.http('collectAll', async (req, res) => {
           dataChanged,
           durationMs: Date.now() - startTime,
           status: 'success',
-        });
+        };
 
         await db.collection('collectionLogs').add({
           leagueId: doc.id,
@@ -285,14 +285,10 @@ functions.http('collectAll', async (req, res) => {
           status: 'success',
         });
 
+        return result;
+
       } catch (err) {
         console.error(`Error collecting ${doc.id} (${platform}):`, err.message);
-        results.push({
-          leagueId: doc.id,
-          platform,
-          status: 'error',
-          error: err.message,
-        });
 
         await db.collection('collectionLogs').add({
           leagueId: doc.id,
@@ -301,7 +297,30 @@ functions.http('collectAll', async (req, res) => {
           error: err.message,
           collectedAt: new Date().toISOString(),
         });
+
+        return {
+          leagueId: doc.id,
+          platform,
+          status: 'error',
+          error: err.message,
+        };
       }
+    }
+
+    // Process leagues in parallel batches of 10
+    const BATCH_SIZE = 10;
+    const docs = leaguesSnap.docs;
+    const results = [];
+    console.log(`collectAll: Processing ${docs.length} active leagues in batches of ${BATCH_SIZE}`);
+
+    for (let i = 0; i < docs.length; i += BATCH_SIZE) {
+      const batch = docs.slice(i, i + BATCH_SIZE);
+      const batchResults = await Promise.allSettled(batch.map(doc => collectOne(doc)));
+      for (const r of batchResults) {
+        results.push(r.status === 'fulfilled' ? r.value : { status: 'error', error: r.reason?.message });
+      }
+      const success = batchResults.filter(r => r.status === 'fulfilled' && r.value?.status === 'success').length;
+      console.log(`collectAll: Batch ${Math.floor(i / BATCH_SIZE) + 1} — ${success}/${batch.length} succeeded`);
     }
 
     // After all collections, generate static leagues-summary.json for dashboard CDN
