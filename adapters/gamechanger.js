@@ -134,14 +134,19 @@ async function collectFromOrg(orgId, leagueConfig) {
     // Create division — use orgId in the division ID to ensure uniqueness across orgs
     const divisionId = `${leagueConfig.id}-${orgId}`;
     const divisionName = orgName;
-    
+
+    // Infer metadata from division name, falling back to sport-based defaults
+    const inferred = inferAgeGroup(divisionName);
+    const sportGender = leagueConfig.sport === 'softball' ? 'girls' :
+                        leagueConfig.sport === 'baseball' ? 'boys' : 'unknown';
+
     divisions.push({
       id: divisionId,
       leagueId: leagueConfig.id,
       seasonId: leagueConfig.seasonId || `${seasonYear || new Date().getFullYear()}`,
       name: divisionName,
-      ageGroup: leagueConfig.sourceConfig.ageGroup || inferAgeGroup(divisionName).ageGroup,
-      gender: leagueConfig.sourceConfig.gender || inferAgeGroup(divisionName).gender,
+      ageGroup: leagueConfig.sourceConfig.ageGroup || inferred.ageGroup,
+      gender: leagueConfig.sourceConfig.gender || (inferred.gender !== 'unknown' ? inferred.gender : sportGender),
       level: null,
       platformDivisionId: orgId,
       status: 'active',
