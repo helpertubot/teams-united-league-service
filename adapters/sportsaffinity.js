@@ -58,20 +58,19 @@ async function collectStandings(leagueConfig) {
     });
 
     if (flight.bracketsDto) {
-      let position = 1;
       for (const team of flight.bracketsDto) {
         standings.push({
           teamName: (team.teamName || '').trim(),
-          position: position++,
+          position: team.rank || 0,
           gamesPlayed: team.gamesPlayed || 0,
           wins: team.wins || 0,
           losses: team.losses || 0,
           ties: team.ties || 0,
-          points: team.points || 0,
+          points: team.totalPoints || team.adjustedTotalPoints || 0,
           scored: team.goalsFor || 0,
           allowed: team.goalsAgainst || 0,
           differential: (team.goalsFor || 0) - (team.goalsAgainst || 0),
-          shutouts: team.shutouts || 0,
+          shutouts: team.shutOuts || 0,
           yellowCards: team.yellowCards || 0,
           redCards: team.redCards || 0,
           clubKey: team.clubKey || null,
@@ -92,9 +91,20 @@ function parseFlightName(flightName, ageGroupName) {
   let gender = 'unknown';
   let ageGroup = ageGroupName || 'unknown';
 
+  // Check both flightName and ageGroupName for gender
   const lower = (flightName || '').toLowerCase();
-  if (lower.includes('boys') || lower.includes('boy')) gender = 'boys';
-  else if (lower.includes('girls') || lower.includes('girl')) gender = 'girls';
+  const agLower = (ageGroupName || '').toLowerCase();
+  if (lower.includes('boys') || lower.includes('boy') || agLower.includes('boys') || agLower.includes('boy')) {
+    gender = 'boys';
+  } else if (lower.includes('girls') || lower.includes('girl') || agLower.includes('girls') || agLower.includes('girl')) {
+    gender = 'girls';
+  } else {
+    // Check for B/G suffix pattern (e.g., "13UB", "14UG")
+    const suffixMatch = (flightName || '').match(/\d+U([BG])\b/i);
+    if (suffixMatch) {
+      gender = suffixMatch[1].toUpperCase() === 'B' ? 'boys' : 'girls';
+    }
+  }
 
   const ageMatch = flightName.match(/U-?(\d{1,2})/i);
   if (ageMatch) ageGroup = `U${ageMatch[1]}`;
