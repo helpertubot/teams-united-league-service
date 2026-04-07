@@ -31,6 +31,7 @@ const tgs = require('./adapters/tgs');
 const gamechanger = require('./adapters/gamechanger');
 const leagueapps = require('./adapters/leagueapps');
 const sportsconnect = require('./adapters/sportsconnect');
+const teamlinkt = require('./adapters/teamlinkt');
 
 const adapters = {
   [sportsaffinity.PLATFORM_ID]: sportsaffinity,
@@ -42,6 +43,7 @@ const adapters = {
   [leagueapps.PLATFORM_ID]: leagueapps,
   [sportsconnect.PLATFORM_ID]: sportsconnect,
   [sportsaffinityAsp.PLATFORM_ID]: sportsaffinityAsp,
+  [teamlinkt.PLATFORM_ID]: teamlinkt,
 };
 
 /**
