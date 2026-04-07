@@ -35,12 +35,25 @@ const PLATFORM_ID = 'pointstreak';
 async function collectStandings(leagueConfig) {
   const { sport, leagueId, seasonId, baseUrl, divisionMeta } = leagueConfig.sourceConfig;
   const meta = divisionMeta || {};
-  
+
   // If we have explicit division IDs in divisionMeta, fetch each one directly
-  // This is needed for hockey where per-division URLs are the norm
   const divisionIds = Object.keys(meta);
   if (divisionIds.length > 0 && sport === 'hockey') {
     return collectByDivision(leagueConfig, divisionIds, meta);
+  }
+
+  // For hockey leagues on /players/ subdomain — auto-discover divisions from league page
+  if (sport === 'hockey' && leagueId) {
+    const discovered = await discoverHockeyDivisions(leagueId, seasonId);
+    if (discovered.divisions.length > 0) {
+      // Inject discovered seasonId into config if not already set
+      if (discovered.seasonId && !seasonId) {
+        leagueConfig.sourceConfig.seasonId = discovered.seasonId;
+      }
+      return collectByDivision(leagueConfig,
+        discovered.divisions.map(d => d.id),
+        Object.fromEntries(discovered.divisions.map(d => [d.id, { ageGroup: d.ageGroup, gender: d.gender }])));
+    }
   }
   
   // Otherwise use league-level URL (works for baseball, some hockey)
@@ -223,8 +236,14 @@ async function collectByDivision(leagueConfig, divisionIds, meta) {
     const $ = cheerio.load(html);
     const divMeta = meta[divId] || {};
     
-    // Get division name from page
-    let divisionName = $('h1, h2, .division-name, .page-title').first().text().trim();
+    // Get division name from page — prefer h2 (division name) over h1 (site name)
+    let divisionName = $('h2').first().text().trim();
+    if (!divisionName || divisionName === 'Pointstreak.com') {
+      // Fallback to title: "TSL HIGH SCHOOL - Montana Amateur Hockey... | Pointstreak"
+      const title = $('title').text().trim();
+      const titleMatch = title.match(/^([^-|]+)/);
+      divisionName = titleMatch ? titleMatch[1].trim() : '';
+    }
     if (!divisionName || divisionName.length > 100) {
       divisionName = divMeta.ageGroup ? `${divMeta.ageGroup} ${divMeta.gender || ''}`.trim() : `Division ${divId}`;
     }
@@ -319,6 +338,49 @@ async function collectByDivision(leagueConfig, divisionIds, meta) {
   }
 
   return { divisions, standings };
+}
+
+/**
+ * Auto-discover divisions from a Pointstreak /players/ league page.
+ * The league page lists divisions as <a class="division"> links.
+ */
+async function discoverHockeyDivisions(leagueId, seasonId) {
+  // First, discover the seasonId if not provided
+  let sid = seasonId;
+  const leagueUrl = `https://pointstreak.com/players/players-leagues.html?leagueid=${leagueId}${sid ? '&seasonid=' + sid : ''}`;
+
+  try {
+    const resp = await axios.get(leagueUrl, {
+      timeout: 30000,
+      headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) TeamsUnited-Standings/1.0', Accept: 'text/html' },
+    });
+    const $ = cheerio.load(resp.data);
+
+    // Auto-detect seasonId from page links if not provided
+    if (!sid) {
+      const seasonLink = $('a[href*="seasonid="]').first().attr('href') || '';
+      const sidMatch = seasonLink.match(/seasonid=(\d+)/);
+      if (sidMatch) sid = sidMatch[1];
+    }
+
+    // Extract division links: <a class="division" href="...divisionid=XXXXX&seasonid=YYYYY">Name</a>
+    const divisions = [];
+    $('a.division').each((_, el) => {
+      const href = $(el).attr('href') || '';
+      const name = $(el).text().trim();
+      const didMatch = href.match(/divisionid=(\d+)/);
+      if (didMatch && name) {
+        const { ageGroup, gender } = inferAgeGroup(name);
+        divisions.push({ id: didMatch[1], name, ageGroup, gender });
+      }
+    });
+
+    console.log(`Pointstreak: Discovered ${divisions.length} hockey divisions for league ${leagueId} (season ${sid || '?'})`);
+    return { divisions, seasonId: sid };
+  } catch (err) {
+    console.error(`Pointstreak: Division discovery failed for league ${leagueId}: ${err.message}`);
+    return { divisions: [], seasonId: sid };
+  }
 }
 
 module.exports = { PLATFORM_ID, collectStandings };
