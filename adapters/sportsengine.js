@@ -207,4 +207,111 @@ async function collectFromSeason(seasonId, leagueConfig) {
   return { divisions, standings };
 }
 
-module.exports = { PLATFORM_ID, collectStandings };
+/**
+ * Discover SportsEngine program IDs from an org's website.
+ *
+ * SportsEngine orgs embed season microsites as iframes pointing to
+ * season-microsites.ui.sportsengine.com/seasons/{programId}/...
+ *
+ * This function scrapes a given URL (and optionally its internal links)
+ * looking for those iframe embeds and extracts the 24-char program IDs.
+ *
+ * If no programIds are found via iframe scraping, falls back to checking
+ * the sportngin game_schedule widget config embedded in page JavaScript.
+ *
+ * @param {string} orgUrl - The SportsEngine org website URL (e.g., https://www.example-hockey.org)
+ * @param {Object} [options] - Options
+ * @param {boolean} [options.followLinks=true] - Follow internal links one level deep
+ * @param {number} [options.maxPages=10] - Max pages to check
+ * @returns {Promise<{programIds: string[], sources: Object[]}>}
+ */
+async function discoverProgramIds(orgUrl, options = {}) {
+  const { followLinks = true, maxPages = 10 } = options;
+  const cheerio = require('cheerio');
+  const found = new Map(); // programId -> source info
+  const visited = new Set();
+  const baseUrl = new URL(orgUrl);
+
+  async function scrapePage(url) {
+    if (visited.has(url) || visited.size >= maxPages) return;
+    visited.add(url);
+
+    try {
+      const resp = await axios.get(url, {
+        timeout: 15000,
+        headers: { 'User-Agent': 'TeamsUnited-Standings/1.0', Accept: 'text/html' },
+        maxRedirects: 3,
+      });
+      const $ = cheerio.load(resp.data);
+
+      // Method 1: Look for iframes pointing to season-microsites.ui.sportsengine.com
+      $('iframe').each((_, el) => {
+        const src = $(el).attr('src') || '';
+        const match = src.match(/season-microsites\.ui\.sportsengine\.com\/seasons\/([a-f0-9]{24})/i);
+        if (match) {
+          found.set(match[1], { programId: match[1], method: 'iframe', pageUrl: url, iframeSrc: src });
+        }
+      });
+
+      // Method 2: Look for links to season microsites
+      $('a').each((_, el) => {
+        const href = $(el).attr('href') || '';
+        const match = href.match(/season-microsites\.ui\.sportsengine\.com\/seasons\/([a-f0-9]{24})/i);
+        if (match) {
+          found.set(match[1], { programId: match[1], method: 'link', pageUrl: url, linkHref: href });
+        }
+      });
+
+      // Method 3: Check for programId in inline JavaScript / widget config
+      const html = resp.data;
+      const jsMatches = html.matchAll(/program_id['":\s]+['"]?([a-f0-9]{24})['"]?/gi);
+      for (const m of jsMatches) {
+        if (!found.has(m[1])) {
+          found.set(m[1], { programId: m[1], method: 'js_config', pageUrl: url });
+        }
+      }
+
+      // Method 4: Check AJAX tab containers (sportngin uses layout_container tabs)
+      const tabLinks = [];
+      $('a.tab-remote').each((_, el) => {
+        const href = $(el).attr('href');
+        if (href) {
+          const tabUrl = href.startsWith('http') ? href : `${baseUrl.origin}${href}`;
+          tabLinks.push(tabUrl);
+        }
+      });
+      for (const tabUrl of tabLinks) {
+        if (visited.size >= maxPages) break;
+        await scrapePage(tabUrl);
+      }
+
+      // Collect internal links for follow-up (one level deep)
+      if (followLinks && visited.size === 1) {
+        const internalLinks = [];
+        $('a').each((_, el) => {
+          const href = $(el).attr('href') || '';
+          const text = $(el).text().toLowerCase();
+          if ((text.includes('standings') || text.includes('schedule') || text.includes('scores') ||
+               text.includes('league') || text.includes('season') || text.includes('game')) &&
+              (href.startsWith('/') || href.startsWith(baseUrl.origin))) {
+            const fullUrl = href.startsWith('http') ? href : `${baseUrl.origin}${href}`;
+            if (!visited.has(fullUrl)) internalLinks.push(fullUrl);
+          }
+        });
+        for (const link of internalLinks.slice(0, maxPages - 1)) {
+          await scrapePage(link);
+        }
+      }
+    } catch (err) {
+      console.warn(`SportsEngine discover: Failed to scrape ${url}: ${err.message}`);
+    }
+  }
+
+  await scrapePage(orgUrl);
+
+  const sources = Array.from(found.values());
+  console.log(`SportsEngine discover: Found ${sources.length} program IDs from ${visited.size} pages`);
+  return { programIds: sources.map(s => s.programId), sources };
+}
+
+module.exports = { PLATFORM_ID, collectStandings, discoverProgramIds };
