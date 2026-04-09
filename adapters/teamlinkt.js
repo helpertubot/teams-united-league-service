@@ -89,39 +89,41 @@ async function collectStandings(leagueConfig) {
 
   console.log(`TeamLinkt: Found ${divList.length} divisions for ${orgSlug} (assoc=${assocId}, season=${sid})`);
 
-  // Step 2: Fetch standings from API
-  // Pass a single group_id to get all standings for the season
-  // (passing all group_ids only works if they match the queried season)
-  const firstGroupId = divList[0]?.value;
+  // Step 2: Fetch standings from API per division group
+  // Each group_id must be queried separately to get all teams
   const apiUrl = `${base}/leagues/getStandings/${assocId}/${sid}`;
+  let allStandingsData = [];
+  let columns = [];
 
-  let apiData;
-  try {
-    const resp = await axios.post(apiUrl, `group_ids[${firstGroupId}]=${firstGroupId}&season_id=${sid}`, {
-      timeout: 30000,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) TeamsUnited-Standings/1.0',
-        'X-Requested-With': 'XMLHttpRequest',
-      },
-    });
-    apiData = resp.data;
-  } catch (err) {
-    console.error(`TeamLinkt: API call failed: ${err.message}`);
-    return { divisions, standings };
+  for (const div of divList) {
+    const groupId = div.value;
+    try {
+      const resp = await axios.post(apiUrl, `group_ids[${groupId}]=${groupId}&season_id=${sid}`, {
+        timeout: 30000,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) TeamsUnited-Standings/1.0',
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+      });
+      const groupStandings = (resp.data.standings || []).map(s => ({ ...s, _groupId: String(groupId) }));
+      allStandingsData.push(...groupStandings);
+      if (columns.length === 0 && resp.data.columns) {
+        columns = (resp.data.columns || []).map(c => {
+          const col = c.AssociationStandingColumn || c;
+          return { type: col.column_type, name: col.column_name, abbr: col.abbreviation };
+        });
+      }
+    } catch (err) {
+      console.warn(`TeamLinkt: API call failed for group ${groupId}: ${err.message}`);
+    }
   }
 
-  const standingsData = apiData.standings || [];
+  const standingsData = allStandingsData;
   if (standingsData.length === 0) {
     console.log('TeamLinkt: 0 standings returned (season may not have started)');
     return { divisions, standings };
   }
-
-  // Build column type map from API response
-  const columns = (apiData.columns || []).map(c => {
-    const col = c.AssociationStandingColumn || c;
-    return { type: col.column_type, name: col.column_name, abbr: col.abbreviation };
-  });
 
   // Extract team-to-division mapping from CHILD_GROUP_TEAMS
   const teamToDiv = {};
@@ -163,7 +165,7 @@ async function collectStandings(leagueConfig) {
     const team = s.Team || {};
     const teamName = team.name || team.original_team_name || 'Unknown';
     const teamId = s.team_id || team.id;
-    const groupId = teamToDiv[teamId];
+    const groupId = s._groupId || teamToDiv[teamId];
     const divisionId = groupId ? divMap[groupId] : (divisions[0]?.id || `${leagueConfig.id}-unknown`);
 
     standings.push({
