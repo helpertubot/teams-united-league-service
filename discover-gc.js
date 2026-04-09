@@ -330,7 +330,30 @@ functions.http('discoverGC', async (req, res) => {
       return res.json({ mode: 'direct', discovered: results.length - skipped, saved, skipped, existing, orgs: results });
     }
 
-    // === Mode 2: Search-based discovery ===
+    // === Mode 3: Refresh stale leagues ===
+    if (body.refresh) {
+      const leagueIds = body.leagueIds || null;
+      const results = await refreshStaleGCLeagues(leagueIds);
+      const updated = results.filter(r => r.status === 'updated').length;
+      
+      // Log the refresh run
+      await db.collection('discoveryLogs').add({
+        function: 'discoverGC',
+        mode: 'refresh',
+        targetCount: results.length,
+        updated,
+        timestamp: new Date().toISOString(),
+      });
+      
+      return res.json({
+        mode: 'refresh',
+        total: results.length,
+        updated,
+        results,
+      });
+    }
+
+        // === Mode 2: Search-based discovery ===
     let states = body.states || (body.state ? [body.state] : []);
     let sports = body.sports || (body.sport ? [body.sport] : []);
     const save = body.save !== false;
@@ -460,4 +483,151 @@ functions.http('discoverGC', async (req, res) => {
   }
 });
 
-module.exports = { discoverOrgIds, validateOrg, registerOrg, mapSport, getTeamCount };
+
+
+/**
+ * Refresh stale GC leagues by searching for their names on DuckDuckGo
+ * and checking if any new orgIds point to newer seasons.
+ * 
+ * Mode 3 input: { "refresh": true, "leagueIds": ["wa-ll-d1-granite-falls", ...] }
+ * If leagueIds is omitted, finds all GC leagues with needs_attention/stale monitorStatus.
+ */
+async function refreshStaleGCLeagues(leagueIds) {
+  const results = [];
+  
+  // If no specific IDs, find all stale GC leagues
+  let targetLeagues;
+  if (leagueIds && leagueIds.length > 0) {
+    const docs = await Promise.all(leagueIds.map(id => db.collection('leagues').doc(id).get()));
+    targetLeagues = docs.filter(d => d.exists).map(d => ({ id: d.id, ...d.data() }));
+  } else {
+    // Find all GC leagues with problems
+    const snap = await db.collection('leagues')
+      .where('sourcePlatform', '==', 'gamechanger')
+      .where('status', '==', 'active')
+      .get();
+    targetLeagues = snap.docs
+      .map(d => ({ id: d.id, ...d.data() }))
+      .filter(l => l.monitorStatus === 'needs_attention' || l.monitorStatus === 'stale' || 
+                    (l.monitorStatus === 'healthy' && !l.lastDataChange));
+  }
+
+  console.log(`refreshStaleGC: Checking ${targetLeagues.length} stale leagues`);
+
+  for (const league of targetLeagues) {
+    const leagueName = league.name || '';
+    if (!leagueName) {
+      results.push({ leagueId: league.id, status: 'skipped', notes: 'No league name' });
+      continue;
+    }
+
+    try {
+      // Search DuckDuckGo specifically for this league name on GC
+      const searchQueries = [
+        `site:web.gc.com/organizations "${leagueName}"`,
+        `site:web.gc.com "${leagueName}" ${league.sport || 'baseball'}`,
+      ];
+
+      const candidateOrgIds = new Set();
+      for (const query of searchQueries) {
+        console.log(`refreshStaleGC: Searching: ${query}`);
+        const ids = await searchDuckDuckGo(query);
+        for (const id of ids) candidateOrgIds.add(id);
+        await sleep(DELAY_BETWEEN_SEARCHES_MS);
+      }
+
+      if (candidateOrgIds.size === 0) {
+        results.push({ leagueId: league.id, name: leagueName, status: 'no_candidates', notes: 'No GC org pages found via search' });
+        continue;
+      }
+
+      // Check each candidate to see if it matches this league and has newer data
+      const currentOrgId = league.sourceConfig?.orgId;
+      let bestCandidate = null;
+      let bestYear = 0;
+
+      for (const orgId of candidateOrgIds) {
+        if (orgId === currentOrgId) continue; // Skip current
+        
+        const org = await validateOrg(orgId);
+        if (!org) continue;
+        
+        // Check if this org name matches (fuzzy)
+        const orgNameLower = (org.name || '').toLowerCase();
+        const leagueNameLower = leagueName.toLowerCase();
+        const nameMatch = orgNameLower.includes(leagueNameLower.split(' ').slice(0, 2).join(' ')) ||
+                          leagueNameLower.includes(orgNameLower.split(' ').slice(0, 2).join(' '));
+        
+        if (!nameMatch) continue;
+        if (org.type === 'tournament') continue;
+        
+        const year = org.season_year || 0;
+        if (year > bestYear) {
+          // Check if it has teams or standings
+          const teamCount = await getTeamCount(orgId);
+          const standingsResp = await axios.get(`${GC_API_BASE}/organizations/${orgId}/standings`, {
+            timeout: 10000,
+            headers: { 'Accept': 'application/json', 'User-Agent': 'TeamsUnited-Discovery/1.0' },
+          }).catch(() => ({ data: [] }));
+          const standingsCount = Array.isArray(standingsResp.data) ? standingsResp.data.length : 0;
+          
+          bestCandidate = {
+            orgId, name: org.name, seasonName: org.season_name, seasonYear: year,
+            teamCount, standingsCount, type: org.type,
+          };
+          bestYear = year;
+        }
+        
+        await sleep(DELAY_BETWEEN_API_CALLS_MS);
+      }
+
+      if (bestCandidate && bestCandidate.orgId !== currentOrgId) {
+        // Found a newer orgId — update the league config
+        const existingAllOrgIds = league.sourceConfig?.allOrgIds || [];
+        const newAllOrgIds = [...existingAllOrgIds];
+        
+        // Add the new orgId if not already present
+        if (!newAllOrgIds.some(o => (o.publicId || o.public_id) === bestCandidate.orgId)) {
+          newAllOrgIds.push({
+            publicId: bestCandidate.orgId,
+            name: bestCandidate.name,
+            type: bestCandidate.type || 'league',
+            seasonName: bestCandidate.seasonName,
+            seasonYear: bestCandidate.seasonYear,
+          });
+        }
+
+        // Update Firestore
+        await db.collection('leagues').doc(league.id).update({
+          'sourceConfig.orgId': bestCandidate.orgId,
+          'sourceConfig.allOrgIds': newAllOrgIds,
+          'sourceConfig.orgName': bestCandidate.name,
+          'sourceConfig.previousOrgId': currentOrgId,
+          monitorStatus: 'healthy',
+          monitorNotes: `Refreshed: rotated to ${bestCandidate.seasonName} ${bestCandidate.seasonYear} (orgId: ${bestCandidate.orgId})`,
+          lastMonitorCheck: new Date().toISOString(),
+        });
+
+        results.push({
+          leagueId: league.id, name: leagueName, status: 'updated',
+          previousOrgId: currentOrgId,
+          newOrgId: bestCandidate.orgId,
+          season: `${bestCandidate.seasonName} ${bestCandidate.seasonYear}`,
+          teamCount: bestCandidate.teamCount,
+          standingsCount: bestCandidate.standingsCount,
+        });
+      } else {
+        results.push({
+          leagueId: league.id, name: leagueName, status: 'no_better_org',
+          notes: `Checked ${candidateOrgIds.size} candidates, none newer than current`,
+        });
+      }
+    } catch (err) {
+      results.push({ leagueId: league.id, name: leagueName, status: 'error', notes: err.message });
+    }
+  }
+
+  return results;
+}
+
+module.exports = { discoverOrgIds, validateOrg, registerOrg, mapSport, getTeamCount, refreshStaleGCLeagues };
