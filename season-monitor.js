@@ -285,11 +285,33 @@ async function checkLeagueHealth(league, now) {
   const staleThreshold = league.staleDays || STALE_THRESHOLDS[sport] || STALE_THRESHOLDS.default;
   const dormantThreshold = staleThreshold * DORMANT_THRESHOLD_MULTIPLIER;
 
-  // If no lastDataChange is set, the league hasn't been monitored yet
+  // If no lastDataChange is set, the league has never had successful data collection.
+  // Check if this is a new league (give it time) or a long-standing config issue.
   if (!league.lastDataChange) {
+    const lastCollected = league.lastCollected ? new Date(league.lastCollected) : null;
+    const createdAt = league.createdAt ? new Date(league.createdAt) : null;
+    const daysSinceCreated = createdAt ? Math.floor((now - createdAt) / (1000 * 60 * 60 * 24)) : 0;
+    const inSeasonWindow = league.seasonStart && league.seasonEnd
+      ? (now >= new Date(league.seasonStart) && now <= new Date(league.seasonEnd))
+      : false;
+
+    // If within season window and created >7 days ago, flag as needs_attention
+    if (daysSinceCreated > 7 && inSeasonWindow) {
+      return {
+        status: 'needs_attention',
+        notes: `League has never returned division data despite being active for ${daysSinceCreated} days during season window (${league.seasonStart} to ${league.seasonEnd}). OrgId may be stale or misconfigured.`,
+      };
+    }
+    // If created >14 days ago with no data ever, something is likely wrong
+    if (daysSinceCreated > 14 && lastCollected) {
+      return {
+        status: 'stale',
+        notes: `League has been collecting for ${daysSinceCreated} days but has never produced data. Config may need review.`,
+      };
+    }
     return {
       status: 'healthy',
-      notes: 'No change tracking data yet — will baseline on next collection',
+      notes: 'No change tracking data yet \u2014 will baseline on next collection',
     };
   }
 
