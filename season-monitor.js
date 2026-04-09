@@ -130,6 +130,8 @@ functions.http('seasonMonitor', async (req, res) => {
 
         if (result.status === 'healthy') {
           report.healthy.push({ id: doc.id, name: league.name, notes: result.notes });
+        } else if (result.status === 'needs_attention') {
+          report.needsAttention.push({ id: doc.id, name: league.name, notes: result.notes, action: result.action || 'review' });
         } else if (result.status === 'stale') {
           report.stale.push({ id: doc.id, name: league.name, notes: result.notes, daysSinceChange: result.daysSinceChange });
         } else if (result.status === 'dormant') {
@@ -307,6 +309,7 @@ async function checkLeagueHealth(league, now) {
       return {
         status: 'stale',
         notes: `League has been collecting for ${daysSinceCreated} days but has never produced data. Config may need review.`,
+        daysSinceChange: daysSinceCreated,
       };
     }
     return {
