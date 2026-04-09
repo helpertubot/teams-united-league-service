@@ -291,8 +291,11 @@ async function checkLeagueHealth(league, now) {
   // Check if this is a new league (give it time) or a long-standing config issue.
   if (!league.lastDataChange) {
     const lastCollected = league.lastCollected ? new Date(league.lastCollected) : null;
-    const createdAt = league.createdAt ? new Date(league.createdAt) : null;
-    const daysSinceCreated = createdAt ? Math.floor((now - createdAt) / (1000 * 60 * 60 * 24)) : 0;
+    // Fall back through createdAt -> discoveredAt -> lastCollected for baseline date
+    const baseline = league.createdAt ? new Date(league.createdAt)
+                   : league.discoveredAt ? new Date(league.discoveredAt)
+                   : lastCollected;
+    const daysSinceCreated = baseline ? Math.floor((now - baseline) / (1000 * 60 * 60 * 24)) : 0;
     const inSeasonWindow = league.seasonStart && league.seasonEnd
       ? (now >= new Date(league.seasonStart) && now <= new Date(league.seasonEnd))
       : false;
