@@ -19,6 +19,7 @@
  * - gamechanger: Browser automation (youth baseball/softball — #1 scoring app)
  * - leagueapps: HTML parser (baseball, soccer, basketball, lacrosse — thousands of orgs)
  * - sportsconnect: Browser automation (Little League, PONY — SportsConnect/Blue Sombrero ASP.NET sites)
+ * - blue-sombrero: HTTP postback (youth soccer — Blue Sombrero/Stack Sports DNN sites)
  * - sportsaffinity-asp: Browser automation (OYSA — legacy SportsAffinity ASP system)
  */
 
@@ -31,6 +32,7 @@ const tgs = require('./adapters/tgs');
 const gamechanger = require('./adapters/gamechanger');
 const leagueapps = require('./adapters/leagueapps');
 const sportsconnect = require('./adapters/sportsconnect');
+const blueSombrero = require('./adapters/blue-sombrero');
 const teamlinkt = require('./adapters/teamlinkt');
 const sportsengine = require('./adapters/sportsengine');
 
@@ -43,6 +45,7 @@ const adapters = {
   [gamechanger.PLATFORM_ID]: gamechanger,
   [leagueapps.PLATFORM_ID]: leagueapps,
   [sportsconnect.PLATFORM_ID]: sportsconnect,
+  [blueSombrero.PLATFORM_ID]: blueSombrero,
   [sportsaffinityAsp.PLATFORM_ID]: sportsaffinityAsp,
   [teamlinkt.PLATFORM_ID]: teamlinkt,
   [sportsengine.PLATFORM_ID]: sportsengine,
