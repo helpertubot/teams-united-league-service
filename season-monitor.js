@@ -291,28 +291,33 @@ async function checkLeagueHealth(league, now) {
   // Check if this is a new league (give it time) or a long-standing config issue.
   if (!league.lastDataChange) {
     const lastCollected = league.lastCollected ? new Date(league.lastCollected) : null;
-    // Fall back through createdAt -> discoveredAt -> lastCollected for baseline date
-    const baseline = league.createdAt ? new Date(league.createdAt)
-                   : league.discoveredAt ? new Date(league.discoveredAt)
-                   : lastCollected;
-    const daysSinceCreated = baseline ? Math.floor((now - baseline) / (1000 * 60 * 60 * 24)) : 0;
+    // Use createdAt or discoveredAt for baseline — NOT lastCollected, which resets each cycle
+    const stableBaseline = league.createdAt ? new Date(league.createdAt)
+                         : league.discoveredAt ? new Date(league.discoveredAt)
+                         : null;
+    const daysSinceCreated = stableBaseline ? Math.floor((now - stableBaseline) / (1000 * 60 * 60 * 24)) : null;
     const inSeasonWindow = league.seasonStart && league.seasonEnd
       ? (now >= new Date(league.seasonStart) && now <= new Date(league.seasonEnd))
       : false;
 
+    // If the collector has run at least once but never returned data, flag immediately.
+    // lastCollected proves the pipeline has tried; null lastDataChange proves it always failed.
+    if (lastCollected) {
+      const notes = daysSinceCreated != null
+        ? `League has been active for ${daysSinceCreated} days and collected but never returned division data. OrgId is likely stale or misconfigured.`
+        : `Collector has run (last: ${league.lastCollected}) but league has never returned division data. OrgId is likely stale or misconfigured.`;
+      return {
+        status: 'needs_attention',
+        notes,
+        action: 'refresh_orgid',
+      };
+    }
+
     // If within season window and created >7 days ago, flag as needs_attention
-    if (daysSinceCreated > 7 && inSeasonWindow) {
+    if (daysSinceCreated != null && daysSinceCreated > 7 && inSeasonWindow) {
       return {
         status: 'needs_attention',
         notes: `League has never returned division data despite being active for ${daysSinceCreated} days during season window (${league.seasonStart} to ${league.seasonEnd}). OrgId may be stale or misconfigured.`,
-      };
-    }
-    // If created >14 days ago with no data ever, something is likely wrong
-    if (daysSinceCreated > 14 && lastCollected) {
-      return {
-        status: 'stale',
-        notes: `League has been collecting for ${daysSinceCreated} days but has never produced data. Config may need review.`,
-        daysSinceChange: daysSinceCreated,
       };
     }
     return {
