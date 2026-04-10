@@ -8,8 +8,9 @@
  * Hockey URL:   stats.pointstreak.com/standings.html?leagueid={id}&seasonid={id}
  * 
  * Table selector: table.nova-stats-table
- * Baseball columns: TEAM, W, L, PCT, GB, STREAK, LAST 10
- * Hockey columns:   TEAM, GP, W, L, T, OTL, PTS (varies by league config)
+ * Baseball standings columns: TEAM, W, L, PCT, GB, STREAK (no RS/RA)
+ * Baseball runs sourced from: stats.html?view=teambatting (R) and stats.html?view=teampitching (R)
+ * Hockey columns: TEAM, GP, W, L, T, OTL, PTS (varies by league config)
  * 
  * NOTE: Server-rendered HTML. Baseball may have multiple division tables on one page.
  * Hockey pages use a single table. Division headers are identified by ID attributes
@@ -202,7 +203,95 @@ async function collectStandings(leagueConfig) {
     });
   });
 
+  // Baseball standings pages don't include runs — fetch from stats pages
+  if (sport === 'baseball' && standings.length > 0) {
+    await mergeBaseballRunStats(standings, base, leagueId, seasonId);
+  }
+
   return { divisions, standings };
+}
+
+/**
+ * Fetch runs scored (team batting) and runs allowed (team pitching) from
+ * Pointstreak stats pages and merge into existing standings by teamId.
+ *
+ * Baseball standings pages only have W/L/PCT/GB/STREAK — no RS/RA columns.
+ * The stats pages at stats.html?view=teambatting and view=teampitching
+ * have an "R" column with the totals we need. Stats pages use team
+ * abbreviations, not full names, so we match via teamid from links.
+ */
+async function mergeBaseballRunStats(standings, baseUrl, leagueId, seasonId) {
+  const battingUrl = `${baseUrl}/stats.html?leagueid=${leagueId}&seasonid=${seasonId}&view=teambatting`;
+  const pitchingUrl = `${baseUrl}/stats.html?leagueid=${leagueId}&seasonid=${seasonId}&view=teampitching`;
+
+  const [battingMap, pitchingMap] = await Promise.all([
+    scrapeTeamStatColumn(battingUrl, 'R'),
+    scrapeTeamStatColumn(pitchingUrl, 'R'),
+  ]);
+
+  if (battingMap.size === 0 && pitchingMap.size === 0) {
+    console.warn(`Pointstreak: No batting/pitching stats found for league ${leagueId}`);
+    return;
+  }
+
+  let matched = 0;
+  for (const entry of standings) {
+    const teamId = entry.teamKey;
+    if (!teamId) continue;
+    const scored = battingMap.get(teamId);
+    const allowed = pitchingMap.get(teamId);
+    if (scored !== undefined) { entry.scored = scored; matched++; }
+    if (allowed !== undefined) { entry.allowed = allowed; }
+    entry.differential = entry.scored - entry.allowed;
+  }
+
+  console.log(`Pointstreak: Merged baseball run stats for ${matched}/${standings.length} teams (league ${leagueId})`);
+}
+
+/**
+ * Scrape a single column value per team from a Pointstreak stats table.
+ * Returns Map<teamId, number> where teamId is extracted from team link hrefs.
+ */
+async function scrapeTeamStatColumn(url, columnName) {
+  const result = new Map();
+  try {
+    const resp = await axios.get(url, {
+      timeout: 30000,
+      headers: { 'User-Agent': 'TeamsUnited-Standings/1.0', Accept: 'text/html' },
+    });
+    const $ = cheerio.load(resp.data);
+
+    // Stats tables use table.nova-stats-table with thead/tbody
+    const table = $('table.nova-stats-table').first();
+    if (table.length === 0) return result;
+
+    const headers = [];
+    table.find('thead th').each((_, th) => {
+      headers.push($(th).text().trim().toUpperCase());
+    });
+
+    const colIdx = headers.indexOf(columnName.toUpperCase());
+    if (colIdx === -1) return result;
+
+    table.find('tbody tr').each((_, row) => {
+      const cells = $(row).find('td');
+      if (cells.length <= colIdx) return;
+
+      // Extract teamId from the team cell link (e.g. team_home.html?teamid=162421&seasonid=33780)
+      const teamCell = $(cells[0]);
+      const teamLink = teamCell.find('a').attr('href') || '';
+      const teamIdMatch = teamLink.match(/teamid=(\d+)/);
+      if (!teamIdMatch) return;
+
+      const val = parseInt($(cells[colIdx]).text().trim() || '0');
+      if (!isNaN(val)) {
+        result.set(teamIdMatch[1], val);
+      }
+    });
+  } catch (err) {
+    console.warn(`Pointstreak: Failed to fetch stats from ${url}: ${err.message}`);
+  }
+  return result;
 }
 
 /**
