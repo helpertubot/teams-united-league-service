@@ -21,6 +21,7 @@
  * - sportsconnect: Browser automation (Little League, PONY — SportsConnect/Blue Sombrero ASP.NET sites)
  * - blue-sombrero: HTTP postback (youth soccer — Blue Sombrero/Stack Sports DNN sites)
  * - sportsaffinity-asp: Browser automation (OYSA — legacy SportsAffinity ASP system)
+ * - teamsideline: HTML parser (youth lacrosse, soccer, football — TeamSideline.com orgs)
  */
 
 const sportsaffinity = require('./adapters/sportsaffinity');
@@ -35,6 +36,7 @@ const sportsconnect = require('./adapters/sportsconnect');
 const blueSombrero = require('./adapters/blue-sombrero');
 const teamlinkt = require('./adapters/teamlinkt');
 const sportsengine = require('./adapters/sportsengine');
+const teamsideline = require('./adapters/teamsideline');
 
 const adapters = {
   [sportsaffinity.PLATFORM_ID]: sportsaffinity,
@@ -49,6 +51,7 @@ const adapters = {
   [sportsaffinityAsp.PLATFORM_ID]: sportsaffinityAsp,
   [teamlinkt.PLATFORM_ID]: teamlinkt,
   [sportsengine.PLATFORM_ID]: sportsengine,
+  [teamsideline.PLATFORM_ID]: teamsideline,
 };
 
 /**
