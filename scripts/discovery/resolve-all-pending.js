@@ -22,12 +22,19 @@
 const { Firestore } = require('@google-cloud/firestore');
 const axios = require('axios');
 const cheerio = require('cheerio');
+const { discoverProgramIds } = require('../../adapters/sportsengine');
 const db = new Firestore();
 
 const GC_API_BASE = 'https://api.team-manager.gc.com/public';
 const DELAY_MS = 500;
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function normalizePlatform(platform) {
+  const p = (platform || '').toLowerCase();
+  if (p === 'sportngin' || p === 'sporngin' || p === 'sportsengine') return 'sportsengine';
+  return p || 'unknown';
+}
 
 // ═══════════════════════════════════════════════════════════════
 // MAIN
@@ -278,7 +285,7 @@ async function resolvePendingConfig(leagues, { dryRun, autoFix, report }) {
   // Sub-group by platform
   const byPlatform = {};
   for (const l of leagues) {
-    const p = l.sourcePlatform || 'unknown';
+    const p = normalizePlatform(l.sourcePlatform);
     if (!byPlatform[p]) byPlatform[p] = [];
     byPlatform[p].push(l);
   }
@@ -302,6 +309,9 @@ async function resolvePendingConfig(leagues, { dryRun, autoFix, report }) {
         break;
       case 'leagueapps':
         await resolveLeagueAppsPendingConfig(pLeagues, { dryRun, autoFix, report });
+        break;
+      case 'sportsengine':
+        await resolveSportsEnginePendingConfig(pLeagues, { dryRun, autoFix, report });
         break;
       default:
         for (const l of pLeagues) {
@@ -632,6 +642,107 @@ async function resolveLeagueAppsPendingConfig(leagues, { dryRun, autoFix, report
       }
     } catch (err) {
       report.errors.push({ id: league.id, error: `LeagueApps: ${err.message}` });
+    }
+
+    await sleep(DELAY_MS);
+  }
+}
+
+/**
+ * SportsEngine / SporNgin pending_config
+ * Needs seasonId (or allSeasonIds) in sourceConfig.
+ */
+async function resolveSportsEnginePendingConfig(leagues, { dryRun, autoFix, report }) {
+  for (const league of leagues) {
+    const config = league.sourceConfig || {};
+    console.log(`${league.id} — ${league.name} (${league.state})`);
+
+    const existingSeasonIds = []
+      .concat(config.seasonId ? [String(config.seasonId)] : [])
+      .concat(Array.isArray(config.allSeasonIds) ? config.allSeasonIds.map(String) : [])
+      .filter(id => /^[a-f0-9]{24}$/i.test(id));
+
+    if (existingSeasonIds.length > 0) {
+      console.log(`  ✓ Has existing season config (${existingSeasonIds.length} IDs)`);
+      if (autoFix && !dryRun) {
+        await db.collection('leagues').doc(league.id).update({
+          sourcePlatform: 'sportsengine',
+          sourceConfig: {
+            ...config,
+            seasonId: existingSeasonIds[0],
+            allSeasonIds: Array.from(new Set(existingSeasonIds)),
+          },
+          status: 'active',
+          autoUpdate: true,
+          resolvedAt: new Date().toISOString(),
+          resolvedBy: 'resolve-all-pending',
+        });
+      }
+      report.resolved.push({
+        id: league.id,
+        name: league.name,
+        resolution: `SportsEngine config already present (${existingSeasonIds.length} season IDs)`,
+      });
+      await sleep(DELAY_MS);
+      continue;
+    }
+
+    const candidates = [
+      config.baseUrl,
+      config.website,
+      league.website,
+      league.url,
+      league.homepage,
+    ].filter(Boolean);
+
+    const baseUrl = candidates[0];
+    if (!baseUrl) {
+      report.needsManual.push({
+        id: league.id,
+        name: league.name,
+        reason: 'SportsEngine: missing league website URL (baseUrl/website/url) for season discovery',
+      });
+      await sleep(DELAY_MS);
+      continue;
+    }
+
+    try {
+      const found = await discoverProgramIds(baseUrl, { followLinks: true, maxPages: 12 });
+      const seasonIds = Array.from(new Set(found.programIds || []));
+
+      if (seasonIds.length === 0) {
+        report.needsManual.push({
+          id: league.id,
+          name: league.name,
+          reason: `SportsEngine: no season IDs discovered from ${baseUrl}`,
+        });
+        await sleep(DELAY_MS);
+        continue;
+      }
+
+      console.log(`  ✓ Discovered ${seasonIds.length} season IDs`);
+      if (autoFix && !dryRun) {
+        await db.collection('leagues').doc(league.id).update({
+          sourcePlatform: 'sportsengine',
+          sourceConfig: {
+            ...config,
+            baseUrl,
+            seasonId: seasonIds[0],
+            allSeasonIds: seasonIds,
+          },
+          status: 'active',
+          autoUpdate: true,
+          resolvedAt: new Date().toISOString(),
+          resolvedBy: 'resolve-all-pending',
+        });
+      }
+      report.resolved.push({
+        id: league.id,
+        name: league.name,
+        resolution: `SportsEngine discovered ${seasonIds.length} season IDs`,
+      });
+    } catch (err) {
+      report.errors.push({ id: league.id, error: `SportsEngine: ${err.message}` });
     }
 
     await sleep(DELAY_MS);

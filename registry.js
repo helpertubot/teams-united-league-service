@@ -21,6 +21,8 @@
  * - sportsconnect: Browser automation (Little League, PONY — SportsConnect/Blue Sombrero ASP.NET sites)
  * - blue-sombrero: HTTP postback (youth soccer — Blue Sombrero/Stack Sports DNN sites)
  * - sportsaffinity-asp: Browser automation (OYSA — legacy SportsAffinity ASP system)
+ * - sportsengine: JSON API adapter (SportsEngine / SportNgin microsites)
+ * - sporngin: Alias to SportsEngine adapter for legacy naming
  * - teamsideline: HTML parser (youth lacrosse, soccer, football — TeamSideline.com orgs)
  */
 
@@ -36,6 +38,7 @@ const sportsconnect = require('./adapters/sportsconnect');
 const blueSombrero = require('./adapters/blue-sombrero');
 const teamlinkt = require('./adapters/teamlinkt');
 const sportsengine = require('./adapters/sportsengine');
+const sporngin = require('./adapters/sporngin');
 const teamsideline = require('./adapters/teamsideline');
 
 const adapters = {
@@ -51,12 +54,13 @@ const adapters = {
   [sportsaffinityAsp.PLATFORM_ID]: sportsaffinityAsp,
   [teamlinkt.PLATFORM_ID]: teamlinkt,
   [sportsengine.PLATFORM_ID]: sportsengine,
+  [sporngin.PLATFORM_ID]: sporngin,
   [teamsideline.PLATFORM_ID]: teamsideline,
 };
 
 /**
  * Get an adapter by platform ID
- * @param {string} platformId - One of: sportsaffinity, gotsport, pointstreak, demosphere, tgs
+ * @param {string} platformId - Platform identifier supported by listPlatforms()
  * @returns {Object} Adapter module with collectStandings function
  * @throws {Error} If platform is not supported
  */

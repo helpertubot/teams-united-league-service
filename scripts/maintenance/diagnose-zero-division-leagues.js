@@ -77,6 +77,13 @@ function validateConfig(league) {
       if (!config.baseUrl) issues.push('Missing sourceConfig.baseUrl');
       break;
 
+    case 'sportsengine':
+    case 'sporngin':
+      if (!config.seasonId && (!config.allSeasonIds || config.allSeasonIds.length === 0)) {
+        issues.push('Missing sourceConfig.seasonId or sourceConfig.allSeasonIds[]');
+      }
+      break;
+
     default:
       issues.push(`Unknown platform: ${platform}`);
   }
@@ -217,6 +224,8 @@ async function main() {
         case 'demosphere': configSummary = `divs=${(cfg.divisions || []).length}`; break;
         case 'pointstreak': configSummary = `league=${cfg.leagueId}, season=${cfg.seasonId}`; break;
         case 'leagueapps': configSummary = `url=${cfg.baseUrl}`; break;
+        case 'sportsengine':
+        case 'sporngin': configSummary = `season=${cfg.seasonId || 'n/a'}, allSeasonIds=${(cfg.allSeasonIds || []).length}`; break;
       }
       console.log(`  ${l.id} — ${l.name} [${l.sourcePlatform}] ${configSummary}`);
     }
