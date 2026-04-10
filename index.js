@@ -138,12 +138,17 @@ functions.http('collectLeague', async (req, res) => {
       lastStandingsHash: currentHash,
       lastCollected: new Date().toISOString(),
     };
-    
+
     // Only update lastDataChange if standings actually changed
     if (currentHash !== previousHash && standings.length > 0) {
       leagueUpdates.lastDataChange = new Date().toISOString();
     }
-    
+
+    // Clear error monitorStatus on successful collection with data
+    if (divisions.length > 0 && leagueData.monitorStatus === 'error') {
+      leagueUpdates.monitorStatus = 'healthy';
+    }
+
     await db.collection('leagues').doc(leagueId).update(leagueUpdates);
 
     // 7. Log the collection
