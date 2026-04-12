@@ -5,23 +5,50 @@
     {
       "id": "far-west-presidents-cup-soccer",
       "name": "Far West Presidents Cup (Soccer)",
+      "sport": "soccer",
+      "state": "ID",
+      "venue": "Simplot Sports Complex",
+      "organizer": "USYS",
+      "ageGroups": "13U–19U",
+      "gender": "Boys,Girls",
+      "teamsExpected": 130,
+      "season": "Summer",
       "sourcePlatform": "gotsport",
-      "cadence": "Annual",
-      "hostVenues": "Simplot Sports Complex"
+      "recurring": "annual",
+      "format": "Mixed",
+      "confidence": "high"
     },
     {
       "id": "iysa-state-cup-and-gem-state",
       "name": "IYSA State Cup & GEM State",
+      "sport": "soccer",
+      "state": "ID",
+      "venue": "Treasure Valley",
+      "organizer": "IYSA",
+      "ageGroups": "U10–U19",
+      "gender": "Boys,Girls",
+      "teamsExpected": 80,
+      "season": "Spring",
       "sourcePlatform": "gotsport",
-      "cadence": "Annual",
-      "hostVenues": "Treasure Valley"
+      "recurring": "annual",
+      "format": "Mixed",
+      "confidence": "high"
     },
     {
       "id": "yellowstone-cup-soccer",
       "name": "Yellowstone Cup (Soccer)",
+      "sport": "soccer",
+      "state": "ID",
+      "venue": "Rexburg",
+      "organizer": "IYSA",
+      "ageGroups": "U8–U19",
+      "gender": "Boys,Girls",
+      "teamsExpected": 100,
+      "season": "Summer",
       "sourcePlatform": "gotsport",
-      "cadence": "Annual",
-      "hostVenues": "Rexburg"
+      "recurring": "annual",
+      "format": "Mixed",
+      "confidence": "high"
     }
   ]
 }

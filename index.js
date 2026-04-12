@@ -648,9 +648,16 @@ functions.http('importTournament', async (req, res) => {
     let imported = 0;
     for (const t of items) {
       const id = t.id || slugify(t.name + '-' + (t.state || '') + '-' + (t.startDate || '').substring(0, 4));
-      await db.collection('tournaments').doc(id).set({
+
+      // Pass through ALL fields the caller provided, then normalize the
+      // known ones on top. This lets the ingest pipeline ship new fields
+      // (season, confidence, region, website, notes, format, etc.) without
+      // a parallel Cloud Function deploy every time the schema grows.
+      const doc = {
+        ...t,
+        // Canonical normalization / snake_case fallbacks
         name: t.name,
-        organizer: t.organizer || t.contactName || '',
+        organizer: t.organizer || t.contactName || t.sanctioningBody || '',
         sport: (t.sport || '').toLowerCase(),
         state: (t.state || '').toUpperCase(),
         city: t.city || '',
@@ -668,13 +675,48 @@ functions.http('importTournament', async (req, res) => {
         recurring: t.recurring || 'unknown',
         importedAt: new Date().toISOString(),
         importedBy: t.importedBy || 'api',
-      }, { merge: true });
+      };
+      // Don't persist the client-side id inside the doc body — it's the key.
+      delete doc.id;
+      // Strip undefined to keep Firestore happy.
+      for (const k of Object.keys(doc)) if (doc[k] === undefined) delete doc[k];
+
+      await db.collection('tournaments').doc(id).set(doc, { merge: true });
       imported++;
     }
 
     res.json({ imported, total: items.length });
   } catch (err) {
     console.error('importTournament error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+/**
+ * deleteTournament — Remove a tournament doc by id
+ * POST { id: "..." }  (or ?id=... query param)
+ * Returns 200 { deleted: true, id } on success, 404 if not found.
+ */
+functions.http('deleteTournament', async (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(204).send('');
+
+  if (req.method !== 'POST') return res.status(405).json({ error: 'POST only' });
+
+  try {
+    const id = (req.body && req.body.id) || req.query.id;
+    if (!id) return res.status(400).json({ error: 'id required (body or query)' });
+
+    const ref = db.collection('tournaments').doc(String(id));
+    const snap = await ref.get();
+    if (!snap.exists) return res.status(404).json({ error: 'not found', id });
+
+    await ref.delete();
+    res.json({ deleted: true, id });
+  } catch (err) {
+    console.error('deleteTournament error:', err);
     res.status(500).json({ error: err.message });
   }
 });

@@ -1,0 +1,57 @@
+{
+  "_description": "CA basketball tournament series",
+  "_lastUpdated": "2026-04-12",
+  "tournaments": [
+    {
+      "id": "spring-fling-spring-slam",
+      "name": "Spring Fling / Spring Slam",
+      "sport": "basketball",
+      "state": "CA",
+      "venue": "Thousand Oaks",
+      "city": "Thousand Oaks",
+      "organizer": "Independent",
+      "ageGroups": "",
+      "gender": "Boys,Girls",
+      "teamsExpected": 80,
+      "sourcePlatform": "leagueapps",
+      "recurring": "monthly",
+      "format": "Mixed",
+      "confidence": "high",
+      "notes": "National School ID verified"
+    },
+    {
+      "id": "hoops-on-the-harbor",
+      "name": "Hoops on the Harbor",
+      "sport": "basketball",
+      "state": "CA",
+      "venue": "San Diego",
+      "city": "San Diego",
+      "organizer": "Attitude of Gratitude",
+      "ageGroups": "",
+      "gender": "Boys,Girls",
+      "teamsExpected": 50,
+      "sourcePlatform": "exposureevents",
+      "recurring": "annual",
+      "format": "Mixed",
+      "confidence": "high",
+      "notes": "3-game guarantee"
+    },
+    {
+      "id": "g365-the-battle",
+      "name": "G365 The Battle",
+      "sport": "basketball",
+      "state": "CA",
+      "venue": "Anaheim",
+      "city": "Anaheim",
+      "organizer": "Grassroots 365",
+      "ageGroups": "",
+      "gender": "Boys,Girls",
+      "teamsExpected": 120,
+      "sourcePlatform": "exposureevents",
+      "recurring": "annual",
+      "format": "Mixed",
+      "confidence": "high",
+      "notes": "Multi-complex OC mega-event"
+    }
+  ]
+}

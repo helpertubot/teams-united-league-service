@@ -5,23 +5,50 @@
     {
       "id": "idaho-prep-basketball-tournaments",
       "name": "Idaho Prep Basketball Tournaments",
+      "sport": "basketball",
+      "state": "ID",
+      "venue": "Pocatello",
+      "organizer": "Independent",
+      "ageGroups": "3–12",
+      "gender": "Boys,Girls",
+      "teamsExpected": 40,
+      "season": "Nov–May",
       "sourcePlatform": "exposure",
-      "cadence": "Monthly",
-      "hostVenues": "Pocatello"
+      "recurring": "monthly",
+      "format": "Mixed",
+      "confidence": "high"
     },
     {
       "id": "idaho-prospects-basketball-events",
       "name": "Idaho Prospects Basketball Events",
+      "sport": "basketball",
+      "state": "ID",
+      "venue": "Pocatello/Ammon",
+      "organizer": "AAU",
+      "ageGroups": "3–12",
+      "gender": "Boys,Girls",
+      "teamsExpected": 30,
+      "season": "Nov–Feb",
       "sourcePlatform": "exposure",
-      "cadence": "Monthly",
-      "hostVenues": "Pocatello/Ammon"
+      "recurring": "monthly",
+      "format": "Mixed",
+      "confidence": "high"
     },
     {
       "id": "fat-mamba-tournaments",
       "name": "Fat Mamba Tournaments",
+      "sport": "basketball",
+      "state": "ID",
+      "venue": "Twin Falls/Boise",
+      "organizer": "Independent",
+      "ageGroups": "3–12",
+      "gender": "Boys,Girls",
+      "teamsExpected": 25,
+      "season": "Winter",
       "sourcePlatform": "exposure",
-      "cadence": "Seasonal",
-      "hostVenues": "Twin Falls/Boise"
+      "recurring": "seasonal",
+      "format": "Mixed",
+      "confidence": "medium"
     }
   ]
 }

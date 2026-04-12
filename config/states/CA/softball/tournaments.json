@@ -1,0 +1,58 @@
+{
+  "_description": "CA softball tournament series",
+  "_lastUpdated": "2026-04-12",
+  "tournaments": [
+    {
+      "id": "usa-softball-all-american",
+      "name": "USA Softball All-American",
+      "sport": "softball",
+      "state": "CA",
+      "venue": "Chino Hills",
+      "city": "Chino Hills",
+      "organizer": "USA Softball",
+      "ageGroups": "",
+      "gender": "Boys,Girls",
+      "teamsExpected": 200,
+      "season": "Seasonal",
+      "sourcePlatform": "teamsideline",
+      "recurring": "seasonal",
+      "format": "Mixed",
+      "confidence": "high",
+      "notes": "Pacific Coast Region roster ID"
+    },
+    {
+      "id": "usa-softball-class-b-west",
+      "name": "USA Softball Class B West",
+      "sport": "softball",
+      "state": "CA",
+      "venue": "Moorpark",
+      "city": "Moorpark",
+      "organizer": "USA Softball",
+      "ageGroups": "",
+      "gender": "Boys,Girls",
+      "teamsExpected": 60,
+      "sourcePlatform": "custom",
+      "recurring": "annual",
+      "format": "Mixed",
+      "confidence": "high",
+      "notes": "Western Class B Championship"
+    },
+    {
+      "id": "district-51-ll-softball",
+      "name": "District 51 LL Softball",
+      "sport": "softball",
+      "state": "CA",
+      "venue": "Quartz Hill",
+      "city": "Quartz Hill",
+      "organizer": "Little League",
+      "ageGroups": "",
+      "gender": "Boys,Girls",
+      "teamsExpected": 30,
+      "sourcePlatform": "sportsconnect",
+      "recurring": "annual",
+      "format": "Mixed",
+      "confidence": "high",
+      "notes": "Multi-age regional finals"
+    }
+  ]
+}
