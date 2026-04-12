@@ -1,0 +1,118 @@
+{
+  "_description": "ID basketball leagues",
+  "_lastUpdated": "2026-04-12",
+  "leagues": [
+    {
+      "id": "tv-ymca-y-ball",
+      "name": "TV YMCA Y-Ball",
+      "region": "Treasure Valley",
+      "sourcePlatform": "recliquecore",
+      "website": "ymcatvidaho.org"
+    },
+    {
+      "id": "idaho-premier-basketball",
+      "name": "Idaho Premier Basketball",
+      "region": "Statewide",
+      "sourcePlatform": "unknown",
+      "website": "idahopremierbasketball.com"
+    },
+    {
+      "id": "hsb-academy",
+      "name": "HSB Academy",
+      "region": "Meridian",
+      "sourcePlatform": "unknown",
+      "website": "hsbacademy.com"
+    },
+    {
+      "id": "idaho-falls-parks-and-rec-hoops",
+      "name": "Idaho Falls Parks & Rec Hoops",
+      "region": "Idaho Falls",
+      "sourcePlatform": "custom",
+      "website": "idahofallsidaho.gov"
+    },
+    {
+      "id": "idaho-falls-ymca-basketball",
+      "name": "Idaho Falls YMCA Basketball",
+      "region": "Idaho Falls",
+      "sourcePlatform": "custom",
+      "website": "idahofallsymca.org"
+    },
+    {
+      "id": "club-apple-youth-basketball",
+      "name": "Club Apple Youth Basketball",
+      "region": "Idaho Falls",
+      "sourcePlatform": "custom",
+      "website": "theclubapple.com"
+    },
+    {
+      "id": "idaho-select-basketball",
+      "name": "Idaho Select Basketball",
+      "region": "Statewide",
+      "sourcePlatform": "unknown",
+      "website": "selectbasketballusa.com"
+    },
+    {
+      "id": "pocatello-jr-jazz-and-d-league",
+      "name": "Pocatello Jr Jazz & D League",
+      "region": "Pocatello",
+      "sourcePlatform": "custom",
+      "website": "pocatello.gov"
+    },
+    {
+      "id": "sei-hoops",
+      "name": "SEI Hoops",
+      "region": "SE Idaho",
+      "sourcePlatform": "unknown",
+      "website": "seihoops.com"
+    },
+    {
+      "id": "magic-valley-madness",
+      "name": "Magic Valley Madness",
+      "region": "Magic Valley",
+      "sourcePlatform": "unknown",
+      "website": "magicvalleymadness.com"
+    },
+    {
+      "id": "upward-sports-twin-falls",
+      "name": "Upward Sports Twin Falls",
+      "region": "Twin Falls",
+      "sourcePlatform": "custom",
+      "website": "tfnaz.church/upward-sports"
+    },
+    {
+      "id": "lewiston-parks-and-rec-hoops",
+      "name": "Lewiston Parks & Rec Hoops",
+      "region": "Lewiston",
+      "sourcePlatform": "civicrec",
+      "website": "cityoflewiston.org"
+    },
+    {
+      "id": "power-of-the-club-basketball",
+      "name": "Power of the Club Basketball",
+      "region": "Lewiston",
+      "sourcePlatform": "custom",
+      "website": "poweroftheclub.org"
+    },
+    {
+      "id": "bcrd-youth-basketball",
+      "name": "BCRD Youth Basketball",
+      "region": "Bellevue/Hailey/Ketchum",
+      "sourcePlatform": "custom",
+      "website": "bcrd.org"
+    },
+    {
+      "id": "moscow-parks-and-rec-hoops",
+      "name": "Moscow Parks & Rec Hoops",
+      "region": "Moscow",
+      "sourcePlatform": "custom",
+      "website": "ci.moscow.id.us"
+    },
+    {
+      "id": "idaho-stags",
+      "name": "Idaho Stags",
+      "region": "Treasure Valley",
+      "sourcePlatform": "unknown",
+      "website": "idahostags.com"
+    }
+  ]
+}

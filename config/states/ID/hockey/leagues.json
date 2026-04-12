@@ -1,0 +1,76 @@
+{
+  "_description": "ID hockey leagues",
+  "_lastUpdated": "2026-04-12",
+  "leagues": [
+    {
+      "id": "idaho-jr-steelheads-byaha",
+      "name": "Idaho Jr Steelheads (BYAHA)",
+      "region": "Boise/Treasure Val",
+      "sourcePlatform": "sportngin",
+      "website": "jrsteelheads.com"
+    },
+    {
+      "id": "idaho-falls-eagles-ifyha",
+      "name": "Idaho Falls Eagles (IFYHA)",
+      "region": "Idaho Falls",
+      "sourcePlatform": "sportngin",
+      "website": "ifyha.com"
+    },
+    {
+      "id": "cda-thunder-cdaha",
+      "name": "CDA Thunder (CDAHA)",
+      "region": "Coeur d'Alene",
+      "sourcePlatform": "sportngin",
+      "website": "frontiericearena.org"
+    },
+    {
+      "id": "lewis-clark-lightning-lcaha",
+      "name": "Lewis Clark Lightning (LCAHA)",
+      "region": "Lewiston/Clarkston",
+      "sourcePlatform": "teamsnap",
+      "website": "lcaha.com"
+    },
+    {
+      "id": "moscow-bears-palouse-youth",
+      "name": "Moscow Bears (Palouse Youth)",
+      "region": "Moscow/Palouse",
+      "sourcePlatform": "sportngin",
+      "website": "palouseicerink.com"
+    },
+    {
+      "id": "sun-valley-youth-hockey",
+      "name": "Sun Valley Youth Hockey",
+      "region": "Sun Valley/Hailey",
+      "sourcePlatform": "sportngin",
+      "website": "sunvalleyhockey.com"
+    },
+    {
+      "id": "mccall-mountaineers",
+      "name": "McCall Mountaineers",
+      "region": "McCall",
+      "sourcePlatform": "sportngin",
+      "website": "mccallhockey.com"
+    },
+    {
+      "id": "teton-valley-cutthroats",
+      "name": "Teton Valley Cutthroats",
+      "region": "Driggs/Victor",
+      "sourcePlatform": "sportngin",
+      "website": "tetonvalleyhockey.com"
+    },
+    {
+      "id": "rexburg-wildcats",
+      "name": "Rexburg Wildcats",
+      "region": "Rexburg",
+      "sourcePlatform": "unknown",
+      "website": "rexburgwildcats.com"
+    },
+    {
+      "id": "salmon-rapids-youth-hockey",
+      "name": "Salmon Rapids Youth Hockey",
+      "region": "Salmon",
+      "sourcePlatform": "unknown",
+      "website": "salmonhockey.org"
+    }
+  ]
+}

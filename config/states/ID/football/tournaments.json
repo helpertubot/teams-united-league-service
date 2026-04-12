@@ -1,0 +1,13 @@
+{
+  "_description": "ID football tournament series",
+  "_lastUpdated": "2026-04-12",
+  "tournaments": [
+    {
+      "id": "idaho-bowl",
+      "name": "Idaho Bowl",
+      "sourcePlatform": "unknown",
+      "cadence": "Annual",
+      "hostVenues": "College campus style"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "_description": "ID lacrosse leagues",
+  "_lastUpdated": "2026-04-12",
+  "leagues": [
+    {
+      "id": "treasure-valley-youth-lacrosse",
+      "name": "Treasure Valley Youth Lacrosse",
+      "region": "Treasure Valley",
+      "sourcePlatform": "unknown",
+      "website": "tvylax.com"
+    },
+    {
+      "id": "cityside208-lacrosse",
+      "name": "CitySide208 Lacrosse",
+      "region": "Treasure Valley",
+      "sourcePlatform": "leagueapps",
+      "website": "cityside208.com"
+    },
+    {
+      "id": "true-lacrosse-idaho",
+      "name": "True Lacrosse Idaho",
+      "region": "Statewide",
+      "sourcePlatform": "leagueapps",
+      "website": "truelacrosse.com/idaho/boys"
+    },
+    {
+      "id": "idaho-falls-lacrosse-eagles",
+      "name": "Idaho Falls Lacrosse (Eagles)",
+      "region": "Idaho Falls",
+      "sourcePlatform": "unknown",
+      "website": "iflacrosse.com"
+    },
+    {
+      "id": "north-idaho-youth-lacrosse",
+      "name": "North Idaho Youth Lacrosse",
+      "region": "Coeur d'Alene area",
+      "sourcePlatform": "sportngin",
+      "website": "northidahoyouthlacrosse.org"
+    },
+    {
+      "id": "pocatello-lacrosse",
+      "name": "Pocatello Lacrosse",
+      "region": "Pocatello",
+      "sourcePlatform": "unknown",
+      "website": "pocatellolacrosse.org"
+    },
+    {
+      "id": "sun-valley-lacrosse",
+      "name": "Sun Valley Lacrosse",
+      "region": "Wood River Valley",
+      "sourcePlatform": "unknown",
+      "website": "sunvalleylacrosse.com"
+    },
+    {
+      "id": "teton-valley-youth-lacrosse",
+      "name": "Teton Valley Youth Lacrosse",
+      "region": "Driggs/Victor",
+      "sourcePlatform": "leagueapps",
+      "website": "tetonlax.com"
+    }
+  ]
+}

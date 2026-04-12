@@ -1,0 +1,27 @@
+{
+  "_description": "ID lacrosse tournament series",
+  "_lastUpdated": "2026-04-12",
+  "tournaments": [
+    {
+      "id": "lax-on-the-lake",
+      "name": "LAX On The Lake",
+      "sourcePlatform": "teamsnap",
+      "cadence": "Annual",
+      "hostVenues": "Sandpoint"
+    },
+    {
+      "id": "mountain-west-youth-championship",
+      "name": "Mountain West Youth Championship",
+      "sourcePlatform": "leagueapps",
+      "cadence": "Annual",
+      "hostVenues": "Rendezvous Elem (Driggs)"
+    },
+    {
+      "id": "days-of-lacrosse-tvyll",
+      "name": "Days of Lacrosse (TVYLL)",
+      "sourcePlatform": "unknown",
+      "cadence": "Annual",
+      "hostVenues": "Ann Morrison Park"
+    }
+  ]
+}

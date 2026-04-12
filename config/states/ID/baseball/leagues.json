@@ -1,0 +1,118 @@
+{
+  "_description": "ID baseball leagues",
+  "_lastUpdated": "2026-04-12",
+  "leagues": [
+    {
+      "id": "northwest-ada-little-league",
+      "name": "Northwest Ada Little League",
+      "region": "Boise/Meridian",
+      "sourcePlatform": "sportsconnect",
+      "website": "nwall.org"
+    },
+    {
+      "id": "meridian-youth-baseball-mybs",
+      "name": "Meridian Youth Baseball (MYBS)",
+      "region": "Meridian",
+      "sourcePlatform": "sportngin",
+      "website": "mybbaseball.com"
+    },
+    {
+      "id": "co-county-youth-baseball",
+      "name": "CO-County Youth Baseball",
+      "region": "Canyon & Owyhee",
+      "sourcePlatform": "sportsconnect",
+      "website": "sports.bluesombrero.com"
+    },
+    {
+      "id": "east-boise-youth-baseball",
+      "name": "East Boise Youth Baseball",
+      "region": "East Boise",
+      "sourcePlatform": "unknown",
+      "website": "eastboise.com"
+    },
+    {
+      "id": "nampa-babe-ruth",
+      "name": "Nampa Babe Ruth",
+      "region": "Nampa",
+      "sourcePlatform": "sportngin",
+      "website": "nampababeruth.com"
+    },
+    {
+      "id": "cda-little-league",
+      "name": "CDA Little League",
+      "region": "Coeur d'Alene",
+      "sourcePlatform": "sportsconnect",
+      "website": "cdalittleleague.org"
+    },
+    {
+      "id": "lewiston-little-league",
+      "name": "Lewiston Little League",
+      "region": "Lewiston",
+      "sourcePlatform": "sportsconnect",
+      "website": "lewistonidaholittleleague.com"
+    },
+    {
+      "id": "east-madison-little-league",
+      "name": "East Madison Little League",
+      "region": "Rexburg (East)",
+      "sourcePlatform": "sportsconnect",
+      "website": "emll.org"
+    },
+    {
+      "id": "west-madison-little-league",
+      "name": "West Madison Little League",
+      "region": "Rexburg (West)",
+      "sourcePlatform": "sportsconnect",
+      "website": "wmll.org"
+    },
+    {
+      "id": "bannock-baseball",
+      "name": "Bannock Baseball",
+      "region": "Pocatello",
+      "sourcePlatform": "custom",
+      "website": "pocatello.gov"
+    },
+    {
+      "id": "pocatello-legion-baseball",
+      "name": "Pocatello Legion Baseball",
+      "region": "Pocatello/SE Idaho",
+      "sourcePlatform": "custom",
+      "website": "pocatellolegionbaseball.com"
+    },
+    {
+      "id": "ammon-little-league",
+      "name": "Ammon Little League",
+      "region": "Ammon/Idaho Falls",
+      "sourcePlatform": "sportsconnect",
+      "website": "ammonlittleleague.com"
+    },
+    {
+      "id": "emmett-little-league",
+      "name": "Emmett Little League",
+      "region": "Emmett",
+      "sourcePlatform": "sportsconnect",
+      "website": "emmettlittleleague.com"
+    },
+    {
+      "id": "nampa-valley-little-league",
+      "name": "Nampa Valley Little League",
+      "region": "Nampa",
+      "sourcePlatform": "sportsconnect",
+      "website": "nampavalleylittleleague.com"
+    },
+    {
+      "id": "southwest-ada-little-league",
+      "name": "Southwest Ada Little League",
+      "region": "South Meridian",
+      "sourcePlatform": "sportsconnect",
+      "website": "swadall.com"
+    },
+    {
+      "id": "teton-valley-baseball-assoc",
+      "name": "Teton Valley Baseball Assoc",
+      "region": "Driggs/Victor",
+      "sourcePlatform": "sportsconnect",
+      "website": "tetonvalleylittleleague.org"
+    }
+  ]
+}

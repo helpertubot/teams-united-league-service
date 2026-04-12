@@ -1,0 +1,76 @@
+{
+  "_description": "ID football leagues",
+  "_lastUpdated": "2026-04-12",
+  "leagues": [
+    {
+      "id": "optimist-youth-football-boise",
+      "name": "Optimist Youth Football - Boise",
+      "region": "Boise/Meridian/Eagle",
+      "sourcePlatform": "unknown",
+      "website": "optimistyouthfootball.com"
+    },
+    {
+      "id": "idaho-youth-football-league",
+      "name": "Idaho Youth Football League",
+      "region": "Ada/Canyon/Twin Falls",
+      "sourcePlatform": "unknown",
+      "website": "idahoyouthfootballleague.com"
+    },
+    {
+      "id": "cda-junior-tackle",
+      "name": "CDA Junior Tackle",
+      "region": "Coeur d'Alene",
+      "sourcePlatform": "sportsconnect",
+      "website": "northidahofootball.com"
+    },
+    {
+      "id": "upper-valley-grid-kid-rigby",
+      "name": "Upper Valley Grid Kid (Rigby)",
+      "region": "Rigby/Madison Co",
+      "sourcePlatform": "sportngin",
+      "website": "uppervalleygridkid.com"
+    },
+    {
+      "id": "skyline-grid-kid-football",
+      "name": "Skyline Grid Kid Football",
+      "region": "Idaho Falls (West)",
+      "sourcePlatform": "sportngin",
+      "website": "skylinegrizzfootball.com"
+    },
+    {
+      "id": "idaho-falls-tigers-youth",
+      "name": "Idaho Falls Tigers Youth",
+      "region": "Idaho Falls (East)",
+      "sourcePlatform": "unknown",
+      "website": "iffootball.com"
+    },
+    {
+      "id": "se-idaho-youth-football-league",
+      "name": "SE Idaho Youth Football League",
+      "region": "Pocatello/Bannock",
+      "sourcePlatform": "unknown",
+      "website": "southeastidahoyouthfootball.com"
+    },
+    {
+      "id": "pocatello-youth-flag-football",
+      "name": "Pocatello Youth Flag Football",
+      "region": "Pocatello",
+      "sourcePlatform": "custom",
+      "website": "pocatello.gov"
+    },
+    {
+      "id": "gate-city-youth-flag-football",
+      "name": "Gate City Youth Flag Football",
+      "region": "Pocatello/Chubbuck",
+      "sourcePlatform": "custom",
+      "website": "gatecityyouthsports.com"
+    },
+    {
+      "id": "post-falls-youth-flag-football",
+      "name": "Post Falls Youth Flag Football",
+      "region": "Post Falls/Garfield",
+      "sourcePlatform": "custom",
+      "website": "postfallspolice.gov"
+    }
+  ]
+}

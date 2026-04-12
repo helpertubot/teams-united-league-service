@@ -72,21 +72,43 @@ function kindOf(headers) {
   return null;
 }
 
-const explicitSport = args.flags.sport || fm.sport;
+// Normalize all headers up front so shorthand columns (~Teams, Ages, Scope, etc.)
+// map to canonical names before kind-detection and row extraction.
+for (const t of tables) {
+  t.headers = L.normalizeHeaders(t.headers);
+}
+
+// If frontmatter sport names multiple sports (comma-separated, or matches
+// more than one known sport), treat as multi-sport and let per-table
+// heading detection decide. Otherwise use it as an explicit override.
+const rawSport = (args.flags.sport || fm.sport || '').toString();
+const sportMatches = L.SPORTS.filter((s) => rawSport.toLowerCase().includes(s));
+const isMultiSport = rawSport.includes(',') || sportMatches.length > 1;
+const explicitSport = isMultiSport ? null : rawSport;
+
 const bySport = {}; // sport -> { leagues: [rowObj], tournaments: [rowObj] }
 
 for (const t of tables) {
   const kind = kindOf(t.headers);
   if (!kind) continue;
-  const sport = (explicitSport || L.detectSport(t.heading) || '').toString().toLowerCase();
-  if (!sport) {
-    console.warn(`warn: skipping table under heading "${t.heading}" — no sport detected`);
-    continue;
-  }
-  bySport[sport] = bySport[sport] || { leagues: [], tournaments: [] };
+  const hasRowSport = t.headers.includes('Sport');
   for (const row of t.rows) {
     const obj = L.rowToObject(t.headers, row);
     if (!obj['League Name'] && !obj['Series Name']) continue;
+    // Per-row sport for cross-sport tournament tables that have a Sport column.
+    let sport;
+    if (hasRowSport && obj['Sport']) {
+      sport = L.detectSport(obj['Sport']) || String(obj['Sport']).toLowerCase().trim();
+    } else {
+      sport = (explicitSport || L.detectSport(t.heading) || '').toString().toLowerCase().trim();
+    }
+    if (!sport || !L.SPORTS.includes(sport)) {
+      console.warn(
+        `warn: skipping "${obj['League Name'] || obj['Series Name']}" under heading "${t.heading}" — no known sport (got "${sport}")`
+      );
+      continue;
+    }
+    bySport[sport] = bySport[sport] || { leagues: [], tournaments: [] };
     if (kind === 'league') bySport[sport].leagues.push(obj);
     else bySport[sport].tournaments.push(obj);
   }
