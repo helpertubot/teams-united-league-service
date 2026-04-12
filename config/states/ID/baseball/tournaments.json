@@ -5,23 +5,51 @@
     {
       "id": "ncs-idaho-baseball-series",
       "name": "NCS Idaho Baseball Series",
+      "sport": "baseball",
+      "state": "ID",
+      "venue": "Treasure Valley",
+      "organizer": "NCS",
+      "ageGroups": "U8–U18",
+      "gender": "Boys,Girls",
+      "teamsExpected": 60,
+      "season": "Summer",
       "sourcePlatform": "custom",
-      "cadence": "Monthly",
-      "hostVenues": "Treasure Valley"
+      "recurring": "monthly",
+      "format": "Mixed",
+      "confidence": "high"
     },
     {
       "id": "mybs-state-and-regional-series",
       "name": "MYBS State & Regional Series",
-      "sourcePlatform": "sportngin",
-      "cadence": "Seasonal",
-      "hostVenues": "Settlers Park (Meridian)"
+      "sport": "baseball",
+      "state": "ID",
+      "venue": "Settlers Park",
+      "city": "Meridian",
+      "organizer": "Babe Ruth/Cal Ripken",
+      "ageGroups": "U10–U15",
+      "gender": "Boys,Girls",
+      "teamsExpected": 40,
+      "season": "Summer",
+      "sourcePlatform": "sportsengine",
+      "recurring": "seasonal",
+      "format": "Mixed",
+      "confidence": "high"
     },
     {
       "id": "rmsb-idaho-falls-tournament",
       "name": "RMSB Idaho Falls Tournament",
+      "sport": "baseball",
+      "state": "ID",
+      "venue": "Idaho Falls/Rexburg",
+      "organizer": "RMSB",
+      "ageGroups": "8U–14U",
+      "gender": "Boys,Girls",
+      "teamsExpected": 50,
+      "season": "Summer",
       "sourcePlatform": "custom",
-      "cadence": "Annual",
-      "hostVenues": "Idaho Falls/Rexburg"
+      "recurring": "annual",
+      "format": "Mixed",
+      "confidence": "high"
     }
   ]
 }

@@ -5,23 +5,52 @@
     {
       "id": "clearwater-classic-hockey",
       "name": "Clearwater Classic (Hockey)",
+      "sport": "hockey",
+      "state": "ID",
+      "venue": "LC Ice Arena",
+      "city": "Lewiston",
+      "organizer": "USA Hockey",
+      "ageGroups": "8U–14U",
+      "gender": "Boys,Girls",
+      "teamsExpected": 20,
+      "season": "Jan–Feb",
       "sourcePlatform": "teamsnap",
-      "cadence": "Monthly",
-      "hostVenues": "LC Ice Arena (Lewiston)"
+      "recurring": "monthly",
+      "format": "Mixed",
+      "confidence": "high"
     },
     {
       "id": "mccall-home-tournaments",
       "name": "McCall Home Tournaments",
-      "sourcePlatform": "sportngin",
-      "cadence": "Monthly",
-      "hostVenues": "Manchester Ice Arena"
+      "sport": "hockey",
+      "state": "ID",
+      "venue": "Manchester Ice Arena",
+      "organizer": "USA Hockey",
+      "ageGroups": "8U–18U",
+      "gender": "Boys,Girls",
+      "teamsExpected": 16,
+      "season": "Oct–Feb",
+      "sourcePlatform": "sportsengine",
+      "recurring": "monthly",
+      "format": "Mixed",
+      "confidence": "high"
     },
     {
       "id": "cda-hockey-boise-invitational",
       "name": "CDA Hockey Boise Invitational",
-      "sourcePlatform": "sportngin",
-      "cadence": "Annual",
-      "hostVenues": "Idaho Ice World (Boise)"
+      "sport": "hockey",
+      "state": "ID",
+      "venue": "Idaho Ice World",
+      "city": "Boise",
+      "organizer": "USA Hockey",
+      "ageGroups": "14U",
+      "gender": "Boys,Girls",
+      "teamsExpected": 12,
+      "season": "Spring",
+      "sourcePlatform": "sportsengine",
+      "recurring": "annual",
+      "format": "Mixed",
+      "confidence": "medium"
     }
   ]
 }
