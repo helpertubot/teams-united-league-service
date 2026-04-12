@@ -89,4 +89,4 @@ After each run:
 2. For `moved`: check `movedTo`. If the new host is legit, update `website` and re-run — sweeper will clear the flag.
 3. For `stale`: if the event is truly dead, mark `lifecycle: 'completed'` manually. If transient (site migration, holiday outage), leave it — next week's run clears it on recovery.
 
-Tournament Discovery Agent owns this review loop.
+Tournament Discovery Agent owns this review loop end-to-end. Ambiguous cases escalate to PC, not Tier 2 — Tier 2 is customer-facing only.

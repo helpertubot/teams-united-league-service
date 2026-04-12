@@ -237,7 +237,7 @@ curl -X POST http://35.209.45.82:8080/exec \
 node scripts/coverage/regen-coverage.js --state X --sport Y --source <agent-or-script-name>
 ```
 
-**and include the updated `coverage/X/Y.md` in the same commit that changes the config. Tier-2, Dev, Eng, Discovery, and Tournament agents are all bound by this rule. If the script run fails, STOP and flag it — do not commit partial changes.**
+**and include the updated `coverage/X/Y.md` in the same commit that changes the config. League Discovery, League Buildout, Adapter Builder, League QA, Tournament Discovery, Development, and Engineering agents are all bound by this rule. Tier 2 Support is NOT bound — it is customer-facing only and does not touch league/tournament configuration. If the regen script run fails, STOP and flag it — do not commit partial changes.**
 
 ### Ingest flow
 
@@ -273,7 +273,7 @@ Every tournament row carries `seriesId`, `year` (null unless a specific edition)
 - **Research is the source of truth** for creating tournament cards. The sweeper never creates new rows — new editions (e.g. 2027 instance of an annual series) only appear when fresh research data confirms them. No auto-rollover.
 - **`scripts/coverage/sweep-tournaments.js`** runs weekly (see `scripts/coverage/README-sweep.md`). Checks URL liveness, updates `lastChecked` + `lastHttpStatus`, flags `stale` (2+ consecutive fails) or `moved` (redirect to unrelated host). Never deletes. Never demotes sticky states.
 - **`scripts/coverage/reconcile-tournaments.js`** re-derives lifecycle from `startDate`/`endDate` for a state (±sport). Safe to run any time.
-- **Tournament Discovery Agent** owns the sweep review loop: inspect the weekly report at `scripts/coverage/_reports/sweep-YYYY-MM-DD.json`, resolve `moved` rows by updating `website`, resolve `stale` rows by either (a) confirming dead → `lifecycle: 'completed'` or (b) waiting for next-week recovery. Agent does NOT scrape for new tournaments — that remains Research's job.
+- **Tournament Discovery Agent** owns the sweep review loop end-to-end: inspect the weekly report at `scripts/coverage/_reports/sweep-YYYY-MM-DD.json`, resolve `moved` rows by updating `website`, resolve `stale` rows by either (a) confirming dead → `lifecycle: 'completed'` or (b) waiting for next-week recovery. Escalates ambiguous cases (unfamiliar new host, borderline dead) to PC directly — NOT to Tier 2. Tier 2 is customer-facing only. Tournament Discovery does NOT scrape for new tournaments — that remains Research's job.
 - **Re-ingest with `--reconcile`** when a new research pass should mark absent rows: `node scripts/coverage/ingest-research.js path/to/research.md --reconcile`. Flags `missing-from-research` on rows no longer in the file. Never deletes.
 
 ## Deploy VM Access
