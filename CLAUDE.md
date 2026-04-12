@@ -1,5 +1,7 @@
 # Teams United League Service — CLAUDE.md
 
+> Coverage docs at `coverage/{STATE}/{sport}.md` are the living per-combo truth — see [Coverage System](#coverage-system) section.
+
 ## Overview
 
 Multi-platform youth sports standings collection service for [Teams United](https://teams-united.com).
@@ -218,6 +220,51 @@ curl -X POST http://35.209.45.82:8080/exec \
   -H 'Content-Type: application/json' \
   -d '{"command":"cd /home/deploy/workspace/league-standings && node scripts/setup/expand-soccer-ca-id-mt.js --dry-run"}'
 ```
+
+## Coverage System
+
+`coverage/{STATE}/{sport}.md` is the living state-of-the-union doc for every state × sport combo we support. It is seeded from Claude Research output and maintained by every agent/script that changes the league or tournament set. The coverage doc is the archive of research-only context (Type, Level, Registration URL, Age Range, Est. # Teams, Season(s), Sanctioning Body, Contact, Confidence, Notes, tournament Cadence + Host Venues) — none of which live in Firestore or in `config/states/...`.
+
+- Canonical template: `coverage/_template.md`
+- Overview + lifecycle: `coverage/README.md`
+- Seeded example: `coverage/ID/softball.md` (from synthetic fixture)
+
+### Coverage Maintenance — REQUIRED
+
+**Any script, agent, or manual change that creates, activates, dormants, deactivates, renames, or re-configures a league OR tournament for state X sport Y MUST, before exiting or completing its task, run:**
+
+```
+node scripts/coverage/regen-coverage.js --state X --sport Y --source <agent-or-script-name>
+```
+
+**and include the updated `coverage/X/Y.md` in the same commit that changes the config. Tier-2, Dev, Eng, Discovery, and Tournament agents are all bound by this rule. If the script run fails, STOP and flag it — do not commit partial changes.**
+
+### Ingest flow
+
+New Claude Research markdown (per state or per state × sport) enters the system via `scripts/coverage/ingest-research.js`. It parses the YAML frontmatter + markdown tables, merges leagues and tournaments into `config/states/{STATE}/{sport}/leagues.json` + `tournaments.json` (matching by slug or website domain; existing fields win; never drops existing leagues), and writes `coverage/{STATE}/{sport}.md` from the template.
+
+Example:
+
+```
+node scripts/coverage/ingest-research.js \
+  Machine/Outputs/data/coverage-research/ID-softball.md
+# or with overrides:
+node scripts/coverage/ingest-research.js path/to/research.md --state ID --sport softball --dry-run
+```
+
+Re-ingesting the same file is a no-op (idempotent).
+
+### When to regen
+
+Run `regen-coverage.js` with an appropriate `--source` label:
+
+- After any league `status` change (activate / dormant / deactivate / pending).
+- After any tournament import or registration.
+- After any discovery script run that changes the active set for a combo.
+- After a rename, platform swap, or source-config (eventId/tabId/orgId) change.
+- As part of `season-monitor`'s weekly pass — **hook PENDING** (not yet wired; will land in a follow-up commit after the in-flight agent work on `season-monitor.js` merges).
+
+The script is safe to run with `--all` to refresh every existing coverage doc from current git config in one pass.
 
 ## Deploy VM Access
 

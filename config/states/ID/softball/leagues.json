@@ -1,0 +1,30 @@
+{
+  "_description": "ID softball leagues",
+  "_lastUpdated": "2026-04-12",
+  "leagues": [
+    {
+      "id": "treasure-valley-girls-fastpitch",
+      "name": "Treasure Valley Girls Fastpitch",
+      "region": "Boise metro",
+      "sourcePlatform": "sportsconnect",
+      "website": "https://tvgfa.org",
+      "notes": "Largest ID fastpitch org."
+    },
+    {
+      "id": "eastern-idaho-softball-association",
+      "name": "Eastern Idaho Softball Association",
+      "region": "Idaho Falls / Pocatello",
+      "sourcePlatform": "gamechanger",
+      "website": "https://eisoftball.com",
+      "notes": "Minimal web presence."
+    },
+    {
+      "id": "north-idaho-fastpitch-league",
+      "name": "North Idaho Fastpitch League",
+      "region": "Coeur d'Alene",
+      "sourcePlatform": "gotsport",
+      "website": "https://nifastpitch.org",
+      "notes": "Uses GotSport event 99123."
+    }
+  ]
+}
