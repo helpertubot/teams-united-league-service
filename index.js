@@ -573,3 +573,108 @@ function slugify(text) {
     .replace(/(^-|-$)/g, '')
     .substring(0, 100);
 }
+
+// ═══════════════════════════════════════════════════════════════
+// TOURNAMENTS API
+// ═══════════════════════════════════════════════════════════════
+
+/**
+ * getTournaments — Public API to browse tournaments with filters
+ * GET ?sport=soccer&state=WA&upcoming=true
+ */
+functions.http('getTournaments', async (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.set('Cache-Control', 'public, max-age=300');
+  if (req.method === 'OPTIONS') return res.status(204).send('');
+
+  try {
+    const { sport, state, upcoming, year } = req.query;
+    const snap = await db.collection('tournaments').get();
+    let tournaments = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+    // Filter by sport
+    if (sport && sport !== 'all') {
+      tournaments = tournaments.filter(t => (t.sport || '').toLowerCase() === sport.toLowerCase());
+    }
+
+    // Filter by state
+    if (state && state !== 'all') {
+      tournaments = tournaments.filter(t => (t.state || '').toUpperCase() === state.toUpperCase());
+    }
+
+    // Filter by year
+    if (year) {
+      tournaments = tournaments.filter(t => (t.startDate || '').startsWith(year));
+    }
+
+    // Filter upcoming only (default: true)
+    if (upcoming !== 'false') {
+      const today = new Date().toISOString().split('T')[0];
+      tournaments = tournaments.filter(t => !t.endDate || t.endDate >= today);
+    }
+
+    // Sort by start date
+    tournaments.sort((a, b) => (a.startDate || '').localeCompare(b.startDate || ''));
+
+    res.json({ count: tournaments.length, tournaments });
+  } catch (err) {
+    console.error('getTournaments error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+/**
+ * importTournament — Add or update a tournament
+ * POST { tournament: { id, name, sport, state, city, venue, startDate, endDate, ... } }
+ */
+functions.http('importTournament', async (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(204).send('');
+
+  if (req.method !== 'POST') return res.status(405).json({ error: 'POST only' });
+
+  try {
+    const { tournament, tournaments: batch } = req.body;
+    const items = batch || (tournament ? [tournament] : []);
+
+    if (items.length === 0) {
+      return res.status(400).json({ error: 'No tournament data provided' });
+    }
+
+    let imported = 0;
+    for (const t of items) {
+      const id = t.id || slugify(t.name + '-' + (t.state || '') + '-' + (t.startDate || '').substring(0, 4));
+      await db.collection('tournaments').doc(id).set({
+        name: t.name,
+        organizer: t.organizer || t.contactName || '',
+        sport: (t.sport || '').toLowerCase(),
+        state: (t.state || '').toUpperCase(),
+        city: t.city || '',
+        venue: t.venue || t.venueName || '',
+        startDate: t.startDate || t.start_date || '',
+        endDate: t.endDate || t.end_date || '',
+        ageGroups: t.ageGroups || t.age_groups || '',
+        gender: t.gender || '',
+        format: t.format || '',
+        entryFee: t.entryFee || t.entry_fee || '',
+        registrationUrl: t.registrationUrl || t.registration_url || '',
+        sourcePlatform: t.sourcePlatform || t.source_platform || '',
+        sourceUrl: t.sourceUrl || t.source_url || '',
+        teamsExpected: t.teamsExpected || t.teams_expected || null,
+        recurring: t.recurring || 'unknown',
+        importedAt: new Date().toISOString(),
+        importedBy: t.importedBy || 'api',
+      }, { merge: true });
+      imported++;
+    }
+
+    res.json({ imported, total: items.length });
+  } catch (err) {
+    console.error('importTournament error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
