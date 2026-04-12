@@ -150,8 +150,16 @@ function researchTournamentToConfig(r, stateCode) {
   const recurring = L.normalizeRecurring(r['Cadence']);
   const confidence = L.normalizeConfidence(r['Confidence']);
 
+  // Research rarely pins a specific year; leave null unless the Series Name
+  // carries an explicit 4-digit year token.
+  const yearMatch = String(r['Series Name'] || '').match(/\b(20\d{2})\b/);
+  const year = yearMatch ? parseInt(yearMatch[1], 10) : null;
+
   const entry = {
     id,
+    seriesId: id,
+    year,
+    lifecycle: 'upcoming',
     name: r['Series Name'],
     sport: sport || undefined,
     state: stateCode || undefined,
@@ -172,6 +180,7 @@ function researchTournamentToConfig(r, stateCode) {
     notes: r['Notes'] || undefined
   };
   for (const k of Object.keys(entry)) {
+    if (k === 'year' || k === 'lifecycle' || k === 'seriesId') continue;
     if (entry[k] === undefined || entry[k] === '' || entry[k] === null) delete entry[k];
   }
   return entry;
@@ -279,9 +288,32 @@ for (const [sport, data] of Object.entries(bySport)) {
   // from research. Default behavior still merges (existing fields win) so we
   // don't regress callers that rely on incremental ingest.
   const REPLACE_TOURN = !!args.flags['replace-tournaments'];
+  const RECONCILE = !!args.flags['reconcile'];
   const tRes = REPLACE_TOURN
     ? { list: incomingTourn, added: incomingTourn.length, merged: 0, replaced: (existingTourn.tournaments || []).length }
     : mergeList(existingTourn.tournaments || [], incomingTourn, 'tournament');
+
+  // --reconcile: mark existing rows absent from the new research pass.
+  // Match by id OR by website domain to align with mergeList's match rules.
+  // Never delete; never demote a row already in a sticky terminal state.
+  let reconciled = 0;
+  if (RECONCILE && !REPLACE_TOURN) {
+    const incIds = new Set(incomingTourn.map((t) => t.id));
+    const incDomains = new Set(
+      incomingTourn.map((t) => L.domainOf(t.website)).filter(Boolean)
+    );
+    for (const row of tRes.list) {
+      const matchedById = incIds.has(row.id);
+      const d = L.domainOf(row.website);
+      const matchedByDomain = d && incDomains.has(d);
+      const isIncoming = matchedById || matchedByDomain;
+      if (!isIncoming && row.lifecycle !== 'missing-from-research') {
+        row.lifecycle = 'missing-from-research';
+        row.missingSince = L.todayISO();
+        reconciled++;
+      }
+    }
+  }
 
   const newLeagues = {
     ...existingLeagues,
@@ -304,7 +336,7 @@ for (const [sport, data] of Object.entries(bySport)) {
     existingCoverage
   );
 
-  plan.push({ sport, leaguesPath, tournPath, covPath, newLeagues, newTourn, coverageText, lRes, tRes });
+  plan.push({ sport, leaguesPath, tournPath, covPath, newLeagues, newTourn, coverageText, lRes, tRes, reconciled });
 }
 
 for (const p of plan) {
@@ -314,6 +346,9 @@ for (const p of plan) {
   console.log(
     `[${state}/${p.sport}] tournaments: +${p.tRes.added} new, ${p.tRes.merged} merged → ${p.newTourn.tournaments.length} total`
   );
+  if (p.reconciled) {
+    console.log(`[${state}/${p.sport}] reconcile: ${p.reconciled} marked missing-from-research`);
+  }
   if (DRY) {
     console.log(`  (dry-run) would write ${p.leaguesPath}`);
     console.log(`  (dry-run) would write ${p.tournPath}`);

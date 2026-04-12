@@ -16,7 +16,10 @@
       "sourcePlatform": "custom",
       "recurring": "monthly",
       "format": "Mixed",
-      "confidence": "high"
+      "confidence": "high",
+      "seriesId": "ncs-idaho-baseball-series",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "mybs-state-and-regional-series",
@@ -33,7 +36,10 @@
       "sourcePlatform": "sportsengine",
       "recurring": "seasonal",
       "format": "Mixed",
-      "confidence": "high"
+      "confidence": "high",
+      "seriesId": "mybs-state-and-regional-series",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "rmsb-idaho-falls-tournament",
@@ -49,7 +55,10 @@
       "sourcePlatform": "custom",
       "recurring": "annual",
       "format": "Mixed",
-      "confidence": "high"
+      "confidence": "high",
+      "seriesId": "rmsb-idaho-falls-tournament",
+      "year": null,
+      "lifecycle": "upcoming"
     }
   ]
 }

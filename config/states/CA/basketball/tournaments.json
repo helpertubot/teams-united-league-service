@@ -17,7 +17,10 @@
       "recurring": "monthly",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "National School ID verified"
+      "notes": "National School ID verified",
+      "seriesId": "spring-fling-spring-slam",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "hoops-on-the-harbor",
@@ -34,7 +37,10 @@
       "recurring": "annual",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "3-game guarantee"
+      "notes": "3-game guarantee",
+      "seriesId": "hoops-on-the-harbor",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "g365-the-battle",
@@ -51,7 +57,10 @@
       "recurring": "annual",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "Multi-complex OC mega-event"
+      "notes": "Multi-complex OC mega-event",
+      "seriesId": "g365-the-battle",
+      "year": null,
+      "lifecycle": "upcoming"
     }
   ]
 }

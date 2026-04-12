@@ -53,6 +53,9 @@ discovered_groups.json
 *.tar.gz
 *.log
 
+# Coverage run artifacts
+scripts/coverage/_reports/
+
 # OS
 .DS_Store
 Thumbs.db

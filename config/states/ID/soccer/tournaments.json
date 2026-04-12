@@ -16,7 +16,10 @@
       "sourcePlatform": "gotsport",
       "recurring": "annual",
       "format": "Mixed",
-      "confidence": "high"
+      "confidence": "high",
+      "seriesId": "far-west-presidents-cup-soccer",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "iysa-state-cup-and-gem-state",
@@ -32,7 +35,10 @@
       "sourcePlatform": "gotsport",
       "recurring": "annual",
       "format": "Mixed",
-      "confidence": "high"
+      "confidence": "high",
+      "seriesId": "iysa-state-cup-and-gem-state",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "yellowstone-cup-soccer",
@@ -48,7 +54,10 @@
       "sourcePlatform": "gotsport",
       "recurring": "annual",
       "format": "Mixed",
-      "confidence": "high"
+      "confidence": "high",
+      "seriesId": "yellowstone-cup-soccer",
+      "year": null,
+      "lifecycle": "upcoming"
     }
   ]
 }

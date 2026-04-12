@@ -16,7 +16,10 @@
       "sourcePlatform": "unknown",
       "recurring": "annual",
       "format": "Mixed",
-      "confidence": "high"
+      "confidence": "high",
+      "seriesId": "idaho-bowl",
+      "year": null,
+      "lifecycle": "upcoming"
     }
   ]
 }

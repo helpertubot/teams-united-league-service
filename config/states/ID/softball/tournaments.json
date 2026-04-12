@@ -10,7 +10,10 @@
       "website": "https://gemstateclassic.com",
       "cadence": "Annual (July)",
       "hostVenues": "Simplot Sports Complex",
-      "notes": "Largest ID fastpitch tournament."
+      "notes": "Largest ID fastpitch tournament.",
+      "seriesId": "gem-state-classic",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "panhandle-summer-showdown",
@@ -20,7 +23,10 @@
       "website": "https://panhandleshowdown.com",
       "cadence": "Annual (August)",
       "hostVenues": "CdA Sports Park",
-      "notes": "Growing event."
+      "notes": "Growing event.",
+      "seriesId": "panhandle-summer-showdown",
+      "year": null,
+      "lifecycle": "upcoming"
     }
   ]
 }

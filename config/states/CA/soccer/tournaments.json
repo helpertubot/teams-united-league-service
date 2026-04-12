@@ -17,7 +17,10 @@
       "recurring": "annual",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "Premier West Coast showcase; strict stay-and-play"
+      "notes": "Premier West Coast showcase; strict stay-and-play",
+      "seriesId": "surf-cup-olders-and-youngers",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "club-am-rica-cup",
@@ -34,7 +37,10 @@
       "recurring": "annual",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "International branded (Palmeiras/Atlas)"
+      "notes": "International branded (Palmeiras/Atlas)",
+      "seriesId": "club-am-rica-cup",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "manchester-city-cup",
@@ -51,7 +57,10 @@
       "recurring": "annual",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "European mega-club branded expansion"
+      "notes": "European mega-club branded expansion",
+      "seriesId": "manchester-city-cup",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "surf-cup-northwest",
@@ -68,7 +77,10 @@
       "recurring": "annual",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "Absorbed Crossfire Challenge"
+      "notes": "Absorbed Crossfire Challenge",
+      "seriesId": "surf-cup-northwest",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "california-rush-spring-cup",
@@ -85,7 +97,10 @@
       "recurring": "annual",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "Pulls NV/AZ/OR/CO"
+      "notes": "Pulls NV/AZ/OR/CO",
+      "seriesId": "california-rush-spring-cup",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "san-jose-cup",
@@ -102,7 +117,10 @@
       "recurring": "annual",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "U7-U12 focus"
+      "notes": "U7-U12 focus",
+      "seriesId": "san-jose-cup",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "soccer-de-mayo",
@@ -119,7 +137,10 @@
       "recurring": "annual",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "State-level, SilverLakes complex"
+      "notes": "State-level, SilverLakes complex",
+      "seriesId": "soccer-de-mayo",
+      "year": null,
+      "lifecycle": "upcoming"
     }
   ]
 }

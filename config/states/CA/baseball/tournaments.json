@@ -17,7 +17,10 @@
       "recurring": "annual",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "Multi-venue"
+      "notes": "Multi-venue",
+      "seriesId": "tc-memorial-day-champs",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "tc-san-diego-open",
@@ -34,7 +37,10 @@
       "recurring": "annual",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "Ring Event"
+      "notes": "Ring Event",
+      "seriesId": "tc-san-diego-open",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "ncs-slam-diego-sunday-series",
@@ -51,7 +57,10 @@
       "recurring": "monthly",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "1-day/2-game format"
+      "notes": "1-day/2-game format",
+      "seriesId": "ncs-slam-diego-sunday-series",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "ncs-xcs-rbi-classic",
@@ -68,7 +77,10 @@
       "recurring": "annual",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "OC affluent zone pull"
+      "notes": "OC affluent zone pull",
+      "seriesId": "ncs-xcs-rbi-classic",
+      "year": null,
+      "lifecycle": "upcoming"
     }
   ]
 }

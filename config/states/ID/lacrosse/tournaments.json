@@ -16,7 +16,10 @@
       "sourcePlatform": "teamsnap",
       "recurring": "annual",
       "format": "Mixed",
-      "confidence": "high"
+      "confidence": "high",
+      "seriesId": "lax-on-the-lake",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "mountain-west-youth-championship",
@@ -33,7 +36,10 @@
       "sourcePlatform": "leagueapps",
       "recurring": "annual",
       "format": "Mixed",
-      "confidence": "high"
+      "confidence": "high",
+      "seriesId": "mountain-west-youth-championship",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "days-of-lacrosse-tvyll",
@@ -49,7 +55,10 @@
       "sourcePlatform": "unknown",
       "recurring": "annual",
       "format": "Mixed",
-      "confidence": "high"
+      "confidence": "high",
+      "seriesId": "days-of-lacrosse-tvyll",
+      "year": null,
+      "lifecycle": "upcoming"
     }
   ]
 }

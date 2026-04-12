@@ -16,7 +16,10 @@
       "sourcePlatform": "exposure",
       "recurring": "monthly",
       "format": "Mixed",
-      "confidence": "high"
+      "confidence": "high",
+      "seriesId": "idaho-prep-basketball-tournaments",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "idaho-prospects-basketball-events",
@@ -32,7 +35,10 @@
       "sourcePlatform": "exposure",
       "recurring": "monthly",
       "format": "Mixed",
-      "confidence": "high"
+      "confidence": "high",
+      "seriesId": "idaho-prospects-basketball-events",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "fat-mamba-tournaments",
@@ -48,7 +54,10 @@
       "sourcePlatform": "exposure",
       "recurring": "seasonal",
       "format": "Mixed",
-      "confidence": "medium"
+      "confidence": "medium",
+      "seriesId": "fat-mamba-tournaments",
+      "year": null,
+      "lifecycle": "upcoming"
     }
   ]
 }

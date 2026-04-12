@@ -18,7 +18,10 @@
       "recurring": "seasonal",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "Pacific Coast Region roster ID"
+      "notes": "Pacific Coast Region roster ID",
+      "seriesId": "usa-softball-all-american",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "usa-softball-class-b-west",
@@ -35,7 +38,10 @@
       "recurring": "annual",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "Western Class B Championship"
+      "notes": "Western Class B Championship",
+      "seriesId": "usa-softball-class-b-west",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "district-51-ll-softball",
@@ -52,7 +58,10 @@
       "recurring": "annual",
       "format": "Mixed",
       "confidence": "high",
-      "notes": "Multi-age regional finals"
+      "notes": "Multi-age regional finals",
+      "seriesId": "district-51-ll-softball",
+      "year": null,
+      "lifecycle": "upcoming"
     }
   ]
 }

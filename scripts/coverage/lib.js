@@ -317,6 +317,47 @@ function templatePath() {
   return path.join(REPO_ROOT, 'coverage', '_template.md');
 }
 
+const LIFECYCLE_STATES = [
+  'upcoming',           // future or unknown-date — default
+  'in_progress',        // now within [startDate, endDate]
+  'completed',          // endDate past — historical card
+  'stale',              // URL failed 2+ consecutive checks
+  'moved',              // URL redirects to unrelated host
+  'missing-from-research' // was in config, absent from latest research pass
+];
+
+/**
+ * Derive lifecycle from a tournament row's dates and check state.
+ * Pure function — does NOT demote explicit terminal states (stale/moved/
+ * missing-from-research) back to date-derived values; those are set by the
+ * sweeper / reconcile flow and must stick until resolved.
+ */
+function deriveLifecycle(row, nowISO) {
+  const sticky = new Set(['stale', 'moved', 'missing-from-research']);
+  if (row.lifecycle && sticky.has(row.lifecycle)) return row.lifecycle;
+  const now = nowISO || todayISO();
+  const start = row.startDate || null;
+  const end = row.endDate || null;
+  if (end && end < now) return 'completed';
+  if (start && end && start <= now && now <= end) return 'in_progress';
+  return 'upcoming';
+}
+
+/**
+ * Apply schema defaults to a tournament row. Idempotent.
+ * - seriesId defaults to id (current id is already a series slug)
+ * - year defaults to null (research usually does not pin a specific edition)
+ * - lifecycle derived from dates if absent
+ * - lastChecked / lastHttpStatus left unset until sweeper runs
+ */
+function applyTournamentSchemaDefaults(row) {
+  const out = { ...row };
+  if (!out.seriesId) out.seriesId = out.id;
+  if (out.year === undefined) out.year = null;
+  if (!out.lifecycle) out.lifecycle = deriveLifecycle(out);
+  return out;
+}
+
 /**
  * Determine (state, sport) from research frontmatter + table headings.
  * For all-sports variants, returns null sport and caller iterates per-table.
@@ -346,6 +387,9 @@ module.exports = {
   normalizeRecurring,
   normalizeConfidence,
   parseHostVenue,
+  LIFECYCLE_STATES,
+  deriveLifecycle,
+  applyTournamentSchemaDefaults,
   readJson,
   writeJson,
   writeText,

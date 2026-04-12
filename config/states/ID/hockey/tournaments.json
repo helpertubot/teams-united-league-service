@@ -17,7 +17,10 @@
       "sourcePlatform": "teamsnap",
       "recurring": "monthly",
       "format": "Mixed",
-      "confidence": "high"
+      "confidence": "high",
+      "seriesId": "clearwater-classic-hockey",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "mccall-home-tournaments",
@@ -33,7 +36,10 @@
       "sourcePlatform": "sportsengine",
       "recurring": "monthly",
       "format": "Mixed",
-      "confidence": "high"
+      "confidence": "high",
+      "seriesId": "mccall-home-tournaments",
+      "year": null,
+      "lifecycle": "upcoming"
     },
     {
       "id": "cda-hockey-boise-invitational",
@@ -50,7 +56,10 @@
       "sourcePlatform": "sportsengine",
       "recurring": "annual",
       "format": "Mixed",
-      "confidence": "medium"
+      "confidence": "medium",
+      "seriesId": "cda-hockey-boise-invitational",
+      "year": null,
+      "lifecycle": "upcoming"
     }
   ]
 }
