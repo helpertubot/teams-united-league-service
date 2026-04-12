@@ -1,0 +1,23 @@
+{
+  "_description": "CA track tournament series",
+  "_lastUpdated": "2026-04-12",
+  "tournaments": [
+    {
+      "id": "cif-ss-track-and-field-prelims",
+      "name": "CIF-SS Track & Field Prelims",
+      "sport": "track",
+      "state": "CA",
+      "venue": "Multi-site",
+      "city": "",
+      "organizer": "CIF",
+      "ageGroups": "",
+      "gender": "Boys,Girls",
+      "teamsExpected": 500,
+      "sourcePlatform": "custom",
+      "recurring": "annual",
+      "format": "Mixed",
+      "confidence": "high",
+      "notes": "HS scholastic, non-club"
+    }
+  ]
+}
