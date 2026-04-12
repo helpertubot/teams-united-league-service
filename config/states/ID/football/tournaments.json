@@ -5,9 +5,18 @@
     {
       "id": "idaho-bowl",
       "name": "Idaho Bowl",
+      "sport": "football",
+      "state": "ID",
+      "venue": "College campus style",
+      "organizer": "Independent",
+      "ageGroups": "Youth–HS",
+      "gender": "Boys,Girls",
+      "teamsExpected": 60,
+      "season": "Summer",
       "sourcePlatform": "unknown",
-      "cadence": "Annual",
-      "hostVenues": "College campus style"
+      "recurring": "annual",
+      "format": "Mixed",
+      "confidence": "high"
     }
   ]
 }

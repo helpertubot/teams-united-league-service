@@ -135,20 +135,45 @@ function researchLeagueToConfig(r) {
   return entry;
 }
 
-function researchTournamentToConfig(r) {
+function researchTournamentToConfig(r, stateCode) {
   const id = L.slug(r['Series Name']);
-  const platform = L.normalizePlatform(r['Platform']);
+  const platform = L.normalizeTournamentPlatform(r['Platform']);
+  const sportRaw = r['Sport'] ? String(r['Sport']).toLowerCase().trim() : '';
+  const sport = sportRaw && L.SPORTS.includes(sportRaw) ? sportRaw : (L.detectSport(sportRaw) || '');
+
+  const ages = r['Age Range'] ? String(r['Age Range']).trim() : '';
+  const teamsRaw = r['Est. # Teams'] ? String(r['Est. # Teams']).replace(/[^\d]/g, '') : '';
+  const teamsExpected = teamsRaw ? parseInt(teamsRaw, 10) : undefined;
+  const season = r['Season(s)'] ? String(r['Season(s)']).trim() : '';
+  const sanction = r['Sanctioning Body'] ? String(r['Sanctioning Body']).trim() : '';
+  const { venue, city } = L.parseHostVenue(r['Host Venues']);
+  const recurring = L.normalizeRecurring(r['Cadence']);
+  const confidence = L.normalizeConfidence(r['Confidence']);
+
   const entry = {
     id,
     name: r['Series Name'],
-    region: r['Geographic Scope'] || undefined,
+    sport: sport || undefined,
+    state: stateCode || undefined,
+    venue: venue || undefined,
+    city: city || undefined,
+    organizer: sanction || undefined,
+    ageGroups: ages || undefined,
+    gender: 'Boys,Girls',
+    teamsExpected: Number.isFinite(teamsExpected) ? teamsExpected : undefined,
+    season: season || undefined,
     sourcePlatform: platform || undefined,
+    recurring: recurring || undefined,
+    format: 'Mixed',
+    confidence: confidence || undefined,
+    region: r['Geographic Scope'] || undefined,
     website: r['Website'] || undefined,
-    cadence: r['Cadence'] || undefined,
-    hostVenues: r['Host Venues'] || undefined,
+    registrationUrl: r['Registration URL'] || undefined,
     notes: r['Notes'] || undefined
   };
-  for (const k of Object.keys(entry)) if (entry[k] === undefined || entry[k] === '') delete entry[k];
+  for (const k of Object.keys(entry)) {
+    if (entry[k] === undefined || entry[k] === '' || entry[k] === null) delete entry[k];
+  }
   return entry;
 }
 
@@ -247,10 +272,16 @@ for (const [sport, data] of Object.entries(bySport)) {
   };
 
   const incomingLeagues = data.leagues.map(researchLeagueToConfig);
-  const incomingTourn = data.tournaments.map(researchTournamentToConfig);
+  const incomingTourn = data.tournaments.map((r) => researchTournamentToConfig(r, state));
 
   const lRes = mergeList(existingLeagues.leagues || [], incomingLeagues, 'league');
-  const tRes = mergeList(existingTourn.tournaments || [], incomingTourn, 'tournament');
+  // Tournament mode: `--replace-tournaments` drops prior entries and rewrites
+  // from research. Default behavior still merges (existing fields win) so we
+  // don't regress callers that rely on incremental ingest.
+  const REPLACE_TOURN = !!args.flags['replace-tournaments'];
+  const tRes = REPLACE_TOURN
+    ? { list: incomingTourn, added: incomingTourn.length, merged: 0, replaced: (existingTourn.tournaments || []).length }
+    : mergeList(existingTourn.tournaments || [], incomingTourn, 'tournament');
 
   const newLeagues = {
     ...existingLeagues,

@@ -195,6 +195,71 @@ function normalizePlatform(p) {
   return map[t] || t.replace(/\s+/g, '');
 }
 
+/**
+ * Tournament-facing platform names. These are the consumer-side
+ * `sourcePlatform` strings the TeamsUnited UI + Firestore tournaments
+ * collection expect, which diverge from the league-collector adapter
+ * keys (e.g. tournaments use "sportsengine", leagues use "sportngin").
+ */
+function normalizeTournamentPlatform(p) {
+  if (!p) return '';
+  const t = String(p).toLowerCase().trim();
+  const map = {
+    'gotsport': 'gotsport',
+    'sportsengine': 'sportsengine',
+    'sportngin': 'sportsengine',
+    'teamsnap': 'teamsnap',
+    'leagueapps': 'leagueapps',
+    'league apps': 'leagueapps',
+    'exposure': 'exposure',
+    'exposure events': 'exposure',
+    'eventconnect': 'eventconnect',
+    'custom': 'custom',
+    'unknown': 'unknown',
+    '': ''
+  };
+  return map[t] || t.replace(/\s+/g, '');
+}
+
+/**
+ * Map research Cadence strings to Firestore `recurring` values
+ * (Annual→annual, Monthly→monthly, Seasonal→seasonal). Falls through
+ * to lower-cased input so we never drop signal.
+ */
+function normalizeRecurring(c) {
+  if (!c) return '';
+  const t = String(c).toLowerCase().trim();
+  if (t.startsWith('annual')) return 'annual';
+  if (t.startsWith('monthly')) return 'monthly';
+  if (t.startsWith('seasonal')) return 'seasonal';
+  if (t.startsWith('weekly')) return 'weekly';
+  return t;
+}
+
+function normalizeConfidence(c) {
+  if (!c) return '';
+  const t = String(c).toLowerCase().trim();
+  if (['high', 'medium', 'low'].includes(t)) return t;
+  return t;
+}
+
+/**
+ * Parse a Host Venues cell into { venue, city }. Research often writes
+ * "Settlers Park (Meridian)" → venue="Settlers Park", city="Meridian".
+ * If no parenthetical, we leave the whole string as venue and omit city.
+ * Multi-venue cells like "Twin Falls/Boise" also fall through as venue
+ * with empty city — the enrichment pass will split those later.
+ */
+function parseHostVenue(host) {
+  if (!host) return { venue: '', city: '' };
+  const s = String(host).trim();
+  const m = s.match(/^(.+?)\s*\(([^)]+)\)\s*$/);
+  if (m) {
+    return { venue: m[1].trim(), city: m[2].trim() };
+  }
+  return { venue: s, city: '' };
+}
+
 function readJson(p) {
   if (!fs.existsSync(p)) return null;
   return JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -277,6 +342,10 @@ module.exports = {
   slug,
   domainOf,
   normalizePlatform,
+  normalizeTournamentPlatform,
+  normalizeRecurring,
+  normalizeConfidence,
+  parseHostVenue,
   readJson,
   writeJson,
   writeText,
