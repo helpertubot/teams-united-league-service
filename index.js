@@ -648,9 +648,16 @@ functions.http('importTournament', async (req, res) => {
     let imported = 0;
     for (const t of items) {
       const id = t.id || slugify(t.name + '-' + (t.state || '') + '-' + (t.startDate || '').substring(0, 4));
-      await db.collection('tournaments').doc(id).set({
+
+      // Pass through ALL fields the caller provided, then normalize the
+      // known ones on top. This lets the ingest pipeline ship new fields
+      // (season, confidence, region, website, notes, format, etc.) without
+      // a parallel Cloud Function deploy every time the schema grows.
+      const doc = {
+        ...t,
+        // Canonical normalization / snake_case fallbacks
         name: t.name,
-        organizer: t.organizer || t.contactName || '',
+        organizer: t.organizer || t.contactName || t.sanctioningBody || '',
         sport: (t.sport || '').toLowerCase(),
         state: (t.state || '').toUpperCase(),
         city: t.city || '',
@@ -668,7 +675,13 @@ functions.http('importTournament', async (req, res) => {
         recurring: t.recurring || 'unknown',
         importedAt: new Date().toISOString(),
         importedBy: t.importedBy || 'api',
-      }, { merge: true });
+      };
+      // Don't persist the client-side id inside the doc body — it's the key.
+      delete doc.id;
+      // Strip undefined to keep Firestore happy.
+      for (const k of Object.keys(doc)) if (doc[k] === undefined) delete doc[k];
+
+      await db.collection('tournaments').doc(id).set(doc, { merge: true });
       imported++;
     }
 

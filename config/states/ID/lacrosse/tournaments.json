@@ -5,23 +5,51 @@
     {
       "id": "lax-on-the-lake",
       "name": "LAX On The Lake",
+      "sport": "lacrosse",
+      "state": "ID",
+      "venue": "Sandpoint",
+      "organizer": "USA Lacrosse",
+      "ageGroups": "Youth–HS",
+      "gender": "Boys,Girls",
+      "teamsExpected": 50,
+      "season": "Spring",
       "sourcePlatform": "teamsnap",
-      "cadence": "Annual",
-      "hostVenues": "Sandpoint"
+      "recurring": "annual",
+      "format": "Mixed",
+      "confidence": "high"
     },
     {
       "id": "mountain-west-youth-championship",
       "name": "Mountain West Youth Championship",
+      "sport": "lacrosse",
+      "state": "ID",
+      "venue": "Rendezvous Elem",
+      "city": "Driggs",
+      "organizer": "USA Lacrosse",
+      "ageGroups": "K–8",
+      "gender": "Boys,Girls",
+      "teamsExpected": 20,
+      "season": "Spring",
       "sourcePlatform": "leagueapps",
-      "cadence": "Annual",
-      "hostVenues": "Rendezvous Elem (Driggs)"
+      "recurring": "annual",
+      "format": "Mixed",
+      "confidence": "high"
     },
     {
       "id": "days-of-lacrosse-tvyll",
       "name": "Days of Lacrosse (TVYLL)",
+      "sport": "lacrosse",
+      "state": "ID",
+      "venue": "Ann Morrison Park",
+      "organizer": "USA Lacrosse",
+      "ageGroups": "8U–14U",
+      "gender": "Boys,Girls",
+      "teamsExpected": 40,
+      "season": "Spring",
       "sourcePlatform": "unknown",
-      "cadence": "Annual",
-      "hostVenues": "Ann Morrison Park"
+      "recurring": "annual",
+      "format": "Mixed",
+      "confidence": "high"
     }
   ]
 }
