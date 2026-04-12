@@ -22,8 +22,13 @@
  * - blue-sombrero: HTTP postback (youth soccer — Blue Sombrero/Stack Sports DNN sites)
  * - sportsaffinity-asp: Browser automation (OYSA — legacy SportsAffinity ASP system)
  * - sportsengine: JSON API adapter (SportsEngine / SportNgin microsites)
+ * - sportngin: Alias to SportsEngine adapter for canonical SportNgin naming
  * - sporngin: Alias to SportsEngine adapter for legacy naming
+ * - leaguelineup: HTML parser (legacy LeagueLineup standings pages)
  * - teamsideline: HTML parser (youth lacrosse, soccer, football — TeamSideline.com orgs)
+ * - myhockey: HTML parser (MYHockey Rankings association/division pages)
+ * - crossbar: HTML parser (Crossbar-hosted division standings pages)
+ * - teamsnap: TeamSnap v3 API adapter (token-auth collection+json API)
  */
 
 const sportsaffinity = require('./adapters/sportsaffinity');
@@ -38,8 +43,13 @@ const sportsconnect = require('./adapters/sportsconnect');
 const blueSombrero = require('./adapters/blue-sombrero');
 const teamlinkt = require('./adapters/teamlinkt');
 const sportsengine = require('./adapters/sportsengine');
+const sportngin = require('./adapters/sportngin');
 const sporngin = require('./adapters/sporngin');
+const leaguelineup = require('./adapters/leaguelineup');
 const teamsideline = require('./adapters/teamsideline');
+const myhockey = require('./adapters/myhockey');
+const crossbar = require('./adapters/crossbar');
+const teamsnap = require('./adapters/teamsnap');
 
 const adapters = {
   [sportsaffinity.PLATFORM_ID]: sportsaffinity,
@@ -54,8 +64,13 @@ const adapters = {
   [sportsaffinityAsp.PLATFORM_ID]: sportsaffinityAsp,
   [teamlinkt.PLATFORM_ID]: teamlinkt,
   [sportsengine.PLATFORM_ID]: sportsengine,
+  [sportngin.PLATFORM_ID]: sportngin,
   [sporngin.PLATFORM_ID]: sporngin,
+  [leaguelineup.PLATFORM_ID]: leaguelineup,
   [teamsideline.PLATFORM_ID]: teamsideline,
+  [myhockey.PLATFORM_ID]: myhockey,
+  [crossbar.PLATFORM_ID]: crossbar,
+  [teamsnap.PLATFORM_ID]: teamsnap,
 };
 
 /**
