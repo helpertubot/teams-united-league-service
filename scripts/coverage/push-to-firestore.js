@@ -102,6 +102,11 @@ async function postBatch(tournaments) {
       continue;
     }
 
+    // Tournament IDs come from ingest (scripts/coverage/ingest-research.js).
+    // push-to-firestore is pass-through only — never mutate IDs here.
+    // (Earlier versions prefixed `${state}-${sport}-` to the slug, which
+    // drifted from the ingest-generated IDs and produced duplicate docs in
+    // Firestore. Standardized on: use `tournament.id` verbatim.)
     // Pass through the JSON as-is, only backfilling state/sport when the
     // stored record omits them (older entries predated schema enrichment).
     const payload = list.map((t) => ({
