@@ -691,3 +691,32 @@ functions.http('importTournament', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+/**
+ * deleteTournament — Remove a tournament doc by id
+ * POST { id: "..." }  (or ?id=... query param)
+ * Returns 200 { deleted: true, id } on success, 404 if not found.
+ */
+functions.http('deleteTournament', async (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(204).send('');
+
+  if (req.method !== 'POST') return res.status(405).json({ error: 'POST only' });
+
+  try {
+    const id = (req.body && req.body.id) || req.query.id;
+    if (!id) return res.status(400).json({ error: 'id required (body or query)' });
+
+    const ref = db.collection('tournaments').doc(String(id));
+    const snap = await ref.get();
+    if (!snap.exists) return res.status(404).json({ error: 'not found', id });
+
+    await ref.delete();
+    res.json({ deleted: true, id });
+  } catch (err) {
+    console.error('deleteTournament error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
