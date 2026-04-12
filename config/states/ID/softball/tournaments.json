@@ -1,0 +1,26 @@
+{
+  "_description": "ID softball tournament series",
+  "_lastUpdated": "2026-04-12",
+  "tournaments": [
+    {
+      "id": "gem-state-classic",
+      "name": "Gem State Classic",
+      "region": "Boise",
+      "sourcePlatform": "gotsport",
+      "website": "https://gemstateclassic.com",
+      "cadence": "Annual (July)",
+      "hostVenues": "Simplot Sports Complex",
+      "notes": "Largest ID fastpitch tournament."
+    },
+    {
+      "id": "panhandle-summer-showdown",
+      "name": "Panhandle Summer Showdown",
+      "region": "Coeur d'Alene",
+      "sourcePlatform": "sportsconnect",
+      "website": "https://panhandleshowdown.com",
+      "cadence": "Annual (August)",
+      "hostVenues": "CdA Sports Park",
+      "notes": "Growing event."
+    }
+  ]
+}
