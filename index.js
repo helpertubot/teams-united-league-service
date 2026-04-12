@@ -580,7 +580,17 @@ function slugify(text) {
 
 /**
  * getTournaments — Public API to browse tournaments with filters
- * GET ?sport=soccer&state=WA&upcoming=true
+ *
+ * Default response: only rows with lifecycle in (upcoming, in_progress).
+ *   - Rows missing `lifecycle` are treated as 'upcoming' for backward compat.
+ *   - Completed, stale, moved, missing-from-research are excluded.
+ *
+ * Query params:
+ *   sport, state, year — filters
+ *   upcoming=false     — also include events whose endDate has passed
+ *   includeArchived=true — also include lifecycle='completed' (past editions view)
+ *   includeFlagged=true  — also include stale/moved/missing-from-research
+ *                          (debug/ops only — Tournament Discovery Agent dashboard)
  */
 functions.http('getTournaments', async (req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
@@ -590,9 +600,21 @@ functions.http('getTournaments', async (req, res) => {
   if (req.method === 'OPTIONS') return res.status(204).send('');
 
   try {
-    const { sport, state, upcoming, year } = req.query;
+    const { sport, state, upcoming, year, includeArchived, includeFlagged } = req.query;
     const snap = await db.collection('tournaments').get();
     let tournaments = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+    // Lifecycle filter — the public card view.
+    // undefined lifecycle is treated as 'upcoming' (backward compat with
+    // pre-schema rows that have not yet been migrated).
+    const allowed = new Set(['upcoming', 'in_progress']);
+    if (includeArchived === 'true') allowed.add('completed');
+    if (includeFlagged === 'true') {
+      allowed.add('stale');
+      allowed.add('moved');
+      allowed.add('missing-from-research');
+    }
+    tournaments = tournaments.filter(t => allowed.has(t.lifecycle || 'upcoming'));
 
     // Filter by sport
     if (sport && sport !== 'all') {
