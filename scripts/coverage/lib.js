@@ -99,6 +99,52 @@ function rowToObject(headers, row) {
   return obj;
 }
 
+/**
+ * Canonical header names our renderer/config code expects. Research files in
+ * the wild use shorthand (~Teams, Ages, Scope, Sanction). Normalize incoming
+ * headers to canonical names so downstream rowToObject + render code stays
+ * schema-strict without silently dropping fields.
+ */
+const HEADER_ALIASES = {
+  '#': '#',
+  'league': 'League Name',
+  'league name': 'League Name',
+  'series': 'Series Name',
+  'series name': 'Series Name',
+  'type': 'Type',
+  'level': 'Level',
+  'website': 'Website',
+  'registration url': 'Registration URL',
+  'platform': 'Platform',
+  'age range': 'Age Range',
+  'ages': 'Age Range',
+  'geographic scope': 'Geographic Scope',
+  'scope': 'Geographic Scope',
+  'est. # teams': 'Est. # Teams',
+  'est # teams': 'Est. # Teams',
+  '~teams': 'Est. # Teams',
+  'teams': 'Est. # Teams',
+  'season(s)': 'Season(s)',
+  'seasons': 'Season(s)',
+  'season': 'Season(s)',
+  'sanctioning body': 'Sanctioning Body',
+  'sanction': 'Sanctioning Body',
+  'contact': 'Contact',
+  'confidence': 'Confidence',
+  'notes': 'Notes',
+  'cadence': 'Cadence',
+  'host venues': 'Host Venues',
+  'host': 'Host Venues',
+  'sport': 'Sport'
+};
+
+function normalizeHeaders(headers) {
+  return headers.map((h) => {
+    const key = String(h).toLowerCase().trim();
+    return HEADER_ALIASES[key] || h;
+  });
+}
+
 function slug(s) {
   return String(s || '')
     .toLowerCase()
@@ -226,6 +272,8 @@ module.exports = {
   parseFrontmatter,
   parseMarkdownTables,
   rowToObject,
+  normalizeHeaders,
+  HEADER_ALIASES,
   slug,
   domainOf,
   normalizePlatform,

@@ -1,0 +1,27 @@
+{
+  "_description": "ID soccer tournament series",
+  "_lastUpdated": "2026-04-12",
+  "tournaments": [
+    {
+      "id": "far-west-presidents-cup-soccer",
+      "name": "Far West Presidents Cup (Soccer)",
+      "sourcePlatform": "gotsport",
+      "cadence": "Annual",
+      "hostVenues": "Simplot Sports Complex"
+    },
+    {
+      "id": "iysa-state-cup-and-gem-state",
+      "name": "IYSA State Cup & GEM State",
+      "sourcePlatform": "gotsport",
+      "cadence": "Annual",
+      "hostVenues": "Treasure Valley"
+    },
+    {
+      "id": "yellowstone-cup-soccer",
+      "name": "Yellowstone Cup (Soccer)",
+      "sourcePlatform": "gotsport",
+      "cadence": "Annual",
+      "hostVenues": "Rexburg"
+    }
+  ]
+}

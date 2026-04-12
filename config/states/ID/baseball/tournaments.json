@@ -1,0 +1,27 @@
+{
+  "_description": "ID baseball tournament series",
+  "_lastUpdated": "2026-04-12",
+  "tournaments": [
+    {
+      "id": "ncs-idaho-baseball-series",
+      "name": "NCS Idaho Baseball Series",
+      "sourcePlatform": "custom",
+      "cadence": "Monthly",
+      "hostVenues": "Treasure Valley"
+    },
+    {
+      "id": "mybs-state-and-regional-series",
+      "name": "MYBS State & Regional Series",
+      "sourcePlatform": "sportngin",
+      "cadence": "Seasonal",
+      "hostVenues": "Settlers Park (Meridian)"
+    },
+    {
+      "id": "rmsb-idaho-falls-tournament",
+      "name": "RMSB Idaho Falls Tournament",
+      "sourcePlatform": "custom",
+      "cadence": "Annual",
+      "hostVenues": "Idaho Falls/Rexburg"
+    }
+  ]
+}

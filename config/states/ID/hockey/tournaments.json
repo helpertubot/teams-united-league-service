@@ -1,0 +1,27 @@
+{
+  "_description": "ID hockey tournament series",
+  "_lastUpdated": "2026-04-12",
+  "tournaments": [
+    {
+      "id": "clearwater-classic-hockey",
+      "name": "Clearwater Classic (Hockey)",
+      "sourcePlatform": "teamsnap",
+      "cadence": "Monthly",
+      "hostVenues": "LC Ice Arena (Lewiston)"
+    },
+    {
+      "id": "mccall-home-tournaments",
+      "name": "McCall Home Tournaments",
+      "sourcePlatform": "sportngin",
+      "cadence": "Monthly",
+      "hostVenues": "Manchester Ice Arena"
+    },
+    {
+      "id": "cda-hockey-boise-invitational",
+      "name": "CDA Hockey Boise Invitational",
+      "sourcePlatform": "sportngin",
+      "cadence": "Annual",
+      "hostVenues": "Idaho Ice World (Boise)"
+    }
+  ]
+}

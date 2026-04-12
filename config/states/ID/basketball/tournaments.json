@@ -1,0 +1,27 @@
+{
+  "_description": "ID basketball tournament series",
+  "_lastUpdated": "2026-04-12",
+  "tournaments": [
+    {
+      "id": "idaho-prep-basketball-tournaments",
+      "name": "Idaho Prep Basketball Tournaments",
+      "sourcePlatform": "exposure",
+      "cadence": "Monthly",
+      "hostVenues": "Pocatello"
+    },
+    {
+      "id": "idaho-prospects-basketball-events",
+      "name": "Idaho Prospects Basketball Events",
+      "sourcePlatform": "exposure",
+      "cadence": "Monthly",
+      "hostVenues": "Pocatello/Ammon"
+    },
+    {
+      "id": "fat-mamba-tournaments",
+      "name": "Fat Mamba Tournaments",
+      "sourcePlatform": "exposure",
+      "cadence": "Seasonal",
+      "hostVenues": "Twin Falls/Boise"
+    }
+  ]
+}
