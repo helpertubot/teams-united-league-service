@@ -266,6 +266,16 @@ Run `regen-coverage.js` with an appropriate `--source` label:
 
 The script is safe to run with `--all` to refresh every existing coverage doc from current git config in one pass.
 
+### Tournament lifecycle + sweeper
+
+Every tournament row carries `seriesId`, `year` (null unless a specific edition), `lifecycle`, `lastChecked`, `lastHttpStatus`, `consecutiveFailures`. States: `upcoming`, `in_progress`, `completed`, `stale`, `moved`, `missing-from-research`.
+
+- **Research is the source of truth** for creating tournament cards. The sweeper never creates new rows — new editions (e.g. 2027 instance of an annual series) only appear when fresh research data confirms them. No auto-rollover.
+- **`scripts/coverage/sweep-tournaments.js`** runs weekly (see `scripts/coverage/README-sweep.md`). Checks URL liveness, updates `lastChecked` + `lastHttpStatus`, flags `stale` (2+ consecutive fails) or `moved` (redirect to unrelated host). Never deletes. Never demotes sticky states.
+- **`scripts/coverage/reconcile-tournaments.js`** re-derives lifecycle from `startDate`/`endDate` for a state (±sport). Safe to run any time.
+- **Tournament Discovery Agent** owns the sweep review loop: inspect the weekly report at `scripts/coverage/_reports/sweep-YYYY-MM-DD.json`, resolve `moved` rows by updating `website`, resolve `stale` rows by either (a) confirming dead → `lifecycle: 'completed'` or (b) waiting for next-week recovery. Agent does NOT scrape for new tournaments — that remains Research's job.
+- **Re-ingest with `--reconcile`** when a new research pass should mark absent rows: `node scripts/coverage/ingest-research.js path/to/research.md --reconcile`. Flags `missing-from-research` on rows no longer in the file. Never deletes.
+
 ## Deploy VM Access
 
 The deploy VM at `35.209.45.82:8080` is your primary tool for running scripts, deploying Cloud Functions, and managing the service.

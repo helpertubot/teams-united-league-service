@@ -13,7 +13,10 @@
       "notes": "Largest ID fastpitch tournament.",
       "seriesId": "gem-state-classic",
       "year": null,
-      "lifecycle": "upcoming"
+      "lifecycle": "upcoming",
+      "lastChecked": "2026-04-12",
+      "lastHttpStatus": 200,
+      "consecutiveFailures": 0
     },
     {
       "id": "panhandle-summer-showdown",
@@ -26,7 +29,11 @@
       "notes": "Growing event.",
       "seriesId": "panhandle-summer-showdown",
       "year": null,
-      "lifecycle": "upcoming"
+      "lifecycle": "moved",
+      "lastChecked": "2026-04-12",
+      "lastHttpStatus": 200,
+      "consecutiveFailures": 0,
+      "movedTo": "eliteathleticspromotions.com"
     }
   ]
 }
