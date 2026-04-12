@@ -116,6 +116,18 @@ scripts/              — Operational scripts (deploy, discovery, maintenance)
 
 WA and CA have the most coverage. OR, ID, and MT are in active discovery.
 
+## Tournament Sync (git → Firestore)
+
+Tournament series live in git as `config/states/<STATE>/<SPORT>/tournaments.json`. Push them to Firestore (used by `getTournaments` on the live site) with:
+
+```
+npm run sync:tournaments -- --state ID           # sync one state, all sports
+npm run sync:tournaments -- --state ID --sport soccer
+npm run sync:tournaments -- --dry-run            # preview, no writes
+```
+
+The script (`scripts/coverage/push-to-firestore.js`) walks the config tree, derives a stable doc ID as `{state}-{sport}-{slug(name)}`, and POSTs to the `importTournament` Cloud Function, which upserts via `set({ merge: true })`. Re-running is safe — new rows are created, existing rows are updated.
+
 ## Deployment
 
 - **GCP Project:** `teams-united` (us-central1)
