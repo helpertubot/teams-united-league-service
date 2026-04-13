@@ -175,3 +175,46 @@ test('ingest-research exits 1 when no parseable tables', () => {
   assert.match(r.stderr, /no parseable.*tables/i);
   fs.unlinkSync(tmp);
 });
+
+test('ingest is idempotent — re-run produces zero diff', () => {
+  withTempRepo((repo) => {
+    const r1 = runIngest([path.join(FIXTURES, 'CA-leagues-sample.md')], { configRoot: repo });
+    assert.equal(r1.status, 0, r1.stderr);
+    const first = readFileSync(path.join(repo, 'config', 'states', 'CA', 'soccer', 'leagues.json'), 'utf8');
+
+    const r2 = runIngest([path.join(FIXTURES, 'CA-leagues-sample.md')], { configRoot: repo });
+    assert.equal(r2.status, 0, r2.stderr);
+    const second = readFileSync(path.join(repo, 'config', 'states', 'CA', 'soccer', 'leagues.json'), 'utf8');
+
+    assert.equal(first, second, 're-run should produce byte-identical file');
+    assert.match(r2.stdout, /\+0 new, 0 merged/);
+  });
+});
+
+test('ingest merges by website domain when id differs', () => {
+  withTempRepo((repo) => {
+    const leaguesPath = path.join(repo, 'config', 'states', 'CA', 'soccer', 'leagues.json');
+    mkdirSync(path.dirname(leaguesPath), { recursive: true });
+    writeFileSync(
+      leaguesPath,
+      JSON.stringify({
+        _description: 'CA soccer leagues',
+        _lastUpdated: '2025-01-01',
+        leagues: [
+          {
+            id: 'caliyouthsoccer-legacy-entry',
+            name: 'Legacy entry',
+            website: 'https://www.caliyouthsoccer.com',
+            notes: 'ORIGINAL'
+          }
+        ]
+      }, null, 2)
+    );
+    const r = runIngest([path.join(FIXTURES, 'CA-leagues-sample.md')], { configRoot: repo });
+    assert.equal(r.status, 0, r.stderr);
+    const out = JSON.parse(readFileSync(leaguesPath, 'utf8'));
+    const legacy = out.leagues.find((l) => l.id === 'caliyouthsoccer-legacy-entry');
+    assert.equal(legacy.notes, 'ORIGINAL');
+    assert.ok(out.leagues.length >= 2);
+  });
+});
