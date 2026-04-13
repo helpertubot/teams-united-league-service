@@ -282,6 +282,15 @@ function normalizeGender(value) {
   return v;
 }
 
+function validateDate(s) {
+  return typeof s === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(s);
+}
+
+function parseYear(s) {
+  if (!validateDate(s)) return null;
+  return Number(s.slice(0, 4));
+}
+
 function slugWithoutYear(value) {
   const v = String(value || '');
   const stripped = v.replace(/\b20\d{2}\b/g, ' ').replace(/\s+/g, ' ').trim();
@@ -331,5 +340,7 @@ module.exports = {
   normalizeCell,
   normalizeGender,
   stripUrlWrapper,
-  slugWithoutYear
+  slugWithoutYear,
+  validateDate,
+  parseYear
 };

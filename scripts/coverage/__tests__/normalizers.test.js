@@ -92,3 +92,27 @@ test('slugWithoutYear leaves numbers that are not years', () => {
 test('slugWithoutYear collapses resulting whitespace', () => {
   assert.equal(L.slugWithoutYear('  2026   Extra   Spaces  2026  '), 'extra-spaces');
 });
+
+test('parseYear extracts 4-digit year from ISO date', () => {
+  assert.equal(L.parseYear('2026-03-14'), 2026);
+  assert.equal(L.parseYear('2025-12-31'), 2025);
+});
+
+test('parseYear returns null for malformed input', () => {
+  assert.equal(L.parseYear('garbage'), null);
+  assert.equal(L.parseYear(''), null);
+  assert.equal(L.parseYear(undefined), null);
+  assert.equal(L.parseYear('14/03/2026'), null);
+});
+
+test('validateDate accepts valid ISO date', () => {
+  assert.equal(L.validateDate('2026-03-14'), true);
+});
+
+test('validateDate rejects invalid inputs', () => {
+  assert.equal(L.validateDate('2026-3-14'), false);
+  assert.equal(L.validateDate('14/03/2026'), false);
+  assert.equal(L.validateDate(''), false);
+  assert.equal(L.validateDate(undefined), false);
+  assert.equal(L.validateDate('2026-03'), false);
+});
