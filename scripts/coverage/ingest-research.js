@@ -119,6 +119,20 @@ const PROTECTED_TOURNAMENT_FIELDS = new Set([
   'consecutiveFailures', 'movedTo', 'missingSince'
 ]);
 
+/**
+ * Merge incoming research rows into an existing list of config entries.
+ *
+ * Contract:
+ *   - `id` is the primary match key; globally unique within a file.
+ *   - `website` domain is a fallback match, only against disk-resident rows.
+ *     Newly-appended incoming rows are NOT indexed by domain, so sibling rows
+ *     that share a domain but have distinct ids (e.g. Boys/Girls variants of
+ *     the same league) are preserved rather than collapsed.
+ *   - Existing fields always win: incoming values only fill empty slots.
+ *   - For `kind === 'tournaments'`, PROTECTED_TOURNAMENT_FIELDS are never
+ *     overwritten even when the existing value is empty (sweeper owns them).
+ *   - Incoming rows without a valid `id` are skipped with a warning.
+ */
 function mergeList(existing, incoming, kind) {
   const out = existing.map((e) => ({ ...e }));
   const byId = new Map(out.map((e, i) => [e.id, i]));
@@ -130,6 +144,10 @@ function mergeList(existing, incoming, kind) {
   let added = 0;
   let merged = 0;
   for (const inc of incoming) {
+    if (!inc.id) {
+      console.warn(`warn: skipping incoming row with missing id: ${JSON.stringify(inc.name || '(unnamed)')}`);
+      continue;
+    }
     let idx = byId.has(inc.id) ? byId.get(inc.id) : -1;
     if (idx === -1) {
       const d = L.domainOf(inc.website);
