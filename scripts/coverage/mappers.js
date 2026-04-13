@@ -52,7 +52,7 @@ function researchTournamentToConfigV2(row) {
     venue: L.normalizeCell(row.venue),
     city: L.normalizeCell(row.city),
     entryFee: L.normalizeCell(row.entryFee),
-    teamCount: L.normalizeCell(row.teamCount),
+    teamsExpected: L.normalizeCell(row.teamCount),
     sourcePlatform: L.normalizePlatform(L.normalizeCell(row.platform) || ''),
     registrationUrl: L.stripUrlWrapper(row.registrationUrl),
     ageGroups: L.normalizeCell(row.ageGroups),

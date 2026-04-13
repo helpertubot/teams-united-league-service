@@ -64,7 +64,7 @@ Modify `package.json` `"scripts"` block by adding the `test:coverage` entry (lea
 "scripts": {
   "start": "functions-framework --target=collectLeague --port=8080",
   "test": "node test-adapters.js",
-  "test:coverage": "node --test scripts/coverage/__tests__/"
+  "test:coverage": "node --test scripts/coverage/__tests__/*.test.js"
 }
 ```
 
