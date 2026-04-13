@@ -46,3 +46,26 @@ test('ingest-research --state flag overrides filename', () => {
   assert.equal(r.status, 0, r.stderr);
   assert.match(r.stdout, /\[WA\/soccer\]/);
 });
+
+test('ingest-research leagues --dry-run reports per-sport row counts', () => {
+  const r = runIngest([path.join(FIXTURES, 'CA-leagues-sample.md'), '--dry-run']);
+  assert.equal(r.status, 0, r.stderr);
+  assert.match(r.stdout, /\[CA\/soccer\] leagues: \+3 new/);
+  assert.match(r.stdout, /\[CA\/volleyball\] leagues: \+2 new/);
+});
+
+test('ingest-research tournaments --dry-run reports per-sport row counts', () => {
+  const r = runIngest([path.join(FIXTURES, 'CA-tournaments-sample.md'), '--dry-run']);
+  assert.equal(r.status, 0, r.stderr);
+  assert.match(r.stdout, /\[CA\/soccer\] tournaments: \+3 new/);
+  assert.match(r.stdout, /\[CA\/volleyball\] tournaments: \+2 new/);
+});
+
+test('ingest-research exits 1 when no parseable tables', () => {
+  const tmp = path.join(os.tmpdir(), `ingest-empty-${Date.now()}.md`);
+  fs.writeFileSync(tmp, '# CA Leagues\n\nNo tables here.\n');
+  const r = runIngest([tmp, '--state', 'CA', '--kind', 'leagues', '--dry-run']);
+  assert.equal(r.status, 1);
+  assert.match(r.stderr, /no parseable.*tables/i);
+  fs.unlinkSync(tmp);
+});

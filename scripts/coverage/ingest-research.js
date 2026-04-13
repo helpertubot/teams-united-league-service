@@ -66,6 +66,56 @@ if (!['leagues', 'tournaments'].includes(kind)) {
 
 const raw = fs.readFileSync(inputPath, 'utf8');
 
-// Placeholder output so arg-parsing tests pass. Tasks 14+ replace this.
-console.log(`[${state}/soccer] ${kind}: +0 new, 0 merged → 0 total`);
+const tables = L.parseMarkdownTables(raw);
+for (const t of tables) {
+  t.headers = L.normalizeHeadersV2(t.headers);
+}
+
+// Required headers per kind.
+const REQUIRED_LEAGUES = ['name'];
+const REQUIRED_TOURNAMENTS = ['name', 'startDate'];
+const required = kind === 'leagues' ? REQUIRED_LEAGUES : REQUIRED_TOURNAMENTS;
+
+// Group by sport using either the preceding heading or a per-row sport cell.
+const bySport = {};
+for (const t of tables) {
+  const hasRequired = required.every((h) => t.headers.includes(h));
+  if (!hasRequired) {
+    console.warn(
+      `warn: table under heading "${t.heading}" missing required header(s) — skipping`
+    );
+    continue;
+  }
+  const headingSport = L.detectSport(t.heading);
+  for (const row of t.rows) {
+    const obj = L.rowToObject(t.headers, row);
+    const rowSport =
+      (obj.sport && L.detectSport(obj.sport)) ||
+      (obj.sport && String(obj.sport).toLowerCase().trim()) ||
+      headingSport;
+    if (!rowSport || !L.SPORTS.includes(rowSport)) {
+      console.warn(
+        `warn: row "${obj.name || '(no name)'}" under heading "${t.heading}" — unknown sport "${obj.sport || ''}"; skipping`
+      );
+      continue;
+    }
+    bySport[rowSport] = bySport[rowSport] || [];
+    const entry =
+      kind === 'leagues'
+        ? M.researchLeagueToConfigV2(obj)
+        : M.researchTournamentToConfigV2(obj);
+    if (!entry) continue;
+    bySport[rowSport].push(entry);
+  }
+}
+
+if (Object.keys(bySport).length === 0) {
+  console.error('error: no parseable tables found');
+  process.exit(1);
+}
+
+// Tasks 15+ will add merge + write. For now emit per-sport counts.
+for (const [sport, entries] of Object.entries(bySport)) {
+  console.log(`[${state}/${sport}] ${kind}: +${entries.length} new, 0 merged → ${entries.length} total`);
+}
 process.exit(0);
