@@ -218,3 +218,32 @@ test('ingest merges by website domain when id differs', () => {
     assert.ok(out.leagues.length >= 2);
   });
 });
+
+test('ingest tournaments writes derived id/seriesId/year/lifecycle on create', () => {
+  withTempRepo((repo) => {
+    const r = runIngest([path.join(FIXTURES, 'CA-tournaments-sample.md')], { configRoot: repo });
+    assert.equal(r.status, 0, r.stderr);
+    const out = JSON.parse(readFileSync(path.join(repo, 'config', 'states', 'CA', 'soccer', 'tournaments.json'), 'utf8'));
+    const clover = out.tournaments.find((t) => t.id === '2026-dublin-united-clover-cup-tournament');
+    assert.equal(clover.seriesId, 'dublin-united-clover-cup-tournament');
+    assert.equal(clover.year, 2026);
+    assert.equal(clover.lifecycle, 'upcoming');
+
+    const calCup = out.tournaments.find((t) => t.id === 'california-cup');
+    assert.equal(calCup.seriesId, 'california-cup');
+    assert.equal(calCup.year, 2026);
+  });
+});
+
+test('ingest drops malformed startDate field but keeps row', () => {
+  withTempRepo((repo) => {
+    const r = runIngest([path.join(FIXTURES, 'CA-tournaments-sample.md')], { configRoot: repo });
+    assert.equal(r.status, 0, r.stderr);
+    const out = JSON.parse(readFileSync(path.join(repo, 'config', 'states', 'CA', 'volleyball', 'tournaments.json'), 'utf8'));
+    const bad = out.tournaments.find((t) => t.name === 'SoCal Cup: 14/13 Tourney 3');
+    assert.ok(bad, 'row with bad startDate should still be ingested');
+    assert.equal(bad.startDate, undefined);
+    assert.equal(bad.endDate, '2026-04-11');
+    assert.equal(bad.year, null);
+  });
+});
