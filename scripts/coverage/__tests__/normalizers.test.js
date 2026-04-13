@@ -37,3 +37,33 @@ test('normalizeGender returns undefined for empty/absent', () => {
   assert.equal(L.normalizeGender(''), undefined);
   assert.equal(L.normalizeGender(undefined), undefined);
 });
+
+test('stripUrlWrapper removes google.com/search?q= raw wrapper', () => {
+  assert.equal(
+    L.stripUrlWrapper('https://www.google.com/search?q=https%3A%2F%2Fexample.com'),
+    'https://example.com'
+  );
+});
+
+test('stripUrlWrapper removes markdown-link wrapper', () => {
+  assert.equal(
+    L.stripUrlWrapper('[https://example.com](https://www.google.com/search?q=https%3A%2F%2Fexample.com)'),
+    'https://example.com'
+  );
+});
+
+test('stripUrlWrapper passes unwrapped URLs through', () => {
+  assert.equal(L.stripUrlWrapper('https://example.com'), 'https://example.com');
+});
+
+test('stripUrlWrapper returns undefined for empty/absent', () => {
+  assert.equal(L.stripUrlWrapper(''), undefined);
+  assert.equal(L.stripUrlWrapper(undefined), undefined);
+});
+
+test('stripUrlWrapper handles google.com/search?q= without protocol on inner', () => {
+  assert.equal(
+    L.stripUrlWrapper('https://www.google.com/search?q=example.com%2Fpath'),
+    'example.com/path'
+  );
+});

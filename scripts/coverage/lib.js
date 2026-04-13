@@ -282,6 +282,22 @@ function normalizeGender(value) {
   return v;
 }
 
+function stripUrlWrapper(value) {
+  const v = normalizeCell(value);
+  if (!v) return undefined;
+  const md = v.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+  if (md) return md[1];
+  const wrapped = v.match(/^https?:\/\/(?:www\.)?google\.com\/search\?(?:.*&)?q=([^&]+)/);
+  if (wrapped) {
+    try {
+      return decodeURIComponent(wrapped[1]);
+    } catch (_) {
+      return wrapped[1];
+    }
+  }
+  return v;
+}
+
 module.exports = {
   REPO_ROOT,
   LEAGUE_COLUMNS,
@@ -307,5 +323,6 @@ module.exports = {
   templatePath,
   detectSport,
   normalizeCell,
-  normalizeGender
+  normalizeGender,
+  stripUrlWrapper
 };
