@@ -67,3 +67,28 @@ test('stripUrlWrapper handles google.com/search?q= without protocol on inner', (
     'example.com/path'
   );
 });
+
+test('slugWithoutYear strips leading 4-digit year', () => {
+  assert.equal(L.slugWithoutYear('2026 Dublin United Clover Cup'), 'dublin-united-clover-cup');
+});
+
+test('slugWithoutYear strips trailing 4-digit year', () => {
+  assert.equal(L.slugWithoutYear('Spring Rose Classic 2026'), 'spring-rose-classic');
+});
+
+test('slugWithoutYear strips internal 4-digit year', () => {
+  assert.equal(L.slugWithoutYear('2026 Pacific Coast Cup'), 'pacific-coast-cup');
+});
+
+test('slugWithoutYear leaves 2-digit numbers intact', () => {
+  assert.equal(L.slugWithoutYear('26 IR Elk Grove Cup'), '26-ir-elk-grove-cup');
+  assert.equal(L.slugWithoutYear('24 Hour Showdown'), '24-hour-showdown');
+});
+
+test('slugWithoutYear leaves numbers that are not years', () => {
+  assert.equal(L.slugWithoutYear('Surf Cup Olders U15'), 'surf-cup-olders-u15');
+});
+
+test('slugWithoutYear collapses resulting whitespace', () => {
+  assert.equal(L.slugWithoutYear('  2026   Extra   Spaces  2026  '), 'extra-spaces');
+});

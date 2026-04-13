@@ -282,6 +282,12 @@ function normalizeGender(value) {
   return v;
 }
 
+function slugWithoutYear(value) {
+  const v = String(value || '');
+  const stripped = v.replace(/\b20\d{2}\b/g, ' ').replace(/\s+/g, ' ').trim();
+  return slug(stripped);
+}
+
 function stripUrlWrapper(value) {
   const v = normalizeCell(value);
   if (!v) return undefined;
@@ -324,5 +330,6 @@ module.exports = {
   detectSport,
   normalizeCell,
   normalizeGender,
-  stripUrlWrapper
+  stripUrlWrapper,
+  slugWithoutYear
 };
