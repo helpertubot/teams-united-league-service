@@ -22,7 +22,7 @@ const TOURNAMENT_COLUMNS = [
   'Host Venues', 'Sanctioning Body', 'Contact', 'Confidence', 'Notes'
 ];
 
-const SPORTS = ['soccer', 'baseball', 'softball', 'basketball', 'lacrosse', 'hockey', 'football'];
+const SPORTS = ['soccer', 'baseball', 'softball', 'basketball', 'lacrosse', 'hockey', 'football', 'volleyball'];
 
 /**
  * Minimal YAML frontmatter parser. Supports flat key: value pairs,

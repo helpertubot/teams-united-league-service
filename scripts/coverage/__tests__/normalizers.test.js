@@ -130,3 +130,12 @@ test('normalizePlatform preserves existing mappings', () => {
   assert.equal(L.normalizePlatform('GotSport'), 'gotsport');
   assert.equal(L.normalizePlatform('SportsEngine'), 'sportngin');
 });
+
+test('SPORTS includes volleyball', () => {
+  assert.ok(L.SPORTS.includes('volleyball'), 'volleyball should be a recognized sport');
+});
+
+test('detectSport recognizes Volleyball heading', () => {
+  assert.equal(L.detectSport('Volleyball'), 'volleyball');
+  assert.equal(L.detectSport('## Volleyball'), 'volleyball');
+});
