@@ -1,0 +1,174 @@
+{
+  "_description": "WA soccer leagues — extracted from scripts/setup/wa-soccer-expansion.js",
+  "_lastUpdated": "2026-03-12",
+  "leagues": [
+    {
+      "id": "rcl-wa",
+      "name": "Regional Club League (RCL) Washington",
+      "region": "Statewide",
+      "sourcePlatform": "sportsaffinity",
+      "tier": 1,
+      "notes": "Top 18 WA clubs, U8-U19. OrgId shared with WYS."
+    },
+    {
+      "id": "ssul-wa",
+      "name": "South Sound United League (SSUL)",
+      "region": "South Sound",
+      "sourcePlatform": "sportsaffinity",
+      "tier": 1,
+      "notes": "7 associations: Auburn, Federal Way, Kent Covington, Highline, Maple Valley, Renton Tukwila, Pierce County."
+    },
+    {
+      "id": "ewsl-wa",
+      "name": "Eastern WA Select League (EWSL)",
+      "region": "Eastern WA",
+      "sourcePlatform": "gotsport",
+      "tier": 1,
+      "notes": "Fall 2025 event 45512. 26 divisions."
+    },
+    {
+      "id": "wpl-girls-hs-spring",
+      "name": "WPL Girls HS NPL, Classic & Copa",
+      "region": "Statewide",
+      "sourcePlatform": "gotsport",
+      "tier": 1,
+      "notes": "Girls HS winter/spring 2026. Event 48496. 13 divisions."
+    },
+    {
+      "id": "wpl-spring-1114u",
+      "name": "WPL Spring 11U-14U NPL, Classic & Copa",
+      "region": "Western WA",
+      "sourcePlatform": "gotsport",
+      "tier": 1,
+      "notes": "Spring 2026. Event 50025. 57 groups."
+    },
+    {
+      "id": "wpl-wwa-dev-spring",
+      "name": "WPL Western WA Development League",
+      "region": "Western WA",
+      "sourcePlatform": "gotsport",
+      "tier": 1,
+      "notes": "U8-U10. Event 50027. 27 groups."
+    },
+    {
+      "id": "npsl-wa",
+      "name": "North Puget Sound League (NPSL)",
+      "region": "North Puget Sound",
+      "sourcePlatform": "demosphere",
+      "tier": 1,
+      "notes": "11 WYS associations. U9-U19."
+    },
+    {
+      "id": "sc-lwysa-wa",
+      "name": "Lake Washington Youth Soccer (LWYSA)",
+      "region": "Eastside / Lake Washington",
+      "sourcePlatform": "sportsconnect",
+      "tier": 2,
+      "notes": "SportsConnect. Programs include Fall Rec, Spring Rec, Crossfire Premier/Select, RCL."
+    },
+    {
+      "id": "demosphere-sysa-wa",
+      "name": "Seattle Youth Soccer Association (SYSA)",
+      "region": "Seattle",
+      "sourcePlatform": "demosphere",
+      "tier": 2,
+      "notes": "SYSA policy: standings kept internally, NOT published publicly."
+    },
+    {
+      "id": "sc-swysa-wa",
+      "name": "Southwest Washington Youth Soccer (SWYSA)",
+      "region": "SW WA / Clark County",
+      "sourcePlatform": "sportsconnect",
+      "tier": 2,
+      "notes": "Vancouver/Clark County, 4 clubs."
+    },
+    {
+      "id": "eysa-wa",
+      "name": "Eastside Youth Soccer Association (EYSA)",
+      "region": "Eastside / Bellevue",
+      "sourcePlatform": "sportsaffinity",
+      "tier": 2,
+      "notes": "Bellevue area, 6 clubs."
+    },
+    {
+      "id": "sc-northshore-wa",
+      "name": "Northshore Youth Soccer Association",
+      "region": "Bothell / Woodinville",
+      "sourcePlatform": "sportsconnect",
+      "tier": 2,
+      "notes": "Bothell/Woodinville, 4 clubs."
+    },
+    {
+      "id": "pcsa-wa",
+      "name": "Pierce County Soccer Association (PCSA)",
+      "region": "Tacoma / Pierce County",
+      "sourcePlatform": "sportsaffinity",
+      "tier": 2,
+      "notes": "Tacoma area, 11 clubs."
+    },
+    {
+      "id": "thurston-wa",
+      "name": "Thurston County Youth Soccer Association",
+      "region": "Olympia / Thurston County",
+      "sourcePlatform": "demosphere",
+      "tier": 2,
+      "notes": "Uses TeamSideline — no adapter exists."
+    },
+    {
+      "id": "demosphere-whatcom-wa",
+      "name": "Whatcom County Youth Soccer (Rec)",
+      "region": "Bellingham / Whatcom",
+      "sourcePlatform": "demosphere",
+      "tier": 2,
+      "notes": "Bellingham, 11 clubs. Select teams play in NPSL."
+    },
+    {
+      "id": "sc-spokane-sysa",
+      "name": "Spokane Youth Soccer Association",
+      "region": "Spokane",
+      "sourcePlatform": "sportsconnect",
+      "tier": 3,
+      "notes": "Spokane rec soccer."
+    },
+    {
+      "id": "sc-tcysa-wa",
+      "name": "Tri-Cities Youth Soccer Association (T-CYSA)",
+      "region": "Tri-Cities",
+      "sourcePlatform": "sportsconnect",
+      "tier": 3,
+      "notes": "Pasco/Tri-Cities. Rec program is non-competitive."
+    },
+    {
+      "id": "sc-skagit-wa",
+      "name": "Skagit Valley Youth Soccer Association",
+      "region": "Burlington / Mount Vernon",
+      "sourcePlatform": "sportsconnect",
+      "tier": 3,
+      "notes": "Burlington/Mt Vernon, 9 clubs."
+    },
+    {
+      "id": "league-wa",
+      "name": "League Washington (WYS)",
+      "region": "Statewide",
+      "sourcePlatform": "sportsconnect",
+      "tier": 3,
+      "notes": "WYS collaborative rec league for U17-U19."
+    },
+    {
+      "id": "snoqualmie-wa",
+      "name": "Snoqualmie Valley Youth Soccer Association",
+      "region": "Snoqualmie Valley",
+      "sourcePlatform": "leagueapps",
+      "tier": 3,
+      "notes": "Uses SportsEngine — no adapter exists."
+    },
+    {
+      "id": "lewis-county-wa",
+      "name": "Lewis County Youth Soccer Association",
+      "region": "Centralia / Chehalis",
+      "sourcePlatform": "demosphere",
+      "tier": 3,
+      "notes": "Uses TeamSideline — no adapter exists."
+    }
+  ]
+}
