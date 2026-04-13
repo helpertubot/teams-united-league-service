@@ -365,7 +365,12 @@ function stripUrlWrapper(value) {
   const v = normalizeCell(value);
   if (!v) return undefined;
   const md = v.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-  if (md) return md[1];
+  if (md) {
+    // Prefer label if label is URL-shaped; otherwise fall back to the inner href
+    // (stripped of any google.com/search wrapper).
+    if (/^https?:\/\//.test(md[1])) return md[1];
+    return stripUrlWrapper(md[2]);
+  }
   const wrapped = v.match(/^https?:\/\/(?:www\.)?google\.com\/search\?(?:.*&)?q=([^&]+)/);
   if (wrapped) {
     try {
