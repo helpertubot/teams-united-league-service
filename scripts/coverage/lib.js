@@ -282,6 +282,68 @@ function normalizeGender(value) {
   return v;
 }
 
+const LEAGUE_COLUMNS_V2 = [
+  'name', 'sport', 'level', 'ageGroups', 'gender', 'season',
+  'geography', 'governingBody', 'sanctioning', 'website',
+  'sourceUrl', 'notes'
+];
+
+const TOURNAMENT_COLUMNS_V2 = [
+  'name', 'sport', 'startDate', 'endDate', 'venue', 'city', 'state',
+  'entryFee', 'teamCount', 'platform', 'registrationUrl', 'ageGroups',
+  'gender', 'format', 'organizer', 'sanctioning', 'confidence',
+  'sourceUrl', 'notes'
+];
+
+const HEADER_ALIASES_V2 = {
+  'name': 'name',
+  'sport': 'sport',
+  'level': 'level',
+  'agegroups': 'ageGroups',
+  'age groups': 'ageGroups',
+  'ages': 'ageGroups',
+  'age range': 'ageGroups',
+  'gender': 'gender',
+  'season': 'season',
+  'seasons': 'season',
+  'season(s)': 'season',
+  'geography': 'geography',
+  'geographic scope': 'geography',
+  'scope': 'geography',
+  'governingbody': 'governingBody',
+  'governing body': 'governingBody',
+  'sanctioning': 'sanctioning',
+  'sanctioning body': 'sanctioning',
+  'website': 'website',
+  'sourceurl': 'sourceUrl',
+  'source url': 'sourceUrl',
+  'notes': 'notes',
+  'startdate': 'startDate',
+  'start date': 'startDate',
+  'enddate': 'endDate',
+  'end date': 'endDate',
+  'venue': 'venue',
+  'city': 'city',
+  'state': 'state',
+  'entryfee': 'entryFee',
+  'entry fee': 'entryFee',
+  'teamcount': 'teamCount',
+  'team count': 'teamCount',
+  'platform': 'platform',
+  'registrationurl': 'registrationUrl',
+  'registration url': 'registrationUrl',
+  'format': 'format',
+  'organizer': 'organizer',
+  'confidence': 'confidence'
+};
+
+function normalizeHeadersV2(headers) {
+  return headers.map((h) => {
+    const key = String(h).toLowerCase().trim();
+    return HEADER_ALIASES_V2[key] || h;
+  });
+}
+
 function validateDate(s) {
   return typeof s === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(s);
 }
@@ -342,5 +404,9 @@ module.exports = {
   stripUrlWrapper,
   slugWithoutYear,
   validateDate,
-  parseYear
+  parseYear,
+  LEAGUE_COLUMNS_V2,
+  TOURNAMENT_COLUMNS_V2,
+  HEADER_ALIASES_V2,
+  normalizeHeadersV2
 };

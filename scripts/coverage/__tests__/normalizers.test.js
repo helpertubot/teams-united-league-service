@@ -139,3 +139,30 @@ test('detectSport recognizes Volleyball heading', () => {
   assert.equal(L.detectSport('Volleyball'), 'volleyball');
   assert.equal(L.detectSport('## Volleyball'), 'volleyball');
 });
+
+test('LEAGUE_COLUMNS_V2 has exactly 12 canonical columns', () => {
+  assert.deepEqual(L.LEAGUE_COLUMNS_V2, [
+    'name', 'sport', 'level', 'ageGroups', 'gender', 'season',
+    'geography', 'governingBody', 'sanctioning', 'website',
+    'sourceUrl', 'notes'
+  ]);
+});
+
+test('TOURNAMENT_COLUMNS_V2 has exactly 19 canonical columns', () => {
+  assert.deepEqual(L.TOURNAMENT_COLUMNS_V2, [
+    'name', 'sport', 'startDate', 'endDate', 'venue', 'city', 'state',
+    'entryFee', 'teamCount', 'platform', 'registrationUrl', 'ageGroups',
+    'gender', 'format', 'organizer', 'sanctioning', 'confidence',
+    'sourceUrl', 'notes'
+  ]);
+});
+
+test('normalizeHeadersV2 maps camelCase research headers through', () => {
+  const headers = ['name', 'Name', 'Start Date', 'startDate', 'Source URL', 'sourceUrl'];
+  const normalized = L.normalizeHeadersV2(headers);
+  assert.deepEqual(normalized, ['name', 'name', 'startDate', 'startDate', 'sourceUrl', 'sourceUrl']);
+});
+
+test('normalizeHeadersV2 passes unknown headers through unchanged', () => {
+  assert.deepEqual(L.normalizeHeadersV2(['custom', 'Other']), ['custom', 'Other']);
+});
