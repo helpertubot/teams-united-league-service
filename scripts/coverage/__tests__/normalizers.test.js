@@ -116,3 +116,17 @@ test('validateDate rejects invalid inputs', () => {
   assert.equal(L.validateDate(undefined), false);
   assert.equal(L.validateDate('2026-03'), false);
 });
+
+test('normalizePlatform handles new v2 sources', () => {
+  assert.equal(L.normalizePlatform('TravelSports'), 'travelsports');
+  assert.equal(L.normalizePlatform('travel sports'), 'travelsports');
+  assert.equal(L.normalizePlatform('Exposure Events'), 'exposureevents');
+  assert.equal(L.normalizePlatform('exposureevents'), 'exposureevents');
+  assert.equal(L.normalizePlatform('NCS'), 'ncs');
+  assert.equal(L.normalizePlatform('USSSA'), 'usssa');
+});
+
+test('normalizePlatform preserves existing mappings', () => {
+  assert.equal(L.normalizePlatform('GotSport'), 'gotsport');
+  assert.equal(L.normalizePlatform('SportsEngine'), 'sportngin');
+});
