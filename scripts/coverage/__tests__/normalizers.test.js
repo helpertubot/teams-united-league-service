@@ -20,3 +20,20 @@ test('normalizeCell returns undefined for non-string null/undefined', () => {
   assert.equal(L.normalizeCell(null), undefined);
   assert.equal(L.normalizeCell(undefined), undefined);
 });
+
+test('normalizeGender maps aliases to Boys+Girls', () => {
+  for (const v of ['Both', 'Mixed', 'Coed', 'Co-ed', 'Boys and Girls', 'BOTH', 'mixed']) {
+    assert.equal(L.normalizeGender(v), 'Boys+Girls', `alias ${JSON.stringify(v)}`);
+  }
+});
+
+test('normalizeGender passes canonical values through', () => {
+  assert.equal(L.normalizeGender('Boys'), 'Boys');
+  assert.equal(L.normalizeGender('Girls'), 'Girls');
+  assert.equal(L.normalizeGender('Boys+Girls'), 'Boys+Girls');
+});
+
+test('normalizeGender returns undefined for empty/absent', () => {
+  assert.equal(L.normalizeGender(''), undefined);
+  assert.equal(L.normalizeGender(undefined), undefined);
+});

@@ -273,6 +273,15 @@ function normalizeCell(value) {
   return trimmed;
 }
 
+const GENDER_ALIASES = new Set(['both', 'mixed', 'coed', 'co-ed', 'boys and girls']);
+
+function normalizeGender(value) {
+  const v = normalizeCell(value);
+  if (!v) return undefined;
+  if (GENDER_ALIASES.has(v.toLowerCase())) return 'Boys+Girls';
+  return v;
+}
+
 module.exports = {
   REPO_ROOT,
   LEAGUE_COLUMNS,
@@ -297,5 +306,6 @@ module.exports = {
   coveragePath,
   templatePath,
   detectSport,
-  normalizeCell
+  normalizeCell,
+  normalizeGender
 };
