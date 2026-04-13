@@ -58,3 +58,87 @@ test('researchLeagueToConfigV2 returns null when name is absent', () => {
   assert.equal(M.researchLeagueToConfigV2({ name: '' }), null);
   assert.equal(M.researchLeagueToConfigV2({ name: 'n/a' }), null);
 });
+
+test('researchTournamentToConfigV2 maps a full 19-col row with derived fields', () => {
+  const row = {
+    name: '2026 Dublin United Clover Cup Tournament',
+    sport: 'Soccer',
+    startDate: '2026-03-14',
+    endDate: '2026-03-15',
+    venue: 'Fallon Sports Park - Dublin',
+    city: 'Dublin',
+    state: 'CA',
+    entryFee: '$700-$800',
+    teamCount: 'n/a',
+    platform: 'GotSport',
+    registrationUrl: 'https://system.gotsport.com/event_regs/394b04f09d',
+    ageGroups: 'U9-U14',
+    gender: 'Boys+Girls',
+    format: '3GG',
+    organizer: 'Dublin United Soccer',
+    sanctioning: 'n/a',
+    confidence: 'high',
+    sourceUrl: 'https://system.gotsport.com/event_regs/394b04f09d',
+    notes: 'Fees and venue listed.'
+  };
+  const out = M.researchTournamentToConfigV2(row);
+  assert.deepEqual(out, {
+    id: '2026-dublin-united-clover-cup-tournament',
+    seriesId: 'dublin-united-clover-cup-tournament',
+    year: 2026,
+    lifecycle: 'upcoming',
+    name: '2026 Dublin United Clover Cup Tournament',
+    startDate: '2026-03-14',
+    endDate: '2026-03-15',
+    venue: 'Fallon Sports Park - Dublin',
+    city: 'Dublin',
+    entryFee: '$700-$800',
+    sourcePlatform: 'gotsport',
+    registrationUrl: 'https://system.gotsport.com/event_regs/394b04f09d',
+    ageGroups: 'U9-U14',
+    gender: 'Boys+Girls',
+    format: '3GG',
+    organizer: 'Dublin United Soccer',
+    confidence: 'high',
+    sourceUrl: 'https://system.gotsport.com/event_regs/394b04f09d',
+    notes: 'Fees and venue listed.'
+  });
+});
+
+test('researchTournamentToConfigV2 drops malformed date field but keeps row', () => {
+  const row = {
+    name: 'SoCal Cup: 14/13 Tourney 3',
+    startDate: 'bad-date',
+    endDate: '2026-04-11',
+    venue: 'AIM Sportsplex',
+    city: 'Seal Beach',
+    sourceUrl: 'https://example.com'
+  };
+  const origWarn = console.warn;
+  console.warn = () => {};
+  try {
+    const out = M.researchTournamentToConfigV2(row);
+    assert.equal(out.name, 'SoCal Cup: 14/13 Tourney 3');
+    assert.equal(out.startDate, undefined);
+    assert.equal(out.endDate, '2026-04-11');
+    assert.equal(out.year, null);
+    assert.equal(out.lifecycle, 'upcoming');
+  } finally {
+    console.warn = origWarn;
+  }
+});
+
+test('researchTournamentToConfigV2 returns null when name is absent', () => {
+  assert.equal(M.researchTournamentToConfigV2({ name: '' }), null);
+});
+
+test('researchTournamentToConfigV2 seriesId equals id when no year in name', () => {
+  const out = M.researchTournamentToConfigV2({
+    name: 'California Cup',
+    startDate: '2026-05-23',
+    endDate: '2026-05-25'
+  });
+  assert.equal(out.id, 'california-cup');
+  assert.equal(out.seriesId, 'california-cup');
+  assert.equal(out.year, 2026);
+});
