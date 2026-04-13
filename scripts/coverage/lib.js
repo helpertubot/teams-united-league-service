@@ -264,6 +264,15 @@ function detectSport(heading, sports = SPORTS) {
   return null;
 }
 
+const ABSENT_SENTINELS = new Set(['', 'n/a', '-', '—', 'tbd']);
+
+function normalizeCell(value) {
+  if (value === null || value === undefined) return undefined;
+  const trimmed = String(value).trim().replace(/\s+/g, ' ');
+  if (ABSENT_SENTINELS.has(trimmed.toLowerCase())) return undefined;
+  return trimmed;
+}
+
 module.exports = {
   REPO_ROOT,
   LEAGUE_COLUMNS,
@@ -287,5 +296,6 @@ module.exports = {
   configTournamentsPath,
   coveragePath,
   templatePath,
-  detectSport
+  detectSport,
+  normalizeCell
 };
