@@ -114,8 +114,81 @@ if (Object.keys(bySport).length === 0) {
   process.exit(1);
 }
 
-// Tasks 15+ will add merge + write. For now emit per-sport counts.
+const PROTECTED_TOURNAMENT_FIELDS = new Set([
+  'lifecycle', 'lastChecked', 'lastHttpStatus',
+  'consecutiveFailures', 'movedTo', 'missingSince'
+]);
+
+function mergeList(existing, incoming, kind) {
+  const out = existing.map((e) => ({ ...e }));
+  const byId = new Map(out.map((e, i) => [e.id, i]));
+  const byDomain = new Map();
+  for (let i = 0; i < out.length; i++) {
+    const d = L.domainOf(out[i].website);
+    if (d) byDomain.set(d, i);
+  }
+  let added = 0;
+  let merged = 0;
+  for (const inc of incoming) {
+    let idx = byId.has(inc.id) ? byId.get(inc.id) : -1;
+    if (idx === -1) {
+      const d = L.domainOf(inc.website);
+      if (d && byDomain.has(d)) idx = byDomain.get(d);
+    }
+    if (idx === -1) {
+      out.push(inc);
+      byId.set(inc.id, out.length - 1);
+      // Intentionally NOT adding to byDomain: domain-match is only against
+      // pre-existing rows from disk, so multiple incoming rows that share a
+      // domain but have distinct ids each get appended.
+      added++;
+    } else {
+      const cur = out[idx];
+      let changed = false;
+      for (const k of Object.keys(inc)) {
+        if (kind === 'tournaments' && PROTECTED_TOURNAMENT_FIELDS.has(k)) continue;
+        if (cur[k] === undefined || cur[k] === '' || cur[k] === null) {
+          cur[k] = inc[k];
+          changed = true;
+        }
+      }
+      if (changed) merged++;
+    }
+  }
+  return { list: out, added, merged };
+}
+
+const plan = [];
 for (const [sport, entries] of Object.entries(bySport)) {
-  console.log(`[${state}/${sport}] ${kind}: +${entries.length} new, 0 merged → ${entries.length} total`);
+  const configPath =
+    kind === 'leagues'
+      ? L.configLeaguesPath(state, sport)
+      : L.configTournamentsPath(state, sport);
+  const envelopeKey = kind;
+  const existing = L.readJson(configPath) || {
+    _description: `${state} ${sport} ${kind}`,
+    _lastUpdated: L.todayISO(),
+    [envelopeKey]: []
+  };
+  const { list, added, merged } = mergeList(existing[envelopeKey] || [], entries, kind);
+  plan.push({
+    sport,
+    configPath,
+    envelopeKey,
+    newEnvelope: { ...existing, _lastUpdated: L.todayISO(), [envelopeKey]: list },
+    counts: { added, merged, total: list.length }
+  });
+}
+
+for (const p of plan) {
+  console.log(
+    `[${state}/${p.sport}] ${kind}: +${p.counts.added} new, ${p.counts.merged} merged → ${p.counts.total} total`
+  );
+  if (DRY) {
+    console.log(`  (dry-run) would write ${p.configPath}`);
+  } else {
+    L.writeJson(p.configPath, p.newEnvelope);
+    console.log(`  wrote ${p.configPath}`);
+  }
 }
 process.exit(0);

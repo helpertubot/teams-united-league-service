@@ -8,7 +8,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const REPO_ROOT = path.resolve(__dirname, '..', '..');
+const REPO_ROOT = process.env.TU_CONFIG_ROOT
+  ? path.resolve(process.env.TU_CONFIG_ROOT)
+  : path.resolve(__dirname, '..', '..');
 
 const LEAGUE_COLUMNS = [
   '#', 'League Name', 'Type', 'Level', 'Website', 'Registration URL',
