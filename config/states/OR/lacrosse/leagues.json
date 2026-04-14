@@ -1,0 +1,76 @@
+{
+  "_description": "OR lacrosse leagues",
+  "_lastUpdated": "2026-04-13",
+  "leagues": [
+    {
+      "id": "oregon-high-school-lacrosse-association-varsity",
+      "name": "Oregon High School Lacrosse Association — Varsity",
+      "level": "competitive",
+      "ageGroups": "HS (grades 9-12)",
+      "gender": "boys",
+      "season": "spring",
+      "region": "statewide Oregon",
+      "governingBody": "OHSLA",
+      "sanctioning": "OHSLA / NFHS rules",
+      "website": "https://www.ohsla.net/",
+      "sourceUrl": "https://www.ohsla.net/BHS/Standings.asp",
+      "notes": "Conferences with recurring schedules and published standings"
+    },
+    {
+      "id": "oregon-high-school-lacrosse-association-junior-varsity",
+      "name": "Oregon High School Lacrosse Association — Junior Varsity",
+      "level": "competitive",
+      "ageGroups": "HS (JV)",
+      "gender": "boys",
+      "season": "spring",
+      "region": "statewide Oregon",
+      "governingBody": "OHSLA",
+      "sanctioning": "OHSLA / NFHS adaptations",
+      "website": "https://www.ohsla.net/",
+      "sourceUrl": "https://www.ohsla.net/BHS/Schedule.asp?Grp=BJV",
+      "notes": "JV schedule published / JV and JV2 tiers listed"
+    },
+    {
+      "id": "oregon-girls-lacrosse-association-high-school",
+      "name": "Oregon Girls Lacrosse Association — High School",
+      "level": "competitive",
+      "ageGroups": "HS (grades 9-12)",
+      "gender": "girls",
+      "season": "spring",
+      "region": "statewide Oregon",
+      "governingBody": "OGLA",
+      "sanctioning": "OGLA / USA Lacrosse rules",
+      "website": "https://www.oregongirlslax.com/",
+      "sourceUrl": "https://www.oregongirlslax.com/standings",
+      "notes": "Varsity and JV leagues with standings and scoreboard"
+    },
+    {
+      "id": "oregon-girls-lacrosse-association-youth-u10-u12-u14",
+      "name": "Oregon Girls Lacrosse Association — Youth (U10 / U12 / U14)",
+      "level": "rec",
+      "ageGroups": "U10 / U12 / U14",
+      "gender": "girls",
+      "season": "spring",
+      "region": "statewide Oregon",
+      "governingBody": "OGLA",
+      "sanctioning": "OGLA / USA Lacrosse youth rules",
+      "website": "https://www.oregongirlslax.com/",
+      "sourceUrl": "https://www.oregongirlslax.com/division/14990/schedule?subseason_id=2660",
+      "notes": "Youth divisions with recurring schedules / results posted"
+    },
+    {
+      "id": "oregon-youth-lacrosse-spring-league",
+      "name": "Oregon Youth Lacrosse — Spring League",
+      "level": "rec",
+      "ageGroups": "8U / 10U / 12U / 14U / HS",
+      "gender": "boys",
+      "season": "spring",
+      "region": "statewide Oregon / SW Washington",
+      "governingBody": "Oregon Youth Lacrosse (OYL)",
+      "sanctioning": "USA Lacrosse rules",
+      "website": "https://www.oregonyouthlacrosse.org/",
+      "sourceUrl": "https://www.oregonyouthlacrosse.org/division/4675",
+      "notes": "Statewide rec league with divisional schedules and standings"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "_description": "HI lacrosse tournaments",
+  "_lastUpdated": "2026-04-13",
+  "tournaments": [
+    {
+      "id": "founders-cup-hs-boys-and-girls-state-championship",
+      "seriesId": "founders-cup-hs-boys-and-girls-state-championship",
+      "name": "Founders Cup - HS Boys & Girls State Championship",
+      "startDate": "2026-05-02",
+      "endDate": "2026-05-03",
+      "venue": "Location TBD",
+      "city": "Honolulu",
+      "sourcePlatform": "ayla",
+      "registrationUrl": "https://pci.jotform.com/form/252951742545159",
+      "ageGroups": "High School",
+      "gender": "Boys / Girls",
+      "format": "State championship weekend with girls championship, boys semifinals, consolation, and final",
+      "organizer": "Aloha Youth Lacrosse Association",
+      "sanctioning": "USA Lacrosse affiliated",
+      "confidence": "medium",
+      "sourceUrl": "https://aylahawaii.org/league-info/",
+      "notes": "Dates and divisions are published on AYLA's 2026 game schedule. No event-specific registration page or tournament fee was found. City inferred from AYLA base operations and regular game hub on Oahu. Diligent search across TravelSports, USA Lacrosse, Adrenaline, AYLA, and Hawaii Lacrosse did not surface a second real youth multi-day Hawaii lacrosse tournament for 2026.",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    }
+  ]
+}

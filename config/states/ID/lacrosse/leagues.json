@@ -1,62 +1,104 @@
 {
   "_description": "ID lacrosse leagues",
-  "_lastUpdated": "2026-04-12",
+  "_lastUpdated": "2026-04-13",
   "leagues": [
     {
-      "id": "treasure-valley-youth-lacrosse",
-      "name": "Treasure Valley Youth Lacrosse",
-      "region": "Treasure Valley",
-      "sourcePlatform": "unknown",
-      "website": "tvylax.com"
+      "id": "southwest-idaho-lacrosse-association-swila-boys-hs",
+      "name": "Southwest Idaho Lacrosse Association (SWILA) — Boys HS",
+      "level": "competitive",
+      "ageGroups": "Grades 9-12",
+      "gender": "boys",
+      "season": "Spring (Mar–May)",
+      "region": "Treasure Valley / Southwest Idaho",
+      "governingBody": "Southwest Idaho Lacrosse Association",
+      "sanctioning": "Club / USA Lacrosse rules",
+      "website": "https://swila.org/",
+      "sourceUrl": "https://swila.org/schedule/",
+      "notes": "14 teams / two divisions / league schedule and playoffs (championship May 16 at College of Idaho)."
     },
     {
-      "id": "cityside208-lacrosse",
-      "name": "CitySide208 Lacrosse",
-      "region": "Treasure Valley",
-      "sourcePlatform": "leagueapps",
-      "website": "cityside208.com"
+      "id": "treasure-valley-women-s-lacrosse-league-tvwll-varsity",
+      "name": "Treasure Valley Women’s Lacrosse League (TVWLL) — Varsity",
+      "level": "competitive",
+      "ageGroups": "Grades 9-12",
+      "gender": "girls",
+      "season": "Spring",
+      "region": "Idaho statewide (focus Treasure Valley)",
+      "governingBody": "Treasure Valley Women’s Lacrosse League",
+      "sanctioning": "Club / USA Lacrosse rules",
+      "website": "https://tvwll.org/",
+      "sourceUrl": "https://tvwll.org/wp-content/uploads/2025/03/TVWLL-Rules-Rev-231031.pdf",
+      "notes": "League schedules games / state playoffs; varsity tier governed by TVWLL."
     },
     {
-      "id": "true-lacrosse-idaho",
-      "name": "True Lacrosse Idaho",
-      "region": "Statewide",
-      "sourcePlatform": "leagueapps",
-      "website": "truelacrosse.com/idaho/boys"
+      "id": "treasure-valley-women-s-lacrosse-league-tvwll-junior-varsity",
+      "name": "Treasure Valley Women’s Lacrosse League (TVWLL) — Junior Varsity",
+      "level": "competitive",
+      "ageGroups": "Grades 9-12",
+      "gender": "girls",
+      "season": "Spring",
+      "region": "Idaho statewide (focus Treasure Valley)",
+      "governingBody": "Treasure Valley Women’s Lacrosse League",
+      "sanctioning": "Club / USA Lacrosse rules",
+      "website": "https://tvwll.org/",
+      "sourceUrl": "https://tvwll.org/wp-content/uploads/2025/03/TVWLL-Rules-Rev-231031.pdf",
+      "notes": "League-run JV tier with recurring seasonal schedule and postseason structure."
     },
     {
-      "id": "idaho-falls-lacrosse-eagles",
-      "name": "Idaho Falls Lacrosse (Eagles)",
-      "region": "Idaho Falls",
-      "sourcePlatform": "unknown",
-      "website": "iflacrosse.com"
+      "id": "great-western-lacrosse-league-gwll-varsity-idaho-members",
+      "name": "Great Western Lacrosse League (GWLL) — Varsity (Idaho members)",
+      "level": "competitive",
+      "ageGroups": "Grades 9-12",
+      "gender": "boys",
+      "season": "Spring (Mar–May)",
+      "region": "North Idaho / Eastern Idaho / Multi-state (ID / WA / MT / WY)",
+      "governingBody": "Great Western Lacrosse League Inc.",
+      "sanctioning": "Club / USA Lacrosse rules",
+      "website": "https://www.gwlax.org/",
+      "sourceUrl": "https://www.gwlax.org/stats/league_instance/191305",
+      "notes": "Cross-border HS league with Idaho programs (Coeur d’Alene / Sandpoint / Idaho Falls / Sun Valley / Teton Valley) and published schedules / results / standings."
     },
     {
-      "id": "north-idaho-youth-lacrosse",
-      "name": "North Idaho Youth Lacrosse",
-      "region": "Coeur d'Alene area",
-      "sourcePlatform": "sportngin",
-      "website": "northidahoyouthlacrosse.org"
+      "id": "great-western-lacrosse-league-gwll-junior-varsity-idaho-members",
+      "name": "Great Western Lacrosse League (GWLL) — Junior Varsity (Idaho members)",
+      "level": "competitive",
+      "ageGroups": "Grades 9-12",
+      "gender": "boys",
+      "season": "Spring (Mar–May)",
+      "region": "North Idaho / Eastern Idaho / Multi-state (ID / WA / MT / WY)",
+      "governingBody": "Great Western Lacrosse League Inc.",
+      "sanctioning": "Club / USA Lacrosse rules",
+      "website": "https://www.gwlax.org/",
+      "sourceUrl": "https://www.gwlax.org/stats/league_instance/191305",
+      "notes": "JV tier alongside varsity with recurring schedule and box scores."
     },
     {
-      "id": "pocatello-lacrosse",
-      "name": "Pocatello Lacrosse",
-      "region": "Pocatello",
-      "sourcePlatform": "unknown",
-      "website": "pocatellolacrosse.org"
+      "id": "treasure-valley-youth-lacrosse-league-tvyll",
+      "name": "Treasure Valley Youth Lacrosse League (TVYLL)",
+      "level": "rec",
+      "ageGroups": "8U (K-2) / 10U (3-4) / 12U (5-6) / 14U girls (7-8)",
+      "gender": "boys / girls",
+      "season": "Spring (Mar–May)",
+      "region": "Treasure Valley (Boise / Meridian / Eagle / Star / Kuna / Nampa / Caldwell)",
+      "governingBody": "Treasure Valley Youth Lacrosse League",
+      "sanctioning": "USA Lacrosse membership required",
+      "website": "https://www.tvylax.com/",
+      "sourceUrl": "https://www.tvylax.com/",
+      "notes": "Recreational league play with weekly schedules by division; teams formed by geography."
     },
     {
-      "id": "sun-valley-lacrosse",
-      "name": "Sun Valley Lacrosse",
-      "region": "Wood River Valley",
-      "sourcePlatform": "unknown",
-      "website": "sunvalleylacrosse.com"
-    },
-    {
-      "id": "teton-valley-youth-lacrosse",
-      "name": "Teton Valley Youth Lacrosse",
-      "region": "Driggs/Victor",
-      "sourcePlatform": "leagueapps",
-      "website": "tetonlax.com"
+      "id": "north-idaho-youth-lacrosse-niyl",
+      "name": "North Idaho Youth Lacrosse (NIYL)",
+      "level": "rec",
+      "ageGroups": "Grades 1-8 (coed 1/2 / boys 3/4 / 5/6 / 7/8 / girls 3-5 / 6-8)",
+      "gender": "boys / girls / coed",
+      "season": "Spring (Mar–Jun)",
+      "region": "Greater Coeur d’Alene / North Idaho",
+      "governingBody": "North Idaho Youth Lacrosse",
+      "sanctioning": "USA Lacrosse membership required",
+      "website": "https://www.northidahoyouthlacrosse.org/",
+      "sourceUrl": "https://www.northidahoyouthlacrosse.org/resources",
+      "notes": "Spring club league with local games and published calendar; USA Lacrosse certified coaches and rules."
     }
   ]
 }

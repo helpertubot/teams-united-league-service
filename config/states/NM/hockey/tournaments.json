@@ -1,0 +1,49 @@
+{
+  "_description": "NM hockey tournaments",
+  "_lastUpdated": "2026-04-13",
+  "tournaments": [
+    {
+      "id": "onehockey-new-mexico",
+      "seriesId": "onehockey-new-mexico",
+      "name": "OneHockey New Mexico",
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-08",
+      "venue": "Outpost Ice Arena",
+      "city": "Albuquerque",
+      "entryFee": "$995-$2095",
+      "sourcePlatform": "travelsports",
+      "registrationUrl": "https://hockey.travelsports.com/tournaments/onehockey-new-mexico-1",
+      "ageGroups": "8U / 10U / 12U / 14U",
+      "gender": "boys",
+      "format": "5x5 / 8U half-ice / 4-game minimum",
+      "organizer": "OneHockey",
+      "confidence": "high",
+      "sourceUrl": "https://hockey.travelsports.com/tournaments/onehockey-new-mexico-1",
+      "notes": "Listing shows A and B divisions for 10U-14U plus 8U half-ice; fee shown as $2095 with mites half-ice at $995",
+      "year": 2026,
+      "lifecycle": "upcoming",
+      "sanctioning": "USA Hockey"
+    },
+    {
+      "id": "coyote-classic-2023",
+      "seriesId": "coyote-classic",
+      "name": "Coyote Classic 2023",
+      "startDate": "2023-03-10",
+      "endDate": "2023-03-19",
+      "venue": "Taos Youth and Family Center / Taos Ice Arena",
+      "city": "Taos",
+      "entryFee": "$300-$695",
+      "sourcePlatform": "sportngin",
+      "registrationUrl": "https://www.sportsengine.com/org/taos-youth-hockey-association",
+      "ageGroups": "6U / 8U / 10U / 12U / 14U",
+      "gender": "Boys+Girls",
+      "organizer": "Taos Youth Hockey Association",
+      "sanctioning": "USA Hockey affiliate LOEAHA",
+      "confidence": "medium",
+      "sourceUrl": "https://www.sportsengine.com/org/taos-youth-hockey-association",
+      "notes": "2026 dates TBD; no newer public program page found. Date and fee come from Taos Youth Hockey Association SportsEngine program listing; age groups inferred from Taos host club age bands and recurring Coyote Classic references",
+      "year": 2023,
+      "lifecycle": "upcoming"
+    }
+  ]
+}

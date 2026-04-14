@@ -1,0 +1,47 @@
+{
+  "_description": "SD football tournaments",
+  "_lastUpdated": "2026-04-13",
+  "tournaments": [
+    {
+      "id": "bauers-elite-sharks-7v7",
+      "seriesId": "bauers-elite-sharks-7v7",
+      "name": "Bauers Elite-Sharks 7v7",
+      "startDate": "2026-04-11",
+      "endDate": "2026-04-12",
+      "venue": "venue TBD",
+      "city": "Sioux Falls",
+      "sourcePlatform": "bauer'selite",
+      "registrationUrl": "https://www.bauerselite.com/sf-sharks-7v7-tryout-registration/p/2026",
+      "ageGroups": "8U, 10U, 12U, Girls 12U, 14U, 15U, 18U",
+      "gender": "boys / girls",
+      "format": "7v7 tournament",
+      "organizer": "Bauer's Elite / Sioux Falls Sharks",
+      "confidence": "medium",
+      "sourceUrl": "https://www.bauerselite.com/sf-sharks-7v7-tryout-registration/p/2026",
+      "notes": "2026 dates listed on the SF Sharks tournament schedule page; dedicated event page with venue and fee not yet published",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    },
+    {
+      "id": "coyote-clash",
+      "seriesId": "coyote-clash",
+      "name": "Coyote Clash",
+      "startDate": "2026-05-16",
+      "endDate": "2026-05-17",
+      "venue": "DakotaDome",
+      "city": "Vermillion",
+      "entryFee": "$650-$650",
+      "sourcePlatform": "zorts",
+      "registrationUrl": "https://www.zortssports.com/post/clubHouse?tid=24019",
+      "ageGroups": "10U, 12U, 14U, 15U, 18U, Girls Flag 10U-HS",
+      "gender": "coed / girls",
+      "format": "7v7 / 4-game guarantee",
+      "organizer": "MidAmerica 7v7 Football",
+      "confidence": "high",
+      "sourceUrl": "https://www.zortssports.com/post/clubHouse?tid=24019",
+      "notes": "Listing says this brings MidAmerica 7v7 to South Dakota for the first time",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    }
+  ]
+}

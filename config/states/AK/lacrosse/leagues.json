@@ -1,0 +1,34 @@
+{
+  "_description": "AK lacrosse leagues",
+  "_lastUpdated": "2026-04-13",
+  "leagues": [
+    {
+      "id": "anchorage-lacrosse-flex-6-summer-league",
+      "name": "Anchorage Lacrosse — Flex-6 Summer League",
+      "level": "Recreational",
+      "ageGroups": "8U / 10U / 14U (ages 8–16)",
+      "gender": "Boys+Girls",
+      "season": "Summer",
+      "region": "Anchorage, AK",
+      "governingBody": "USA Lacrosse (Pacific Region)",
+      "sanctioning": "USA Lacrosse",
+      "website": "https://www.anchoragehockey.com",
+      "sourceUrl": "https://www.anchoragehockey.com/news_article/show/1172404",
+      "notes": "Non-contact Flex-6 format; weekly Mon/Wed evening games at Arctic Rec Center; teams practice then play vs. opponent; registration via Anchorage Hockey Association SportsEngine; director Gabe Lipchik"
+    },
+    {
+      "id": "flax-fairbanks-lacrosse-fall-mini-season",
+      "name": "FLAX (Fairbanks Lacrosse) — Fall Mini-Season",
+      "level": "Recreational / Developmental",
+      "ageGroups": "Grades 1–12 (approx. ages 6–18)",
+      "gender": "Boys+Girls",
+      "season": "Fall",
+      "region": "Fairbanks, AK",
+      "governingBody": "USA Lacrosse / Fairbanks Youth Soccer Association",
+      "sanctioning": "USA Lacrosse",
+      "website": "https://sports.bluesombrero.com/Default.aspx?tabid=1021786",
+      "sourceUrl": "https://www.usalacrosse.com/news-media-blog/fairbanks-capitalizing-small-sided-gameplay",
+      "notes": "6-week recurring season with weekly play (Tue/Wed/Thu); Flex-6 small-sided non-contact format; run under FYSA umbrella; no formal published standings; USA Lacrosse equipment grant recipient"
+    }
+  ]
+}

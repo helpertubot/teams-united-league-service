@@ -1,0 +1,76 @@
+{
+  "_description": "DE softball leagues",
+  "_lastUpdated": "2026-04-13",
+  "leagues": [
+    {
+      "id": "smyrna-clayton-little-lass-softball",
+      "name": "Smyrna Clayton Little Lass Softball",
+      "level": "recreational",
+      "ageGroups": "Tee Ball / Minors / Majors / Senior",
+      "gender": "girls",
+      "season": "Spring",
+      "region": "Smyrna / Clayton — Kent County",
+      "governingBody": "Little League International",
+      "sanctioning": "Little League Softball",
+      "website": "https://www.scllsoftball.com",
+      "sourceUrl": "https://www.scllsoftball.com",
+      "notes": "Team Central shows Posted Schedules / View Scores / View Standings."
+    },
+    {
+      "id": "midway-girls-softball-rec-league",
+      "name": "Midway Girls Softball (Rec League)",
+      "level": "recreational",
+      "ageGroups": "5U / 7-8 / 9-10 / 11-12 / 13-14 / 15-18",
+      "gender": "girls",
+      "season": "Spring",
+      "region": "Hockessin / Wilmington — New Castle County",
+      "governingBody": "Midway Sports Association, Inc.",
+      "sanctioning": "USA Softball (ASA)",
+      "website": "https://www.midwaygirlssoftball.org",
+      "sourceUrl": "https://www.midwaygirlssoftball.org/Default.aspx?tabid=897399",
+      "notes": "Established community league with six age groups and seasonal league play."
+    },
+    {
+      "id": "bear-babe-ruth-softball",
+      "name": "Bear Babe Ruth Softball",
+      "level": "recreational",
+      "ageGroups": "6U / 8U / 10U / 12U / 14U / 16U / 18U",
+      "gender": "girls",
+      "season": "Spring / Fall",
+      "region": "Bear — New Castle County",
+      "governingBody": "Babe Ruth League, Inc.",
+      "sanctioning": "Babe Ruth Softball",
+      "website": "https://www.bearbaberuth.com",
+      "sourceUrl": "https://www.bearbaberuth.com",
+      "notes": "Local Babe Ruth charter offering seasonal softball with league play."
+    },
+    {
+      "id": "piedmont-babe-ruth-softball",
+      "name": "Piedmont Babe Ruth Softball",
+      "level": "recreational",
+      "ageGroups": "6U / 8U / 10U / 12U / 14U / 16U / 18U",
+      "gender": "girls",
+      "season": "Spring / Fall",
+      "region": "Hockessin — New Castle County",
+      "governingBody": "Babe Ruth League, Inc.",
+      "sanctioning": "Babe Ruth Softball",
+      "website": "https://www.piedmontbaberuth.com",
+      "sourceUrl": "https://www.piedmontbaberuth.com/aboutus",
+      "notes": "Serves ages 6–18; spring leagues plus fall instructional programs."
+    },
+    {
+      "id": "lewes-little-league-softball",
+      "name": "Lewes Little League Softball",
+      "level": "recreational",
+      "ageGroups": "Softball Minor / Softball Major / Junior / Senior",
+      "gender": "girls",
+      "season": "Spring",
+      "region": "Lewes — Sussex County",
+      "governingBody": "Little League International",
+      "sanctioning": "Little League Softball",
+      "website": "https://www.leweslittleleague.com",
+      "sourceUrl": "https://www.leweslittleleague.com/Default.aspx?tabid=1167805",
+      "notes": "League operates softball divisions and seasonal play; Opening Day April 11, 2026."
+    }
+  ]
+}

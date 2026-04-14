@@ -1,0 +1,90 @@
+{
+  "_description": "ID volleyball leagues",
+  "_lastUpdated": "2026-04-13",
+  "leagues": [
+    {
+      "id": "ihsaa-5a-southern-idaho-conference-volleyball",
+      "name": "IHSAA — 5A Southern Idaho Conference Volleyball",
+      "level": "competitive",
+      "ageGroups": "14-18 (HS)",
+      "gender": "girls",
+      "season": "Fall (Aug–Nov)",
+      "region": "Southwest Idaho — Treasure Valley",
+      "governingBody": "Idaho High School Activities Association",
+      "sanctioning": "IHSAA / NFHS",
+      "website": "IHSAA on MaxPreps",
+      "sourceUrl": "https://www.maxpreps.com/id/volleyball/25-26/conference/5a-southern-idaho/?leagueid=f2ced031-f587-41b5-bafc-631d40b31c72",
+      "notes": "Conference play with published schedules and standings."
+    },
+    {
+      "id": "ihsaa-5a-high-country-conference-volleyball",
+      "name": "IHSAA — 5A High Country Conference Volleyball",
+      "level": "competitive",
+      "ageGroups": "14-18 (HS)",
+      "gender": "girls",
+      "season": "Fall (Aug–Nov)",
+      "region": "Eastern Idaho — Idaho Falls area",
+      "governingBody": "Idaho High School Activities Association",
+      "sanctioning": "IHSAA / NFHS",
+      "website": "IHSAA on MaxPreps",
+      "sourceUrl": "https://www.maxpreps.com/id/volleyball/25-26/conference/5a-high-country/?leagueid=325c99b9-38a4-4a83-8dd1-2fa936be1e05",
+      "notes": "Conference play with published schedules and standings."
+    },
+    {
+      "id": "ihsaa-4a-intermountain-conference-volleyball",
+      "name": "IHSAA — 4A Intermountain Conference Volleyball",
+      "level": "competitive",
+      "ageGroups": "14-18 (HS)",
+      "gender": "girls",
+      "season": "Fall (Aug–Nov)",
+      "region": "North Idaho — Bonner / Boundary",
+      "governingBody": "Idaho High School Activities Association",
+      "sanctioning": "IHSAA / NFHS",
+      "website": "IHSAA on MaxPreps",
+      "sourceUrl": "https://www.maxpreps.com/id/volleyball/25-26/conference/4a-intermountain/?leagueid=abebe62d-c8ce-4f7a-bac0-cb7acbb9855c",
+      "notes": "Conference play with published schedules and standings."
+    },
+    {
+      "id": "idaho-falls-parks-and-recreation-youth-volleyball-league",
+      "name": "Idaho Falls Parks & Recreation — Youth Volleyball League",
+      "level": "rec",
+      "ageGroups": "Grades 1-8",
+      "gender": "Boys+Girls",
+      "season": "Spring / Fall",
+      "region": "Idaho Falls",
+      "governingBody": "City of Idaho Falls Parks & Recreation",
+      "sanctioning": "City of Idaho Falls",
+      "website": "Idaho Falls Parks & Recreation (QuickScores)",
+      "sourceUrl": "https://www.idahofallsidaho.gov/705/Volleyball",
+      "notes": "Rec league using QuickScores for schedules and standings by division."
+    },
+    {
+      "id": "city-of-caldwell-youth-coed-volleyball",
+      "name": "City of Caldwell — Youth COED Volleyball",
+      "level": "rec",
+      "ageGroups": "Grades 4-7",
+      "gender": "Boys+Girls",
+      "season": "Spring (Mar–Apr)",
+      "region": "Caldwell",
+      "governingBody": "City of Caldwell Parks & Recreation",
+      "sanctioning": "City of Caldwell",
+      "website": "Caldwell Parks & Recreation",
+      "sourceUrl": "https://www.cityofcaldwell.org/Departments/Parks-Recreation/Recreation/Youth-Sports/COED-Volleyball",
+      "notes": "Six-week league with weekly games and end-of-season tournament; schedules published."
+    },
+    {
+      "id": "star-idaho-recreation-youth-volleyball",
+      "name": "Star Idaho Recreation — Youth Volleyball",
+      "level": "rec",
+      "ageGroups": "Grades 3-8",
+      "gender": "Boys+Girls",
+      "season": "Fall",
+      "region": "Star",
+      "governingBody": "City of Star Recreation",
+      "sanctioning": "City of Star",
+      "website": "Star Recreation (TeamSideline)",
+      "sourceUrl": "https://www.teamsideline.com/sites/staridahorec/schedules",
+      "notes": "TeamSideline hosts league schedules and standings by grade division."
+    }
+  ]
+}

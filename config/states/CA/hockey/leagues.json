@@ -1,6 +1,6 @@
 {
   "_description": "CA hockey leagues",
-  "_lastUpdated": "2026-04-12",
+  "_lastUpdated": "2026-04-13",
   "leagues": [
     {
       "id": "norcal-northern-california-youth-hockey-association",
@@ -113,6 +113,118 @@
       "website": "https://www.norhoa.org",
       "sourceUrl": "https://www.norhoa.org/about",
       "notes": "NorHOA identifies “NorCal (Northern California Youth Hockey Association)” as a scheduled league; complements NORCAL row."
+    },
+    {
+      "id": "southern-california-amateur-hockey-association-scaha",
+      "name": "Southern California Amateur Hockey Association (SCAHA)",
+      "level": "Recreational / Competitive",
+      "ageGroups": "10U / 12U / 14U / 16U",
+      "gender": "Boys+Girls",
+      "season": "Fall–Spring",
+      "region": "Southern California",
+      "governingBody": "California Amateur Hockey Association (CAHA)",
+      "sanctioning": "USA Hockey",
+      "website": "scaha.net",
+      "sourceUrl": "https://myhockeyrankings.com/league-info?l=122",
+      "notes": "Tiers A / AA / B / BB per age group; ~22 member clubs; largest youth hockey league in Western US; regular-season schedule with published standings"
+    },
+    {
+      "id": "caha-boys-competitive-tier-1-aaa",
+      "name": "CAHA Boys Competitive — Tier 1 (AAA)",
+      "level": "Elite",
+      "ageGroups": "12U / 13U / 14U / 15U / 16U / 18U",
+      "gender": "Boys",
+      "season": "Fall–Spring",
+      "region": "Statewide California",
+      "governingBody": "CAHA",
+      "sanctioning": "USA Hockey",
+      "website": "https://www.caha.com.app.crossbar.org",
+      "sourceUrl": "https://myhockeyrankings.com/league-info?l=157",
+      "notes": "~3 elite clubs per age group (Jr Kings / Jr Ducks / Jr Sharks etc.); statewide schedule feeding Pacific District and USA Hockey Nationals"
+    },
+    {
+      "id": "caha-boys-competitive-tier-2-aa",
+      "name": "CAHA Boys Competitive — Tier 2 (AA)",
+      "level": "Competitive",
+      "ageGroups": "14U / 15U / 16U / 18U",
+      "gender": "Boys",
+      "season": "Fall–Spring",
+      "region": "Statewide California",
+      "governingBody": "CAHA",
+      "sanctioning": "USA Hockey",
+      "website": "https://www.caha.com.app.crossbar.org",
+      "sourceUrl": "https://myhockeyrankings.com/league-info?l=157",
+      "notes": "13–24 teams per age group at statewide AA level; sits above local SCAHA / NCYHA A-tier regular season play"
+    },
+    {
+      "id": "pacific-girls-hockey-league-pghl-aaa-tier-i",
+      "name": "Pacific Girls Hockey League (PGHL) — AAA (Tier I)",
+      "level": "Elite",
+      "ageGroups": "12U / 14U / 16U / 19U",
+      "gender": "Girls",
+      "season": "Fall–Spring",
+      "region": "Western US (CA / NV / OR / WA)",
+      "governingBody": "USA Hockey Pacific District / CAHA",
+      "sanctioning": "USA Hockey",
+      "website": "https://www.pacificgirlshockey.com",
+      "sourceUrl": "https://www.pacificgirlshockey.com/about",
+      "notes": "27 teams across all tiers; CA clubs include San Jose Jr. Sharks Girls / Anaheim Lady Ducks; 3-point game scoring at Tier I; 2025-26 champions announced"
+    },
+    {
+      "id": "pacific-girls-hockey-league-pghl-tier-ii-aa-a",
+      "name": "Pacific Girls Hockey League (PGHL) — Tier II (AA / A)",
+      "level": "Competitive / Developmental",
+      "ageGroups": "12U / 14U / 16U / 19U",
+      "gender": "Girls",
+      "season": "Fall–Spring",
+      "region": "Western US (CA / NV / OR / WA)",
+      "governingBody": "USA Hockey Pacific District / CAHA",
+      "sanctioning": "USA Hockey",
+      "website": "https://www.pacificgirlshockey.com",
+      "sourceUrl": "https://www.pacificgirlshockey.com/news/2025-26-scores-and-standings",
+      "notes": "2-point scoring system; AA and A developmental tiers; pathway to Tier I; includes same age brackets as AAA tier"
+    },
+    {
+      "id": "la-kings-high-school-hockey-league-lakhshl-varsity",
+      "name": "LA Kings High School Hockey League (LAKHSHL) — Varsity",
+      "level": "High School – Varsity",
+      "ageGroups": "High School (14–18)",
+      "gender": "Boys+Girls",
+      "season": "Fall–Winter",
+      "region": "Southern California (Los Angeles area)",
+      "governingBody": "LA Kings / CAHA",
+      "sanctioning": "CAHA",
+      "website": "https://www.lakleague.com",
+      "sourceUrl": "https://myhockeyrankings.com/league-info?l=734",
+      "notes": "6 Varsity teams in 2025-26; not CIF-sanctioned; affiliated with LA Kings NHL franchise; recurring season with standings"
+    },
+    {
+      "id": "la-kings-high-school-hockey-league-lakhshl-jv",
+      "name": "LA Kings High School Hockey League (LAKHSHL) — JV",
+      "level": "High School – JV",
+      "ageGroups": "High School (14–18)",
+      "gender": "Boys+Girls",
+      "season": "Fall–Winter",
+      "region": "Southern California (Los Angeles area)",
+      "governingBody": "LA Kings / CAHA",
+      "sanctioning": "CAHA",
+      "website": "https://www.lakleague.com",
+      "sourceUrl": "https://myhockeyrankings.com/league-info?l=734",
+      "notes": "11 JV teams in 2025-26; developmental tier below Varsity; same seasonal structure"
+    },
+    {
+      "id": "sharks-high-school-hockey-league-shshl",
+      "name": "Sharks High School Hockey League (SHSHL)",
+      "level": "High School – Varsity / JV",
+      "ageGroups": "High School (14–18)",
+      "gender": "Boys+Girls",
+      "season": "Fall–Spring",
+      "region": "Northern California (San Jose / Bay Area)",
+      "governingBody": "San Jose Sharks / NCYHA",
+      "sanctioning": "CAHA",
+      "website": "https://www.sharkshighschoolhockey.com",
+      "sourceUrl": "https://stats.sharksice.timetoscore.com/display-stats.php?league=1",
+      "notes": "35 teams in 2024-25; runs Fall/Winter Varsity + JV season and a separate Spring Varsity season; all games at Sharks Ice facilities"
     }
   ]
 }

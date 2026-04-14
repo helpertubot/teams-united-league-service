@@ -1,0 +1,27 @@
+{
+  "_description": "AR lacrosse tournaments",
+  "_lastUpdated": "2026-04-13",
+  "tournaments": [
+    {
+      "id": "ozmo-spring-league-end-of-season-tournament",
+      "seriesId": "ozmo-spring-league-end-of-season-tournament",
+      "name": "OzMo Spring League End of Season Tournament",
+      "startDate": "2026-05-02",
+      "endDate": "2026-05-02",
+      "venue": "Randall Tyson Rec Complex Field #4",
+      "city": "Springdale",
+      "sourcePlatform": "ozarkmountainlacrosse",
+      "registrationUrl": "https://www.ozmolacrosse.com/2026-programs/spring-season",
+      "ageGroups": "U6 / U8 / U10 / U12 / U14",
+      "gender": "boys",
+      "format": "3v3 / 4v4 / 5v5 / 7v7 / 10v10 by division",
+      "organizer": "Ozark Mountain Lacrosse",
+      "sanctioning": "USA Lacrosse membership required",
+      "confidence": "high",
+      "sourceUrl": "https://www.ozmolacrosse.com/2026-programs/spring-season",
+      "notes": "End-of-season tournament for the OzMo Spring League city clubs; spring season page lists first games March 7 2026 and tournament May 2 2026.",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    }
+  ]
+}

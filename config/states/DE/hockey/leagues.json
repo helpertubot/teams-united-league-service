@@ -1,0 +1,76 @@
+{
+  "_description": "DE hockey leagues",
+  "_lastUpdated": "2026-04-13",
+  "leagues": [
+    {
+      "id": "delaware-valley-hockey-league-dvhl",
+      "name": "Delaware Valley Hockey League (DVHL)",
+      "level": "competitive",
+      "ageGroups": "8U / 10U / 12U / 14U / 16U / 18U",
+      "gender": "Boys+Girls",
+      "season": "Sep–Mar",
+      "region": "DE / PA / NJ",
+      "governingBody": "USA Hockey Atlantic District (AAHA)",
+      "sanctioning": "USA Hockey Tier II",
+      "website": "https://dvhl.org/",
+      "sourceUrl": "https://dvhl.org/dvhl-information/",
+      "notes": "Tier II travel league with schedules / standings via GameSheet / DE clubs participate (Wilmington Nighthawks / Delaware Jr Blue Hens)."
+    },
+    {
+      "id": "mid-atlantic-women-s-hockey-association-mawha",
+      "name": "Mid-Atlantic Women’s Hockey Association (MAWHA)",
+      "level": "competitive",
+      "ageGroups": "10U / 12U / 14U / 16U / 19U",
+      "gender": "girls",
+      "season": "Sep–Feb",
+      "region": "DE / NJ / PA / MD / VA",
+      "governingBody": "USA Hockey via Mid Atlantic Hockey Alliance",
+      "sanctioning": "USA Hockey",
+      "website": "https://www.mawha.com/",
+      "sourceUrl": "https://www.mawha.com/",
+      "notes": "Girls league with recurring season play and playoffs / DE-area clubs participate through Atlantic District."
+    },
+    {
+      "id": "eastern-junior-elite-prospects-league-futures",
+      "name": "Eastern Junior Elite Prospects League — Futures",
+      "level": "competitive",
+      "ageGroups": "9U / 10U / 11U / 12U / 13U / 14U",
+      "gender": "Boys+Girls",
+      "season": "Aug–Feb",
+      "region": "DE / Multi-state Mid-Atlantic / Northeast",
+      "governingBody": "EJEPL (follows USA Hockey age rules)",
+      "sanctioning": "USA Hockey (member clubs / SafeSport)",
+      "website": "https://www.ejepl.net/",
+      "sourceUrl": "https://www.ejepl.net/",
+      "notes": "League season plus showcases / standings and playoffs / DE clubs listed (e.g., Wilmington Nighthawks / Delaware Jr. Blue Hens)."
+    },
+    {
+      "id": "eastern-junior-elite-prospects-league-diamond",
+      "name": "Eastern Junior Elite Prospects League — Diamond",
+      "level": "competitive",
+      "ageGroups": "13U / 14U / 15O / 16U / 18U",
+      "gender": "Boys+Girls",
+      "season": "Aug–Feb",
+      "region": "DE / Multi-state Mid-Atlantic / Northeast",
+      "governingBody": "EJEPL (follows USA Hockey age rules)",
+      "sanctioning": "USA Hockey (member clubs / SafeSport)",
+      "website": "https://www.ejepl.net/",
+      "sourceUrl": "https://www.ejepl.net/about/about-the-ejepl/27433",
+      "notes": "Upper age conferences with league schedules / playoffs held in early Feb / integrates with local league play."
+    },
+    {
+      "id": "delaware-high-school-hockey-league-dhshl",
+      "name": "Delaware High School Hockey League (DHSHL)",
+      "level": "scholastic",
+      "ageGroups": "HS (grades 9–12)",
+      "gender": "Boys+Girls",
+      "season": "Nov–Mar",
+      "region": "DE statewide",
+      "governingBody": "USA Hockey (scholastic club)",
+      "sanctioning": "USA Hockey",
+      "website": "https://dhshl.pointstreaksites.com/view/dhshl/",
+      "sourceUrl": "https://dhshl.pointstreaksites.com/view/dhshl/",
+      "notes": "State scholastic league with recurring schedules / standings published on league site."
+    }
+  ]
+}

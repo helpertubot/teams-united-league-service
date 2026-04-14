@@ -1,6 +1,6 @@
 {
   "_description": "OR soccer leagues — Phase 1 + Phase 2 expansion",
-  "_lastUpdated": "2026-03-13",
+  "_lastUpdated": "2026-04-13",
   "_phase1Script": "scripts/setup/or-soccer-expansion.js",
   "_phase2Script": "scripts/setup/or-soccer-expansion-phase2.js",
   "_discoveryScript": "scripts/discovery/discover-or-soccer-seasons.js",
@@ -11,7 +11,9 @@
       "region": "Statewide",
       "sourcePlatform": "sportsaffinity-asp",
       "status": "active",
-      "discoveryConfig": { "namePattern": "Spring.*Competitive|Spring.*League" },
+      "discoveryConfig": {
+        "namePattern": "Spring.*Competitive|Spring.*League"
+      },
       "notes": "Uses OLD SportsAffinity ASP system. Tournament GUID 2A349A09."
     },
     {
@@ -20,7 +22,9 @@
       "region": "Southern Oregon",
       "sourcePlatform": "sportsaffinity-asp",
       "status": "active",
-      "discoveryConfig": { "namePattern": "Spring.*South" },
+      "discoveryConfig": {
+        "namePattern": "Spring.*South"
+      },
       "notes": "Tournament GUID D07BB454."
     },
     {
@@ -29,7 +33,9 @@
       "region": "Statewide",
       "sourcePlatform": "sportsaffinity-asp",
       "status": "dormant",
-      "discoveryConfig": { "namePattern": "Winter.*Competitive|Winter.*League" },
+      "discoveryConfig": {
+        "namePattern": "Winter.*Competitive|Winter.*League"
+      },
       "notes": "Tournament GUID 72AD07B7. Season ended Feb 2026."
     },
     {
@@ -38,7 +44,9 @@
       "region": "Statewide",
       "sourcePlatform": "sportsaffinity-asp",
       "status": "active",
-      "discoveryConfig": { "namePattern": "Development|Dev.*League" },
+      "discoveryConfig": {
+        "namePattern": "Development|Dev.*League"
+      },
       "notes": "Tournament GUID B7972C4B."
     },
     {
@@ -47,7 +55,9 @@
       "region": "Willamette Valley",
       "sourcePlatform": "sportsaffinity-asp",
       "status": "active",
-      "discoveryConfig": { "namePattern": "Valley.*Academy" },
+      "discoveryConfig": {
+        "namePattern": "Valley.*Academy"
+      },
       "notes": "Tournament GUID 5CDA2778."
     },
     {
@@ -56,7 +66,9 @@
       "region": "Statewide",
       "sourcePlatform": "sportsaffinity-asp",
       "status": "dormant",
-      "discoveryConfig": { "namePattern": "Fall.*Competitive|Fall.*League" },
+      "discoveryConfig": {
+        "namePattern": "Fall.*Competitive|Fall.*League"
+      },
       "notes": "Phase 2. Season Sep-Nov. GUID TBD from discovery. Registered for auto-discovery."
     },
     {
@@ -65,7 +77,9 @@
       "region": "Southern Oregon",
       "sourcePlatform": "sportsaffinity-asp",
       "status": "dormant",
-      "discoveryConfig": { "namePattern": "Fall.*South" },
+      "discoveryConfig": {
+        "namePattern": "Fall.*South"
+      },
       "notes": "Phase 2. Season Sep-Nov. GUID TBD from discovery. Registered for auto-discovery."
     },
     {
@@ -83,6 +97,216 @@
       "sourcePlatform": "gotsport",
       "status": "dormant",
       "notes": "Multi-state: OR, WA, ID, WY, MT, AK, HI. GotSport event 34040 (2024-2025). Waiting for 2025-2026 event."
+    },
+    {
+      "id": "oysa-competitive-league-premier-competitive-league-pcl",
+      "name": "OYSA Competitive League — Premier Competitive League (PCL)",
+      "level": "competitive",
+      "ageGroups": "U11–U19",
+      "gender": "boys / girls",
+      "season": "fall / winter / spring",
+      "region": "statewide (Oregon)",
+      "governingBody": "Oregon Youth Soccer Association (OYSA)",
+      "sanctioning": "USYS via OYSA",
+      "website": "https://www.oregonyouthsoccer.org/leagues/",
+      "sourceUrl": "https://www.oregonyouthsoccer.org/wp-content/uploads/sites/279/2025/10/OYSA-Competitive-Youth-Soccer-League-Rules-7.15.25.pdf",
+      "notes": "Top statewide tier; standings kept; qualifies teams for USYS pathways."
+    },
+    {
+      "id": "oysa-competitive-league-statewide-competitive-league-scl-premier",
+      "name": "OYSA Competitive League — Statewide Competitive League (SCL Premier)",
+      "level": "competitive",
+      "ageGroups": "U11–U19",
+      "gender": "boys / girls",
+      "season": "fall / winter / spring",
+      "region": "statewide (Oregon)",
+      "governingBody": "Oregon Youth Soccer Association (OYSA)",
+      "sanctioning": "USYS via OYSA",
+      "website": "https://www.oregonyouthsoccer.org/leagues/",
+      "sourceUrl": "https://www.oregonyouthsoccer.org/wp-content/uploads/sites/279/2025/10/OYSA-Competitive-Youth-Soccer-League-Rules-7.15.25.pdf",
+      "notes": "Premier statewide division; results used for cup seeding."
+    },
+    {
+      "id": "oysa-competitive-league-regional-competitive-league-rcl-north",
+      "name": "OYSA Competitive League — Regional Competitive League (RCL North)",
+      "level": "competitive",
+      "ageGroups": "U11–U14",
+      "gender": "boys / girls",
+      "season": "fall / spring",
+      "region": "Northern Oregon region",
+      "governingBody": "Oregon Youth Soccer Association (OYSA)",
+      "sanctioning": "USYS via OYSA",
+      "website": "https://www.oregonyouthsoccer.org/leagues/",
+      "sourceUrl": "https://www.oregonyouthsoccer.org/wp-content/uploads/sites/279/2025/10/OYSA-Competitive-Youth-Soccer-League-Rules-7.15.25.pdf",
+      "notes": "Regional play (North); divisions D1–D5 with standings."
+    },
+    {
+      "id": "oysa-competitive-league-regional-competitive-league-rcl-central",
+      "name": "OYSA Competitive League — Regional Competitive League (RCL Central)",
+      "level": "competitive",
+      "ageGroups": "U11–U14",
+      "gender": "boys / girls",
+      "season": "fall / spring",
+      "region": "Willamette Valley / Central OR",
+      "governingBody": "Oregon Youth Soccer Association (OYSA)",
+      "sanctioning": "USYS via OYSA",
+      "website": "https://www.oregonyouthsoccer.org/leagues/",
+      "sourceUrl": "https://www.oregonyouthsoccer.org/wp-content/uploads/sites/279/2025/10/OYSA-Competitive-Youth-Soccer-League-Rules-7.15.25.pdf",
+      "notes": "Regional play (Central); divisions D1–D5 with standings."
+    },
+    {
+      "id": "oysa-competitive-league-regional-competitive-league-rcl-south",
+      "name": "OYSA Competitive League — Regional Competitive League (RCL South)",
+      "level": "competitive",
+      "ageGroups": "U11–U14",
+      "gender": "boys / girls",
+      "season": "fall / spring",
+      "region": "Southern Oregon",
+      "governingBody": "Oregon Youth Soccer Association (OYSA)",
+      "sanctioning": "USYS via OYSA",
+      "website": "https://www.oregonyouthsoccer.org/leagues/",
+      "sourceUrl": "https://www.oregonyouthsoccer.org/wp-content/uploads/sites/279/2025/10/OYSA-Competitive-Youth-Soccer-League-Rules-7.15.25.pdf",
+      "notes": "Regional play (South); divisions D1–D5 with standings."
+    },
+    {
+      "id": "oysa-development-league-u9-u10",
+      "name": "OYSA Development League — U9/U10",
+      "level": "competitive / developmental",
+      "ageGroups": "U9–U10",
+      "gender": "boys / girls",
+      "season": "fall / spring",
+      "region": "multi‑site (Portland / Eugene hosts)",
+      "governingBody": "Oregon Youth Soccer Association (OYSA)",
+      "sanctioning": "USYS via OYSA",
+      "website": "https://www.oregonyouthsoccer.org/development-league/",
+      "sourceUrl": "https://www.oregonyouthsoccer.org/development-league/",
+      "notes": "Weekly league play; schedules/score entry provided; small‑sided format."
+    },
+    {
+      "id": "oysa-development-league-u8",
+      "name": "OYSA Development League — U8",
+      "level": "developmental",
+      "ageGroups": "U8",
+      "gender": "coed / boys / girls",
+      "season": "fall / spring",
+      "region": "multi‑site (two host locations)",
+      "governingBody": "Oregon Youth Soccer Association (OYSA)",
+      "sanctioning": "USYS via OYSA",
+      "website": "https://www.oregonyouthsoccer.org/development-league/",
+      "sourceUrl": "https://www.oregonyouthsoccer.org/development-league/",
+      "notes": "4v4 play; schedules posted; no referees at U8 per league page."
+    },
+    {
+      "id": "oysa-valley-academy-league-val",
+      "name": "OYSA Valley Academy League (VAL)",
+      "level": "developmental",
+      "ageGroups": "U8–U10",
+      "gender": "boys / girls",
+      "season": "fall / spring",
+      "region": "Albany / Eugene / Bend host sites",
+      "governingBody": "Oregon Youth Soccer Association (OYSA)",
+      "sanctioning": "USYS via OYSA",
+      "website": "https://www.oregonyouthsoccer.org/valley-academy-league/",
+      "sourceUrl": "https://www.oregonyouthsoccer.org/valley-academy-league/",
+      "notes": "Event‑style seasonal league days; schedules/venues published."
+    },
+    {
+      "id": "portland-youth-soccer-association-pysa-recreational-league",
+      "name": "Portland Youth Soccer Association (PYSA) — Recreational League",
+      "level": "rec",
+      "ageGroups": "U7–U14",
+      "gender": "boys / girls / coed (younger)",
+      "season": "fall / spring",
+      "region": "Portland metro",
+      "governingBody": "Portland Youth Soccer Association",
+      "sanctioning": "local association (OYSA‑sanctioned rec clubs)",
+      "website": "https://www.portlandyouthsoccer.com/",
+      "sourceUrl": "https://leagues.bluesombrero.com/Default.aspx?tabid=1711493",
+      "notes": "Citywide rec league; schedules posted each season; development‑focused."
+    },
+    {
+      "id": "tualatin-hills-junior-soccer-league-thjsl-rec-league",
+      "name": "Tualatin Hills Junior Soccer League (THJSL) — Rec League",
+      "level": "rec",
+      "ageGroups": "grade 2–HS",
+      "gender": "boys / girls / coed (HS)",
+      "season": "fall / spring",
+      "region": "Beaverton / Tigard / Tualatin / Sherwood area",
+      "governingBody": "Tualatin Hills Junior Soccer League",
+      "sanctioning": "local association",
+      "website": "https://tualatinhillsjuniorsoccerleague.com/",
+      "sourceUrl": "https://tualatinhillsjuniorsoccerleague.com/games/schedules",
+      "notes": "Multi‑club district league; schedules and rules; standings may be limited in younger ages."
+    },
+    {
+      "id": "development-league-of-southern-oregon-dlso",
+      "name": "Development League of Southern Oregon (DLSO)",
+      "level": "rec / developmental",
+      "ageGroups": "Kinder / U8 / U10 / U11–U15",
+      "gender": "boys / girls",
+      "season": "fall / spring",
+      "region": "Southern Oregon valley",
+      "governingBody": "DLSO (community league)",
+      "sanctioning": "USYS via OYSA (player registration)",
+      "website": "https://www.dlsosoccer.com/",
+      "sourceUrl": "https://www.dlsosoccer.com/schedules.html",
+      "notes": "Rec league partnering clubs; schedules by age group; OYSA/USYS registration required."
+    },
+    {
+      "id": "bend-park-and-recreation-youth-fall-soccer-league",
+      "name": "Bend Park & Recreation — Youth Fall Soccer League",
+      "level": "rec",
+      "ageGroups": "grades 1–8",
+      "gender": "boys / girls",
+      "season": "fall",
+      "region": "Bend",
+      "governingBody": "Bend Park & Recreation District",
+      "sanctioning": "municipal parks & rec",
+      "website": "https://www.bendparksandrec.org/activities/sports/youth-sports/",
+      "sourceUrl": "https://www.bendparksandrec.org/activities/sports/sports-information-and-events/",
+      "notes": "Seasonal city league with weekly games; schedules posted in season; standings typically not kept for younger divisions."
+    },
+    {
+      "id": "osaa-boys-soccer-high-school",
+      "name": "OSAA Boys Soccer (High School)",
+      "level": "scholastic",
+      "ageGroups": "grades 9–12",
+      "gender": "boys",
+      "season": "fall",
+      "region": "statewide (Oregon)",
+      "governingBody": "Oregon School Activities Association (OSAA)",
+      "sanctioning": "NFHS / OSAA",
+      "website": "https://www.osaa.org/activities/bsc",
+      "sourceUrl": "https://www.osaa.org/activities/bsc/schedules",
+      "notes": "Statewide HS platform with conferences, schedules, standings and playoffs."
+    },
+    {
+      "id": "osaa-girls-soccer-high-school",
+      "name": "OSAA Girls Soccer (High School)",
+      "level": "scholastic",
+      "ageGroups": "grades 9–12",
+      "gender": "girls",
+      "season": "fall",
+      "region": "statewide (Oregon)",
+      "governingBody": "Oregon School Activities Association (OSAA)",
+      "sanctioning": "NFHS / OSAA",
+      "website": "https://www.osaa.org/activities/gsc",
+      "sourceUrl": "https://osaa.org/activities/gsc/schedules?date=2025-10-23",
+      "notes": "Statewide HS platform with conferences, schedules, standings and playoffs."
+    },
+    {
+      "id": "usys-national-league-northwest-conference-team-based-pathway",
+      "name": "USYS National League — Northwest Conference (team‑based pathway)",
+      "level": "competitive (regional)",
+      "ageGroups": "U13–U19",
+      "gender": "boys / girls",
+      "season": "late fall / winter (event‑based)",
+      "region": "OR / WA / ID / MT / AK / WY",
+      "governingBody": "US Youth Soccer National League",
+      "sanctioning": "USYS",
+      "website": "https://www.thenationalleague.com/northwest-team-based-pathway/",
+      "sourceUrl": "https://www.thenationalleague.com/schedules-results/",
+      "notes": "Regional league including Oregon teams; standings maintained; advancement to NL/USYS events."
     }
   ]
 }

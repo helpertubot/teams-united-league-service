@@ -1,0 +1,28 @@
+{
+  "_description": "MS hockey tournaments",
+  "_lastUpdated": "2026-04-13",
+  "tournaments": [
+    {
+      "id": "southern-youth-travel-hockey-league-sythl-12u-a2-league-year-end",
+      "seriesId": "southern-youth-travel-hockey-league-sythl-12u-a2-league-year-end",
+      "name": "Southern Youth Travel Hockey League SYTHL 12U A2 League Year-End Tournament",
+      "startDate": "2026-02-28",
+      "endDate": "2026-03-01",
+      "venue": "Mid-South Ice House",
+      "city": "Olive Branch",
+      "entryFee": "$1225-$1225",
+      "sourcePlatform": "travelsports/sythl",
+      "registrationUrl": "https://hockey.travelsports.com/tournaments/southern-youth-travel-hockey-league-sythl-peewee-a2-league-year-end-tournament",
+      "ageGroups": "12U Peewees",
+      "gender": "Boys+Girls",
+      "format": "5x5 league year-end tournament",
+      "organizer": "Memphis Jr. Riverkings",
+      "sanctioning": "SYTHL",
+      "confidence": "high",
+      "sourceUrl": "https://www.sythl.org/page/show/8061570-12u-aa-a1-and-a2-year-end-tournaments",
+      "notes": "Public 2026 listing found on SYTHL and TravelSports. Host payment address is Olive Branch, MS.",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    }
+  ]
+}

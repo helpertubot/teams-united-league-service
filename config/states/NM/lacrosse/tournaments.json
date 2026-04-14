@@ -1,0 +1,27 @@
+{
+  "_description": "NM lacrosse tournaments",
+  "_lastUpdated": "2026-04-13",
+  "tournaments": [
+    {
+      "id": "albuquerque-lacrosse-fiesta",
+      "seriesId": "albuquerque-lacrosse-fiesta",
+      "name": "Albuquerque Lacrosse Fiesta",
+      "startDate": "2026-05-09",
+      "endDate": "2026-05-10",
+      "venue": "Balloon Fiesta Park",
+      "city": "Albuquerque",
+      "sourcePlatform": "sportngin",
+      "registrationUrl": "https://www.abqyouthlax.com/page/show/4081453-albuquerque-lacrosse-fiesta",
+      "ageGroups": "10U / 12U / 14U",
+      "gender": "Boys / Girls",
+      "format": "Pool play; best record wins; boys use modified NFHS youth standards; girls divisions use 7v7 or 12v12 depending on division",
+      "organizer": "ABQ Youth Lacrosse",
+      "sanctioning": "USA Lacrosse / NFHS-based youth rules",
+      "confidence": "high",
+      "sourceUrl": "https://www.abqyouthlax.com/page/show/4081453-albuquerque-lacrosse-fiesta",
+      "notes": "Venue page for the series lists Balloon Fiesta Park; entry fee and team count were not published on the event page",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    }
+  ]
+}

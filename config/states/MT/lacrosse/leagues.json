@@ -1,0 +1,48 @@
+{
+  "_description": "MT lacrosse leagues",
+  "_lastUpdated": "2026-04-13",
+  "leagues": [
+    {
+      "id": "montana-high-school-lacrosse-league-varsity",
+      "name": "Montana High School Lacrosse League — Varsity",
+      "level": "competitive",
+      "ageGroups": "HS Varsity (grades 9–12)",
+      "gender": "boys / girls",
+      "season": "Spring (Feb–May)",
+      "region": "Montana statewide (includes some WY / ID opponents)",
+      "governingBody": "Montana High School Lacrosse League",
+      "sanctioning": "Club (non-MHSA)",
+      "website": "https://www.mthslax.org/",
+      "sourceUrl": "https://www.mthslax.org/page/show/4542648-calendar",
+      "notes": "League platform with recurring spring schedules and stats; varsity tier listed separately from JV."
+    },
+    {
+      "id": "montana-high-school-lacrosse-league-jv",
+      "name": "Montana High School Lacrosse League — JV",
+      "level": "competitive",
+      "ageGroups": "HS JV (grades 9–12)",
+      "gender": "boys / girls",
+      "season": "Spring (Feb–May)",
+      "region": "Montana statewide (includes some WY / ID opponents)",
+      "governingBody": "Montana High School Lacrosse League",
+      "sanctioning": "Club (non-MHSA)",
+      "website": "https://www.mthslax.org/",
+      "sourceUrl": "https://bozemanlacrosse.com/register/",
+      "notes": "JV is the developmental tier under MHSLA; same spring league structure as varsity."
+    },
+    {
+      "id": "northwest-lacrosse-spring-league",
+      "name": "Northwest Lacrosse — Spring League",
+      "level": "rec",
+      "ageGroups": "Grades 1–8",
+      "gender": "boys / girls",
+      "season": "Spring (Mar–Jun) / Fall",
+      "region": "Flathead Valley (Kalispell area)",
+      "governingBody": "Northwest Lacrosse",
+      "sanctioning": "Club",
+      "website": "https://www.northwestlax.com/",
+      "sourceUrl": "https://www.northwestlax.com/",
+      "notes": "Community youth league with seasonal schedules; tournaments shown on site are separate from league play."
+    }
+  ]
+}

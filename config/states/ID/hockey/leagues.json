@@ -1,76 +1,62 @@
 {
   "_description": "ID hockey leagues",
-  "_lastUpdated": "2026-04-12",
+  "_lastUpdated": "2026-04-13",
   "leagues": [
     {
-      "id": "idaho-jr-steelheads-byaha",
-      "name": "Idaho Jr Steelheads (BYAHA)",
-      "region": "Boise/Treasure Val",
-      "sourcePlatform": "sportngin",
-      "website": "jrsteelheads.com"
+      "id": "idaho-iceworld-youth-house-league",
+      "name": "Idaho IceWorld Youth House League",
+      "level": "rec",
+      "ageGroups": "6U / 8U / 10U / 12U / 14U / 16U / 18U",
+      "gender": "Boys+Girls",
+      "season": "Fall/Winter (Oct–Mar)",
+      "region": "Boise / Treasure Valley",
+      "governingBody": "City of Boise (Idaho IceWorld) / Idaho Amateur Hockey Association",
+      "sanctioning": "USA Hockey",
+      "website": "https://www.idahoiceworld.com/hockey/youth-hockey-leagues/",
+      "sourceUrl": "https://www.idahoiceworld.com/hockey/youth-hockey-leagues/",
+      "notes": "Team schedules and results available via TeamSideline"
     },
     {
-      "id": "idaho-falls-eagles-ifyha",
-      "name": "Idaho Falls Eagles (IFYHA)",
+      "id": "idaho-iceworld-high-school-hockey",
+      "name": "Idaho IceWorld High School Hockey",
+      "level": "competitive",
+      "ageGroups": "HS (grades 9–12)",
+      "gender": "Boys+Girls",
+      "season": "Fall/Winter (Sep–Feb)",
+      "region": "Boise / Treasure Valley",
+      "governingBody": "Idaho IceWorld / Idaho Amateur Hockey Association",
+      "sanctioning": "USA Hockey",
+      "website": "https://www.idahoiceworld.com/hockey/high-school-hockey/",
+      "sourceUrl": "https://www.idahoiceworld.com/hockey/high-school-hockey/",
+      "notes": "Full‑check league with Boise / Timberline / Can‑Ada / Eagle–Rocky / Mt. View–Centennial"
+    },
+    {
+      "id": "ifyha-house-league",
+      "name": "IFYHA House League",
+      "level": "rec",
+      "ageGroups": "6U / 8U / 10U / 12U / 14U / 18U",
+      "gender": "Boys+Girls",
+      "season": "Fall/Winter (mid‑Sep–mid‑Mar)",
+      "region": "Idaho Falls / Eastern Idaho",
+      "governingBody": "Idaho Falls Youth Hockey Association / Idaho Amateur Hockey Association",
+      "sanctioning": "USA Hockey",
+      "website": "https://www.ifyha.com/",
+      "sourceUrl": "https://ifyha.sportngin.com/page/show/852287-about-us",
+      "notes": "Local house league with recurring practices and games; schedules posted on association site"
+    },
+    {
+      "id": "snake-river-youth-hockey-snake-river-showdown",
+      "name": "Snake River Youth Hockey — Snake River Showdown",
+      "level": "rec",
+      "ageGroups": "6U / 8U / 10U–18U",
+      "gender": "Boys+Girls",
+      "season": "Fall/Winter (Nov–Mar)",
       "region": "Idaho Falls",
-      "sourcePlatform": "sportngin",
-      "website": "ifyha.com"
-    },
-    {
-      "id": "cda-thunder-cdaha",
-      "name": "CDA Thunder (CDAHA)",
-      "region": "Coeur d'Alene",
-      "sourcePlatform": "sportngin",
-      "website": "frontiericearena.org"
-    },
-    {
-      "id": "lewis-clark-lightning-lcaha",
-      "name": "Lewis Clark Lightning (LCAHA)",
-      "region": "Lewiston/Clarkston",
-      "sourcePlatform": "teamsnap",
-      "website": "lcaha.com"
-    },
-    {
-      "id": "moscow-bears-palouse-youth",
-      "name": "Moscow Bears (Palouse Youth)",
-      "region": "Moscow/Palouse",
-      "sourcePlatform": "sportngin",
-      "website": "palouseicerink.com"
-    },
-    {
-      "id": "sun-valley-youth-hockey",
-      "name": "Sun Valley Youth Hockey",
-      "region": "Sun Valley/Hailey",
-      "sourcePlatform": "sportngin",
-      "website": "sunvalleyhockey.com"
-    },
-    {
-      "id": "mccall-mountaineers",
-      "name": "McCall Mountaineers",
-      "region": "McCall",
-      "sourcePlatform": "sportngin",
-      "website": "mccallhockey.com"
-    },
-    {
-      "id": "teton-valley-cutthroats",
-      "name": "Teton Valley Cutthroats",
-      "region": "Driggs/Victor",
-      "sourcePlatform": "sportngin",
-      "website": "tetonvalleyhockey.com"
-    },
-    {
-      "id": "rexburg-wildcats",
-      "name": "Rexburg Wildcats",
-      "region": "Rexburg",
-      "sourcePlatform": "unknown",
-      "website": "rexburgwildcats.com"
-    },
-    {
-      "id": "salmon-rapids-youth-hockey",
-      "name": "Salmon Rapids Youth Hockey",
-      "region": "Salmon",
-      "sourcePlatform": "unknown",
-      "website": "salmonhockey.org"
+      "governingBody": "Snake River Youth Hockey Association",
+      "sanctioning": "Independent",
+      "website": "https://www.yetishockey.com/",
+      "sourceUrl": "https://www.yetishockey.com/",
+      "notes": "In‑house seasonal league with published schedules and final team / player standings (Yetis Cup)"
     }
   ]
 }

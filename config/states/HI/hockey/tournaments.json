@@ -1,0 +1,28 @@
+{
+  "_description": "HI hockey tournaments",
+  "_lastUpdated": "2026-04-13",
+  "tournaments": [
+    {
+      "id": "the-aloha-cup",
+      "seriesId": "the-aloha-cup",
+      "name": "The Aloha Cup",
+      "startDate": "2025-12-14",
+      "endDate": "2025-12-18",
+      "venue": "Ice Palace Hawaii",
+      "city": "Honolulu",
+      "entryFee": "$2850-$2850",
+      "sourcePlatform": "globalhockeyseries",
+      "registrationUrl": "https://globalhockeyseries.com/hawaii/",
+      "ageGroups": "12U / 13U / 14U / 15U / 16U",
+      "gender": "boys / girls",
+      "format": "5x5 / 4 games guaranteed / max 5 games",
+      "organizer": "Global Hockey Series",
+      "sanctioning": "USA Hockey pending",
+      "confidence": "medium",
+      "sourceUrl": "https://globalhockeyseries.com/hawaii/",
+      "notes": "2026 dates TBD; listing shows 2025. TravelSports also lists the event in Honolulu with the same 2025 dates and fee.",
+      "year": 2025,
+      "lifecycle": "upcoming"
+    }
+  ]
+}

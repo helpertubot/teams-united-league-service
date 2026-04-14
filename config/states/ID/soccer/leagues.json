@@ -1,150 +1,104 @@
 {
-  "_description": "ID soccer leagues — extracted from scripts/setup/expand-soccer-ca-id-mt.js",
-  "_lastUpdated": "2026-04-12",
+  "_description": "ID soccer leagues",
+  "_lastUpdated": "2026-04-13",
   "leagues": [
     {
-      "id": "isl-id-spring",
-      "name": "Idaho State League",
-      "region": "Statewide",
-      "sourcePlatform": "gotsport",
-      "eventId": "50328",
-      "notes": "Spring 2026. 12 groups. Idaho Rush, Boise Timbers/Thorns, Idaho Surf, ALBION SC Idaho."
+      "id": "idaho-state-league-isl",
+      "name": "Idaho State League (ISL)",
+      "level": "competitive",
+      "ageGroups": "U12-U19",
+      "gender": "boys / girls",
+      "season": "fall / spring",
+      "region": "Idaho statewide (Districts 1-4)",
+      "governingBody": "Idaho Youth Soccer Association",
+      "sanctioning": "US Youth Soccer",
+      "website": "Idaho Youth Soccer — State League",
+      "sourceUrl": "https://www.idahoyouthsoccer.org/state-league/",
+      "notes": "Statewide league with schedules / standings and State Cup pathway."
     },
     {
-      "id": "d3l-id",
-      "name": "D3 League",
-      "region": "Southwest Idaho",
-      "sourcePlatform": "gotsport",
-      "eventId": "45057",
-      "notes": "Boise/Treasure Valley competitive. 32 groups, U9-U16. Gold/Silver/Bronze tiers."
+      "id": "district-3-league-d3l",
+      "name": "District 3 League (D3L)",
+      "level": "competitive",
+      "ageGroups": "U10-U19",
+      "gender": "boys / girls",
+      "season": "fall / spring",
+      "region": "Southwest Idaho (District 3 / Treasure Valley)",
+      "governingBody": "Idaho Youth Soccer Association",
+      "sanctioning": "US Youth Soccer",
+      "website": "Idaho Youth Soccer — D3 League",
+      "sourceUrl": "https://www.idahoyouthsoccer.org/wp-content/uploads/sites/171/2024/07/District-3-League-Rules-rev-7.24-Final.pdf",
+      "notes": "IYSA-administered district league; rules specify ages and standings."
     },
     {
-      "id": "srl-id-spring",
-      "name": "Snake River League",
-      "region": "Southeast Idaho",
-      "sourcePlatform": "gotsport",
-      "eventId": "50506",
-      "notes": "Spring 2026. 46+ groups, U9-U19. Idaho Falls area."
+      "id": "snake-river-league-srl",
+      "name": "Snake River League (SRL)",
+      "level": "competitive",
+      "ageGroups": "U9-U19",
+      "gender": "boys / girls",
+      "season": "fall / spring",
+      "region": "Southeast Idaho (District 2 / Eastern Idaho)",
+      "governingBody": "Idaho Youth Soccer Association (admin by BYSL)",
+      "sanctioning": "US Youth Soccer",
+      "website": "BYSL — Snake River League info",
+      "sourceUrl": "https://dt5602vnjxv0c.cloudfront.net/portals/53224/docs/snake%20river%20league%20rules%2020240328.pdf",
+      "notes": "Official IYSA district league with published rules / standings."
     },
     {
-      "id": "id-premier-league",
-      "name": "Idaho Premier League",
-      "region": "Statewide",
-      "sourcePlatform": "gotsport",
-      "eventId": "45021",
-      "notes": "Updated event ID to 45021 (2025-26). 17 groups."
+      "id": "usys-national-league-northwest-conference-premier-1",
+      "name": "USYS National League — Northwest Conference (Premier 1)",
+      "level": "competitive",
+      "ageGroups": "U13-U19",
+      "gender": "boys / girls",
+      "season": "fall / winter (event-based)",
+      "region": "AK / ID / MT / OR / WA / WY",
+      "governingBody": "US Youth Soccer — National League",
+      "sanctioning": "US Youth Soccer",
+      "website": "National League — Northwest Conference",
+      "sourceUrl": "https://www.thenationalleague.com/northwest-team-based-pathway/",
+      "notes": "Multi-state conference including Idaho teams; event-based league with standings."
     },
     {
-      "id": "boise-timbers",
-      "name": "Boise Timbers\\",
-      "region": "U3–U19",
-      "sourcePlatform": "boisetimbersthorns.org",
-      "website": "State"
+      "id": "idaho-premier-league-ipl",
+      "name": "Idaho Premier League (IPL)",
+      "level": "competitive",
+      "ageGroups": "U9-U19",
+      "gender": "boys / girls",
+      "season": "fall / spring",
+      "region": "Idaho statewide",
+      "governingBody": "Idaho Premier League",
+      "sanctioning": "US Club Soccer",
+      "website": "Idaho Premier League — League Format",
+      "sourceUrl": "https://www.idahopremierleague.com/league-format",
+      "notes": "Multi-division play (7v7 / 9v9 / 11v11) with promotion / relegation and standings."
     },
     {
-      "id": "idaho-rush-soccer-club",
-      "name": "Idaho Rush Soccer Club",
-      "region": "Boise/Meridian",
-      "sourcePlatform": "sportsconnect",
-      "website": "idahorush.com"
+      "id": "ecnl-girls-northwest-conference",
+      "name": "ECNL Girls — Northwest Conference",
+      "level": "competitive",
+      "ageGroups": "U13-U19",
+      "gender": "girls",
+      "season": "fall / winter / spring",
+      "region": "ID / CA-North / WA / OR / UT / CO",
+      "governingBody": "Elite Clubs National League",
+      "sanctioning": "US Club Soccer",
+      "website": "Boise Thorns — ECNL overview",
+      "sourceUrl": "https://boisetimbersthorns.org/programs/elite-clubs-national-league-ecnl/",
+      "notes": "Idaho’s ECNL member competes in the Northwest Conference; national platform with standings."
     },
     {
-      "id": "teton-fc",
-      "name": "Teton FC",
-      "region": "Teton Valley",
-      "sourcePlatform": "gotsport",
-      "website": "idahoyouthsoccer.org directory"
-    },
-    {
-      "id": "upper-valley-soccer-club",
-      "name": "Upper Valley Soccer Club",
-      "region": "Rexburg/St Anthony",
-      "sourcePlatform": "gotsport",
-      "website": "idahoyouthsoccer.org directory"
-    },
-    {
-      "id": "valley-soccer-club",
-      "name": "Valley Soccer Club",
-      "region": "Treasure Valley",
-      "sourcePlatform": "gotsport",
-      "website": "idahoyouthsoccer.org directory"
-    },
-    {
-      "id": "idaho-magic-futbol-club",
-      "name": "Idaho Magic Futbol Club",
-      "region": "Magic Valley/Twin Falls",
-      "sourcePlatform": "gotsport",
-      "website": "idahoyouthsoccer.org directory"
-    },
-    {
-      "id": "project-208-fc",
-      "name": "Project 208 FC",
-      "region": "Treasure Valley",
-      "sourcePlatform": "gotsport",
-      "website": "idahoyouthsoccer.org directory"
-    },
-    {
-      "id": "snake-river-soccer-assoc",
-      "name": "Snake River Soccer Assoc",
-      "region": "Eastern Idaho",
-      "sourcePlatform": "gotsport",
-      "website": "idahoyouthsoccer.org directory"
-    },
-    {
-      "id": "sun-valley-soccer-club",
-      "name": "Sun Valley Soccer Club",
-      "region": "Blaine Co/Ketchum",
-      "sourcePlatform": "gotsport",
-      "website": "idahoyouthsoccer.org directory"
-    },
-    {
-      "id": "twin-falls-rapids-sc",
-      "name": "Twin Falls Rapids SC",
-      "region": "Twin Falls/Magic Valley",
-      "sourcePlatform": "gotsport",
-      "website": "idahoyouthsoccer.org directory"
-    },
-    {
-      "id": "villarreal-academy-idaho",
-      "name": "Villarreal Academy Idaho",
-      "region": "Treasure Valley",
-      "sourcePlatform": "gotsport",
-      "website": "idahoyouthsoccer.org directory"
-    },
-    {
-      "id": "post-falls-parks-and-rec-soccer",
-      "name": "Post Falls Parks & Rec Soccer",
-      "region": "Post Falls",
-      "sourcePlatform": "custom",
-      "website": "postfallspolice.gov"
-    },
-    {
-      "id": "cda-parks-and-rec-soccer",
-      "name": "CDA Parks & Rec Soccer",
-      "region": "Coeur d'Alene",
-      "sourcePlatform": "teamsideline",
-      "website": "cdaid.org/parks"
-    },
-    {
-      "id": "bcrd-youth-soccer",
-      "name": "BCRD Youth Soccer",
-      "region": "Bellevue/Carey/Hailey",
-      "sourcePlatform": "custom",
-      "website": "bcrd.org"
-    },
-    {
-      "id": "gate-city-youth-sports-soccer",
-      "name": "Gate City Youth Sports Soccer",
-      "region": "Pocatello/Chubbuck",
-      "sourcePlatform": "custom",
-      "website": "gatecityyouthsports.com"
-    },
-    {
-      "id": "hayden-recreation-youth-soccer",
-      "name": "Hayden Recreation Youth Soccer",
-      "region": "Hayden",
-      "sourcePlatform": "custom",
-      "website": "haydenid.gov"
+      "id": "ihsaa-5a-southern-idaho-conference-high-school",
+      "name": "IHSAA — 5A Southern Idaho Conference (High School)",
+      "level": "competitive",
+      "ageGroups": "HS",
+      "gender": "boys / girls",
+      "season": "fall",
+      "region": "Treasure Valley (Ada / Canyon)",
+      "governingBody": "Idaho High School Activities Association",
+      "sanctioning": "IHSAA / NFHS rules",
+      "website": "MaxPreps — IHSAA 5A Southern Idaho Conf.",
+      "sourceUrl": "https://www.maxpreps.com/id/soccer/25-26/conference/5a-southern-idaho/?leagueid=e6297105-93a7-476e-b82b-8cd222b48386",
+      "notes": "Official conference schedules / standings hosted on MaxPreps."
     }
   ]
 }

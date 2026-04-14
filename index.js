@@ -16,6 +16,7 @@ const functions = require('@google-cloud/functions-framework');
 const { Firestore } = require('@google-cloud/firestore');
 const { Storage } = require('@google-cloud/storage');
 const { getAdapter, listPlatforms } = require('./registry');
+const { buildDashboardSnapshots } = require('./lib/dashboard-snapshots');
 // season-monitor.js exports hashStandings AND self-registers the 'seasonMonitor' Cloud Function
 const { hashStandings } = require('./season-monitor');
 // sheets-sync.js self-registers the 'updateSheet' Cloud Function
@@ -339,40 +340,24 @@ functions.http('collectAll', async (req, res) => {
         divCounts[lid] = (divCounts[lid] || 0) + 1;
       }
 
-      const summaryLeagues = allLeaguesSnap.docs
-        .map(doc => ({ id: doc.id, ...doc.data() }))
-        .filter(l => l.status !== 'template')
-        .map(l => ({
-          id: l.id,
-          name: l.name,
-          sport: l.sport,
-          state: l.state || l.states || '',
-          platform: l.sourcePlatform,
-          status: l.status,
-          region: l.region || null,
-          autoUpdate: l.autoUpdate || false,
-          lastCollected: l.lastCollected || null,
-          lastDataChange: l.lastDataChange || null,
-          monitorStatus: l.monitorStatus || null,
-          divisionCount: divCounts[l.id] || 0,
-        }));
-
-      const summary = {
-        generatedAt: new Date().toISOString(),
-        count: summaryLeagues.length,
-        leagues: summaryLeagues,
-      };
+      const allLeagues = allLeaguesSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const snapshots = buildDashboardSnapshots(allLeagues, divCounts, { agent: 'collectAll' });
 
       const storage = new Storage();
       const bucket = storage.bucket('tu-league-dashboard');
-      const file = bucket.file('leagues-summary.json');
-      await file.save(JSON.stringify(summary), {
+      const summaryFile = bucket.file('leagues-summary.json');
+      await summaryFile.save(JSON.stringify(snapshots.summary), {
         contentType: 'application/json',
         metadata: { cacheControl: 'public, max-age=300' },
       });
-      console.log(`collectAll: leagues-summary.json uploaded (${summaryLeagues.length} leagues)`);
+      const coverageFile = bucket.file('league-coverage-status.json');
+      await coverageFile.save(JSON.stringify(snapshots.coverageStatus), {
+        contentType: 'application/json',
+        metadata: { cacheControl: 'public, max-age=300' },
+      });
+      console.log(`collectAll: dashboard snapshots uploaded (${snapshots.summary.count} leagues)`);
     } catch (summaryErr) {
-      console.warn('collectAll: Summary generation failed (non-fatal):', summaryErr.message);
+      console.warn('collectAll: Dashboard snapshot generation failed (non-fatal):', summaryErr.message);
     }
 
     res.json({ collected: results.length, results });

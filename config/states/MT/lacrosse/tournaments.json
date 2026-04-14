@@ -1,0 +1,49 @@
+{
+  "_description": "MT lacrosse tournaments",
+  "_lastUpdated": "2026-04-13",
+  "tournaments": [
+    {
+      "id": "headwaters-lacrosse-classic",
+      "seriesId": "headwaters-lacrosse-classic",
+      "name": "Headwaters Lacrosse Classic",
+      "startDate": "2026-04-25",
+      "endDate": "2026-04-26",
+      "venue": "Montana State University",
+      "city": "Bozeman",
+      "entryFee": "$150-$800",
+      "sourcePlatform": "sportsengine/tourneymachine",
+      "registrationUrl": "https://treasurestatelacrosse.sportngin.com/register/form/297378837",
+      "ageGroups": "K-2 / 3/4 / 5/6 / 7/8",
+      "gender": "boys / girls",
+      "format": "Festival (Sat only) + Championship (Sat & Sun)",
+      "organizer": "Treasure State Lacrosse / Headwaters Lacrosse Club",
+      "confidence": "high",
+      "sourceUrl": "https://www.treasurestatelacrosse.com/page/show/8790563-headwaters-lacrosse-classic",
+      "notes": "Dates from Headwaters 2026 season page; all games listed at MSU; Tourney Machine link and hotel block provided on event page.",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    },
+    {
+      "id": "northwest-shootout",
+      "seriesId": "northwest-shootout",
+      "name": "Northwest Shootout",
+      "startDate": "2026-05-02",
+      "endDate": "2026-05-03",
+      "venue": "Kidsports Sports Complex",
+      "city": "Kalispell",
+      "entryFee": "$0-$550",
+      "sourcePlatform": "sportsconnect/tourneymachine",
+      "registrationUrl": "https://tourneymachine.com/Register/h2023021621085518295037ab4421940/h20260224172537718daafe649bde846",
+      "ageGroups": "1/2 / 3/4 / 5/6 / 7/8",
+      "gender": "boys / girls",
+      "format": "4-game guarantee; Sat–Sun; central horn",
+      "organizer": "Northwest Lacrosse Association",
+      "sanctioning": "USA Lacrosse",
+      "confidence": "high",
+      "sourceUrl": "https://www.northwestlax.com/Default.aspx?tabid=2244318",
+      "notes": "Registration closes Apr 1; USA Lacrosse membership required; venue historically at Kidsports complex; equipment and vendors on-site.",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    }
+  ]
+}

@@ -1,118 +1,146 @@
 {
   "_description": "ID basketball leagues",
-  "_lastUpdated": "2026-04-12",
+  "_lastUpdated": "2026-04-13",
   "leagues": [
     {
-      "id": "tv-ymca-y-ball",
-      "name": "TV YMCA Y-Ball",
-      "region": "Treasure Valley",
-      "sourcePlatform": "recliquecore",
-      "website": "ymcatvidaho.org"
+      "id": "treasure-valley-family-ymca-y-ball-youth-basketball",
+      "name": "Treasure Valley Family YMCA — Y-Ball Youth Basketball",
+      "level": "rec",
+      "ageGroups": "Grades K-8",
+      "gender": "coed / boys / girls",
+      "season": "fall / winter",
+      "region": "Boise metro (Treasure Valley)",
+      "governingBody": "Treasure Valley Family YMCA",
+      "sanctioning": "none",
+      "website": "Treasure Valley Family YMCA",
+      "sourceUrl": "https://www.ymcatvidaho.org/programs/youth-sports/",
+      "notes": "Recreational league with recurring seasons and posted schedules / standings by division."
     },
     {
-      "id": "idaho-premier-basketball",
-      "name": "Idaho Premier Basketball",
-      "region": "Statewide",
-      "sourcePlatform": "unknown",
-      "website": "idahopremierbasketball.com"
+      "id": "boise-parks-and-recreation-youth-basketball-league",
+      "name": "Boise Parks and Recreation — Youth Basketball League",
+      "level": "rec",
+      "ageGroups": "Grades 1-8",
+      "gender": "coed / boys / girls",
+      "season": "winter",
+      "region": "Boise",
+      "governingBody": "City of Boise Parks and Recreation",
+      "sanctioning": "none",
+      "website": "City of Boise Parks and Recreation",
+      "sourceUrl": "https://www.cityofboise.org/departments/parks-and-recreation/activities-sports/youth-sports/",
+      "notes": "City-run league with season schedules and standings by grade level."
     },
     {
-      "id": "hsb-academy",
-      "name": "HSB Academy",
-      "region": "Meridian",
-      "sourcePlatform": "unknown",
-      "website": "hsbacademy.com"
+      "id": "nampa-parks-and-recreation-youth-basketball",
+      "name": "Nampa Parks & Recreation — Youth Basketball",
+      "level": "rec",
+      "ageGroups": "Grades 1-8",
+      "gender": "coed / boys / girls",
+      "season": "winter",
+      "region": "Nampa",
+      "governingBody": "City of Nampa Parks & Recreation",
+      "sanctioning": "none",
+      "website": "City of Nampa Parks & Recreation",
+      "sourceUrl": "https://www.nampaparksandrecreation.org/programs/youth-sports",
+      "notes": "Municipal seasonal league play with published schedules / results."
     },
     {
-      "id": "idaho-falls-parks-and-rec-hoops",
-      "name": "Idaho Falls Parks & Rec Hoops",
+      "id": "idaho-falls-parks-and-recreation-youth-basketball",
+      "name": "Idaho Falls Parks & Recreation — Youth Basketball",
+      "level": "rec",
+      "ageGroups": "Grades 1-8",
+      "gender": "coed / boys / girls",
+      "season": "winter",
       "region": "Idaho Falls",
-      "sourcePlatform": "custom",
-      "website": "idahofallsidaho.gov"
+      "governingBody": "City of Idaho Falls Parks & Recreation",
+      "sanctioning": "none",
+      "website": "City of Idaho Falls Parks & Recreation",
+      "sourceUrl": "https://www.idahofallsidaho.gov/741/Recreation",
+      "notes": "City program offering league seasons with schedules and standings."
     },
     {
-      "id": "idaho-falls-ymca-basketball",
-      "name": "Idaho Falls YMCA Basketball",
-      "region": "Idaho Falls",
-      "sourcePlatform": "custom",
-      "website": "idahofallsymca.org"
+      "id": "pocatello-recreation-jr-jazz-youth-basketball",
+      "name": "Pocatello Recreation — Jr. Jazz Youth Basketball",
+      "level": "rec",
+      "ageGroups": "Grades 1-8",
+      "gender": "coed / boys / girls",
+      "season": "winter",
+      "region": "Pocatello / Chubbuck",
+      "governingBody": "City of Pocatello Recreation",
+      "sanctioning": "NBA Jr. Jazz",
+      "website": "City of Pocatello Recreation",
+      "sourceUrl": "https://www.pocatello.gov/279/Youth-Sports",
+      "notes": "Jr. Jazz-branded league with recurring winter seasons and standings."
     },
     {
-      "id": "club-apple-youth-basketball",
-      "name": "Club Apple Youth Basketball",
-      "region": "Idaho Falls",
-      "sourcePlatform": "custom",
-      "website": "theclubapple.com"
-    },
-    {
-      "id": "idaho-select-basketball",
-      "name": "Idaho Select Basketball",
-      "region": "Statewide",
-      "sourcePlatform": "unknown",
-      "website": "selectbasketballusa.com"
-    },
-    {
-      "id": "pocatello-jr-jazz-and-d-league",
-      "name": "Pocatello Jr Jazz & D League",
-      "region": "Pocatello",
-      "sourcePlatform": "custom",
-      "website": "pocatello.gov"
-    },
-    {
-      "id": "sei-hoops",
-      "name": "SEI Hoops",
-      "region": "SE Idaho",
-      "sourcePlatform": "unknown",
-      "website": "seihoops.com"
-    },
-    {
-      "id": "magic-valley-madness",
-      "name": "Magic Valley Madness",
-      "region": "Magic Valley",
-      "sourcePlatform": "unknown",
-      "website": "magicvalleymadness.com"
-    },
-    {
-      "id": "upward-sports-twin-falls",
-      "name": "Upward Sports Twin Falls",
+      "id": "twin-falls-parks-and-recreation-youth-basketball",
+      "name": "Twin Falls Parks & Recreation — Youth Basketball",
+      "level": "rec",
+      "ageGroups": "Grades 1-8",
+      "gender": "coed / boys / girls",
+      "season": "winter",
       "region": "Twin Falls",
-      "sourcePlatform": "custom",
-      "website": "tfnaz.church/upward-sports"
+      "governingBody": "City of Twin Falls Parks & Recreation",
+      "sanctioning": "none",
+      "website": "City of Twin Falls Parks & Recreation",
+      "sourceUrl": "https://www.tfid.org/283/Parks-Recreation",
+      "notes": "Community league with seasonal play and posted schedules."
     },
     {
-      "id": "lewiston-parks-and-rec-hoops",
-      "name": "Lewiston Parks & Rec Hoops",
-      "region": "Lewiston",
-      "sourcePlatform": "civicrec",
-      "website": "cityoflewiston.org"
+      "id": "coeur-d-alene-recreation-department-youth-basketball",
+      "name": "Coeur d’Alene Recreation Department — Youth Basketball",
+      "level": "rec",
+      "ageGroups": "Grades 1-8",
+      "gender": "coed / boys / girls",
+      "season": "winter",
+      "region": "Coeur d’Alene",
+      "governingBody": "City of Coeur d’Alene Recreation",
+      "sanctioning": "none",
+      "website": "City of Coeur d’Alene Recreation",
+      "sourceUrl": "https://www.cdaid.org/parks",
+      "notes": "City-run league with divisions by grade and standings."
     },
     {
-      "id": "power-of-the-club-basketball",
-      "name": "Power of the Club Basketball",
-      "region": "Lewiston",
-      "sourcePlatform": "custom",
-      "website": "poweroftheclub.org"
+      "id": "post-falls-parks-and-recreation-youth-basketball",
+      "name": "Post Falls Parks & Recreation — Youth Basketball",
+      "level": "rec",
+      "ageGroups": "Grades 1-8",
+      "gender": "coed / boys / girls",
+      "season": "winter",
+      "region": "Post Falls",
+      "governingBody": "City of Post Falls Parks & Recreation",
+      "sanctioning": "none",
+      "website": "City of Post Falls Parks & Recreation",
+      "sourceUrl": "https://www.postfallsidaho.org/departments/parks-recreation/",
+      "notes": "Seasonal league play with schedules and results posted."
     },
     {
-      "id": "bcrd-youth-basketball",
-      "name": "BCRD Youth Basketball",
-      "region": "Bellevue/Hailey/Ketchum",
-      "sourcePlatform": "custom",
-      "website": "bcrd.org"
+      "id": "ihsaa-5a-southern-idaho-conference-basketball",
+      "name": "IHSAA — 5A Southern Idaho Conference (Basketball)",
+      "level": "high school",
+      "ageGroups": "Grades 9-12",
+      "gender": "boys / girls",
+      "season": "winter",
+      "region": "Southwest Idaho",
+      "governingBody": "Idaho High School Activities Association",
+      "sanctioning": "IHSAA",
+      "website": "Idaho High School Activities Association",
+      "sourceUrl": "https://idhsaa.org/",
+      "notes": "Conference-based league with regular-season schedules and standings."
     },
     {
-      "id": "moscow-parks-and-rec-hoops",
-      "name": "Moscow Parks & Rec Hoops",
-      "region": "Moscow",
-      "sourcePlatform": "custom",
-      "website": "ci.moscow.id.us"
-    },
-    {
-      "id": "idaho-stags",
-      "name": "Idaho Stags",
-      "region": "Treasure Valley",
-      "sourcePlatform": "unknown",
-      "website": "idahostags.com"
+      "id": "ihsaa-5a-inland-empire-league-basketball",
+      "name": "IHSAA — 5A Inland Empire League (Basketball)",
+      "level": "high school",
+      "ageGroups": "Grades 9-12",
+      "gender": "boys / girls",
+      "season": "winter",
+      "region": "North Idaho",
+      "governingBody": "Idaho High School Activities Association",
+      "sanctioning": "IHSAA",
+      "website": "Idaho High School Activities Association",
+      "sourceUrl": "https://idhsaa.org/",
+      "notes": "Conference league for North Idaho schools with schedules and standings."
     }
   ]
 }

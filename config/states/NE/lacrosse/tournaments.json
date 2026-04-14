@@ -1,0 +1,49 @@
+{
+  "_description": "NE lacrosse tournaments",
+  "_lastUpdated": "2026-04-13",
+  "tournaments": [
+    {
+      "id": "olc-girls-tournament",
+      "seriesId": "olc-girls-tournament",
+      "name": "OLC Girls Tournament",
+      "startDate": "2026-05-02",
+      "endDate": "2026-05-02",
+      "venue": "CHI Health MultiSport Complex",
+      "city": "La Vista",
+      "sourcePlatform": "omahalacrosseclub",
+      "registrationUrl": "https://www.omahalacrosseclub.com/team-registration",
+      "ageGroups": "3rd/4th grade / 5th/6th grade / 7th/8th grade",
+      "gender": "girls",
+      "format": "7v7 or 12v12",
+      "organizer": "Omaha Lacrosse Club",
+      "sanctioning": "USA Lacrosse",
+      "confidence": "medium",
+      "sourceUrl": "https://elkhornathletics.org/lacrosse/",
+      "notes": "Published on Elkhorn Athletic Association 2026 girls lacrosse page as an Omaha tournament hosted by OLC; no standalone event page or team-count page found.",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    },
+    {
+      "id": "olc-spring-boys-season-ending-tournament",
+      "seriesId": "olc-spring-boys-season-ending-tournament",
+      "name": "OLC Spring Boys Season-Ending Tournament",
+      "startDate": "2026-05-10",
+      "endDate": "2026-05-10",
+      "venue": "CHI Health MultiSport Complex",
+      "city": "La Vista",
+      "entryFee": "$1750-$2250",
+      "sourcePlatform": "omahalacrosseclub",
+      "registrationUrl": "https://www.omahalacrosseclub.com/team-registration",
+      "ageGroups": "1st/2nd grade / 3rd/4th grade / 5th/6th grade / 7th/8th grade",
+      "gender": "boys",
+      "format": "full field / half field",
+      "organizer": "Omaha Lacrosse Club",
+      "sanctioning": "USA Lacrosse",
+      "confidence": "medium",
+      "sourceUrl": "https://www.omahalacrosseclub.com/team-registration",
+      "notes": "2026 team-registration page lists May 10 as Tournament; 2025 OLC schedule shows the same spring endpoint used for playoffs and championships, so the exact 2026 bracket structure is inferred from the recurring spring format.",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    }
+  ]
+}

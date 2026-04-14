@@ -1,167 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--
-  ____                _           _ _
- |  _ \ ___ _ __ _ __| | _____  _(_) |_ _   _
- | |_) / _ \ '__| '__| |/ _ \ \/ / | __| | | |
- |  __/  __/ |  | |  | |  __/>  <| | |_| |_| |
- |_|   \___|_|  |_|  |_|\___/_/\_\_|\__|\__, |
-                                         |___/
-  ____                            _
- / ___|___  _ __ ___  _ __  _   _| |_ ___ _ __
-| |   / _ \| '_ ` _ \| '_ \| | | | __/ _ \ '__|
-| |__| (_) | | | | | | |_) | |_| | ||  __/ |
- \____\___/|_| |_| |_| .__/ \__,_|\__\___|_|
-                      |_|
-
-Built with Perplexity Computer — https://www.perplexity.ai/computer
--->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teams United — League Dashboard</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeamsUnited League Operations Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <div class="dashboard">
-    <!-- Top Bar -->
-    <header class="topbar">
-      <div class="topbar-left">
-        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" aria-label="Teams United logo" fill="none">
-          <rect x="2" y="2" width="28" height="28" rx="6" fill="#2E7D32"/>
-          <path d="M9 11h14v2H9zm0 4h10v2H9zm0 4h12v2H9z" fill="rgba(255,255,255,0.9)"/>
-          <circle cx="24" cy="21" r="3" fill="rgba(255,255,255,0.9)"/>
-        </svg>
-        <div class="topbar-titles">
-          <h1 class="topbar-brand">Teams United</h1>
-          <span class="topbar-subtitle">League Dashboard</span>
+  <div class="page-shell">
+    <header class="masthead">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-      </div>
-      <div class="topbar-right">
-        <span class="refresh-label" id="lastRefreshed">Loading...</span>
-        <button class="btn-refresh" id="btnRefresh" title="Refresh data" aria-label="Refresh data">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.65 2.35A7.96 7.96 0 008 0C3.58 0 .01 3.58.01 8S3.58 16 8 16c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 018 14 6 6 0 012 8a6 6 0 016-6c1.66 0 3.14.69 4.22 1.78L9 7h7V0l-2.35 2.35z" fill="currentColor"/></svg>
-        </button>
+        <div>
+          <div class="eyebrow">TeamsUnited Operations</div>
+          <h1>League Operations Dashboard</h1>
+          <p class="lede">Research finds tournaments and leagues. Ingest makes them trackable. Agents build them out. TeamsUnited exposes the result. This page is the operating view of that system.</p>
+          <nav class="view-tabs masthead-tabs" id="viewTabs" aria-label="Dashboard views">
+            <button class="view-tab" data-view="system" type="button">System Map</button>
+            <button class="view-tab active" data-view="leagues" type="button">League Operations</button>
+            <button class="view-tab" data-view="research" type="button">Research Rollout</button>
+            <button class="view-tab" data-view="tournaments" type="button">Tournament Rollout</button>
+            <button class="view-tab" data-view="ops" type="button">Agents</button>
+          </nav>
+        </div>
       </div>
     </header>
 
-    <!-- Sport Tabs -->
-    <nav class="sport-tabs" id="sportTabs" role="tablist">
-      <button class="sport-tab active" data-sport="soccer" role="tab" aria-selected="true">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5L6.5 5 3 5.5l2.5 2.5L5 11.5 8 10l3 1.5-.5-3.5L13 5.5 9.5 5z" stroke="currentColor" stroke-width="1" fill="none"/></svg>
-        Soccer <span class="tab-badge" id="badge-soccer">0</span>
-      </button>
-      <button class="sport-tab" data-sport="baseball" role="tab" aria-selected="false">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M4 3c1.5 2 1.5 8 0 10M12 3c-1.5 2-1.5 8 0 10" stroke="currentColor" stroke-width="1"/></svg>
-        Baseball <span class="tab-badge" id="badge-baseball">0</span>
-      </button>
-      <button class="sport-tab" data-sport="basketball" role="tab" aria-selected="false">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M1 8h14M8 1v14M3 3c3 2 7 2 10 0M3 13c3-2 7-2 10 0" stroke="currentColor" stroke-width="1"/></svg>
-        Basketball <span class="tab-badge" id="badge-basketball">0</span>
-      </button>
-      <button class="sport-tab" data-sport="hockey" role="tab" aria-selected="false">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><ellipse cx="8" cy="8" rx="3" ry="2" stroke="currentColor" stroke-width="1"/></svg>
-        Hockey <span class="tab-badge" id="badge-hockey">0</span>
-      </button>
-      <button class="sport-tab" data-sport="lacrosse" role="tab" aria-selected="false">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="2" x2="8" y2="14" stroke="currentColor" stroke-width="1"/><line x1="2" y1="8" x2="14" y2="8" stroke="currentColor" stroke-width="1"/></svg>
-        Lacrosse <span class="tab-badge" id="badge-lacrosse">0</span>
-      </button>
-    </nav>
+    <section class="hero-grid">
+      <div class="hero-panel">
+        <div class="hero-kicker">Operating Pulse</div>
+        <div class="hero-copy" id="heroCopy">Loading the latest league and coverage data.</div>
+        <div class="hero-strips" id="heroStrips"></div>
+      </div>
+      <div class="metric-grid" id="metricGrid"></div>
+    </section>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <!-- Filter Bar -->
-      <div class="filter-bar" id="filterBar">
-        <div class="filter-group">
-          <select id="filterLeague" class="filter-select">
-            <option value="">All Leagues</option>
-          </select>
-          <select id="filterStatus" class="filter-select">
-            <option value="">All Statuses</option>
-            <option value="active">Active</option>
-            <option value="pending_groups">Pending Groups</option>
-            <option value="pending_config">Pending Config</option>
-            <option value="pending_tabid">Pending Tab ID</option>
-            <option value="pending_adapter">Pending Adapter</option>
-            <option value="inactive">Inactive</option>
-          </select>
-          <select id="filterState" class="filter-select">
-            <option value="">All States</option>
-          </select>
-          <select id="filterGender" class="filter-select" disabled>
-            <option value="">All Genders</option>
-          </select>
-          <select id="filterAgeGroup" class="filter-select" disabled>
-            <option value="">All Age Groups</option>
-          </select>
-          <div class="search-wrapper">
-            <svg class="search-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><line x1="10.5" y1="10.5" x2="15" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <input type="text" id="filterSearch" class="filter-input" placeholder="Search...">
+    <main class="dashboard-body">
+      <section class="view-panel" data-view="ops">
+        <section class="panel" id="currentSlicePanel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-kicker">Agent Runtime</div>
+              <h2>Live-ish agent status, rollout progress, flags, and recent logs without the stale embedded snapshot.</h2>
+            </div>
+            <div class="panel-note" id="opsGenerated">Ops payload loading</div>
           </div>
-          <button class="btn-clear" id="btnClearFilters">Clear Filters</button>
-        </div>
-      </div>
+          <div class="ops-summary-grid" id="opsSummaryGrid"></div>
+          <div class="ops-flag-list" id="opsFlagList"></div>
+          <div class="ops-section-stack">
+            <section class="ops-subpanel">
+              <div class="panel-kicker">Core Fleet</div>
+              <div class="ops-agent-grid" id="opsAgentGrid"></div>
+            </section>
+            <section class="ops-subpanel">
+              <div class="panel-kicker">Standby</div>
+              <div class="ops-agent-grid compact" id="opsStandbyGrid"></div>
+            </section>
+            <section class="ops-subpanel">
+              <div class="panel-kicker">Paused / Disabled</div>
+              <div class="ops-agent-grid compact" id="opsPausedGrid"></div>
+            </section>
+            <section class="ops-subpanel">
+              <div class="panel-kicker">State Rollout</div>
+              <div class="ops-rollout-grid" id="opsRolloutGrid"></div>
+            </section>
+          </div>
+          <div class="ops-subpanel">
+            <div class="ops-log-headline">
+              <div class="panel-kicker">Recent Logs</div>
+              <div class="panel-note">Collapsed by default</div>
+            </div>
+            <details class="ops-log-shell">
+              <summary>Open recent run logs</summary>
+              <div class="ops-log-list" id="opsLogList"></div>
+            </details>
+          </div>
+        </section>
+      </section>
 
-      <!-- KPI Cards -->
-      <div class="kpi-row" id="kpiRow">
-        <div class="kpi-card">
-          <div class="kpi-label">Active Leagues</div>
-          <div class="kpi-value" id="kpiActive">—</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Total Divisions</div>
-          <div class="kpi-value" id="kpiDivisions">—</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">With Data</div>
-          <div class="kpi-value" id="kpiWithData">—</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Platforms</div>
-          <div class="kpi-value" id="kpiPlatforms">—</div>
-        </div>
-      </div>
+      <section class="view-panel" data-view="system">
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-kicker">System Flow</div>
+              <h2>Research breadth, ingest footprint, buildout throughput, and live division visibility.</h2>
+            </div>
+          </div>
+          <div class="system-rail" id="systemRail"></div>
+        </section>
 
-      <!-- Breadcrumb -->
-      <div class="breadcrumb" id="breadcrumb" style="display:none;">
-        <button class="breadcrumb-link" id="bcSport"></button>
-        <span class="breadcrumb-sep">›</span>
-        <button class="breadcrumb-link" id="bcLeague" style="display:none;"></button>
-        <span class="breadcrumb-sep" id="bcLeagueSep" style="display:none;">›</span>
-        <span class="breadcrumb-current" id="bcCurrent"></span>
-      </div>
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-kicker">Current Blockers</div>
+              <h2>The things that actually slow full buildout down.</h2>
+            </div>
+          </div>
+          <div class="blocker-list" id="blockerList"></div>
+        </section>
+      </section>
 
-      <!-- Data Table Container -->
-      <div class="table-container" id="tableContainer">
-        <div class="loading-state" id="loadingState">
-          <div class="spinner"></div>
-          <span>Loading league data...</span>
+      <section class="view-panel active" data-view="leagues">
+        <section class="control-bar panel" id="controlBar">
+          <div class="panel-head">
+            <div>
+              <div class="panel-kicker">League Filters</div>
+              <h2>Use sport, state, status, and league together before drilling into the directory.</h2>
+            </div>
+          </div>
+          <div class="sport-tabs" id="sportTabs"></div>
+          <div class="filter-bar">
+            <select id="filterState" class="filter-input">
+              <option value="">All states</option>
+            </select>
+            <select id="filterStatus" class="filter-input">
+              <option value="">All statuses</option>
+            </select>
+            <select id="filterLeague" class="filter-input">
+              <option value="">All leagues</option>
+            </select>
+            <input id="filterSearch" class="filter-input text" type="search" placeholder="Search league, region, platform">
+          </div>
+          <div class="scope-line" id="scopeLine">Viewing current slice</div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-kicker">Current Slice</div>
+              <h2 id="sportFocusTitle">Selected slice loading</h2>
+            </div>
+          </div>
+          <div class="focus-grid" id="sportFocus"></div>
+          <div class="selected-league-strip" id="selectedLeagueStrip" hidden></div>
+          <div class="stacked-bars" id="pipelineBars"></div>
+        </section>
+
+        <div class="ops-work-grid" id="leagueWorkspace">
+          <section class="panel" id="directoryPanel">
+            <div class="panel-head">
+              <div>
+                <div class="panel-kicker">League Directory</div>
+                <h2>Pick a league from the current slice.</h2>
+              </div>
+              <div class="panel-note" id="leagueCountNote">0 leagues</div>
+            </div>
+            <div class="table-wrap">
+              <table class="league-table">
+                <thead>
+                  <tr>
+                    <th>League</th>
+                    <th>State</th>
+                    <th>Status</th>
+                    <th>Platform</th>
+                    <th>Divisions</th>
+                    <th>Monitor</th>
+                    <th>Last Collected</th>
+                  </tr>
+                </thead>
+                <tbody id="leagueRows"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel" id="detailPanel" hidden>
+            <div class="panel-head">
+              <div>
+                <div class="panel-kicker">League Build Detail</div>
+                <h2 id="detailTitle">League detail</h2>
+              </div>
+              <div class="detail-actions">
+                <div class="panel-note" id="detailMeta">No league selected</div>
+                <button class="detail-back-button" id="detailBackButton" type="button">Back to league directory</button>
+              </div>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-trail" id="detailTrail"></div>
+              <div class="detail-summary" id="detailSummary"></div>
+              <div class="selected-division-strip" id="selectedDivisionStrip" hidden></div>
+              <div class="table-wrap">
+                <table class="league-table">
+                  <thead>
+                    <tr>
+                      <th>Division</th>
+                      <th>Age Group</th>
+                      <th>Gender</th>
+                      <th>Level</th>
+                      <th>Status</th>
+                      <th>Season</th>
+                    </tr>
+                  </thead>
+                  <tbody id="divisionRows"></tbody>
+                </table>
+              </div>
+              <div class="table-wrap standings-wrap">
+                <div class="standings-head">
+                  <div>
+                    <div class="panel-kicker">Standings</div>
+                    <h3 id="standingsTitle">Select a division to view live team tables.</h3>
+                  </div>
+                  <div class="panel-note" id="standingsMeta">No division selected</div>
+                </div>
+                <table class="league-table standings-table">
+                  <thead>
+                    <tr>
+                      <th>Pos</th>
+                      <th>Team</th>
+                      <th>Pts</th>
+                      <th>GP</th>
+                      <th>W</th>
+                      <th>L</th>
+                      <th>T</th>
+                      <th>GD</th>
+                    </tr>
+                  </thead>
+                  <tbody id="standingRows"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
         </div>
-        <div class="error-state" id="errorState" style="display:none;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><line x1="12" y1="8" x2="12" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="16.5" r="1" fill="currentColor"/></svg>
-          <span id="errorMsg">Failed to load data. Try again.</span>
-          <button class="btn-retry" id="btnRetry">Retry</button>
+
+        <section class="panel" id="stateBuildoutPanel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-kicker">State Buildout</div>
+              <h2>Supporting context for the current sport after you’ve narrowed the slice.</h2>
+            </div>
+          </div>
+          <div class="state-card-grid" id="stateCards"></div>
+        </section>
+
+      </section>
+
+      <section class="view-panel" data-view="research">
+        <div class="section-grid research-grid">
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <div class="panel-kicker">Research Control</div>
+                <h2>See national research progress across all sports, not just the currently selected league sport.</h2>
+              </div>
+            </div>
+            <div class="metric-subgrid" id="researchMetrics"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <div class="panel-kicker">Sport Ownership</div>
+                <h2>Every sport gap should point to an owner and next move instead of reading like mystery debt.</h2>
+              </div>
+            </div>
+            <div class="gap-list" id="gapList"></div>
+          </section>
         </div>
-        <div class="empty-state" id="emptyState" style="display:none;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="2"/><line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="2"/><line x1="9" y1="9" x2="9" y2="21" stroke="currentColor" stroke-width="2"/></svg>
-          <span>No results match your filters</span>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-kicker">State Coverage</div>
+              <h2>Each card shows how far a state is across all 8 sports so you can see where research, ingest, and buildout are lagging.</h2>
+            </div>
+          </div>
+          <div class="matrix-grid" id="matrixGrid"></div>
+        </section>
+      </section>
+
+      <section class="view-panel" data-view="tournaments">
+        <div class="section-grid">
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <div class="panel-kicker">Tournament Rollout</div>
+                <h2>State-by-state tournament progress using the same card logic that made research rollout easy to read.</h2>
+              </div>
+            </div>
+            <div class="metric-subgrid" id="tournamentMetrics"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <div class="panel-kicker">Sport Spread</div>
+                <h2>Which sports are complete across the map and which still need cleanup.</h2>
+              </div>
+            </div>
+            <div class="tournament-sport-grid" id="tournamentSportGrid"></div>
+          </section>
         </div>
-        <table class="data-table" id="dataTable" style="display:none;">
-          <thead id="tableHead"></thead>
-          <tbody id="tableBody"></tbody>
-        </table>
-      </div>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-kicker">Tournament States</div>
+              <h2>Each card shows 8-sport tournament progress, aggregate quality, and the latest touch we can trace.</h2>
+            </div>
+          </div>
+          <div class="selected-tournament-panel" id="selectedTournamentPanel" hidden></div>
+          <div class="ops-rollout-grid" id="tournamentStateGrid"></div>
+        </section>
+      </section>
+
+      <section class="loading-card" id="loadingState">
+        <div class="loading-mark"></div>
+        <strong>Loading dashboard data</strong>
+        <p>Pulling league summary and coverage snapshot.</p>
+      </section>
+
+      <section class="error-card" id="errorState" hidden>
+        <strong>Dashboard load failed</strong>
+        <p id="errorText">Unknown error.</p>
+      </section>
     </main>
-
-    <!-- Footer -->
-    <footer class="dashboard-footer">
-      <span>&copy; 2026 Teams United</span>
-      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
-    </footer>
   </div>
 
   <script src="./app.js"></script>

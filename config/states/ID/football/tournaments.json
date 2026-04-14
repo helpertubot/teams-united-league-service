@@ -1,13 +1,48 @@
 {
-  "_description": "ID football tournament series",
-  "_lastUpdated": "2026-04-12",
+  "_description": "ID football tournaments",
+  "_lastUpdated": "2026-04-13",
   "tournaments": [
     {
-      "id": "idaho-bowl",
-      "name": "Idaho Bowl",
-      "sourcePlatform": "unknown",
-      "cadence": "Annual",
-      "hostVenues": "College campus style"
+      "id": "7he-north-7s",
+      "seriesId": "7he-north-7s",
+      "name": "7he North 7s",
+      "startDate": "2026-04-18",
+      "endDate": "2026-04-19",
+      "venue": "Columbia High School Stadium",
+      "city": "Nampa",
+      "entryFee": "$550",
+      "sourcePlatform": "zorts",
+      "registrationUrl": "https://www.zortssports.com/post/clubHouse?tid=23716",
+      "ageGroups": "8u / 9u / 10u / 11u / 12u / 13u / 14u / 15u / 18u",
+      "gender": "boys",
+      "format": "7v7",
+      "organizer": "Gold Rush 7V7",
+      "confidence": "high",
+      "sourceUrl": "https://www.zortssports.com/post/clubHouse?tid=23716",
+      "notes": "Address 301 S Happy Valley Rd; Zorts player card required; registration closes 2026-04-10.",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    },
+    {
+      "id": "top-gun-ii-the-air-show",
+      "seriesId": "top-gun-ii-the-air-show",
+      "name": "Top Gun II: The Air Show",
+      "startDate": "2026-05-16",
+      "endDate": "2026-05-16",
+      "venue": "TBD (East Idaho)",
+      "city": "Idaho Falls",
+      "entryFee": "$400",
+      "sourcePlatform": "zorts",
+      "registrationUrl": "https://www.zortssports.com/join/tournament/23609",
+      "ageGroups": "10u / 11u / 12u / 13u / 14u / 15u / 18u",
+      "gender": "boys",
+      "format": "7v7",
+      "organizer": "Idaho Air Raid",
+      "confidence": "high",
+      "sourceUrl": "https://www.zortssports.com/join/tournament/23609",
+      "notes": "1-day event; 4 games guaranteed; single-elimination playoffs; $10 family spectator fee; location to be finalized in East Idaho.",
+      "year": 2026,
+      "lifecycle": "upcoming"
     }
   ]
 }

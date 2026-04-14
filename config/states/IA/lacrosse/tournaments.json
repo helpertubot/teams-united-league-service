@@ -1,0 +1,49 @@
+{
+  "_description": "IA lacrosse tournaments",
+  "_lastUpdated": "2026-04-13",
+  "tournaments": [
+    {
+      "id": "ilax-state-championships",
+      "seriesId": "ilax-state-championships",
+      "name": "ILAX State Championships",
+      "startDate": "2026-06-06",
+      "endDate": "2026-06-07",
+      "venue": "Prairie Ridge Sports Complex",
+      "city": "Ankeny",
+      "teamsExpected": "37",
+      "sourcePlatform": "ilax",
+      "registrationUrl": "https://iowalax.com/ilax-championships",
+      "ageGroups": "10U / 12U / 14U / High School",
+      "gender": "Boys / Girls",
+      "format": "Double elimination for most divisions",
+      "organizer": "Iowa Lacrosse Association",
+      "sanctioning": "ILAX",
+      "confidence": "high",
+      "sourceUrl": "https://iowalax.com/spring-2026",
+      "notes": "Spring 2026 page says season concludes June 6-7, 2026 with ILAX State Championships in Ankeny; 2025 championship page provides venue, divisions, 37-team count, and format.",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    },
+    {
+      "id": "ilax-fall-play-day",
+      "seriesId": "ilax-fall-play-day",
+      "name": "ILAX Fall Play Day",
+      "startDate": "2025-10-11",
+      "endDate": "2025-10-11",
+      "venue": "MidAmerican Energy Rec Plex",
+      "city": "West Des Moines",
+      "sourcePlatform": "ilax",
+      "registrationUrl": "https://iowalax.com/fall-play-day",
+      "ageGroups": "10U / 12U / 14U / High School",
+      "gender": "Boys / Girls",
+      "format": "Play day",
+      "organizer": "Iowa Lacrosse Association",
+      "sanctioning": "ILAX",
+      "confidence": "medium",
+      "sourceUrl": "https://iowalax.com/fall-play-day",
+      "notes": "2026 dates TBD; listing shows 2025. Page says low entry fees but does not publish the amount.",
+      "year": 2025,
+      "lifecycle": "upcoming"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "_description": "NH lacrosse tournaments",
+  "_lastUpdated": "2026-04-13",
+  "tournaments": [
+    {
+      "id": "laxjam-2026",
+      "seriesId": "laxjam",
+      "name": "LAXJAM 2026",
+      "startDate": "2026-03-27",
+      "endDate": "2026-03-28",
+      "venue": "Seacoast United Outdoor / Indoor Complex",
+      "city": "Epping",
+      "teamsExpected": "165",
+      "sourcePlatform": "houlaganlacrosse",
+      "registrationUrl": "https://houlaganlacrosse.leagueapps.com/tournaments/4779916-laxjam-2026",
+      "ageGroups": "8U / 10U / 12U / 14U",
+      "gender": "Boys + Girls",
+      "format": "7v7 at 8U / 10U; full field at 12U / 14U; 3 guaranteed 30-minute games; A / B / C pool play; 12U / 14U A-division showdown championship",
+      "organizer": "Houlagan Lacrosse",
+      "confidence": "high",
+      "sourceUrl": "https://houlaganlacrosse.com/laxjam-2026",
+      "notes": "Public page says the event has grown to over 165 teams; fee was not published on the public page or exposed in the JS-gated registration page.",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    },
+    {
+      "id": "nhyla-festival",
+      "seriesId": "nhyla-festival",
+      "name": "NHYLA Festival",
+      "startDate": "2026-06-06",
+      "endDate": "2026-06-07",
+      "venue": "Souhegan High School Complex",
+      "city": "Amherst",
+      "entryFee": "$165-$195",
+      "sourcePlatform": "nhyla",
+      "ageGroups": "8U / 10U / 12U / 14U",
+      "gender": "Boys + Girls",
+      "format": "Festival weekend with each team scheduled for 2 games in a 4-hour block on either Saturday or Sunday",
+      "organizer": "New Hampshire Youth Lacrosse Association",
+      "sanctioning": "USA Lacrosse",
+      "confidence": "medium",
+      "sourceUrl": "https://www.nhyla.org/news_article/show/1346403",
+      "notes": "2026 dates are published by NHYLA; Amherst / Souhegan venue and 2-game festival format follow the recurring 2025 NHYLA festival listing, so venue is inferred.",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "_description": "KS lacrosse tournaments",
+  "_lastUpdated": "2026-04-13",
+  "tournaments": [
+    {
+      "id": "middle-of-the-map-lacrosse-festival",
+      "seriesId": "middle-of-the-map-lacrosse-festival",
+      "name": "Middle of the Map Lacrosse Festival",
+      "startDate": "2026-07-18",
+      "endDate": "2026-07-19",
+      "venue": "Scheels Soccer Park",
+      "city": "Overland Park",
+      "entryFee": "$950-$1950",
+      "sourcePlatform": "midwestlaxevents",
+      "registrationUrl": "https://www.midwestlaxevents.com/middleofthemapsummerfestival",
+      "ageGroups": "Boys 2027-2036 / Girls 2027-2031",
+      "gender": "Boys+Girls",
+      "format": "10v10 boys 2027-2033 / 6v6 plus goalie boys 2034-2036 / 12v12 girls 2027-2031 / 4 game guarantee and championship format",
+      "organizer": "Midwest Lax Events",
+      "sanctioning": "independent",
+      "confidence": "high",
+      "sourceUrl": "https://www.midwestlaxevents.com/middleofthemapsummerfestival",
+      "notes": "Verified Kansas-hosted youth event for 2026. Pricing published by division: boys 2027-2029 $1950, boys 2030-2033 $1250, boys 2034-2036 $950, girls 2027-2029 $1950, girls 2030-2031 $1250.",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    }
+  ]
+}

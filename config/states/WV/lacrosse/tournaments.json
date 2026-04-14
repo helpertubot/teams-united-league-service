@@ -1,0 +1,50 @@
+{
+  "_description": "WV lacrosse tournaments",
+  "_lastUpdated": "2026-04-13",
+  "tournaments": [
+    {
+      "id": "mountain-state-meltdown-middle-school",
+      "seriesId": "mountain-state-meltdown-middle-school",
+      "name": "Mountain State Meltdown Middle School",
+      "startDate": "2025-03-09",
+      "endDate": "2025-03-09",
+      "venue": "East-West Stadium",
+      "city": "Fairmont",
+      "entryFee": "$200-$200",
+      "sourcePlatform": "wvsla/sportsengine",
+      "registrationUrl": "https://cdn3.sportngin.com/attachments/document/9149-3347808/Middle_School_Meltdown.docx",
+      "ageGroups": "Middle School",
+      "gender": "Boys / Girls",
+      "format": "25-minute games / 3 games guaranteed",
+      "organizer": "Fairmont Senior Lacrosse Boosters",
+      "sanctioning": "USA Lacrosse Rules",
+      "confidence": "medium",
+      "sourceUrl": "https://www.wvsla.org/tourneys",
+      "notes": "2026 dates TBD; listing shows 2025. Sponsored by FSHS Lacrosse. Registration deadline on listing was 2025-02-23 and payment due 2025-02-28.",
+      "year": 2025,
+      "lifecycle": "upcoming"
+    },
+    {
+      "id": "mountain-state-meltdown-high-school",
+      "seriesId": "mountain-state-meltdown-high-school",
+      "name": "Mountain State Meltdown High School",
+      "startDate": "2025-03-08",
+      "endDate": "2025-03-08",
+      "venue": "East-West Stadium / The Bridge Sports Complex",
+      "city": "Fairmont / Bridgeport",
+      "entryFee": "$200-$200",
+      "sourcePlatform": "wvsla/sportsengine",
+      "registrationUrl": "https://cdn1.sportngin.com/attachments/document/7a15-3347807/High_School_Meltdown.docx",
+      "ageGroups": "High School",
+      "gender": "Boys / Girls",
+      "format": "25-minute games / 3 games guaranteed",
+      "organizer": "Fairmont Senior Lacrosse Boosters",
+      "sanctioning": "USA Lacrosse Rules",
+      "confidence": "medium",
+      "sourceUrl": "https://www.wvsla.org/tourneys",
+      "notes": "2026 dates TBD; listing shows 2025. Sponsored by FSHS Lacrosse. Girls were listed at East-West Stadium and boys at The Bridge Sports Complex.",
+      "year": 2025,
+      "lifecycle": "upcoming"
+    }
+  ]
+}

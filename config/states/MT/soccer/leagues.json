@@ -1,6 +1,6 @@
 {
   "_description": "MT soccer leagues — extracted from scripts/setup/expand-soccer-ca-id-mt.js",
-  "_lastUpdated": "2026-03-12",
+  "_lastUpdated": "2026-04-13",
   "leagues": [
     {
       "id": "mssl-mt-spring",
@@ -17,6 +17,90 @@
       "sourcePlatform": "gotsport",
       "eventId": "45401",
       "notes": "Fall 2025 season ended. Dormant — monitor will discover Fall 2026 event."
+    },
+    {
+      "id": "montana-state-spring-league-academy",
+      "name": "Montana State Spring League — Academy",
+      "level": "competitive",
+      "ageGroups": "10U-12U",
+      "gender": "boys / girls",
+      "season": "spring",
+      "region": "statewide (Montana)",
+      "governingBody": "Montana Youth Soccer Association",
+      "sanctioning": "US Youth Soccer",
+      "website": "https://www.montanayouthsoccer.com/montana-state-spring-league/",
+      "sourceUrl": "https://system.gotsport.com/org_event/events/43710",
+      "notes": "State-run USYS league play for Academy ages with public schedules / results on GotSport."
+    },
+    {
+      "id": "montana-state-spring-league-classic",
+      "name": "Montana State Spring League — Classic",
+      "level": "competitive",
+      "ageGroups": "13U-19U",
+      "gender": "boys / girls",
+      "season": "spring",
+      "region": "statewide (Montana)",
+      "governingBody": "Montana Youth Soccer Association",
+      "sanctioning": "US Youth Soccer",
+      "website": "https://www.montanayouthsoccer.com/montana-state-spring-league/",
+      "sourceUrl": "https://system.gotsport.com/org_event/events/43710",
+      "notes": "Classic division guidelines published by MYSA; recurring seasonal schedules / results on GotSport."
+    },
+    {
+      "id": "montana-state-spring-league-select",
+      "name": "Montana State Spring League — Select",
+      "level": "competitive",
+      "ageGroups": "13U-19U",
+      "gender": "boys / girls",
+      "season": "spring",
+      "region": "statewide (Montana)",
+      "governingBody": "Montana Youth Soccer Association",
+      "sanctioning": "US Youth Soccer",
+      "website": "https://www.montanayouthsoccer.com/montana-state-spring-league/",
+      "sourceUrl": "https://system.gotsport.com/org_event/events/43710",
+      "notes": "Select division with standings and results; part of statewide MYSA spring league platform."
+    },
+    {
+      "id": "montana-state-spring-league-premier",
+      "name": "Montana State Spring League — Premier",
+      "level": "competitive",
+      "ageGroups": "13U-19U",
+      "gender": "boys / girls",
+      "season": "spring",
+      "region": "statewide (Montana)",
+      "governingBody": "Montana Youth Soccer Association",
+      "sanctioning": "US Youth Soccer",
+      "website": "https://www.montanayouthsoccer.com/montana-state-spring-league/",
+      "sourceUrl": "https://system.gotsport.com/org_event/events/43710",
+      "notes": "Top tier of MYSA spring play; schedules / results on GotSport and pathway to State Cup."
+    },
+    {
+      "id": "montana-state-fall-league-msfl",
+      "name": "Montana State Fall League (MSFL)",
+      "level": "rec",
+      "ageGroups": "10U-15U",
+      "gender": "boys / girls",
+      "season": "fall",
+      "region": "statewide (Montana)",
+      "governingBody": "Montana Youth Soccer Association / member clubs",
+      "sanctioning": "US Youth Soccer",
+      "website": "https://www.montanayouthsoccer.com/montana-state-fall-league/",
+      "sourceUrl": "https://www.montanayouthsoccer.com/montana-state-fall-league/",
+      "notes": "Club-operated statewide league; MYSA posts fall play dates and links to GotSport schedules."
+    },
+    {
+      "id": "yellowstone-premier-league-npl",
+      "name": "Yellowstone Premier League — NPL",
+      "level": "competitive",
+      "ageGroups": "11U-19U",
+      "gender": "boys / girls",
+      "season": "fall / spring",
+      "region": "MT / ID / UT region",
+      "governingBody": "Yellowstone Premier League",
+      "sanctioning": "US Club Soccer (NPL)",
+      "website": "https://www.yellowstonepremierleague.com/",
+      "sourceUrl": "https://www.yellowstonepremierleague.com/",
+      "notes": "Multi-state competitive league with published “Schedules & Standings”; includes Montana clubs and NPL pathway."
     }
   ]
 }

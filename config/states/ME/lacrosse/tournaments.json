@@ -1,0 +1,27 @@
+{
+  "_description": "ME lacrosse tournaments",
+  "_lastUpdated": "2026-04-13",
+  "tournaments": [
+    {
+      "id": "ted-hellier-laxfest",
+      "seriesId": "ted-hellier-laxfest",
+      "name": "Ted Hellier LaxFest",
+      "startDate": "2026-06-06",
+      "endDate": "2026-06-06",
+      "venue": "Wainwright Field Athletic Complex",
+      "city": "South Portland",
+      "entryFee": "$450-$450",
+      "sourcePlatform": "officialeventsite",
+      "registrationUrl": "https://www.tedhellierlaxfest.org/2025-laxfest-details",
+      "ageGroups": "JV / Middle School 7th-8th",
+      "gender": "Boys / Girls",
+      "format": "Festival / 3 games guaranteed / two 20-minute halves / no playoffs",
+      "organizer": "Ted Hellier Community Lacrosse Fund",
+      "confidence": "high",
+      "sourceUrl": "https://www.tedhellierlaxfest.org/2025-laxfest-details",
+      "notes": "2026 event page is live; registration deadline listed as 2026-05-20",
+      "year": 2026,
+      "lifecycle": "upcoming"
+    }
+  ]
+}

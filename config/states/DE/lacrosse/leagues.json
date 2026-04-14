@@ -1,0 +1,82 @@
+{
+  "_description": "DE lacrosse leagues",
+  "_lastUpdated": "2026-04-13",
+  "leagues": [
+    {
+      "id": "eastern-shore-youth-lacrosse-association-boys",
+      "name": "Eastern Shore Youth Lacrosse Association — Boys",
+      "level": "rec",
+      "ageGroups": "K-2 Scoopers / U8 / U10 / U12 / U14",
+      "gender": "boys",
+      "season": "Spring (March–May)",
+      "region": "DE / Eastern Shore MD",
+      "governingBody": "ESYLA",
+      "sanctioning": "USA Lacrosse membership (per program)",
+      "sourceUrl": "https://camdenmidstatelacrosse.sportngin.com/",
+      "notes": "Travel league with Saturday games and season running early March to mid May; Delaware member clubs include Camden / MOT / Atlantic per program pages."
+    },
+    {
+      "id": "eastern-shore-youth-lacrosse-association-girls",
+      "name": "Eastern Shore Youth Lacrosse Association — Girls",
+      "level": "rec",
+      "ageGroups": "K-2 Scoopers / U8 / U10 / U12 / U14",
+      "gender": "girls",
+      "season": "Spring (March–May)",
+      "region": "DE / Eastern Shore MD",
+      "governingBody": "ESYLA",
+      "sanctioning": "USA Lacrosse membership required",
+      "sourceUrl": "https://deturf.com/youth-programs/diamonds-lacrosse/",
+      "notes": "Central Delaware Diamonds compete in ESYLA vs Eastern Shore MD and DE clubs; divisions by grade/age with Saturday games."
+    },
+    {
+      "id": "liberty-lacrosse-association-3rd-4th-grade-a",
+      "name": "Liberty Lacrosse Association — 3rd–4th Grade A",
+      "level": "rec",
+      "ageGroups": "3rd–4th",
+      "gender": "boys",
+      "season": "Spring (March–June)",
+      "region": "DE / MD / SE PA",
+      "governingBody": "Liberty Lacrosse Association",
+      "sourceUrl": "https://www.libertylacrosseassociation.org/standings",
+      "notes": "Regional community league with published standings; Wilmington Wings represent DE among member programs."
+    },
+    {
+      "id": "liberty-lacrosse-association-3rd-4th-grade-b",
+      "name": "Liberty Lacrosse Association — 3rd–4th Grade B",
+      "level": "rec",
+      "ageGroups": "3rd–4th",
+      "gender": "boys",
+      "season": "Spring (March–June)",
+      "region": "DE / MD / SE PA",
+      "governingBody": "Liberty Lacrosse Association",
+      "sourceUrl": "https://www.libertylacrosseassociation.org/standings",
+      "notes": "Parallel competitive tier with its own table; same seasonal structure and geography."
+    },
+    {
+      "id": "diaa-boys-lacrosse-high-school",
+      "name": "DIAA — Boys Lacrosse (High School)",
+      "level": "high school",
+      "ageGroups": "HS Varsity / JV",
+      "gender": "boys",
+      "season": "Spring (March–May)",
+      "region": "DE statewide",
+      "governingBody": "Delaware Interscholastic Athletic Association",
+      "sanctioning": "DIAA / NFHS rules",
+      "sourceUrl": "https://education.delaware.gov/diaa/sport_championships/spring_sports/boys-lacrosse/",
+      "notes": "State-sanctioned league play across conferences with postseason state tournament dates published."
+    },
+    {
+      "id": "diaa-girls-lacrosse-high-school",
+      "name": "DIAA — Girls Lacrosse (High School)",
+      "level": "high school",
+      "ageGroups": "HS Varsity / JV",
+      "gender": "girls",
+      "season": "Spring (March–May)",
+      "region": "DE statewide",
+      "governingBody": "Delaware Interscholastic Athletic Association",
+      "sanctioning": "DIAA / NFHS rules",
+      "sourceUrl": "https://education.delaware.gov/diaa/sport_championships/spring_sports/girls_lacrosse/",
+      "notes": "State-sanctioned league play across conferences with postseason state tournament dates published."
+    }
+  ]
+}
