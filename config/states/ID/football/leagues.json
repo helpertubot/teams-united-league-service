@@ -1,6 +1,6 @@
 {
   "_description": "ID football leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "optimist-youth-football-treasure-valley",
@@ -8,13 +8,14 @@
       "level": "rec",
       "ageGroups": "9U-14U tackle / 8-17 girls flag / flex flag",
       "gender": "coed / girls",
-      "season": "spring flag Apr–May / fall tackle Aug–Oct",
+      "season": "spring flag Apr\u2013May / fall tackle Aug\u2013Oct",
       "region": "Treasure Valley (Ada / Canyon counties)",
       "governingBody": "USA Football",
       "sanctioning": "USA Football enrollment",
       "website": "https://optimistyouthfootball.com/",
       "sourceUrl": "https://optimistyouthfootball.com/calendar/freshman-league-scores-schedule/",
-      "notes": "Community league with published league schedules and scores; home venue at Optimist Youth Sports Complex."
+      "notes": "Community league with published league schedules and scores; home venue at Optimist Youth Sports Complex. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "idaho-youth-football-league-iyfl",
@@ -22,21 +23,22 @@
       "level": "competitive",
       "ageGroups": "6U-8U flag / 8U flex / 9U-14U tackle / girls flag",
       "gender": "coed / girls",
-      "season": "spring flag-flex / summer–fall tackle Jul–Oct",
+      "season": "spring flag-flex / summer\u2013fall tackle Jul\u2013Oct",
       "region": "Ada / Canyon / Twin Falls",
       "governingBody": "American Youth Football (AYF)",
       "sanctioning": "AYF",
       "website": "https://idahoyouthfootballleague.com/",
       "sourceUrl": "https://idahoyouthfootballleague.com/schedules-and-scores/",
-      "notes": "AYF-affiliated travel league with schedules and scores posted; playoff pathway to AYF regionals."
+      "notes": "AYF-affiliated travel league with schedules and scores posted; playoff pathway to AYF regionals. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "southeast-idaho-youth-football-league-siyfl",
       "name": "Southeast Idaho Youth Football League (SIYFL)",
       "level": "rec",
-      "ageGroups": "4th–8th grade",
+      "ageGroups": "4th\u20138th grade",
       "gender": "Boys+Girls",
-      "season": "fall Aug–Oct",
+      "season": "fall Aug\u2013Oct",
       "region": "Pocatello / Blackfoot area (Southeast Idaho)",
       "governingBody": "USA Football",
       "sanctioning": "USA Football enrollment",
@@ -48,10 +50,10 @@
       "id": "north-idaho-junior-tackle-conference",
       "name": "North Idaho Junior Tackle Conference",
       "level": "rec",
-      "ageGroups": "3rd–8th grade",
+      "ageGroups": "3rd\u20138th grade",
       "gender": "Boys+Girls",
       "season": "fall",
-      "region": "North Idaho (Coeur d’Alene / Post Falls / Sandpoint / Lakeland / Timberlake / Silver Valley / Priest River)",
+      "region": "North Idaho (Coeur d\u2019Alene / Post Falls / Sandpoint / Lakeland / Timberlake / Silver Valley / Priest River)",
       "governingBody": "North Idaho Jr Tackle Conference",
       "sanctioning": "USA Football Heads Up",
       "website": "https://www.northidahofootball.com/",
@@ -62,9 +64,9 @@
       "id": "mini-cassia-youth-contact-football-league-mcycfl",
       "name": "Mini-Cassia Youth Contact Football League (MCYCFL)",
       "level": "rec",
-      "ageGroups": "4th–6th grade",
+      "ageGroups": "4th\u20136th grade",
       "gender": "Boys+Girls",
-      "season": "fall Sep–Oct",
+      "season": "fall Sep\u2013Oct",
       "region": "Mini-Cassia (Burley / Rupert / Declo / Oakley / Raft River)",
       "governingBody": "Local 501(c)(3) league",
       "sanctioning": "USA Football coach certification",
@@ -76,15 +78,23 @@
       "id": "idaho-hs-football-ihsaa",
       "name": "Idaho HS Football (IHSAA)",
       "level": "high school",
-      "ageGroups": "grades 9–12",
+      "ageGroups": "grades 9\u201312",
       "gender": "boys",
-      "season": "fall Aug–Nov",
-      "region": "Statewide (6A–1A)",
+      "season": "fall Aug\u2013Nov",
+      "region": "Statewide (6A\u20131A)",
       "governingBody": "Idaho High School Activities Association",
       "sanctioning": "NFHS rules",
       "website": "https://idhsaa.org/football",
       "sourceUrl": "https://www.maxpreps.com/id/association/idaho-high-school-activities-association/football/scores/",
       "notes": "IHSAA uses MaxPreps for statewide schedules / scores / standings each season."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 2,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

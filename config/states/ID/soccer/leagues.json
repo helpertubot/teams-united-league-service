@@ -1,6 +1,6 @@
 {
   "_description": "ID soccer leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "idaho-state-league-isl",
@@ -12,7 +12,7 @@
       "region": "Idaho statewide (Districts 1-4)",
       "governingBody": "Idaho Youth Soccer Association",
       "sanctioning": "US Youth Soccer",
-      "website": "Idaho Youth Soccer — State League",
+      "website": "Idaho Youth Soccer \u2014 State League",
       "sourceUrl": "https://www.idahoyouthsoccer.org/state-league/",
       "notes": "Statewide league with schedules / standings and State Cup pathway."
     },
@@ -26,9 +26,10 @@
       "region": "Southwest Idaho (District 3 / Treasure Valley)",
       "governingBody": "Idaho Youth Soccer Association",
       "sanctioning": "US Youth Soccer",
-      "website": "Idaho Youth Soccer — D3 League",
+      "website": "Idaho Youth Soccer \u2014 D3 League",
       "sourceUrl": "https://www.idahoyouthsoccer.org/wp-content/uploads/sites/171/2024/07/District-3-League-Rules-rev-7.24-Final.pdf",
-      "notes": "IYSA-administered district league; rules specify ages and standings."
+      "notes": "IYSA-administered district league; rules specify ages and standings. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "snake-river-league-srl",
@@ -40,21 +41,21 @@
       "region": "Southeast Idaho (District 2 / Eastern Idaho)",
       "governingBody": "Idaho Youth Soccer Association (admin by BYSL)",
       "sanctioning": "US Youth Soccer",
-      "website": "BYSL — Snake River League info",
+      "website": "BYSL \u2014 Snake River League info",
       "sourceUrl": "https://dt5602vnjxv0c.cloudfront.net/portals/53224/docs/snake%20river%20league%20rules%2020240328.pdf",
       "notes": "Official IYSA district league with published rules / standings."
     },
     {
       "id": "usys-national-league-northwest-conference-premier-1",
-      "name": "USYS National League — Northwest Conference (Premier 1)",
+      "name": "USYS National League \u2014 Northwest Conference (Premier 1)",
       "level": "competitive",
       "ageGroups": "U13-U19",
       "gender": "boys / girls",
       "season": "fall / winter (event-based)",
       "region": "AK / ID / MT / OR / WA / WY",
-      "governingBody": "US Youth Soccer — National League",
+      "governingBody": "US Youth Soccer \u2014 National League",
       "sanctioning": "US Youth Soccer",
-      "website": "National League — Northwest Conference",
+      "website": "National League \u2014 Northwest Conference",
       "sourceUrl": "https://www.thenationalleague.com/northwest-team-based-pathway/",
       "notes": "Multi-state conference including Idaho teams; event-based league with standings."
     },
@@ -68,13 +69,13 @@
       "region": "Idaho statewide",
       "governingBody": "Idaho Premier League",
       "sanctioning": "US Club Soccer",
-      "website": "Idaho Premier League — League Format",
+      "website": "Idaho Premier League \u2014 League Format",
       "sourceUrl": "https://www.idahopremierleague.com/league-format",
       "notes": "Multi-division play (7v7 / 9v9 / 11v11) with promotion / relegation and standings."
     },
     {
       "id": "ecnl-girls-northwest-conference",
-      "name": "ECNL Girls — Northwest Conference",
+      "name": "ECNL Girls \u2014 Northwest Conference",
       "level": "competitive",
       "ageGroups": "U13-U19",
       "gender": "girls",
@@ -82,13 +83,13 @@
       "region": "ID / CA-North / WA / OR / UT / CO",
       "governingBody": "Elite Clubs National League",
       "sanctioning": "US Club Soccer",
-      "website": "Boise Thorns — ECNL overview",
+      "website": "Boise Thorns \u2014 ECNL overview",
       "sourceUrl": "https://boisetimbersthorns.org/programs/elite-clubs-national-league-ecnl/",
-      "notes": "Idaho’s ECNL member competes in the Northwest Conference; national platform with standings."
+      "notes": "Idaho\u2019s ECNL member competes in the Northwest Conference; national platform with standings."
     },
     {
       "id": "ihsaa-5a-southern-idaho-conference-high-school",
-      "name": "IHSAA — 5A Southern Idaho Conference (High School)",
+      "name": "IHSAA \u2014 5A Southern Idaho Conference (High School)",
       "level": "competitive",
       "ageGroups": "HS",
       "gender": "boys / girls",
@@ -96,9 +97,17 @@
       "region": "Treasure Valley (Ada / Canyon)",
       "governingBody": "Idaho High School Activities Association",
       "sanctioning": "IHSAA / NFHS rules",
-      "website": "MaxPreps — IHSAA 5A Southern Idaho Conf.",
+      "website": "MaxPreps \u2014 IHSAA 5A Southern Idaho Conf.",
       "sourceUrl": "https://www.maxpreps.com/id/soccer/25-26/conference/5a-southern-idaho/?leagueid=e6297105-93a7-476e-b82b-8cd222b48386",
       "notes": "Official conference schedules / standings hosted on MaxPreps."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 1,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

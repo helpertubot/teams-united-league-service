@@ -1,6 +1,6 @@
 {
   "_description": "CA softball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "murrieta-valley-girls-softball-association-mvgsa",
@@ -28,7 +28,7 @@
       "sanctioning": "USA Softball",
       "website": "https://www.tvgsa.org",
       "sourceUrl": "https://www.tvgsa.org/",
-      "notes": "Site shows Spring ’26 schedules and league docs."
+      "notes": "Site shows Spring \u201926 schedules and league docs."
     },
     {
       "id": "mission-viejo-girls-softball-mvgs",
@@ -200,7 +200,7 @@
     },
     {
       "id": "fremont-centerville-little-league-softball-program",
-      "name": "Fremont Centerville Little League – Softball program",
+      "name": "Fremont Centerville Little League \u2013 Softball program",
       "level": "rec",
       "ageGroups": "recreational spring + other seasons",
       "gender": "Girls",
@@ -214,7 +214,7 @@
     },
     {
       "id": "usa-softball-of-northern-california-junior-olympic-league",
-      "name": "USA Softball of Northern California — Junior Olympic League",
+      "name": "USA Softball of Northern California \u2014 Junior Olympic League",
       "level": "rec / competitive",
       "ageGroups": "8U / 10U / 12U / 14U / 16U / 18U",
       "gender": "Girls",
@@ -228,7 +228,7 @@
     },
     {
       "id": "usa-softball-of-southern-california-junior-olympic-recreational-",
-      "name": "USA Softball of Southern California — Junior Olympic Recreational Program",
+      "name": "USA Softball of Southern California \u2014 Junior Olympic Recreational Program",
       "level": "rec",
       "ageGroups": "8U / 10U / 12U / 14U / 16U / 18U",
       "gender": "Girls",
@@ -238,11 +238,12 @@
       "sanctioning": "USA Softball",
       "website": "https://www.usasoftballsocal.com/",
       "sourceUrl": "https://www.usasoftballsocal.com/links/",
-      "notes": "Umbrella body for 7 SoCal districts each operating independent recurring recreational leagues"
+      "notes": "Umbrella body for 7 SoCal districts each operating independent recurring recreational leagues [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "usa-softball-of-sacramento-recreational-leagues",
-      "name": "USA Softball of Sacramento — Recreational Leagues",
+      "name": "USA Softball of Sacramento \u2014 Recreational Leagues",
       "level": "rec",
       "ageGroups": "10U / 12U / 14U",
       "gender": "Girls",
@@ -256,7 +257,7 @@
     },
     {
       "id": "usa-softball-of-central-california-junior-olympic-program",
-      "name": "USA Softball of Central California — Junior Olympic Program",
+      "name": "USA Softball of Central California \u2014 Junior Olympic Program",
       "level": "rec / competitive",
       "ageGroups": "8U / 10U / 12U / 14U / 16U / 18U",
       "gender": "Girls",
@@ -270,27 +271,28 @@
     },
     {
       "id": "little-league-baseball-and-softball-norcal-girls-regular-season",
-      "name": "Little League Baseball & Softball — NorCal Girls Regular Season",
+      "name": "Little League Baseball & Softball \u2014 NorCal Girls Regular Season",
       "level": "rec",
-      "ageGroups": "Minor Softball (7–12) / Major Softball (9–12) / Junior Softball (12–14) / Senior Softball (13–16)",
+      "ageGroups": "Minor Softball (7\u201312) / Major Softball (9\u201312) / Junior Softball (12\u201314) / Senior Softball (13\u201316)",
       "gender": "Girls",
-      "season": "Spring (Mar–Jun)",
+      "season": "Spring (Mar\u2013Jun)",
       "region": "Northern California (31 districts)",
-      "governingBody": "Little League International — NorCal Region",
+      "governingBody": "Little League International \u2014 NorCal Region",
       "sanctioning": "Little League International",
       "website": "https://norcalda.com/",
       "sourceUrl": "https://norcalda.com/tournaments/sb-little-league/",
-      "notes": "31 NorCal districts each run local regular-season schedules with standings ahead of district and state tournaments"
+      "notes": "31 NorCal districts each run local regular-season schedules with standings ahead of district and state tournaments [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "little-league-baseball-and-softball-socal-girls-regular-season",
-      "name": "Little League Baseball & Softball — SoCal Girls Regular Season",
+      "name": "Little League Baseball & Softball \u2014 SoCal Girls Regular Season",
       "level": "rec",
-      "ageGroups": "Minor Softball (7–12) / Major Softball (9–12) / Junior Softball (12–14) / Senior Softball (13–16)",
+      "ageGroups": "Minor Softball (7\u201312) / Major Softball (9\u201312) / Junior Softball (12\u201314) / Senior Softball (13\u201316)",
       "gender": "Girls",
-      "season": "Spring (Mar–Jun)",
+      "season": "Spring (Mar\u2013Jun)",
       "region": "Southern California (39 districts)",
-      "governingBody": "Little League International — SoCal Region",
+      "governingBody": "Little League International \u2014 SoCal Region",
       "sanctioning": "Little League International",
       "website": "https://www.socallittleleague.org/",
       "sourceUrl": "https://www.socallittleleague.org/Default.aspx?tabid=1498527",
@@ -298,7 +300,7 @@
     },
     {
       "id": "norcal-girls-softball-association-fall-ball-spring-leagues",
-      "name": "NorCal Girls Softball Association — Fall Ball / Spring Leagues",
+      "name": "NorCal Girls Softball Association \u2014 Fall Ball / Spring Leagues",
       "level": "rec / competitive",
       "ageGroups": "8U / 10U / 12U / 14U / 16U",
       "gender": "Girls",
@@ -312,7 +314,7 @@
     },
     {
       "id": "pacifica-girls-softball-league-spring-fall-recreational-league",
-      "name": "Pacifica Girls Softball League — Spring / Fall Recreational League",
+      "name": "Pacifica Girls Softball League \u2014 Spring / Fall Recreational League",
       "level": "rec",
       "ageGroups": "6U / 8U / 10U / 12U / 14U",
       "gender": "Girls",
@@ -322,11 +324,11 @@
       "sanctioning": "USA Softball",
       "website": "https://www.thepgsl.com/",
       "sourceUrl": "https://www.thepgsl.com/program/spring-ball/15928",
-      "notes": "501(c)(3) nonprofit; Spring evaluations in Jan through late-Apr playoffs; Fall Aug–early Nov"
+      "notes": "501(c)(3) nonprofit; Spring evaluations in Jan through late-Apr playoffs; Fall Aug\u2013early Nov"
     },
     {
       "id": "oakland-girls-softball-league-spring-fall-recreational-league",
-      "name": "Oakland Girls Softball League — Spring / Fall Recreational League",
+      "name": "Oakland Girls Softball League \u2014 Spring / Fall Recreational League",
       "level": "rec",
       "ageGroups": "6U / 8U / 10U / 14U",
       "gender": "Girls",
@@ -336,11 +338,12 @@
       "sanctioning": "Independent",
       "website": "https://www.ogsl.org/",
       "sourceUrl": "https://www.ogsl.org/",
-      "notes": "Spring season Feb–May; Fall season Sep–Oct; also fields competitive travel Vipers teams in summer"
+      "notes": "Spring season Feb\u2013May; Fall season Sep\u2013Oct; also fields competitive travel Vipers teams in summer [auto-quarantine 2026-04-15: generic-platform:squarespace]",
+      "status": "quarantine"
     },
     {
       "id": "albany-berkeley-girls-softball-league-spring-league",
-      "name": "Albany Berkeley Girls Softball League — Spring League",
+      "name": "Albany Berkeley Girls Softball League \u2014 Spring League",
       "level": "rec",
       "ageGroups": "Youth divisions (ages unspecified)",
       "gender": "Girls",
@@ -354,9 +357,9 @@
     },
     {
       "id": "ventura-girls-fastpitch-spring-recreational-league",
-      "name": "Ventura Girls Fastpitch — Spring Recreational League",
+      "name": "Ventura Girls Fastpitch \u2014 Spring Recreational League",
       "level": "rec",
-      "ageGroups": "BlastBall (co-ed 3–4) / 6U / 8U / 10U / 12U / 14U",
+      "ageGroups": "BlastBall (co-ed 3\u20134) / 6U / 8U / 10U / 12U / 14U",
       "gender": "Girls (co-ed at BlastBall)",
       "season": "Spring",
       "region": "Ventura",
@@ -364,7 +367,7 @@
       "sanctioning": "Independent",
       "website": "https://www.vgfp.org/",
       "sourceUrl": "https://www.vgfp.org/page/show/5399551-league-info",
-      "notes": "50-year-old 501(c)(3); concurrent Select competitive teams run Jan–Mar alongside spring rec season"
+      "notes": "50-year-old 501(c)(3); concurrent Select competitive teams run Jan\u2013Mar alongside spring rec season"
     },
     {
       "id": "pacific-coast-fastpitch-league-pcfl",
@@ -372,37 +375,39 @@
       "level": "competitive",
       "ageGroups": "10U / 12U / 14U / 16U / 18U",
       "gender": "Girls",
-      "season": "Fall–Summer (year-round)",
+      "season": "Fall\u2013Summer (year-round)",
       "region": "California / Arizona / Hawaii / Nevada",
       "governingBody": "The Alliance Fastpitch",
       "sanctioning": "The Alliance Fastpitch",
       "website": "https://thealliancefastpitch.com/pcfl/",
       "sourceUrl": "https://thealliancefastpitch.com/pcfl/",
-      "notes": "Regional travel league for top club teams; season culminates in Alliance Fastpitch Championship Series (AFCS)"
+      "notes": "Regional travel league for top club teams; season culminates in Alliance Fastpitch Championship Series (AFCS) [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "cif-southern-section-high-school-girls-softball",
-      "name": "CIF Southern Section — High School Girls Softball",
+      "name": "CIF Southern Section \u2014 High School Girls Softball",
       "level": "high school",
-      "ageGroups": "Varsity / JV (grades 9–12)",
+      "ageGroups": "Varsity / JV (grades 9\u201312)",
       "gender": "Girls",
-      "season": "Spring (Feb 16–Jun 6)",
+      "season": "Spring (Feb 16\u2013Jun 6)",
       "region": "Southern California",
-      "governingBody": "California Interscholastic Federation — Southern Section",
+      "governingBody": "California Interscholastic Federation \u2014 Southern Section",
       "sanctioning": "CIF-State",
       "website": "https://cifss.org/sports/softball/",
       "sourceUrl": "https://cifss.org/sports/softball/",
-      "notes": "Largest CIF section; 28 contests per season; end-of-season playoffs use competitive equity divisioning"
+      "notes": "Largest CIF section; 28 contests per season; end-of-season playoffs use competitive equity divisioning [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "cif-north-coast-section-high-school-girls-softball",
-      "name": "CIF North Coast Section — High School Girls Softball",
+      "name": "CIF North Coast Section \u2014 High School Girls Softball",
       "level": "high school",
-      "ageGroups": "Varsity / JV (grades 9–12)",
+      "ageGroups": "Varsity / JV (grades 9\u201312)",
       "gender": "Girls",
       "season": "Spring",
       "region": "Bay Area / Northern California",
-      "governingBody": "California Interscholastic Federation — North Coast Section",
+      "governingBody": "California Interscholastic Federation \u2014 North Coast Section",
       "sanctioning": "CIF-State",
       "website": "https://www.cifncs.org/sports/softball/index",
       "sourceUrl": "https://www.cifncs.org/sports/softball/index",
@@ -410,13 +415,13 @@
     },
     {
       "id": "cif-central-section-high-school-girls-softball",
-      "name": "CIF Central Section — High School Girls Softball",
+      "name": "CIF Central Section \u2014 High School Girls Softball",
       "level": "high school",
-      "ageGroups": "Varsity / JV (grades 9–12)",
+      "ageGroups": "Varsity / JV (grades 9\u201312)",
       "gender": "Girls",
       "season": "Spring",
       "region": "Central Valley",
-      "governingBody": "California Interscholastic Federation — Central Section",
+      "governingBody": "California Interscholastic Federation \u2014 Central Section",
       "sanctioning": "CIF-State",
       "website": "https://www.cifcs.org/sports/sball/playoffs",
       "sourceUrl": "https://www.cifcs.org/sports/sball/playoffs",
@@ -424,13 +429,13 @@
     },
     {
       "id": "cif-central-coast-section-high-school-girls-softball",
-      "name": "CIF Central Coast Section — High School Girls Softball",
+      "name": "CIF Central Coast Section \u2014 High School Girls Softball",
       "level": "high school",
-      "ageGroups": "Varsity / JV (grades 9–12)",
+      "ageGroups": "Varsity / JV (grades 9\u201312)",
       "gender": "Girls",
-      "season": "Spring (practice Feb 2; games Feb 23–May 6)",
+      "season": "Spring (practice Feb 2; games Feb 23\u2013May 6)",
       "region": "Monterey / Santa Cruz / South Bay",
-      "governingBody": "California Interscholastic Federation — Central Coast Section",
+      "governingBody": "California Interscholastic Federation \u2014 Central Coast Section",
       "sanctioning": "CIF-State",
       "website": "https://www.cifccs.org/sports/sball/index",
       "sourceUrl": "https://www.cifccs.org/sports/sball/index",
@@ -438,13 +443,13 @@
     },
     {
       "id": "cif-san-diego-section-high-school-girls-softball",
-      "name": "CIF San Diego Section — High School Girls Softball",
+      "name": "CIF San Diego Section \u2014 High School Girls Softball",
       "level": "high school",
-      "ageGroups": "Varsity / JV (grades 9–12)",
+      "ageGroups": "Varsity / JV (grades 9\u201312)",
       "gender": "Girls",
       "season": "Spring (games from Feb 24)",
       "region": "San Diego County",
-      "governingBody": "California Interscholastic Federation — San Diego Section",
+      "governingBody": "California Interscholastic Federation \u2014 San Diego Section",
       "sanctioning": "CIF-State",
       "website": "https://www.cifsds.org/sports/sball/index",
       "sourceUrl": "https://www.cifsds.org/sports/sball/index",
@@ -452,9 +457,9 @@
     },
     {
       "id": "rancho-bernardo-girls-softball-league-spring-rec-fall-ball",
-      "name": "Rancho Bernardo Girls Softball League — Spring Rec / Fall Ball",
+      "name": "Rancho Bernardo Girls Softball League \u2014 Spring Rec / Fall Ball",
       "level": "rec",
-      "ageGroups": "Divisions ages 4–14",
+      "ageGroups": "Divisions ages 4\u201314",
       "gender": "Girls",
       "season": "Spring / Fall",
       "region": "Rancho Bernardo / North San Diego County",
@@ -462,11 +467,12 @@
       "sanctioning": "Independent",
       "website": "https://rbgirlssoftball.org/",
       "sourceUrl": "https://rbgirlssoftball.org/about/",
-      "notes": "One of north San Diego County's longest-running leagues; two seasonal play cycles per year"
+      "notes": "One of north San Diego County's longest-running leagues; two seasonal play cycles per year [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "san-dieguito-youth-softball-recreational-league",
-      "name": "San Dieguito Youth Softball — Recreational League",
+      "name": "San Dieguito Youth Softball \u2014 Recreational League",
       "level": "rec",
       "ageGroups": "Youth divisions (ages unspecified)",
       "gender": "Girls",
@@ -477,6 +483,14 @@
       "website": "https://www.sdyssoftball.com/",
       "sourceUrl": "https://www.sdyssoftball.com/",
       "notes": "Self-described \"premier girls fast-pitch USA Softball league\" for coastal north San Diego communities"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 6,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

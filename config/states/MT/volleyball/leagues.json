@@ -1,14 +1,14 @@
 {
   "_description": "MT volleyball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "mhsa-high-school-volleyball-class-aa",
-      "name": "MHSA High School Volleyball — Class AA",
+      "name": "MHSA High School Volleyball \u2014 Class AA",
       "level": "competitive",
       "ageGroups": "grades 9-12",
       "gender": "girls",
-      "season": "Fall (Aug–Nov)",
+      "season": "Fall (Aug\u2013Nov)",
       "region": "Statewide / Class AA conferences",
       "governingBody": "Montana High School Association",
       "sanctioning": "MHSA / NFHS",
@@ -18,11 +18,11 @@
     },
     {
       "id": "mhsa-high-school-volleyball-class-a",
-      "name": "MHSA High School Volleyball — Class A",
+      "name": "MHSA High School Volleyball \u2014 Class A",
       "level": "competitive",
       "ageGroups": "grades 9-12",
       "gender": "girls",
-      "season": "Fall (Aug–Nov)",
+      "season": "Fall (Aug\u2013Nov)",
       "region": "Statewide / Class A conferences",
       "governingBody": "Montana High School Association",
       "sanctioning": "MHSA / NFHS",
@@ -32,11 +32,11 @@
     },
     {
       "id": "mhsa-high-school-volleyball-class-b",
-      "name": "MHSA High School Volleyball — Class B",
+      "name": "MHSA High School Volleyball \u2014 Class B",
       "level": "competitive",
       "ageGroups": "grades 9-12",
       "gender": "girls",
-      "season": "Fall (Aug–Nov)",
+      "season": "Fall (Aug\u2013Nov)",
       "region": "Statewide / Class B districts",
       "governingBody": "Montana High School Association",
       "sanctioning": "MHSA / NFHS",
@@ -46,11 +46,11 @@
     },
     {
       "id": "mhsa-high-school-volleyball-class-c",
-      "name": "MHSA High School Volleyball — Class C",
+      "name": "MHSA High School Volleyball \u2014 Class C",
       "level": "competitive",
       "ageGroups": "grades 9-12",
       "gender": "girls",
-      "season": "Fall (Aug–Nov)",
+      "season": "Fall (Aug\u2013Nov)",
       "region": "Statewide / Class C districts",
       "governingBody": "Montana High School Association",
       "sanctioning": "MHSA / NFHS",
@@ -60,45 +60,55 @@
     },
     {
       "id": "big-sky-volleyball-junior-high-fall-league",
-      "name": "Big Sky Volleyball — Junior High Fall League",
+      "name": "Big Sky Volleyball \u2014 Junior High Fall League",
       "level": "competitive",
       "ageGroups": "grades 6-8 (junior high)",
       "gender": "girls",
-      "season": "Fall (Sept–Oct)",
+      "season": "Fall (Sept\u2013Oct)",
       "region": "Bozeman area / Gallatin County",
       "governingBody": "Big Sky Volleyball Club",
       "sanctioning": "Club-run",
       "website": "https://www.bigskyvolleyball.com/",
       "sourceUrl": "https://www.bigskyvolleyball.com/copy-of-winter-skills",
-      "notes": "Sunday league format across Sept–Oct / recurring seasonal play with league champions noted."
+      "notes": "Sunday league format across Sept\u2013Oct / recurring seasonal play with league champions noted. [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "usyvl-billings-youth-volleyball-league",
-      "name": "USYVL — Billings Youth Volleyball League",
+      "name": "USYVL \u2014 Billings Youth Volleyball League",
       "level": "rec",
       "ageGroups": "ages 7-15 (7-8 / 9-10 / 11-12 / 13-15)",
       "gender": "Boys+Girls",
-      "season": "Spring (Apr–Jun)",
+      "season": "Spring (Apr\u2013Jun)",
       "region": "Billings / Yellowstone County",
       "governingBody": "United States Youth Volleyball League",
       "sanctioning": "USYVL",
       "website": "https://usyvl.org/",
       "sourceUrl": "https://usyvl.org/locations/billings/",
-      "notes": "8-week community league with weekly practices and games on grass / age-based divisions."
+      "notes": "8-week community league with weekly practices and games on grass / age-based divisions. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "billings-family-ymca-high-school-volleyball-league",
-      "name": "Billings Family YMCA — High School Volleyball League",
+      "name": "Billings Family YMCA \u2014 High School Volleyball League",
       "level": "competitive",
       "ageGroups": "grades 9-12",
       "gender": "girls",
-      "season": "Fall (Sept–Nov)",
+      "season": "Fall (Sept\u2013Nov)",
       "region": "Billings / Yellowstone County",
       "governingBody": "Billings Family YMCA",
       "sanctioning": "YMCA",
       "website": "https://billingsymca.org/",
       "sourceUrl": "https://billingsymca.org/programs/high-school-sports/high-school-volleyball-league",
       "notes": "In-house HS league with skills day team formation / separate divisions for 9-10 and 11-12 grades / regular season plus end-of-season tournament."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 2,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

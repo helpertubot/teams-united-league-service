@@ -1,10 +1,10 @@
 {
   "_description": "CA basketball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "national-junior-basketball-njb-spring-co-ed-league",
-      "name": "National Junior Basketball (NJB) – Spring Co-ed League",
+      "name": "National Junior Basketball (NJB) \u2013 Spring Co-ed League",
       "level": "rec",
       "ageGroups": "Grades K-12",
       "gender": "Boys+Girls",
@@ -14,11 +14,12 @@
       "sanctioning": "none stated",
       "website": "https://njbl.org",
       "sourceUrl": "https://njbl.org/",
-      "notes": "NJB homepage advertises Spring Co-ed league registration."
+      "notes": "NJB homepage advertises Spring Co-ed league registration. [auto-quarantine 2026-04-15: generic-platform:squarespace]",
+      "status": "quarantine"
     },
     {
       "id": "national-junior-basketball-njb-all-girls-league",
-      "name": "National Junior Basketball (NJB) – All Girls League",
+      "name": "National Junior Basketball (NJB) \u2013 All Girls League",
       "level": "rec",
       "ageGroups": "Grades K-12",
       "gender": "Girls",
@@ -28,11 +29,12 @@
       "sanctioning": "none stated",
       "website": "https://njbl.org",
       "sourceUrl": "https://njbl.org/",
-      "notes": "NJB homepage advertises All Girls League alongside Spring programs."
+      "notes": "NJB homepage advertises All Girls League alongside Spring programs. [auto-quarantine 2026-04-15: generic-platform:squarespace]",
+      "status": "quarantine"
     },
     {
       "id": "njb-byt-bring-your-team-leagues",
-      "name": "NJB – BYT (Bring Your Team) Leagues",
+      "name": "NJB \u2013 BYT (Bring Your Team) Leagues",
       "level": "competitive",
       "ageGroups": "Grades 2-8",
       "gender": "Boys+Girls",
@@ -42,7 +44,8 @@
       "sanctioning": "none stated",
       "website": "https://njbl.org",
       "sourceUrl": "https://njbl.org/what-is-njb",
-      "notes": "BYT described as competitive leagues for existing teams; treated as separate platform row."
+      "notes": "BYT described as competitive leagues for existing teams; treated as separate platform row. [auto-quarantine 2026-04-15: generic-platform:squarespace]",
+      "status": "quarantine"
     },
     {
       "id": "silicon-valley-njb-njbsv",
@@ -70,7 +73,7 @@
       "sanctioning": "none stated",
       "website": "https://www.breanjb.com",
       "sourceUrl": "https://www.breanjb.com/",
-      "notes": "Chapter site shows “2026 Spring League”."
+      "notes": "Chapter site shows \u201c2026 Spring League\u201d."
     },
     {
       "id": "covina-valley-njb",
@@ -84,7 +87,7 @@
       "sanctioning": "none stated",
       "website": "https://covinavalleynjb.sportngin.com",
       "sourceUrl": "https://covinavalleynjb.sportngin.com/",
-      "notes": "Chapter site shows “2026 Spring League” registration open."
+      "notes": "Chapter site shows \u201c2026 Spring League\u201d registration open."
     },
     {
       "id": "yorba-linda-njb",
@@ -168,7 +171,7 @@
       "sanctioning": "none stated",
       "website": "https://www.lamiradanjb.com",
       "sourceUrl": "https://www.lamiradanjb.com/",
-      "notes": "Chapter site shows “2026 Spring League” registration open."
+      "notes": "Chapter site shows \u201c2026 Spring League\u201d registration open."
     },
     {
       "id": "newport-mesa-njb",
@@ -186,7 +189,7 @@
     },
     {
       "id": "heart-of-los-angeles-junior-jump-shot-basketball-league",
-      "name": "Heart of Los Angeles – Junior Jump Shot Basketball League",
+      "name": "Heart of Los Angeles \u2013 Junior Jump Shot Basketball League",
       "level": "rec",
       "ageGroups": "elementary + middle school",
       "gender": "Boys+Girls",
@@ -196,11 +199,12 @@
       "sanctioning": "none stated",
       "website": "https://heartofla.org",
       "sourceUrl": "https://heartofla.org/basketball/",
-      "notes": "Program described as fall league for elementary/middle school youth."
+      "notes": "Program described as fall league for elementary/middle school youth. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "playla-winter-gpla-basketball-league",
-      "name": "PlayLA – Winter GPLA Basketball League",
+      "name": "PlayLA \u2013 Winter GPLA Basketball League",
       "level": "rec",
       "ageGroups": "youth (PlayLA program)",
       "gender": "Girls",
@@ -214,7 +218,7 @@
     },
     {
       "id": "playla-la-rap-summer-basketball-league-youth",
-      "name": "PlayLA / LA RAP – Summer Basketball League (Youth)",
+      "name": "PlayLA / LA RAP \u2013 Summer Basketball League (Youth)",
       "level": "rec",
       "ageGroups": "ages 9-10.99 (Minors example)",
       "gender": "Boys+Girls",
@@ -224,11 +228,11 @@
       "sanctioning": "none stated",
       "website": "https://recreation.parks.lacity.gov",
       "sourceUrl": "https://reg.recreation.parks.lacity.gov/web/wbwsc/webtrac.wsc/iteminfo.html?FMID=422005674&Module=AR",
-      "notes": "Youth “Summer Basketball League – Minors” page indicates league format/registration."
+      "notes": "Youth \u201cSummer Basketball League \u2013 Minors\u201d page indicates league format/registration."
     },
     {
       "id": "ymca-east-bay-youth-basketball-league",
-      "name": "YMCA East Bay – Youth Basketball League",
+      "name": "YMCA East Bay \u2013 Youth Basketball League",
       "level": "rec",
       "ageGroups": "ages 4-9",
       "gender": "Boys+Girls",
@@ -242,7 +246,7 @@
     },
     {
       "id": "presidio-community-ymca-ymca-sf-youth-basketball-league",
-      "name": "Presidio Community YMCA (YMCA SF) – Youth Basketball League",
+      "name": "Presidio Community YMCA (YMCA SF) \u2013 Youth Basketball League",
       "level": "rec",
       "ageGroups": "Grades K-5",
       "gender": "Boys+Girls",
@@ -252,11 +256,12 @@
       "sanctioning": "none stated",
       "website": "https://www.ymcasf.org",
       "sourceUrl": "https://www.ymcasf.org/program/presidio-youth-sports/",
-      "notes": "Page describes 10-week youth basketball league (Jan–Mar) for K–5."
+      "notes": "Page describes 10-week youth basketball league (Jan\u2013Mar) for K\u20135. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "dow-bay-area-family-ymca-youth-basketball-league",
-      "name": "Dow Bay Area Family YMCA – Youth Basketball League",
+      "name": "Dow Bay Area Family YMCA \u2013 Youth Basketball League",
       "level": "rec",
       "ageGroups": "elementary school",
       "gender": "Boys+Girls",
@@ -266,7 +271,8 @@
       "sanctioning": "none stated",
       "website": "https://www.ymcabaycity.org",
       "sourceUrl": "https://www.ymcabaycity.org/ybl/",
-      "notes": "Site describes league session dates and format."
+      "notes": "Site describes league session dates and format. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "diablo-east-cyo-league-diocese-of-oakland",
@@ -280,29 +286,31 @@
       "sanctioning": "none stated",
       "website": "https://oakdiocese.org",
       "sourceUrl": "https://oakdiocese.org/diablo-east-cyo-basketball",
-      "notes": "Diocese page describes league, member parishes, and links to schedules/standings."
+      "notes": "Diocese page describes league, member parishes, and links to schedules/standings. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "cif-southern-section-boys-girls-basketball",
-      "name": "CIF Southern Section — Boys / Girls Basketball",
+      "name": "CIF Southern Section \u2014 Boys / Girls Basketball",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys / Girls",
-      "season": "Winter (Nov–Feb)",
+      "season": "Winter (Nov\u2013Feb)",
       "region": "Southern California",
       "governingBody": "California Interscholastic Federation",
       "sanctioning": "CIF State",
       "website": "https://cifss.org",
       "sourceUrl": "https://cifss.org/sports/boys-basketball/",
-      "notes": "Open + Div I–V; competitive equity seeding; largest CA section"
+      "notes": "Open + Div I\u2013V; competitive equity seeding; largest CA section [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "cif-san-diego-section-boys-girls-basketball",
-      "name": "CIF San Diego Section — Boys / Girls Basketball",
+      "name": "CIF San Diego Section \u2014 Boys / Girls Basketball",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys / Girls",
-      "season": "Winter (Nov–Feb)",
+      "season": "Winter (Nov\u2013Feb)",
       "region": "San Diego County",
       "governingBody": "California Interscholastic Federation",
       "sanctioning": "CIF State",
@@ -312,37 +320,37 @@
     },
     {
       "id": "cif-los-angeles-city-section-boys-girls-basketball",
-      "name": "CIF Los Angeles City Section — Boys / Girls Basketball",
+      "name": "CIF Los Angeles City Section \u2014 Boys / Girls Basketball",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys / Girls",
-      "season": "Winter (Nov–Feb)",
+      "season": "Winter (Nov\u2013Feb)",
       "region": "City of Los Angeles",
       "governingBody": "California Interscholastic Federation",
       "sanctioning": "CIF State",
       "website": "https://www.cif-la.org",
       "sourceUrl": "https://www.cif-la.org/apps/pages/index.jsp?uREC_ID=49069&type=d&pREC_ID=577203",
-      "notes": "Open + Div I–V; ~200 LAUSD schools"
+      "notes": "Open + Div I\u2013V; ~200 LAUSD schools"
     },
     {
       "id": "cif-north-coast-section-boys-girls-basketball",
-      "name": "CIF North Coast Section — Boys / Girls Basketball",
+      "name": "CIF North Coast Section \u2014 Boys / Girls Basketball",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys / Girls",
-      "season": "Winter (Nov–Feb)",
+      "season": "Winter (Nov\u2013Feb)",
       "region": "North Bay / East Bay (Marin / Sonoma / Contra Costa)",
       "governingBody": "California Interscholastic Federation",
       "sanctioning": "CIF State",
       "website": "https://www.cifncs.org",
       "sourceUrl": "https://www.cifncs.org/sports/basketball/index",
-      "notes": "Championships Feb 17–28; Nor-Cal bracket Mar 3–10"
+      "notes": "Championships Feb 17\u201328; Nor-Cal bracket Mar 3\u201310"
     },
     {
       "id": "cif-sac-joaquin-section-boys-girls-basketball",
-      "name": "CIF Sac-Joaquin Section — Boys / Girls Basketball",
+      "name": "CIF Sac-Joaquin Section \u2014 Boys / Girls Basketball",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys / Girls",
       "season": "Winter",
       "region": "Central Valley / Sacramento",
@@ -354,11 +362,11 @@
     },
     {
       "id": "cif-central-coast-section-boys-girls-basketball",
-      "name": "CIF Central Coast Section — Boys / Girls Basketball",
+      "name": "CIF Central Coast Section \u2014 Boys / Girls Basketball",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys / Girls",
-      "season": "Winter (Nov–Feb)",
+      "season": "Winter (Nov\u2013Feb)",
       "region": "Central Coast / Monterey Bay / Santa Cruz",
       "governingBody": "California Interscholastic Federation",
       "sanctioning": "CIF State",
@@ -368,9 +376,9 @@
     },
     {
       "id": "cif-central-section-boys-girls-basketball",
-      "name": "CIF Central Section — Boys / Girls Basketball",
+      "name": "CIF Central Section \u2014 Boys / Girls Basketball",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys / Girls",
       "season": "Winter",
       "region": "San Joaquin Valley (Fresno / Bakersfield area)",
@@ -382,9 +390,9 @@
     },
     {
       "id": "cif-northern-section-boys-girls-basketball",
-      "name": "CIF Northern Section — Boys / Girls Basketball",
+      "name": "CIF Northern Section \u2014 Boys / Girls Basketball",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys / Girls",
       "season": "Winter",
       "region": "Northernmost CA (Chico / Redding / Shasta area)",
@@ -392,13 +400,14 @@
       "sanctioning": "CIF State",
       "website": "https://cifns.prestosports.com",
       "sourceUrl": "https://cifns.prestosports.com/sports/bkb/index",
-      "notes": "Sparsely populated; covers far north CA schools"
+      "notes": "Sparsely populated; covers far north CA schools [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "cif-oakland-section-boys-girls-basketball",
-      "name": "CIF Oakland Section — Boys / Girls Basketball",
+      "name": "CIF Oakland Section \u2014 Boys / Girls Basketball",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys / Girls",
       "season": "Winter",
       "region": "Oakland / East Bay",
@@ -409,9 +418,9 @@
     },
     {
       "id": "cif-san-francisco-section-boys-girls-basketball",
-      "name": "CIF San Francisco Section — Boys / Girls Basketball",
+      "name": "CIF San Francisco Section \u2014 Boys / Girls Basketball",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys / Girls",
       "season": "Winter",
       "region": "San Francisco",
@@ -425,7 +434,7 @@
       "id": "scmaf-youth-basketball",
       "name": "SCMAF Youth Basketball",
       "level": "Recreational / Competitive",
-      "ageGroups": "Ages 8–15",
+      "ageGroups": "Ages 8\u201315",
       "gender": "Boys / Girls",
       "season": "Winter / Spring",
       "region": "Southern California (10 counties)",
@@ -437,25 +446,26 @@
     },
     {
       "id": "jr-nba-jr-wnba-league-california",
-      "name": "Jr. NBA / Jr. WNBA League — California",
+      "name": "Jr. NBA / Jr. WNBA League \u2014 California",
       "level": "Recreational",
-      "ageGroups": "Ages 6–14 (K–8)",
+      "ageGroups": "Ages 6\u201314 (K\u20138)",
       "gender": "Boys / Girls / Co-ed",
-      "season": "Winter (Jan–Mar)",
+      "season": "Winter (Jan\u2013Mar)",
       "region": "Multiple CA cities (San Francisco / West Sacramento / Pittsburg)",
       "governingBody": "NBA / WNBA",
       "sanctioning": "Jr. NBA",
       "website": "https://jrnbaleagues.com",
       "sourceUrl": "https://jr.nba.com",
-      "notes": "Official NBA youth league program; 8-week seasons; standings tracked"
+      "notes": "Official NBA youth league program; 8-week seasons; standings tracked [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "sf-rec-and-parks-jr-warriors-league",
       "name": "SF Rec & Parks Jr. Warriors League",
       "level": "Recreational",
-      "ageGroups": "K–8",
+      "ageGroups": "K\u20138",
       "gender": "Boys / Girls / Co-ed",
-      "season": "Winter (Jan–Mar)",
+      "season": "Winter (Jan\u2013Mar)",
       "region": "San Francisco",
       "governingBody": "SF Recreation and Parks",
       "sanctioning": "Jr. NBA",
@@ -467,7 +477,7 @@
       "id": "ogp-youth-basketball-league",
       "name": "OGP Youth Basketball League",
       "level": "Recreational",
-      "ageGroups": "K–8",
+      "ageGroups": "K\u20138",
       "gender": "Boys / Girls",
       "season": "Year-round (Winter / Spring / Summer / Fall)",
       "region": "Orange County / Inland Empire (10+ locations)",
@@ -475,13 +485,14 @@
       "sanctioning": "Independent",
       "website": "https://ogpyouthbasketball.com",
       "sourceUrl": "https://ogpyouthbasketball.com",
-      "notes": "6–7 week seasons; 50-min practice + 40-min game weekly"
+      "notes": "6\u20137 week seasons; 50-min practice + 40-min game weekly [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "socal-elite-sports-basketball-league",
-      "name": "SoCal Elite Sports — Basketball League",
+      "name": "SoCal Elite Sports \u2014 Basketball League",
       "level": "Recreational",
-      "ageGroups": "K–8",
+      "ageGroups": "K\u20138",
       "gender": "Boys / Girls",
       "season": "Year-round (Winter primary / Spring / Summer / Fall)",
       "region": "Orange County (Irvine / Tustin)",
@@ -489,13 +500,13 @@
       "sanctioning": "Independent",
       "website": "https://socalelite.org",
       "sourceUrl": "https://socalelite.org/leagues/",
-      "notes": "Primary Winter League runs Nov–Feb; 8–10 games"
+      "notes": "Primary Winter League runs Nov\u2013Feb; 8\u201310 games"
     },
     {
       "id": "south-bay-youth-basketball-gold",
-      "name": "South Bay Youth Basketball — Gold",
+      "name": "South Bay Youth Basketball \u2014 Gold",
       "level": "Competitive",
-      "ageGroups": "Grades 1–9",
+      "ageGroups": "Grades 1\u20139",
       "gender": "Boys / Girls",
       "season": "Fall",
       "region": "South Bay / Torrance area",
@@ -507,9 +518,9 @@
     },
     {
       "id": "south-bay-youth-basketball-silver",
-      "name": "South Bay Youth Basketball — Silver",
+      "name": "South Bay Youth Basketball \u2014 Silver",
       "level": "Competitive",
-      "ageGroups": "Grades 1–9",
+      "ageGroups": "Grades 1\u20139",
       "gender": "Boys / Girls",
       "season": "Fall",
       "region": "South Bay / Torrance area",
@@ -531,13 +542,14 @@
       "sanctioning": "Independent",
       "website": "https://sandiegosol.com",
       "sourceUrl": "https://sandiegosol.com/leagues/",
-      "notes": "A / B / C divisions; \"largest organized youth leagues in SD\""
+      "notes": "A / B / C divisions; \"largest organized youth leagues in SD\" [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "west-coast-basketball-association-wcba",
       "name": "West Coast Basketball Association (WCBA)",
       "level": "Competitive",
-      "ageGroups": "Grades 3–12",
+      "ageGroups": "Grades 3\u201312",
       "gender": "Boys / Girls",
       "season": "Seasonal",
       "region": "Greater Sacramento (Elk Grove HQ)",
@@ -549,37 +561,39 @@
     },
     {
       "id": "jccsf-youth-basketball-recreation-league",
-      "name": "JCCSF Youth Basketball — Recreation League",
+      "name": "JCCSF Youth Basketball \u2014 Recreation League",
       "level": "Recreational",
-      "ageGroups": "Grades K–2",
+      "ageGroups": "Grades K\u20132",
       "gender": "Boys / Girls",
-      "season": "Winter (Jan–Mar)",
+      "season": "Winter (Jan\u2013Mar)",
       "region": "San Francisco",
       "governingBody": "JCCSF",
       "sanctioning": "Independent",
       "website": "https://www.jccsf.org",
       "sourceUrl": "https://www.jccsf.org/program/youth-basketball/",
-      "notes": "8-ft hoops for K–1; JCCSF Gymnasium"
+      "notes": "8-ft hoops for K\u20131; JCCSF Gymnasium [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "jccsf-youth-basketball-competition-league",
-      "name": "JCCSF Youth Basketball — Competition League",
+      "name": "JCCSF Youth Basketball \u2014 Competition League",
       "level": "Competitive",
-      "ageGroups": "Grades 3–5",
+      "ageGroups": "Grades 3\u20135",
       "gender": "Boys / Girls",
-      "season": "Winter (Jan–Mar, playoffs Mar)",
+      "season": "Winter (Jan\u2013Mar, playoffs Mar)",
       "region": "San Francisco",
       "governingBody": "JCCSF",
       "sanctioning": "NCBOA (officials)",
       "website": "https://www.jccsf.org",
       "sourceUrl": "https://www.jccsf.org/program/youth-basketball/",
-      "notes": "Playoffs Mar 9–22; regulation 10-ft hoops"
+      "notes": "Playoffs Mar 9\u201322; regulation 10-ft hoops [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "ymca-san-diego-county-youth-basketball",
-      "name": "YMCA San Diego County — Youth Basketball",
+      "name": "YMCA San Diego County \u2014 Youth Basketball",
       "level": "Recreational",
-      "ageGroups": "Ages 5–17",
+      "ageGroups": "Ages 5\u201317",
       "gender": "Boys / Girls",
       "season": "Winter / Spring",
       "region": "San Diego County",
@@ -587,35 +601,37 @@
       "sanctioning": "Independent",
       "website": "https://www.ymcasd.org",
       "sourceUrl": "https://www.ymcasd.org/programs/sports-and-fitness/sports/basketball/",
-      "notes": "5 age divisions; games Saturdays; Spring starts Apr 18"
+      "notes": "5 age divisions; games Saturdays; Spring starts Apr 18 [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "ymca-superior-california-youth-basketball",
-      "name": "YMCA Superior California — Youth Basketball",
+      "name": "YMCA Superior California \u2014 Youth Basketball",
       "level": "Recreational",
       "ageGroups": "Youth",
       "gender": "Boys / Girls",
-      "season": "Spring (Apr–Jun)",
+      "season": "Spring (Apr\u2013Jun)",
       "region": "Sacramento area",
       "governingBody": "YMCA of Superior California",
       "sanctioning": "Independent",
       "website": "https://www.ymcasuperiorcal.org",
       "sourceUrl": "https://www.ymcasuperiorcal.org/basketball",
-      "notes": "Spring season Apr 12–Jun 7; weekly practices + games"
+      "notes": "Spring season Apr 12\u2013Jun 7; weekly practices + games"
     },
     {
       "id": "buzzardball-hoops-winter-league",
-      "name": "Buzzardball Hoops — Winter League",
+      "name": "Buzzardball Hoops \u2014 Winter League",
       "level": "Competitive",
-      "ageGroups": "Grades 3–8",
+      "ageGroups": "Grades 3\u20138",
       "gender": "Boys",
-      "season": "Winter (Jan–Mar)",
+      "season": "Winter (Jan\u2013Mar)",
       "region": "Sacramento (Carmichael)",
       "governingBody": "Independent",
       "sanctioning": "Independent",
       "website": "https://www.buzzardballhoops.net",
       "sourceUrl": "https://www.buzzardballhoops.net/winter-basketball-league",
-      "notes": "Regular season ends Mar 1; championship at Golden 1 Center"
+      "notes": "Regular season ends Mar 1; championship at Golden 1 Center [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "jr-clippers-league",
@@ -629,7 +645,8 @@
       "sanctioning": "Independent",
       "website": "https://clipperscamps.com",
       "sourceUrl": "https://clipperscamps.com/leagues/",
-      "notes": "Hosted via parks / YMCAs / city rec centers across SoCal"
+      "notes": "Hosted via parks / YMCAs / city rec centers across SoCal [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "norcal-basketball-association-ncba",
@@ -644,6 +661,14 @@
       "website": "https://www.norcalbasketball.org",
       "sourceUrl": "https://www.norcalbasketball.org/teamschedules",
       "notes": "Online schedules and standings published each season"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 17,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

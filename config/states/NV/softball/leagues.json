@@ -1,6 +1,6 @@
 {
   "_description": "NV softball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "south-vegas-girls-softball-svgs",
@@ -8,7 +8,7 @@
       "level": "Recreational",
       "ageGroups": "6U / 8U / 10U+",
       "gender": "Girls",
-      "season": "Spring (Feb–May)",
+      "season": "Spring (Feb\u2013May)",
       "region": "Las Vegas, NV (Clark County)",
       "governingBody": "USA Softball",
       "sanctioning": "USA Softball",
@@ -34,7 +34,7 @@
       "id": "henderson-parks-and-recreation-youth-softball",
       "name": "Henderson Parks & Recreation Youth Softball",
       "level": "Recreational",
-      "ageGroups": "9U–18U",
+      "ageGroups": "9U\u201318U",
       "gender": "Girls",
       "season": "Spring (starts Apr)",
       "region": "Henderson, NV (Clark County)",
@@ -42,13 +42,14 @@
       "sanctioning": "NAYS",
       "website": "https://www.cityofhenderson.com/government/departments/parks-and-recreation/programs-classes/sports/youth-sports/youth-baseball-and-softball",
       "sourceUrl": "https://www.cityofhenderson.com/government/departments/parks-and-recreation/programs-classes/sports/youth-sports/youth-baseball-and-softball",
-      "notes": "$70 residents / $80.50 Clark County non-residents; U6 and U8 co-rec / scores not kept; standings and schedules via RecTrac portal"
+      "notes": "$70 residents / $80.50 Clark County non-residents; U6 and U8 co-rec / scores not kept; standings and schedules via RecTrac portal [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "carson-city-girls-softball",
       "name": "Carson City Girls Softball",
       "level": "Recreational",
-      "ageGroups": "4U–18U (multiple divisions)",
+      "ageGroups": "4U\u201318U (multiple divisions)",
       "gender": "Girls",
       "season": "Spring",
       "region": "Carson City, NV",
@@ -76,7 +77,7 @@
       "id": "sierra-fastpitch-softball-reno-girls-softball-league",
       "name": "Sierra Fastpitch Softball (Reno Girls Softball League)",
       "level": "Recreational",
-      "ageGroups": "4U–14U (multiple divisions)",
+      "ageGroups": "4U\u201314U (multiple divisions)",
       "gender": "Girls",
       "season": "Spring / Fall",
       "region": "Reno / Sparks / Truckee Meadows, NV",
@@ -84,13 +85,14 @@
       "sanctioning": "USA Softball",
       "website": "https://www.sierrafastpitch.com",
       "sourceUrl": "https://www.sierrafastpitch.com",
-      "notes": "Serving the Truckee Meadows since 1975; fields in Reno and Sparks"
+      "notes": "Serving the Truckee Meadows since 1975; fields in Reno and Sparks [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "fernley-youth-softball-league",
       "name": "Fernley Youth Softball League",
       "level": "Recreational",
-      "ageGroups": "5U–14U",
+      "ageGroups": "5U\u201314U",
       "gender": "Girls",
       "season": "Spring",
       "region": "Fernley / Silver Springs / Nixon, NV (Lyon County)",
@@ -98,13 +100,14 @@
       "sanctioning": "USA Softball",
       "website": "https://fernleyyouthsoftball.sportngin.com",
       "sourceUrl": "https://fernleyyouthsoftball.sportngin.com",
-      "notes": "Serves rural Northern Nevada communities in Lyon County corridor"
+      "notes": "Serves rural Northern Nevada communities in Lyon County corridor [auto-quarantine 2026-04-15: http-404]",
+      "status": "quarantine"
     },
     {
       "id": "north-valleys-babe-ruth-softball",
       "name": "North Valleys Babe Ruth Softball",
       "level": "Recreational-Competitive",
-      "ageGroups": "8U–18U",
+      "ageGroups": "8U\u201318U",
       "gender": "Girls",
       "season": "Spring",
       "region": "Reno, NV (Washoe County)",
@@ -112,13 +115,14 @@
       "sanctioning": "Babe Ruth League",
       "website": "https://northvalleysfastpitch.siplay.com",
       "sourceUrl": "https://northvalleysfastpitch.siplay.com",
-      "notes": "Northern Nevada; affiliated with national Babe Ruth League structure"
+      "notes": "Northern Nevada; affiliated with national Babe Ruth League structure [auto-quarantine 2026-04-15: network:URLError]",
+      "status": "quarantine"
     },
     {
       "id": "nevada-district-1-little-league-softball",
-      "name": "Nevada District 1 Little League — Softball",
+      "name": "Nevada District 1 Little League \u2014 Softball",
       "level": "Recreational",
-      "ageGroups": "Minors–Juniors (ages 4–16)",
+      "ageGroups": "Minors\u2013Juniors (ages 4\u201316)",
       "gender": "Girls",
       "season": "Spring",
       "region": "Northern Nevada (Reno / Sparks / NW NV / NE CA)",
@@ -126,13 +130,14 @@
       "sanctioning": "Little League International",
       "website": "https://tshq.bluesombrero.com/nevadad1ll",
       "sourceUrl": "https://tshq.bluesombrero.com/nevadad1ll",
-      "notes": "Umbrella district for Washoe LL, Reno American LL, Reno National LL, and others; state tournament pathway"
+      "notes": "Umbrella district for Washoe LL, Reno American LL, Reno National LL, and others; state tournament pathway",
+      "sourcePlatform": "blue-sombrero"
     },
     {
       "id": "nevada-district-4-little-league-softball",
-      "name": "Nevada District 4 Little League — Softball",
+      "name": "Nevada District 4 Little League \u2014 Softball",
       "level": "Recreational",
-      "ageGroups": "Minors–Juniors (ages 4–16)",
+      "ageGroups": "Minors\u2013Juniors (ages 4\u201316)",
       "gender": "Girls",
       "season": "Spring",
       "region": "Las Vegas Valley, NV (Clark County)",
@@ -140,13 +145,14 @@
       "sanctioning": "Little League International",
       "website": "https://www.leaguelineup.com/welcome.asp?url=nvd4",
       "sourceUrl": "https://www.leaguelineup.com/miscinfo.asp?menuid=35&url=nvd4",
-      "notes": "Las Vegas Valley; 55+ years of play; District Tournament of Champions held post-Memorial Day"
+      "notes": "Las Vegas Valley; 55+ years of play; District Tournament of Champions held post-Memorial Day",
+      "sourcePlatform": "leaguelineup"
     },
     {
       "id": "summerlin-south-little-league-softball",
-      "name": "Summerlin South Little League — Softball",
+      "name": "Summerlin South Little League \u2014 Softball",
       "level": "Recreational",
-      "ageGroups": "T-Ball–Juniors (ages 4–16)",
+      "ageGroups": "T-Ball\u2013Juniors (ages 4\u201316)",
       "gender": "Girls",
       "season": "Spring / Fall",
       "region": "Summerlin, Las Vegas, NV",
@@ -158,12 +164,12 @@
     },
     {
       "id": "niaa-high-school-softball-5a",
-      "name": "NIAA High School Softball — 5A",
+      "name": "NIAA High School Softball \u2014 5A",
       "level": "Interscholastic",
-      "ageGroups": "High School (grades 9–12)",
+      "ageGroups": "High School (grades 9\u201312)",
       "gender": "Girls",
       "season": "Spring",
-      "region": "Statewide — large schools (NV)",
+      "region": "Statewide \u2014 large schools (NV)",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/sball/index",
@@ -172,12 +178,12 @@
     },
     {
       "id": "niaa-high-school-softball-4a",
-      "name": "NIAA High School Softball — 4A",
+      "name": "NIAA High School Softball \u2014 4A",
       "level": "Interscholastic",
-      "ageGroups": "High School (grades 9–12)",
+      "ageGroups": "High School (grades 9\u201312)",
       "gender": "Girls",
       "season": "Spring",
-      "region": "Statewide — mid-size schools (NV)",
+      "region": "Statewide \u2014 mid-size schools (NV)",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/sball/index",
@@ -186,17 +192,32 @@
     },
     {
       "id": "niaa-high-school-softball-3a-2a-1a",
-      "name": "NIAA High School Softball — 3A / 2A / 1A",
+      "name": "NIAA High School Softball \u2014 3A / 2A / 1A",
       "level": "Interscholastic",
-      "ageGroups": "High School (grades 9–12)",
+      "ageGroups": "High School (grades 9\u201312)",
       "gender": "Girls",
       "season": "Spring",
-      "region": "Statewide — small schools (NV)",
+      "region": "Statewide \u2014 small schools (NV)",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/sball/index",
       "sourceUrl": "https://www.niaa.com/sports/sball/index",
       "notes": "Three smaller classifications with regional league play and standings; rural districts heavily represented"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "platform-reclassification",
+      "rows_changed": 2,
+      "min_confidence": 0.9,
+      "source": "platform-reclassification-2026-04-15.csv"
+    },
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 4,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

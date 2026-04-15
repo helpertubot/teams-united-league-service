@@ -1,14 +1,14 @@
 {
   "_description": "TX football leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "uil-football-class-6a",
-      "name": "UIL Football — Class 6A",
+      "name": "UIL Football \u2014 Class 6A",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "fall (Aug 27 – Dec; 10-game regular season + district playoffs + state)",
+      "season": "fall (Aug 27 \u2013 Dec; 10-game regular season + district playoffs + state)",
       "region": "Texas statewide",
       "governingBody": "University Interscholastic League (UIL)",
       "sanctioning": "UIL",
@@ -18,11 +18,11 @@
     },
     {
       "id": "uil-football-class-5a-division-i",
-      "name": "UIL Football — Class 5A Division I",
+      "name": "UIL Football \u2014 Class 5A Division I",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "fall (Aug 27 – Dec)",
+      "season": "fall (Aug 27 \u2013 Dec)",
       "region": "Texas statewide",
       "governingBody": "UIL",
       "sanctioning": "UIL",
@@ -32,11 +32,11 @@
     },
     {
       "id": "uil-football-class-5a-division-ii",
-      "name": "UIL Football — Class 5A Division II",
+      "name": "UIL Football \u2014 Class 5A Division II",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "fall (Aug 27 – Dec)",
+      "season": "fall (Aug 27 \u2013 Dec)",
       "region": "Texas statewide",
       "governingBody": "UIL",
       "sanctioning": "UIL",
@@ -46,11 +46,11 @@
     },
     {
       "id": "uil-football-class-4a-division-i",
-      "name": "UIL Football — Class 4A Division I",
+      "name": "UIL Football \u2014 Class 4A Division I",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "fall (Aug 27 – Dec)",
+      "season": "fall (Aug 27 \u2013 Dec)",
       "region": "Texas statewide",
       "governingBody": "UIL",
       "sanctioning": "UIL",
@@ -60,11 +60,11 @@
     },
     {
       "id": "uil-football-class-4a-division-ii",
-      "name": "UIL Football — Class 4A Division II",
+      "name": "UIL Football \u2014 Class 4A Division II",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "fall (Aug 27 – Dec)",
+      "season": "fall (Aug 27 \u2013 Dec)",
       "region": "Texas statewide",
       "governingBody": "UIL",
       "sanctioning": "UIL",
@@ -74,11 +74,11 @@
     },
     {
       "id": "uil-football-class-3a-division-i",
-      "name": "UIL Football — Class 3A Division I",
+      "name": "UIL Football \u2014 Class 3A Division I",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "fall (Aug 27 – Dec)",
+      "season": "fall (Aug 27 \u2013 Dec)",
       "region": "Texas statewide",
       "governingBody": "UIL",
       "sanctioning": "UIL",
@@ -88,11 +88,11 @@
     },
     {
       "id": "uil-football-class-3a-division-ii",
-      "name": "UIL Football — Class 3A Division II",
+      "name": "UIL Football \u2014 Class 3A Division II",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "fall (Aug 27 – Dec)",
+      "season": "fall (Aug 27 \u2013 Dec)",
       "region": "Texas statewide",
       "governingBody": "UIL",
       "sanctioning": "UIL",
@@ -102,11 +102,11 @@
     },
     {
       "id": "uil-football-class-2a-division-i",
-      "name": "UIL Football — Class 2A Division I",
+      "name": "UIL Football \u2014 Class 2A Division I",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "fall (Aug 27 – Dec)",
+      "season": "fall (Aug 27 \u2013 Dec)",
       "region": "Texas statewide",
       "governingBody": "UIL",
       "sanctioning": "UIL",
@@ -116,11 +116,11 @@
     },
     {
       "id": "uil-football-class-2a-division-ii",
-      "name": "UIL Football — Class 2A Division II",
+      "name": "UIL Football \u2014 Class 2A Division II",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "fall (Aug 27 – Dec)",
+      "season": "fall (Aug 27 \u2013 Dec)",
       "region": "Texas statewide",
       "governingBody": "UIL",
       "sanctioning": "UIL",
@@ -130,11 +130,11 @@
     },
     {
       "id": "uil-football-class-1a-division-i",
-      "name": "UIL Football — Class 1A Division I",
+      "name": "UIL Football \u2014 Class 1A Division I",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "fall (Aug 27 – Dec)",
+      "season": "fall (Aug 27 \u2013 Dec)",
       "region": "Texas statewide",
       "governingBody": "UIL",
       "sanctioning": "UIL",
@@ -144,11 +144,11 @@
     },
     {
       "id": "uil-football-class-1a-division-ii",
-      "name": "UIL Football — Class 1A Division II",
+      "name": "UIL Football \u2014 Class 1A Division II",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "fall (Aug 27 – Dec)",
+      "season": "fall (Aug 27 \u2013 Dec)",
       "region": "Texas statewide",
       "governingBody": "UIL",
       "sanctioning": "UIL",
@@ -158,7 +158,7 @@
     },
     {
       "id": "texas-youth-football-and-cheer-association-tyfa-division-1",
-      "name": "Texas Youth Football & Cheer Association (TYFA) — Division 1",
+      "name": "Texas Youth Football & Cheer Association (TYFA) \u2014 Division 1",
       "level": "competitive",
       "ageGroups": "5u (flag) / 7u / 9u / 11u (tackle)",
       "gender": "Boys+Girls",
@@ -172,7 +172,7 @@
     },
     {
       "id": "texas-youth-football-and-cheer-association-tyfa-division-2",
-      "name": "Texas Youth Football & Cheer Association (TYFA) — Division 2",
+      "name": "Texas Youth Football & Cheer Association (TYFA) \u2014 Division 2",
       "level": "rec",
       "ageGroups": "5u (flag) / 7u / 9u / 11u (tackle)",
       "gender": "Boys+Girls",
@@ -260,7 +260,7 @@
       "level": "rec",
       "ageGroups": "1st-2nd grade / 3rd grade / 4th grade / 5th grade / 6th grade",
       "gender": "Boys+Girls",
-      "season": "fall (Aug 23 – Nov 8; Super Bowl early Nov)",
+      "season": "fall (Aug 23 \u2013 Nov 8; Super Bowl early Nov)",
       "region": "North TX Texoma corridor (Anna / Celina / Denison / Denton / Melissa / Prosper / Sherman / Van Alstyne)",
       "governingBody": "TYFL",
       "sanctioning": "USA Football",
@@ -288,7 +288,7 @@
       "level": "rec",
       "ageGroups": "Tiny Mite (5-7) through 14u (age / weight matrix)",
       "gender": "Boys+Girls",
-      "season": "fall (registration June 1; practice Aug 1; games late Aug – Oct playoffs)",
+      "season": "fall (registration June 1; practice Aug 1; games late Aug \u2013 Oct playoffs)",
       "region": "Greater Houston (Katy / Cypress / Pearland / Rosenberg / Spring)",
       "governingBody": "Pop Warner Little Scholars",
       "sanctioning": "Pop Warner Southwest Region",
@@ -308,7 +308,8 @@
       "sanctioning": "Pop Warner Southwest Region",
       "website": "tshq.bluesombrero.com",
       "sourceUrl": "https://tshq.bluesombrero.com/Default.aspx?tabid=2199398",
-      "notes": "Separate organization from Greater Houston Pop Warner; maintains league standings"
+      "notes": "Separate organization from Greater Houston Pop Warner; maintains league standings",
+      "sourcePlatform": "blue-sombrero"
     },
     {
       "id": "hill-country-pop-warner-hcpw",
@@ -350,7 +351,8 @@
       "sanctioning": "not specified",
       "website": "nwtyfa.org",
       "sourceUrl": "https://nwtyfa.org/",
-      "notes": "Schedule and standings section published each season; multi-association structure"
+      "notes": "Schedule and standings section published each season; multi-association structure [auto-quarantine 2026-04-15: generic-platform:godaddy-sitebuilder]",
+      "status": "quarantine"
     },
     {
       "id": "top-of-texas-kid-football-league",
@@ -365,6 +367,21 @@
       "website": "topoftexaskidfootballleague.com",
       "sourceUrl": "http://www.topoftexaskidfootballleague.com/",
       "notes": "School size determines small-school vs. big-school bracket; weekly scores and season standings tracked"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "platform-reclassification",
+      "rows_changed": 1,
+      "min_confidence": 0.9,
+      "source": "platform-reclassification-2026-04-15.csv"
+    },
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 1,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

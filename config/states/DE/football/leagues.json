@@ -1,12 +1,12 @@
 {
   "_description": "DE football leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "diaa-football-class-3a",
-      "name": "DIAA Football — Class 3A",
+      "name": "DIAA Football \u2014 Class 3A",
       "level": "scholastic",
-      "ageGroups": "HS 14–18",
+      "ageGroups": "HS 14\u201318",
       "gender": "boys",
       "season": "fall",
       "region": "Delaware statewide",
@@ -14,13 +14,14 @@
       "sanctioning": "NFHS / DIAA",
       "website": "https://education.delaware.gov/diaa/sport_championships/fall_sports/football/",
       "sourceUrl": "https://education.delaware.gov/diaa/2024/12/13/diaa-board-of-directors-approves-football-realignment-for-2025-2026-seasons/",
-      "notes": "State high school top tier; schedules/brackets on DIAA football page."
+      "notes": "State high school top tier; schedules/brackets on DIAA football page. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "diaa-football-class-2a",
-      "name": "DIAA Football — Class 2A",
+      "name": "DIAA Football \u2014 Class 2A",
       "level": "scholastic",
-      "ageGroups": "HS 14–18",
+      "ageGroups": "HS 14\u201318",
       "gender": "boys",
       "season": "fall",
       "region": "Delaware statewide",
@@ -28,13 +29,14 @@
       "sanctioning": "NFHS / DIAA",
       "website": "https://education.delaware.gov/diaa/sport_championships/fall_sports/football/",
       "sourceUrl": "https://education.delaware.gov/diaa/sport_championships/fall_sports/football/",
-      "notes": "State high school middle tier; DIAA posts schedules/standings via brackets."
+      "notes": "State high school middle tier; DIAA posts schedules/standings via brackets. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "diaa-football-class-1a",
-      "name": "DIAA Football — Class 1A",
+      "name": "DIAA Football \u2014 Class 1A",
       "level": "scholastic",
-      "ageGroups": "HS 14–18",
+      "ageGroups": "HS 14\u201318",
       "gender": "boys",
       "season": "fall",
       "region": "Delaware statewide",
@@ -42,7 +44,8 @@
       "sanctioning": "NFHS / DIAA",
       "website": "https://education.delaware.gov/diaa/sport_championships/fall_sports/football/",
       "sourceUrl": "https://education.delaware.gov/diaa/2025/11/29/2025-diaa-class-2a-and-1a-football-champions-crowned/",
-      "notes": "State high school entry tier; DIAA posts schedules/standings via brackets."
+      "notes": "State high school entry tier; DIAA posts schedules/standings via brackets. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "diaa-unified-flag-football",
@@ -56,7 +59,8 @@
       "sanctioning": "DIAA Unified",
       "website": "https://education.delaware.gov/diaa/sport_championships/unified_sports/unified_flag_football/",
       "sourceUrl": "https://education.delaware.gov/diaa/sport_championships/unified_sports/unified_flag_football/",
-      "notes": "Unified high school flag league with seasonal schedule and championships."
+      "notes": "Unified high school flag league with seasonal schedule and championships. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "henlopen-pop-warner",
@@ -66,7 +70,7 @@
       "gender": "Boys+Girls",
       "season": "fall",
       "region": "Delaware (Sussex / Kent) / Eastern Shore MD",
-      "governingBody": "Pop Warner Little Scholars — Eastern Region / Henlopen Pop Warner",
+      "governingBody": "Pop Warner Little Scholars \u2014 Eastern Region / Henlopen Pop Warner",
       "sanctioning": "Pop Warner / USA Football",
       "website": "https://www.henlopenpopwarner.com/",
       "sourceUrl": "https://www.henlopenpopwarner.com/Default.aspx?tabid=2093289",
@@ -76,7 +80,7 @@
       "id": "new-castle-county-nfl-youth-flag-football",
       "name": "New Castle County NFL Youth Flag Football",
       "level": "rec",
-      "ageGroups": "6–14",
+      "ageGroups": "6\u201314",
       "gender": "Boys+Girls",
       "season": "spring / fall",
       "region": "New Castle County, DE",
@@ -88,7 +92,7 @@
     },
     {
       "id": "cym-football-diocesan-catholic-league-jv",
-      "name": "CYM Football — Diocesan Catholic League (JV)",
+      "name": "CYM Football \u2014 Diocesan Catholic League (JV)",
       "level": "scholastic/rec",
       "ageGroups": "middle school JV",
       "gender": "boys",
@@ -99,6 +103,14 @@
       "website": "https://www.cymsports.com/",
       "sourceUrl": "https://www.cymsports.com/schedules",
       "notes": "Parish/school-based JV tackle league; recurring seasonal schedules published on TeamSideline."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 4,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

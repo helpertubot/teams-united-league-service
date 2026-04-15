@@ -1,14 +1,14 @@
 {
   "_description": "DE lacrosse leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "eastern-shore-youth-lacrosse-association-boys",
-      "name": "Eastern Shore Youth Lacrosse Association — Boys",
+      "name": "Eastern Shore Youth Lacrosse Association \u2014 Boys",
       "level": "rec",
       "ageGroups": "K-2 Scoopers / U8 / U10 / U12 / U14",
       "gender": "boys",
-      "season": "Spring (March–May)",
+      "season": "Spring (March\u2013May)",
       "region": "DE / Eastern Shore MD",
       "governingBody": "ESYLA",
       "sanctioning": "USA Lacrosse membership (per program)",
@@ -17,11 +17,11 @@
     },
     {
       "id": "eastern-shore-youth-lacrosse-association-girls",
-      "name": "Eastern Shore Youth Lacrosse Association — Girls",
+      "name": "Eastern Shore Youth Lacrosse Association \u2014 Girls",
       "level": "rec",
       "ageGroups": "K-2 Scoopers / U8 / U10 / U12 / U14",
       "gender": "girls",
-      "season": "Spring (March–May)",
+      "season": "Spring (March\u2013May)",
       "region": "DE / Eastern Shore MD",
       "governingBody": "ESYLA",
       "sanctioning": "USA Lacrosse membership required",
@@ -30,11 +30,11 @@
     },
     {
       "id": "liberty-lacrosse-association-3rd-4th-grade-a",
-      "name": "Liberty Lacrosse Association — 3rd–4th Grade A",
+      "name": "Liberty Lacrosse Association \u2014 3rd\u20134th Grade A",
       "level": "rec",
-      "ageGroups": "3rd–4th",
+      "ageGroups": "3rd\u20134th",
       "gender": "boys",
-      "season": "Spring (March–June)",
+      "season": "Spring (March\u2013June)",
       "region": "DE / MD / SE PA",
       "governingBody": "Liberty Lacrosse Association",
       "sourceUrl": "https://www.libertylacrosseassociation.org/standings",
@@ -42,11 +42,11 @@
     },
     {
       "id": "liberty-lacrosse-association-3rd-4th-grade-b",
-      "name": "Liberty Lacrosse Association — 3rd–4th Grade B",
+      "name": "Liberty Lacrosse Association \u2014 3rd\u20134th Grade B",
       "level": "rec",
-      "ageGroups": "3rd–4th",
+      "ageGroups": "3rd\u20134th",
       "gender": "boys",
-      "season": "Spring (March–June)",
+      "season": "Spring (March\u2013June)",
       "region": "DE / MD / SE PA",
       "governingBody": "Liberty Lacrosse Association",
       "sourceUrl": "https://www.libertylacrosseassociation.org/standings",
@@ -54,29 +54,39 @@
     },
     {
       "id": "diaa-boys-lacrosse-high-school",
-      "name": "DIAA — Boys Lacrosse (High School)",
+      "name": "DIAA \u2014 Boys Lacrosse (High School)",
       "level": "high school",
       "ageGroups": "HS Varsity / JV",
       "gender": "boys",
-      "season": "Spring (March–May)",
+      "season": "Spring (March\u2013May)",
       "region": "DE statewide",
       "governingBody": "Delaware Interscholastic Athletic Association",
       "sanctioning": "DIAA / NFHS rules",
       "sourceUrl": "https://education.delaware.gov/diaa/sport_championships/spring_sports/boys-lacrosse/",
-      "notes": "State-sanctioned league play across conferences with postseason state tournament dates published."
+      "notes": "State-sanctioned league play across conferences with postseason state tournament dates published. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "diaa-girls-lacrosse-high-school",
-      "name": "DIAA — Girls Lacrosse (High School)",
+      "name": "DIAA \u2014 Girls Lacrosse (High School)",
       "level": "high school",
       "ageGroups": "HS Varsity / JV",
       "gender": "girls",
-      "season": "Spring (March–May)",
+      "season": "Spring (March\u2013May)",
       "region": "DE statewide",
       "governingBody": "Delaware Interscholastic Athletic Association",
       "sanctioning": "DIAA / NFHS rules",
       "sourceUrl": "https://education.delaware.gov/diaa/sport_championships/spring_sports/girls_lacrosse/",
-      "notes": "State-sanctioned league play across conferences with postseason state tournament dates published."
+      "notes": "State-sanctioned league play across conferences with postseason state tournament dates published. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 2,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "_description": "MT baseball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "montana-alberta-american-legion-baseball-class-aa",
-      "name": "Montana/Alberta American Legion Baseball — Class AA",
+      "name": "Montana/Alberta American Legion Baseball \u2014 Class AA",
       "level": "competitive",
       "ageGroups": "15-19",
       "gender": "boys",
-      "season": "summer (May–Jul)",
+      "season": "summer (May\u2013Jul)",
       "region": "statewide (Montana) / southern Alberta",
       "governingBody": "American Legion Baseball",
       "sanctioning": "American Legion",
@@ -18,11 +18,11 @@
     },
     {
       "id": "montana-alberta-american-legion-baseball-class-a-east",
-      "name": "Montana/Alberta American Legion Baseball — Class A East",
+      "name": "Montana/Alberta American Legion Baseball \u2014 Class A East",
       "level": "competitive",
       "ageGroups": "13-19",
       "gender": "boys",
-      "season": "summer (May–Jul)",
+      "season": "summer (May\u2013Jul)",
       "region": "eastern MT",
       "governingBody": "American Legion Baseball",
       "sanctioning": "American Legion",
@@ -32,11 +32,11 @@
     },
     {
       "id": "montana-alberta-american-legion-baseball-class-a-north",
-      "name": "Montana/Alberta American Legion Baseball — Class A North",
+      "name": "Montana/Alberta American Legion Baseball \u2014 Class A North",
       "level": "competitive",
       "ageGroups": "13-19",
       "gender": "boys",
-      "season": "summer (May–Jul)",
+      "season": "summer (May\u2013Jul)",
       "region": "northern MT",
       "governingBody": "American Legion Baseball",
       "sanctioning": "American Legion",
@@ -46,11 +46,11 @@
     },
     {
       "id": "montana-alberta-american-legion-baseball-class-a-south",
-      "name": "Montana/Alberta American Legion Baseball — Class A South",
+      "name": "Montana/Alberta American Legion Baseball \u2014 Class A South",
       "level": "competitive",
       "ageGroups": "13-19",
       "gender": "boys",
-      "season": "summer (May–Jul)",
+      "season": "summer (May\u2013Jul)",
       "region": "southern MT",
       "governingBody": "American Legion Baseball",
       "sanctioning": "American Legion",
@@ -60,11 +60,11 @@
     },
     {
       "id": "montana-alberta-american-legion-baseball-class-a-west",
-      "name": "Montana/Alberta American Legion Baseball — Class A West",
+      "name": "Montana/Alberta American Legion Baseball \u2014 Class A West",
       "level": "competitive",
       "ageGroups": "13-19",
       "gender": "boys",
-      "season": "summer (May–Jul)",
+      "season": "summer (May\u2013Jul)",
       "region": "western MT",
       "governingBody": "American Legion Baseball",
       "sanctioning": "American Legion",
@@ -74,11 +74,11 @@
     },
     {
       "id": "mhsa-high-school-baseball-class-aa",
-      "name": "MHSA High School Baseball — Class AA",
+      "name": "MHSA High School Baseball \u2014 Class AA",
       "level": "competitive",
       "ageGroups": "14-18",
       "gender": "boys",
-      "season": "spring (Mar–May)",
+      "season": "spring (Mar\u2013May)",
       "region": "statewide (AA classification)",
       "governingBody": "Montana High School Association",
       "sanctioning": "MHSA / NFHS",
@@ -88,11 +88,11 @@
     },
     {
       "id": "mhsa-high-school-baseball-class-abc",
-      "name": "MHSA High School Baseball — Class ABC",
+      "name": "MHSA High School Baseball \u2014 Class ABC",
       "level": "competitive",
       "ageGroups": "14-18",
       "gender": "boys",
-      "season": "spring (Mar–May)",
+      "season": "spring (Mar\u2013May)",
       "region": "statewide (Class ABC)",
       "governingBody": "Montana High School Association",
       "sanctioning": "MHSA / NFHS",
@@ -106,13 +106,14 @@
       "level": "rec",
       "ageGroups": "5-12 / 13-16",
       "gender": "Boys+Girls",
-      "season": "spring (Apr–Jun)",
+      "season": "spring (Apr\u2013Jun)",
       "region": "Gallatin Valley (Amsterdam / Ennis / Manhattan / Three Forks / Townsend / Whitehall)",
       "governingBody": "Babe Ruth League / Cal Ripken Baseball",
       "sanctioning": "Babe Ruth League, Inc.",
       "website": "Gallatin Valley Baseball",
       "sourceUrl": "https://gallatinvalleybaseball.org/",
-      "notes": "Intertown league with posted division schedules / score reporting / pitch counts."
+      "notes": "Intertown league with posted division schedules / score reporting / pitch counts. [auto-quarantine 2026-04-15: network:URLError]",
+      "status": "quarantine"
     },
     {
       "id": "montana-district-1-little-league-billings-area-interleague",
@@ -120,13 +121,21 @@
       "level": "rec",
       "ageGroups": "4-12",
       "gender": "Boys+Girls",
-      "season": "spring (Apr–Jun)",
+      "season": "spring (Apr\u2013Jun)",
       "region": "Billings area (multiple local leagues)",
       "governingBody": "Little League International",
       "sanctioning": "Little League",
       "website": "Montana District 1 Little League",
       "sourceUrl": "https://www.mtd1ll.org/",
       "notes": "District-run interleague game slate with nightly schedules across local leagues."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 1,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

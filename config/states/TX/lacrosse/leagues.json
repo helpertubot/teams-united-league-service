@@ -1,6 +1,6 @@
 {
   "_description": "TX lacrosse leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "texas-high-school-lacrosse-league",
@@ -8,7 +8,7 @@
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "spring (Feb–May)",
+      "season": "spring (Feb\u2013May)",
       "region": "Texas statewide",
       "governingBody": "Texas Scholastic Lacrosse Association (TSLA)",
       "sanctioning": "independent (non-UIL)",
@@ -22,7 +22,7 @@
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "girls",
-      "season": "spring (Feb–May)",
+      "season": "spring (Feb\u2013May)",
       "region": "Texas statewide (+ S. Oklahoma / NW Louisiana)",
       "governingBody": "TGHSLL (501c3)",
       "sanctioning": "independent (non-UIL)",
@@ -34,9 +34,9 @@
       "id": "dfw-youth-lacrosse-league",
       "name": "DFW Youth Lacrosse League",
       "level": "youth",
-      "ageGroups": "K–grade 8",
+      "ageGroups": "K\u2013grade 8",
       "gender": "boys",
-      "season": "spring (Jan–Apr)",
+      "season": "spring (Jan\u2013Apr)",
       "region": "Dallas-Fort Worth metroplex",
       "governingBody": "DFW Youth Lacrosse (DFWL)",
       "sanctioning": "USA Lacrosse affiliate",
@@ -48,7 +48,7 @@
       "id": "texas-girls-youth-lacrosse-league",
       "name": "Texas Girls Youth Lacrosse League",
       "level": "youth",
-      "ageGroups": "grades 1–8",
+      "ageGroups": "grades 1\u20138",
       "gender": "girls",
       "season": "spring",
       "region": "North Texas / DFW metroplex",
@@ -56,13 +56,14 @@
       "sanctioning": "USA Lacrosse Texas Chapter affiliate",
       "website": "https://www.tgyll.org/",
       "sourceUrl": "https://www.ntxlax.com/leagues/",
-      "notes": "Premier girls youth league for DFW area; member programs include Prosper / Rockwall / Southlake Carroll and several private schools"
+      "notes": "Premier girls youth league for DFW area; member programs include Prosper / Rockwall / Southlake Carroll and several private schools [auto-quarantine 2026-04-15: network:URLError]",
+      "status": "quarantine"
     },
     {
       "id": "central-texas-youth-lacrosse-association",
       "name": "Central Texas Youth Lacrosse Association",
       "level": "youth",
-      "ageGroups": "grades 1–8 (Junior / Bantam / Lightning divisions)",
+      "ageGroups": "grades 1\u20138 (Junior / Bantam / Lightning divisions)",
       "gender": "boys / girls",
       "season": "spring",
       "region": "Austin and Central Texas",
@@ -76,7 +77,7 @@
       "id": "south-texas-youth-lacrosse-association",
       "name": "South Texas Youth Lacrosse Association",
       "level": "youth",
-      "ageGroups": "grades 1–8",
+      "ageGroups": "grades 1\u20138",
       "gender": "boys / girls",
       "season": "spring",
       "region": "San Antonio and surrounding areas",
@@ -84,41 +85,44 @@
       "sanctioning": "USA Lacrosse affiliate",
       "website": "http://www.stxyla.com/",
       "sourceUrl": "http://www.stxyla.com/Standings.asp?org=STXYLA",
-      "notes": "Publishes in-season standings and game schedules; San Antonio–based regional league"
+      "notes": "Publishes in-season standings and game schedules; San Antonio\u2013based regional league [auto-quarantine 2026-04-15: network:URLError]",
+      "status": "quarantine"
     },
     {
       "id": "houston-youth-area-lacrosse-league",
       "name": "Houston Youth Area Lacrosse League",
       "level": "youth",
-      "ageGroups": "K–grade 8",
+      "ageGroups": "K\u2013grade 8",
       "gender": "boys",
-      "season": "spring (Feb–Apr)",
+      "season": "spring (Feb\u2013Apr)",
       "region": "Greater Houston area",
       "governingBody": "HYALL",
       "sanctioning": "USA Lacrosse sanctioned",
       "website": "https://www.hyall.org/",
       "sourceUrl": "https://www.hyall.org/",
-      "notes": "First USA Lacrosse-sanctioned league in Houston; 13 affiliated member clubs; end-of-year all-star game and tournament"
+      "notes": "First USA Lacrosse-sanctioned league in Houston; 13 affiliated member clubs; end-of-year all-star game and tournament [auto-quarantine 2026-04-15: generic-platform:squarespace]",
+      "status": "quarantine"
     },
     {
       "id": "greater-houston-youth-lacrosse-association",
       "name": "Greater Houston Youth Lacrosse Association",
       "level": "youth",
-      "ageGroups": "K–grade 8 (grade-based: 2U / 4U / 6U / 8U)",
+      "ageGroups": "K\u2013grade 8 (grade-based: 2U / 4U / 6U / 8U)",
       "gender": "boys",
-      "season": "spring (late Jan–Apr)",
+      "season": "spring (late Jan\u2013Apr)",
       "region": "Greater Houston area",
       "governingBody": "GHYLA",
       "sanctioning": "USA Lacrosse affiliate",
       "website": "http://www.ghyla.com/",
       "sourceUrl": "https://www.usalacrosse.com/magazine/ghyla-strengthens-ties-us-lacrosse-local-groups-maintain-momentum",
-      "notes": "~1,300 boys on 82 teams across 4 grade levels; formed 2011; separate from HYALL; sister org is GHGYLA for girls"
+      "notes": "~1,300 boys on 82 teams across 4 grade levels; formed 2011; separate from HYALL; sister org is GHGYLA for girls [auto-quarantine 2026-04-15: network:URLError]",
+      "status": "quarantine"
     },
     {
       "id": "greater-houston-girls-youth-lacrosse-association",
       "name": "Greater Houston Girls Youth Lacrosse Association",
       "level": "youth",
-      "ageGroups": "grades 3–8",
+      "ageGroups": "grades 3\u20138",
       "gender": "girls",
       "season": "spring",
       "region": "Greater Houston area",
@@ -126,21 +130,37 @@
       "sanctioning": "USA Lacrosse affiliate",
       "website": "https://tshq.bluesombrero.com/ghgyla",
       "sourceUrl": "https://www.facebook.com/ghgyla/",
-      "notes": "Sister organization to GHYLA (boys); hosts end-of-season tournament in May; separate governance from boys program"
+      "notes": "Sister organization to GHYLA (boys); hosts end-of-season tournament in May; separate governance from boys program",
+      "sourcePlatform": "blue-sombrero"
     },
     {
       "id": "houston-youth-lacrosse-spring-league",
-      "name": "Houston Youth Lacrosse — Spring League",
+      "name": "Houston Youth Lacrosse \u2014 Spring League",
       "level": "youth rec / competitive",
-      "ageGroups": "K–grade 8",
+      "ageGroups": "K\u2013grade 8",
       "gender": "boys / girls",
-      "season": "spring (Jan–Apr)",
+      "season": "spring (Jan\u2013Apr)",
       "region": "Houston, TX",
       "governingBody": "Houston Youth Lacrosse (HYLAX)",
       "sanctioning": "unaffiliated / independent",
       "website": "https://www.hylax.org/",
       "sourceUrl": "https://www.hylax.org/spring-lax",
       "notes": "Club-organized seasonal league with boys and girls divisions; Lady Hornets girls program; also runs summer and fall seasons"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "platform-reclassification",
+      "rows_changed": 1,
+      "min_confidence": 0.9,
+      "source": "platform-reclassification-2026-04-15.csv"
+    },
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 4,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

@@ -1,10 +1,10 @@
 {
   "_description": "OR volleyball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "osaa-6a-4-mt-hood-conference",
-      "name": "OSAA — 6A-4 Mt. Hood Conference",
+      "name": "OSAA \u2014 6A-4 Mt. Hood Conference",
       "level": "competitive",
       "ageGroups": "grades 9-12",
       "gender": "girls",
@@ -14,11 +14,12 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org/activities/vbl",
       "sourceUrl": "https://www.maxpreps.com/or/volleyball/25-26/league/6a-mt-hood/?leagueid=ef9d7d18-9ff3-4ad5-9b88-abf69cef076a",
-      "notes": "High school league with full schedules and standings."
+      "notes": "High school league with full schedules and standings. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-6a-5-three-rivers-league",
-      "name": "OSAA — 6A-5 Three Rivers League",
+      "name": "OSAA \u2014 6A-5 Three Rivers League",
       "level": "competitive",
       "ageGroups": "grades 9-12",
       "gender": "girls",
@@ -28,25 +29,27 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org/activities/vbl",
       "sourceUrl": "https://www.maxpreps.com/or/volleyball/25-26/league/6a-three-rivers/?leagueid=837f7338-5a97-470f-ba97-4c5053a1e337",
-      "notes": "High school league with standings by conference."
+      "notes": "High school league with standings by conference. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-5a-3-mid-willamette-conference",
-      "name": "OSAA — 5A-3 Mid-Willamette Conference",
+      "name": "OSAA \u2014 5A-3 Mid-Willamette Conference",
       "level": "competitive",
       "ageGroups": "grades 9-12",
       "gender": "girls",
       "season": "fall",
-      "region": "Mid‑Willamette Valley (Albany / Corvallis / Salem area)",
+      "region": "Mid\u2011Willamette Valley (Albany / Corvallis / Salem area)",
       "governingBody": "Oregon School Activities Association",
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org/activities/vbl",
       "sourceUrl": "https://www.maxpreps.com/or/volleyball/24-25/league/5a-mid-willamette/?leagueid=44f85355-5af2-4a9b-a212-8b850281ef83",
-      "notes": "Conference schedules and standings published each season."
+      "notes": "Conference schedules and standings published each season. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-4a-1-cowapa-league",
-      "name": "OSAA — 4A-1 Cowapa League",
+      "name": "OSAA \u2014 4A-1 Cowapa League",
       "level": "competitive",
       "ageGroups": "grades 9-12",
       "gender": "girls",
@@ -56,7 +59,8 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org/activities/vbl",
       "sourceUrl": "https://www.maxpreps.com/or/volleyball/25-26/league/4a-cowapa/?leagueid=770c217c-5167-4657-a9c2-bd242401188b",
-      "notes": "High school league with standings coverage."
+      "notes": "High school league with standings coverage. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "thprd-youth-volleyball-league",
@@ -70,7 +74,7 @@
       "sanctioning": "THPRD Parks & Rec",
       "website": "https://www.thprd.org/activities/sports/youth-volleyball",
       "sourceUrl": "https://www.teamsideline.com/sites/tualatinhills/schedules",
-      "notes": "District page links “Current Season Schedules/Results”; divisions by grade."
+      "notes": "District page links \u201cCurrent Season Schedules/Results\u201d; divisions by grade."
     },
     {
       "id": "hillsboro-youth-volleyball-hyv",
@@ -84,29 +88,31 @@
       "sanctioning": "City Parks & Rec",
       "website": "https://www.hillsboro-oregon.gov/our-city/departments/parks-recreation/classes-programs/youth-sports",
       "sourceUrl": "https://www.teamsideline.com/sites/hillsboro/schedules",
-      "notes": "City site directs to TeamSideline for league schedules/standings."
+      "notes": "City site directs to TeamSideline for league schedules/standings. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "bend-park-and-recreation-youth-volleyball-league",
-      "name": "Bend Park & Recreation — Youth Volleyball League",
+      "name": "Bend Park & Recreation \u2014 Youth Volleyball League",
       "level": "rec",
       "ageGroups": "grades 3-8",
       "gender": "Boys+Girls",
-      "season": "Oct–Dec",
+      "season": "Oct\u2013Dec",
       "region": "Bend (Deschutes County)",
       "governingBody": "Bend Park & Recreation District",
       "sanctioning": "BPRD Parks & Rec",
       "website": "https://www.bendparksandrec.org/activities/sports/youth-sports/",
       "sourceUrl": "https://www.bendparksandrec.org/activities/sports/sports-information-and-events/",
-      "notes": "BPRD “Sports Team Schedules & Standings” hub links to active league pages."
+      "notes": "BPRD \u201cSports Team Schedules & Standings\u201d hub links to active league pages. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "hermiston-parks-and-recreation-youth-volleyball",
-      "name": "Hermiston Parks & Recreation — Youth Volleyball",
+      "name": "Hermiston Parks & Recreation \u2014 Youth Volleyball",
       "level": "rec",
       "ageGroups": "grades 3-8",
       "gender": "Boys+Girls",
-      "season": "Sep–Oct",
+      "season": "Sep\u2013Oct",
       "region": "Hermiston (Umatilla County)",
       "governingBody": "City of Hermiston Parks & Recreation",
       "sanctioning": "City Parks & Rec",
@@ -116,21 +122,22 @@
     },
     {
       "id": "ncprd-sideout-volleyball-grades-1-8",
-      "name": "NCPRD “Sideout Volleyball” (Grades 1–8)",
+      "name": "NCPRD \u201cSideout Volleyball\u201d (Grades 1\u20138)",
       "level": "rec",
       "ageGroups": "grades 1-8",
       "gender": "coed (1-4) / girls (5-8) / boys (5-8)",
-      "season": "Sep–Nov",
+      "season": "Sep\u2013Nov",
       "region": "North Clackamas (Milwaukie / Happy Valley / Clackamas)",
       "governingBody": "North Clackamas Parks & Recreation District",
       "sanctioning": "NCPRD Parks & Rec",
       "website": "https://ncprd.com/volleyball",
       "sourceUrl": "https://www.teamsideline.com/clackamas",
-      "notes": "District site details program; TeamSideline hosts schedules/standings."
+      "notes": "District site details program; TeamSideline hosts schedules/standings. [auto-quarantine 2026-04-15: http-404]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-5a-2-midwestern-league",
-      "name": "OSAA — 5A-2 Midwestern League",
+      "name": "OSAA \u2014 5A-2 Midwestern League",
       "level": "competitive",
       "ageGroups": "grades 9-12",
       "gender": "girls",
@@ -140,7 +147,16 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org/activities/vbl",
       "sourceUrl": "https://www.osaa.org/activities/vbl/schedules?date=2025-09-11&div=6A",
-      "notes": "League play with posted schedules and results via OSAA."
+      "notes": "League play with posted schedules and results via OSAA. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 8,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

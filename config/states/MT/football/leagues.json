@@ -1,10 +1,10 @@
 {
   "_description": "MT football leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "mhsa-football-class-aa",
-      "name": "MHSA Football — Class AA",
+      "name": "MHSA Football \u2014 Class AA",
       "level": "scholastic",
       "ageGroups": "Grades 9-12 (14-18)",
       "gender": "boys",
@@ -18,7 +18,7 @@
     },
     {
       "id": "mhsa-football-class-a",
-      "name": "MHSA Football — Class A",
+      "name": "MHSA Football \u2014 Class A",
       "level": "scholastic",
       "ageGroups": "Grades 9-12 (14-18)",
       "gender": "boys",
@@ -32,7 +32,7 @@
     },
     {
       "id": "mhsa-football-class-b",
-      "name": "MHSA Football — Class B",
+      "name": "MHSA Football \u2014 Class B",
       "level": "scholastic",
       "ageGroups": "Grades 9-12 (14-18)",
       "gender": "boys",
@@ -46,7 +46,7 @@
     },
     {
       "id": "mhsa-football-class-c-8-player",
-      "name": "MHSA Football — Class C 8-Player",
+      "name": "MHSA Football \u2014 Class C 8-Player",
       "level": "scholastic",
       "ageGroups": "Grades 9-12 (14-18)",
       "gender": "boys",
@@ -60,7 +60,7 @@
     },
     {
       "id": "mhsa-football-class-c-6-player",
-      "name": "MHSA Football — Class C 6-Player",
+      "name": "MHSA Football \u2014 Class C 6-Player",
       "level": "scholastic",
       "ageGroups": "Grades 9-12 (14-18)",
       "gender": "boys",
@@ -74,7 +74,7 @@
     },
     {
       "id": "yellowstone-youth-football-spring-nfl-flag",
-      "name": "Yellowstone Youth Football — Spring NFL Flag",
+      "name": "Yellowstone Youth Football \u2014 Spring NFL Flag",
       "level": "rec",
       "ageGroups": "Grades 1-6",
       "gender": "Boys+Girls",
@@ -88,7 +88,7 @@
     },
     {
       "id": "yellowstone-youth-football-tackle",
-      "name": "Yellowstone Youth Football — Tackle",
+      "name": "Yellowstone Youth Football \u2014 Tackle",
       "level": "rec",
       "ageGroups": "Grades 3-6 (2nd by approval)",
       "gender": "Boys+Girls",
@@ -112,7 +112,8 @@
       "sanctioning": "independent",
       "website": "Flathead Valley Little Guy Football",
       "sourceUrl": "https://flatheadvalleyfootball.com/",
-      "notes": "Local nonprofit tackle league; season mid‑August through mid‑October."
+      "notes": "Local nonprofit tackle league; season mid\u2011August through mid\u2011October. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "mining-city-little-guy-football-butte",
@@ -126,11 +127,11 @@
       "sanctioning": "independent",
       "website": "Mining City Little Guy Football",
       "sourceUrl": "https://www.mclgf.com/",
-      "notes": "City youth tackle league with weekly game slates and end‑of‑season jamborees."
+      "notes": "City youth tackle league with weekly game slates and end\u2011of\u2011season jamborees."
     },
     {
       "id": "helena-small-fry-football-tackle",
-      "name": "Helena Small Fry Football — Tackle",
+      "name": "Helena Small Fry Football \u2014 Tackle",
       "level": "rec",
       "ageGroups": "Grades 5-8",
       "gender": "Boys+Girls",
@@ -140,11 +141,11 @@
       "sanctioning": "independent",
       "website": "Helena Small Fry Football",
       "sourceUrl": "https://www.helenasmallfry.com/leagues/2026-tackle-football/30276",
-      "notes": "Scheduled Saturday A games at Ryan Fields with B games midweek; long‑running city league."
+      "notes": "Scheduled Saturday A games at Ryan Fields with B games midweek; long\u2011running city league."
     },
     {
       "id": "gallatin-empire-lions-club-youth-tackle-football",
-      "name": "Gallatin Empire Lions Club — Youth Tackle Football",
+      "name": "Gallatin Empire Lions Club \u2014 Youth Tackle Football",
       "level": "rec",
       "ageGroups": "Grades 5-6",
       "gender": "Boys+Girls",
@@ -154,11 +155,12 @@
       "sanctioning": "independent",
       "website": "Gallatin Empire Lions Club Football",
       "sourceUrl": "https://gallatinempirelions.org/our-work/football/",
-      "notes": "Community tackle league; practices in Bozeman / Belgrade and Saturday games at Christie Fields."
+      "notes": "Community tackle league; practices in Bozeman / Belgrade and Saturday games at Christie Fields. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "blue-chip-youth-sports-bozeman-flag",
-      "name": "Blue Chip Youth Sports — Bozeman Flag",
+      "name": "Blue Chip Youth Sports \u2014 Bozeman Flag",
       "level": "rec",
       "ageGroups": "Ages 3-17",
       "gender": "coed / girls",
@@ -166,13 +168,14 @@
       "region": "Bozeman",
       "governingBody": "Blue Chip Youth Sports",
       "sanctioning": "independent",
-      "website": "Blue Chip Flag — Bozeman",
+      "website": "Blue Chip Flag \u2014 Bozeman",
       "sourceUrl": "https://www.bluechipyouthsports.com/bozeman-mt-registration/",
-      "notes": "6 regular‑season games plus playoffs; standings tracked; multiple age divisions including all‑girls."
+      "notes": "6 regular\u2011season games plus playoffs; standings tracked; multiple age divisions including all\u2011girls. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "billings-parks-and-recreation-youth-nfl-flag",
-      "name": "Billings Parks & Recreation — Youth NFL Flag",
+      "name": "Billings Parks & Recreation \u2014 Youth NFL Flag",
       "level": "rec",
       "ageGroups": "Grades 2-3 / 4-5",
       "gender": "Boys+Girls",
@@ -182,7 +185,16 @@
       "sanctioning": "NFL FLAG",
       "website": "Billings Parks Youth NFL Flag",
       "sourceUrl": "https://www.billingsparks.org/program/nfl-flag-football/",
-      "notes": "City‑run NFL FLAG league with set practice sites and Saturday game schedules."
+      "notes": "City\u2011run NFL FLAG league with set practice sites and Saturday game schedules. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 4,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

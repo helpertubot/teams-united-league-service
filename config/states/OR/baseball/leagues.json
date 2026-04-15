@@ -1,12 +1,12 @@
 {
   "_description": "OR baseball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "osaa-6a-metro-league",
-      "name": "OSAA 6A — Metro League",
+      "name": "OSAA 6A \u2014 Metro League",
       "level": "competitive",
-      "ageGroups": "HS 9–12 (14–18)",
+      "ageGroups": "HS 9\u201312 (14\u201318)",
       "gender": "boys",
       "season": "spring",
       "region": "Portland metro",
@@ -14,13 +14,14 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org",
       "sourceUrl": "https://osaa.org/activities/bbl/schedules?date=2026-04-14",
-      "notes": "League schedules and scores published under 6A-2 Metro League."
+      "notes": "League schedules and scores published under 6A-2 Metro League. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-6a-three-rivers-league",
-      "name": "OSAA 6A — Three Rivers League",
+      "name": "OSAA 6A \u2014 Three Rivers League",
       "level": "competitive",
-      "ageGroups": "HS 9–12 (14–18)",
+      "ageGroups": "HS 9\u201312 (14\u201318)",
       "gender": "boys",
       "season": "spring",
       "region": "Portland suburbs (Clackamas / Washington counties)",
@@ -28,13 +29,14 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org",
       "sourceUrl": "https://osaa.org/activities/bbl/schedules?date=2026-04-22",
-      "notes": "Recurring league play with standings and schedules."
+      "notes": "Recurring league play with standings and schedules. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-5a-northwest-oregon-conference",
-      "name": "OSAA 5A — Northwest Oregon Conference",
+      "name": "OSAA 5A \u2014 Northwest Oregon Conference",
       "level": "competitive",
-      "ageGroups": "HS 9–12 (14–18)",
+      "ageGroups": "HS 9\u201312 (14\u201318)",
       "gender": "boys",
       "season": "spring",
       "region": "Northwest Oregon",
@@ -42,13 +44,14 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org",
       "sourceUrl": "https://osaa.org/activities/bbl/schedules?date=2026-04-22",
-      "notes": "Conference league schedules and standings posted."
+      "notes": "Conference league schedules and standings posted. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-4a-cowapa-league",
-      "name": "OSAA 4A — Cowapa League",
+      "name": "OSAA 4A \u2014 Cowapa League",
       "level": "competitive",
-      "ageGroups": "HS 9–12 (14–18)",
+      "ageGroups": "HS 9\u201312 (14\u201318)",
       "gender": "boys",
       "season": "spring",
       "region": "North Coast / Lower Columbia",
@@ -56,13 +59,14 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org",
       "sourceUrl": "https://osaa.org/activities/bbl/schedules?date=2026-04-22",
-      "notes": "Regular-season schedules and league tables available."
+      "notes": "Regular-season schedules and league tables available. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-3a-mountain-valley-conference",
-      "name": "OSAA 3A — Mountain Valley Conference",
+      "name": "OSAA 3A \u2014 Mountain Valley Conference",
       "level": "competitive",
-      "ageGroups": "HS 9–12 (14–18)",
+      "ageGroups": "HS 9\u201312 (14\u201318)",
       "gender": "boys",
       "season": "spring",
       "region": "Central / South Willamette Valley",
@@ -70,13 +74,14 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org",
       "sourceUrl": "https://osaa.org/activities/bbl/schedules?date=2026-04-14",
-      "notes": "OSAA conference with recurring seasonal play."
+      "notes": "OSAA conference with recurring seasonal play. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-2a-1a-special-district-1",
-      "name": "OSAA 2A/1A — Special District 1",
+      "name": "OSAA 2A/1A \u2014 Special District 1",
       "level": "competitive",
-      "ageGroups": "HS 9–12 (14–18)",
+      "ageGroups": "HS 9\u201312 (14\u201318)",
       "gender": "boys",
       "season": "spring",
       "region": "Northwest Oregon",
@@ -84,17 +89,18 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org",
       "sourceUrl": "https://osaa.org/activities/bbl/schedules?date=2026-04-14",
-      "notes": "District schedules and standings published by OSAA."
+      "notes": "District schedules and standings published by OSAA. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "westside-jbo-senior-federal",
-      "name": "Westside JBO — Senior Federal",
+      "name": "Westside JBO \u2014 Senior Federal",
       "level": "competitive",
-      "ageGroups": "7th–8th grade (13–14)",
+      "ageGroups": "7th\u20138th grade (13\u201314)",
       "gender": "boys",
       "season": "spring",
       "region": "Washington County / Yamhill County",
-      "governingBody": "Junior Baseball Organization of Oregon — Westside District",
+      "governingBody": "Junior Baseball Organization of Oregon \u2014 Westside District",
       "sanctioning": "JBO",
       "website": "https://www.westsideyouthbaseball.com",
       "sourceUrl": "https://www.westsideyouthbaseball.com/westside-youth-baseball/schedules/senior-federal-schedules/",
@@ -102,13 +108,13 @@
     },
     {
       "id": "westside-jbo-junior-american",
-      "name": "Westside JBO — Junior American",
+      "name": "Westside JBO \u2014 Junior American",
       "level": "competitive",
-      "ageGroups": "5th–6th grade (11–12)",
+      "ageGroups": "5th\u20136th grade (11\u201312)",
       "gender": "boys",
       "season": "spring",
       "region": "Washington County / Yamhill County",
-      "governingBody": "Junior Baseball Organization of Oregon — Westside District",
+      "governingBody": "Junior Baseball Organization of Oregon \u2014 Westside District",
       "sanctioning": "JBO",
       "website": "https://www.westsideyouthbaseball.com",
       "sourceUrl": "https://www.westsideyouthbaseball.com/westside-youth-baseball/schedules/junior-american-schedules/",
@@ -116,9 +122,9 @@
     },
     {
       "id": "clackamas-county-jba-junior-national",
-      "name": "Clackamas County JBA — Junior National",
+      "name": "Clackamas County JBA \u2014 Junior National",
       "level": "competitive",
-      "ageGroups": "5th–6th grade (11–12)",
+      "ageGroups": "5th\u20136th grade (11\u201312)",
       "gender": "boys",
       "season": "spring",
       "region": "Clackamas County",
@@ -130,13 +136,13 @@
     },
     {
       "id": "valley-district-jbo-senior-federal",
-      "name": "Valley District JBO — Senior Federal",
+      "name": "Valley District JBO \u2014 Senior Federal",
       "level": "competitive",
-      "ageGroups": "7th–8th grade (13–14)",
+      "ageGroups": "7th\u20138th grade (13\u201314)",
       "gender": "boys",
       "season": "spring",
-      "region": "Mid‑Willamette Valley",
-      "governingBody": "Junior Baseball Organization of Oregon — Valley District",
+      "region": "Mid\u2011Willamette Valley",
+      "governingBody": "Junior Baseball Organization of Oregon \u2014 Valley District",
       "sanctioning": "JBO",
       "website": "https://www.quickscores.com/jbo",
       "sourceUrl": "https://www.quickscores.com/Orgs/ExtraMsg.php?ExtraMsgID=2841&OrgDir=jbo",
@@ -144,27 +150,28 @@
     },
     {
       "id": "willamette-valley-babe-ruth-spring-league",
-      "name": "Willamette Valley Babe Ruth — Spring League",
+      "name": "Willamette Valley Babe Ruth \u2014 Spring League",
       "level": "competitive",
-      "ageGroups": "8U–12U / T‑ball 4–6",
+      "ageGroups": "8U\u201312U / T\u2011ball 4\u20136",
       "gender": "Boys+Girls",
       "season": "spring",
-      "region": "Eugene–Springfield / Lane County",
+      "region": "Eugene\u2013Springfield / Lane County",
       "governingBody": "Willamette Valley Babe Ruth Baseball",
       "sanctioning": "Babe Ruth League / Cal Ripken Baseball",
       "website": "https://oregonbaberuth.com",
       "sourceUrl": "https://cactusware.com/leagues/WVBR",
-      "notes": "Schedules / standings hosted via Diamond Scheduler; league dates posted."
+      "notes": "Schedules / standings hosted via Diamond Scheduler; league dates posted. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "medford-national-little-league-regular-season",
-      "name": "Medford National Little League — Regular Season",
+      "name": "Medford National Little League \u2014 Regular Season",
       "level": "rec",
-      "ageGroups": "4–16",
+      "ageGroups": "4\u201316",
       "gender": "Boys+Girls",
       "season": "spring",
       "region": "Medford / Jackson County",
-      "governingBody": "Little League International — Medford National LL",
+      "governingBody": "Little League International \u2014 Medford National LL",
       "sanctioning": "Little League",
       "website": "https://www.medfordnationallittleleague.com",
       "sourceUrl": "https://www.medfordnationallittleleague.com/",
@@ -172,13 +179,13 @@
     },
     {
       "id": "bend-south-little-league-regular-season",
-      "name": "Bend South Little League — Regular Season",
+      "name": "Bend South Little League \u2014 Regular Season",
       "level": "rec",
-      "ageGroups": "4–14",
+      "ageGroups": "4\u201314",
       "gender": "Boys+Girls",
       "season": "spring",
       "region": "Bend / Deschutes County",
-      "governingBody": "Little League International — Bend South LL",
+      "governingBody": "Little League International \u2014 Bend South LL",
       "sanctioning": "Little League",
       "website": "https://www.bendsouthll.org",
       "sourceUrl": "https://www.bendsouthll.org/",
@@ -186,9 +193,9 @@
     },
     {
       "id": "west-linn-baseball-association-cal-ripken-rec",
-      "name": "West Linn Baseball Association — Cal Ripken Rec",
+      "name": "West Linn Baseball Association \u2014 Cal Ripken Rec",
       "level": "rec",
-      "ageGroups": "3rd–6th grade",
+      "ageGroups": "3rd\u20136th grade",
       "gender": "Boys+Girls",
       "season": "spring",
       "region": "West Linn / Clackamas County",
@@ -197,6 +204,14 @@
       "website": "https://www.westlinnbaseball.org",
       "sourceUrl": "https://www.westlinnbaseball.org/calripken",
       "notes": "Rec league; site includes scores links (m60 / m70) and calendar."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 7,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

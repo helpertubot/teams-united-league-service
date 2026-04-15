@@ -1,10 +1,10 @@
 {
   "_description": "DE basketball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "city-of-newark-junior-basketball-league",
-      "name": "City of Newark — Junior Basketball League",
+      "name": "City of Newark \u2014 Junior Basketball League",
       "level": "rec",
       "ageGroups": "Grades 6-8",
       "gender": "Boys+Girls",
@@ -18,13 +18,13 @@
     },
     {
       "id": "cym-sports-diocese-of-wilmington-boys-varsity-y",
-      "name": "CYM Sports (Diocese of Wilmington) — Boys Varsity Y",
+      "name": "CYM Sports (Diocese of Wilmington) \u2014 Boys Varsity Y",
       "level": "competitive",
       "ageGroups": "Grades 7-8",
       "gender": "boys",
       "season": "winter",
       "region": "Statewide DE / Eastern Shore MD",
-      "governingBody": "Catholic Diocese of Wilmington — CYM",
+      "governingBody": "Catholic Diocese of Wilmington \u2014 CYM",
       "sanctioning": "CYM Sports",
       "website": "https://www.cymsports.com/",
       "sourceUrl": "https://www.cymsports.com/sites/DioceseWilmington/schedule/607273/Varsity-Y",
@@ -32,13 +32,13 @@
     },
     {
       "id": "cym-sports-diocese-of-wilmington-boys-junior-varsity-division-1",
-      "name": "CYM Sports (Diocese of Wilmington) — Boys Junior Varsity Division 1",
+      "name": "CYM Sports (Diocese of Wilmington) \u2014 Boys Junior Varsity Division 1",
       "level": "competitive",
       "ageGroups": "Grades 5-6",
       "gender": "boys",
       "season": "winter",
       "region": "Statewide DE / Eastern Shore MD",
-      "governingBody": "Catholic Diocese of Wilmington — CYM",
+      "governingBody": "Catholic Diocese of Wilmington \u2014 CYM",
       "sanctioning": "CYM Sports",
       "website": "https://www.cymsports.com/",
       "sourceUrl": "https://www.cymsports.com/schedule/607280/junior-varsity-division-1",
@@ -46,7 +46,7 @@
     },
     {
       "id": "blue-hen-conference-flight-a-high-school",
-      "name": "Blue Hen Conference — Flight A (High School)",
+      "name": "Blue Hen Conference \u2014 Flight A (High School)",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "boys / girls",
@@ -56,11 +56,12 @@
       "sanctioning": "DIAA",
       "website": "https://education.delaware.gov/diaa",
       "sourceUrl": "https://www.maxpreps.com/de/basketball/25-26/league/blue-hen-flight--a/scores/?date=1%2F18%2F2026&leagueid=72dc35de-2a54-4ad8-ac03-22701f8387a7",
-      "notes": "DIAA conference flight with recurring league play; schedules/scores posted."
+      "notes": "DIAA conference flight with recurring league play; schedules/scores posted. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "blue-hen-conference-flight-b-high-school",
-      "name": "Blue Hen Conference — Flight B (High School)",
+      "name": "Blue Hen Conference \u2014 Flight B (High School)",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "boys / girls",
@@ -70,11 +71,12 @@
       "sanctioning": "DIAA",
       "website": "https://education.delaware.gov/diaa",
       "sourceUrl": "https://www.maxpreps.com/de/basketball/girls/25-26/league/blue-hen-flight--b/?leagueid=402dbe18-a27b-4ded-856f-1b01a90a10d7",
-      "notes": "Second flight; standings published by flight."
+      "notes": "Second flight; standings published by flight. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "henlopen-conference-northern-division-high-school",
-      "name": "Henlopen Conference — Northern Division (High School)",
+      "name": "Henlopen Conference \u2014 Northern Division (High School)",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "boys / girls",
@@ -84,11 +86,12 @@
       "sanctioning": "DIAA",
       "website": "https://education.delaware.gov/diaa",
       "sourceUrl": "https://www.maxpreps.com/de/basketball/25-26/league/henlopen--northern/?leagueid=90f4b4e1-57b3-41e8-a035-29777bdbfade",
-      "notes": "Division of Henlopen Conference with league standings and results."
+      "notes": "Division of Henlopen Conference with league standings and results. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "henlopen-conference-southern-division-high-school",
-      "name": "Henlopen Conference — Southern Division (High School)",
+      "name": "Henlopen Conference \u2014 Southern Division (High School)",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "boys / girls",
@@ -98,11 +101,12 @@
       "sanctioning": "DIAA",
       "website": "https://education.delaware.gov/diaa",
       "sourceUrl": "https://www.maxpreps.com/de/basketball/25-26/league/henlopen--southern/?leagueid=50ca939f-d584-4260-acd0-8b5e2fbd316d",
-      "notes": "Separate division with recurring league play and standings."
+      "notes": "Separate division with recurring league play and standings. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "diamond-state-athletic-conference-basketball-high-school",
-      "name": "Diamond State Athletic Conference — Basketball (High School)",
+      "name": "Diamond State Athletic Conference \u2014 Basketball (High School)",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "boys / girls",
@@ -112,11 +116,12 @@
       "sanctioning": "DIAA",
       "website": "https://education.delaware.gov/diaa",
       "sourceUrl": "https://www.maxpreps.com/de/basketball/girls/25-26/league/diamond-state/?leagueid=f540240c-ad62-4668-826c-209c40898ee1",
-      "notes": "Independent-school conference with seasonal schedules/standings."
+      "notes": "Independent-school conference with seasonal schedules/standings. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "nbn-sports-academy-nbnsa-youth-basketball-league",
-      "name": "NBN Sports Academy — NBNSA Youth Basketball League",
+      "name": "NBN Sports Academy \u2014 NBNSA Youth Basketball League",
       "level": "rec",
       "ageGroups": "7-9 / 10-12 / 13-14 / 15-17",
       "gender": "Boys+Girls",
@@ -127,6 +132,14 @@
       "website": "https://www.nbnsportsacademy.net/",
       "sourceUrl": "https://www.nbnsportsacademy.net/division/16466",
       "notes": "Facility-run youth league; divisions show schedules/standings; multiple seasons yearly."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 5,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

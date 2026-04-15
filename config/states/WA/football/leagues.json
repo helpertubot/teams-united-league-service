@@ -1,10 +1,10 @@
 {
   "_description": "WA football leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "greater-eastside-junior-football-association-gejfa-rookie",
-      "name": "Greater Eastside Junior Football Association (GEJFA) — Rookie",
+      "name": "Greater Eastside Junior Football Association (GEJFA) \u2014 Rookie",
       "level": "competitive",
       "ageGroups": "8U-9U",
       "gender": "Boys+Girls",
@@ -18,7 +18,7 @@
     },
     {
       "id": "greater-eastside-junior-football-association-gejfa-cub-soph-jv-v",
-      "name": "Greater Eastside Junior Football Association (GEJFA) — Cub/Soph/JV/Varsity",
+      "name": "Greater Eastside Junior Football Association (GEJFA) \u2014 Cub/Soph/JV/Varsity",
       "level": "competitive",
       "ageGroups": "10U-14U",
       "gender": "Boys+Girls",
@@ -42,13 +42,13 @@
       "sanctioning": "Independent",
       "website": "https://www.northcascadeyouthfootballleague.com/",
       "sourceUrl": "https://www.northcascadeyouthfootballleague.com/scores-standings.html",
-      "notes": "Scores/standings hub; multi‑county league."
+      "notes": "Scores/standings hub; multi\u2011county league."
     },
     {
       "id": "north-sound-junior-football-league-nsjfl",
       "name": "North Sound Junior Football League (NSJFL)",
       "level": "competitive",
-      "ageGroups": "K‑8 / 6U‑14U",
+      "ageGroups": "K\u20118 / 6U\u201114U",
       "gender": "Boys+Girls",
       "season": "fall",
       "region": "North Seattle / Snohomish / North King",
@@ -56,13 +56,14 @@
       "sanctioning": "USA Football",
       "website": "https://www.northsoundjrfootball.org/",
       "sourceUrl": "https://www.northsoundjrfootball.org/teams",
-      "notes": "Division standings posted (images) by week."
+      "notes": "Division standings posted (images) by week. [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "inland-northwest-youth-football-and-cheer-league-inyfc",
       "name": "Inland Northwest Youth Football & Cheer League (INYFC)",
       "level": "competitive",
-      "ageGroups": "K‑8",
+      "ageGroups": "K\u20118",
       "gender": "Boys+Girls",
       "season": "fall",
       "region": "Eastern WA (Spokane / Spokane Valley / Cheney / surrounding)",
@@ -76,7 +77,7 @@
       "id": "washington-youth-football-league-wyfl",
       "name": "Washington Youth Football League (WYFL)",
       "level": "competitive",
-      "ageGroups": "6U‑14U",
+      "ageGroups": "6U\u201114U",
       "gender": "Boys+Girls",
       "season": "fall",
       "region": "Puget Sound (King / Pierce / Snohomish)",
@@ -84,16 +85,17 @@
       "sanctioning": "Independent",
       "website": "https://www.wsyfl.com/",
       "sourceUrl": "https://www.wsyfl.com/standings/2025/",
-      "notes": "Weekly scorecards and division standings; multi‑age divisions."
+      "notes": "Weekly scorecards and division standings; multi\u2011age divisions. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "spokane-youth-football-and-cheer-syfc",
       "name": "Spokane Youth Football & Cheer (SYFC)",
       "level": "competitive",
-      "ageGroups": "1st‑8th grade",
+      "ageGroups": "1st\u20118th grade",
       "gender": "Boys+Girls",
       "season": "fall",
-      "region": "Spokane area (Spokane / Cheney / Reardan / Medical Lake / Lind‑Ritzville)",
+      "region": "Spokane area (Spokane / Cheney / Reardan / Medical Lake / Lind\u2011Ritzville)",
       "governingBody": "SYFC",
       "sanctioning": "Independent",
       "website": "https://www.spokaneyouthfootballandcheer.com/",
@@ -102,9 +104,9 @@
     },
     {
       "id": "metro-league-3a-football",
-      "name": "Metro League — 3A Football",
+      "name": "Metro League \u2014 3A Football",
       "level": "high school",
-      "ageGroups": "14‑18 / grades 9‑12",
+      "ageGroups": "14\u201118 / grades 9\u201112",
       "gender": "boys",
       "season": "fall",
       "region": "Seattle (SeaKing District II)",
@@ -116,9 +118,9 @@
     },
     {
       "id": "metro-league-2a-football",
-      "name": "Metro League — 2A Football",
+      "name": "Metro League \u2014 2A Football",
       "level": "high school",
-      "ageGroups": "14‑18 / grades 9‑12",
+      "ageGroups": "14\u201118 / grades 9\u201112",
       "gender": "boys",
       "season": "fall",
       "region": "Seattle (SeaKing District II)",
@@ -130,9 +132,9 @@
     },
     {
       "id": "kingco-4a-football",
-      "name": "KingCo — 4A Football",
+      "name": "KingCo \u2014 4A Football",
       "level": "high school",
-      "ageGroups": "14‑18 / grades 9‑12",
+      "ageGroups": "14\u201118 / grades 9\u201112",
       "gender": "boys",
       "season": "fall",
       "region": "Eastside King County (Bellevue / Kirkland / Redmond / Issaquah)",
@@ -144,9 +146,9 @@
     },
     {
       "id": "kingco-3a-football",
-      "name": "KingCo — 3A Football",
+      "name": "KingCo \u2014 3A Football",
       "level": "high school",
-      "ageGroups": "14‑18 / grades 9‑12",
+      "ageGroups": "14\u201118 / grades 9\u201112",
       "gender": "boys",
       "season": "fall",
       "region": "Eastside King County",
@@ -158,9 +160,9 @@
     },
     {
       "id": "wesco-4a-football",
-      "name": "Wesco — 4A Football",
+      "name": "Wesco \u2014 4A Football",
       "level": "high school",
-      "ageGroups": "14‑18 / grades 9‑12",
+      "ageGroups": "14\u201118 / grades 9\u201112",
       "gender": "boys",
       "season": "fall",
       "region": "Snohomish County / North King",
@@ -174,7 +176,7 @@
       "id": "4a-south-puget-sound-league-spsl",
       "name": "4A South Puget Sound League (SPSL)",
       "level": "high school",
-      "ageGroups": "14‑18 / grades 9‑12",
+      "ageGroups": "14\u201118 / grades 9\u201112",
       "gender": "boys",
       "season": "fall",
       "region": "Pierce / Thurston / Kitsap (South Sound)",
@@ -186,9 +188,9 @@
     },
     {
       "id": "north-puget-sound-league-npsl-4a-football",
-      "name": "North Puget Sound League (NPSL) — 4A Football",
+      "name": "North Puget Sound League (NPSL) \u2014 4A Football",
       "level": "high school",
-      "ageGroups": "14‑18 / grades 9‑12",
+      "ageGroups": "14\u201118 / grades 9\u201112",
       "gender": "boys",
       "season": "fall",
       "region": "South King County (Auburn / Kent / Federal Way / Tahoma)",
@@ -200,9 +202,9 @@
     },
     {
       "id": "greater-st-helens-league-4a-3a-football",
-      "name": "Greater St. Helens League — 4A/3A Football",
+      "name": "Greater St. Helens League \u2014 4A/3A Football",
       "level": "high school",
-      "ageGroups": "14‑18 / grades 9‑12",
+      "ageGroups": "14\u201118 / grades 9\u201112",
       "gender": "boys",
       "season": "fall",
       "region": "Clark / Cowlitz (SW Washington)",
@@ -214,9 +216,9 @@
     },
     {
       "id": "greater-st-helens-league-2a-football",
-      "name": "Greater St. Helens League — 2A Football",
+      "name": "Greater St. Helens League \u2014 2A Football",
       "level": "high school",
-      "ageGroups": "14‑18 / grades 9‑12",
+      "ageGroups": "14\u201118 / grades 9\u201112",
       "gender": "boys",
       "season": "fall",
       "region": "Clark / Cowlitz (SW Washington)",
@@ -228,9 +230,9 @@
     },
     {
       "id": "central-washington-athletic-conference-cwac-2a-football",
-      "name": "Central Washington Athletic Conference (CWAC) — 2A Football",
+      "name": "Central Washington Athletic Conference (CWAC) \u2014 2A Football",
       "level": "high school",
-      "ageGroups": "14‑18 / grades 9‑12",
+      "ageGroups": "14\u201118 / grades 9\u201112",
       "gender": "boys",
       "season": "fall",
       "region": "Central WA (Yakima / Kittitas / Grant / Benton)",
@@ -242,9 +244,9 @@
     },
     {
       "id": "big-nine-4a-football",
-      "name": "Big Nine — 4A Football",
+      "name": "Big Nine \u2014 4A Football",
       "level": "high school",
-      "ageGroups": "14‑18 / grades 9‑12",
+      "ageGroups": "14\u201118 / grades 9\u201112",
       "gender": "boys",
       "season": "fall",
       "region": "Central WA (Yakima / Wenatchee / Moses Lake)",
@@ -256,12 +258,12 @@
     },
     {
       "id": "mid-columbia-conference-4a-football",
-      "name": "Mid‑Columbia Conference — 4A Football",
+      "name": "Mid\u2011Columbia Conference \u2014 4A Football",
       "level": "high school",
-      "ageGroups": "14‑18 / grades 9‑12",
+      "ageGroups": "14\u201118 / grades 9\u201112",
       "gender": "boys",
       "season": "fall",
-      "region": "Tri‑Cities / Walla Walla / Hanford",
+      "region": "Tri\u2011Cities / Walla Walla / Hanford",
       "governingBody": "WIAA / MCC",
       "sanctioning": "WIAA",
       "website": "https://mid-columbiaconference.com/",
@@ -270,9 +272,9 @@
     },
     {
       "id": "greater-spokane-league-gsl-4a-3a-2a-football",
-      "name": "Greater Spokane League (GSL) — 4A/3A/2A Football",
+      "name": "Greater Spokane League (GSL) \u2014 4A/3A/2A Football",
       "level": "high school",
-      "ageGroups": "14‑18 / grades 9‑12",
+      "ageGroups": "14\u201118 / grades 9\u201112",
       "gender": "boys",
       "season": "fall",
       "region": "Spokane / Spokane Valley / Pullman",
@@ -281,6 +283,14 @@
       "website": "https://greaterspokaneleague.org/",
       "sourceUrl": "https://greaterspokaneleague.org/sports/football",
       "notes": "League site lists football with schedules/standings by classification."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 2,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

@@ -1,12 +1,12 @@
 {
   "_description": "AK basketball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "ymca-of-alaska-youth-basketball-recreational",
-      "name": "YMCA of Alaska Youth Basketball — Recreational",
+      "name": "YMCA of Alaska Youth Basketball \u2014 Recreational",
       "level": "Recreational",
-      "ageGroups": "Grades 3–8",
+      "ageGroups": "Grades 3\u20138",
       "gender": "Boys / Girls (separate divisions)",
       "season": "Winter",
       "region": "Anchorage / Mat-Su / Kodiak",
@@ -14,13 +14,14 @@
       "sanctioning": "None listed",
       "website": "https://ymcaalaska.org/programs/sports-and-recreation/youth-basketball/",
       "sourceUrl": "https://www.quickscores.com/anchoragey",
-      "notes": "Age-band divisions (3/4 / 5/6 / 7/8); schedules and standings on QuickScores"
+      "notes": "Age-band divisions (3/4 / 5/6 / 7/8); schedules and standings on QuickScores [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "ymca-of-alaska-youth-basketball-competitive",
-      "name": "YMCA of Alaska Youth Basketball — Competitive",
+      "name": "YMCA of Alaska Youth Basketball \u2014 Competitive",
       "level": "Competitive",
-      "ageGroups": "Grades 3–8",
+      "ageGroups": "Grades 3\u20138",
       "gender": "Boys / Girls (separate divisions)",
       "season": "Winter",
       "region": "Anchorage",
@@ -28,69 +29,74 @@
       "sanctioning": "None listed",
       "website": "https://ymcaalaska.org/programs/sports-and-recreation/youth-basketball/",
       "sourceUrl": "https://www.quickscores.com/Orgs/Schedules.php?OrgDir=anchoragey",
-      "notes": "\"Comp BB\" tier; parallel age-band structure to rec division; standings on QuickScores"
+      "notes": "\"Comp BB\" tier; parallel age-band structure to rec division; standings on QuickScores [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-basketball-1a",
-      "name": "ASAA Basketball — 1A",
+      "name": "ASAA Basketball \u2014 1A",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys / Girls (separate)",
-      "season": "Winter (Dec–Mar)",
+      "season": "Winter (Dec\u2013Mar)",
       "region": "Statewide",
       "governingBody": "Alaska School Activities Association",
       "sanctioning": "ASAA",
       "website": "https://asaa.org/activities/basketball/",
       "sourceUrl": "https://www.asaa365.com/basketball/1a-basketball/",
-      "notes": "School enrollment 5–60; regional play Feb 25–28 at Mt Edgecumbe (Sitka); state championship Mar 11–14"
+      "notes": "School enrollment 5\u201360; regional play Feb 25\u201328 at Mt Edgecumbe (Sitka); state championship Mar 11\u201314 [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-basketball-2a",
-      "name": "ASAA Basketball — 2A",
+      "name": "ASAA Basketball \u2014 2A",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys / Girls (separate)",
-      "season": "Winter (Dec–Mar)",
+      "season": "Winter (Dec\u2013Mar)",
       "region": "Statewide",
       "governingBody": "Alaska School Activities Association",
       "sanctioning": "ASAA",
       "website": "https://asaa.org/activities/basketball/",
       "sourceUrl": "https://www.asaa365.com/basketball/",
-      "notes": "School enrollment 60–150; regional tournament Mar 3–7 at Juneau-Douglas HS"
+      "notes": "School enrollment 60\u2013150; regional tournament Mar 3\u20137 at Juneau-Douglas HS [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-basketball-3a",
-      "name": "ASAA Basketball — 3A",
+      "name": "ASAA Basketball \u2014 3A",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys / Girls (separate)",
-      "season": "Winter (Dec–Mar)",
+      "season": "Winter (Dec\u2013Mar)",
       "region": "Statewide",
       "governingBody": "Alaska School Activities Association",
       "sanctioning": "ASAA",
       "website": "https://asaa.org/activities/basketball/",
       "sourceUrl": "https://www.asaa365.com/basketball/3a-basketball/",
-      "notes": "School enrollment 151–500; state championship Mar 18–21 at Alaska Airlines Center"
+      "notes": "School enrollment 151\u2013500; state championship Mar 18\u201321 at Alaska Airlines Center [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-basketball-4a",
-      "name": "ASAA Basketball — 4A",
+      "name": "ASAA Basketball \u2014 4A",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys / Girls (separate)",
-      "season": "Winter (Dec–Mar)",
+      "season": "Winter (Dec\u2013Mar)",
       "region": "Statewide",
       "governingBody": "Alaska School Activities Association",
       "sanctioning": "ASAA",
       "website": "https://asaa.org/activities/basketball/",
       "sourceUrl": "https://www.asaa365.com/basketball/4a-basketball/",
-      "notes": "School enrollment 501+; largest classification; 23 member schools"
+      "notes": "School enrollment 501+; largest classification; 23 member schools [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "interior-youth-basketball-recreational",
-      "name": "Interior Youth Basketball — Recreational",
+      "name": "Interior Youth Basketball \u2014 Recreational",
       "level": "Recreational",
-      "ageGroups": "Grades 3–4 (Minor) / 5–6 (Major) / 9–12 (Senior)",
+      "ageGroups": "Grades 3\u20134 (Minor) / 5\u20136 (Major) / 9\u201312 (Senior)",
       "gender": "Boys / Girls (separate)",
       "season": "Fall / Winter",
       "region": "Fairbanks / North Pole",
@@ -98,13 +104,14 @@
       "sanctioning": "None listed",
       "website": "https://clubs.bluesombrero.com/interioryouthbasketball",
       "sourceUrl": "https://clubs.bluesombrero.com/interioryouthbasketball",
-      "notes": "Three age-band divisions; schedules and brackets published on Blue Sombrero"
+      "notes": "Three age-band divisions; schedules and brackets published on Blue Sombrero",
+      "sourcePlatform": "blue-sombrero"
     },
     {
       "id": "interior-youth-basketball-competitive",
-      "name": "Interior Youth Basketball — Competitive",
+      "name": "Interior Youth Basketball \u2014 Competitive",
       "level": "Competitive",
-      "ageGroups": "Grades 3–4 / 5–6 / 9–12",
+      "ageGroups": "Grades 3\u20134 / 5\u20136 / 9\u201312",
       "gender": "Boys / Girls (separate)",
       "season": "Fall / Winter",
       "region": "Fairbanks / North Pole",
@@ -112,15 +119,16 @@
       "sanctioning": "None listed",
       "website": "https://clubs.bluesombrero.com/interioryouthbasketball",
       "sourceUrl": "https://clubs.bluesombrero.com/interioryouthbasketball",
-      "notes": "Tryout-based; Wolves and Grizzlies competitive programs; affiliated with Fairbanks North Star Borough"
+      "notes": "Tryout-based; Wolves and Grizzlies competitive programs; affiliated with Fairbanks North Star Borough",
+      "sourcePlatform": "blue-sombrero"
     },
     {
       "id": "club-sports-alaska-basketball-league",
       "name": "Club Sports Alaska Basketball League",
       "level": "Developmental",
-      "ageGroups": "Ages 6–12",
+      "ageGroups": "Ages 6\u201312",
       "gender": "Boys+Girls",
-      "season": "Fall / Winter (Nov–Dec)",
+      "season": "Fall / Winter (Nov\u2013Dec)",
       "region": "Anchorage",
       "governingBody": "Club Sports Alaska",
       "sanctioning": "None listed",
@@ -130,17 +138,18 @@
     },
     {
       "id": "cysa-basketball-recreational",
-      "name": "CYSA Basketball — Recreational",
+      "name": "CYSA Basketball \u2014 Recreational",
       "level": "Recreational",
-      "ageGroups": "Ages 3–18",
+      "ageGroups": "Ages 3\u201318",
       "gender": "Boys / Girls (separate)",
-      "season": "Fall (Oct–Dec) / Spring (Mar–May)",
+      "season": "Fall (Oct\u2013Dec) / Spring (Mar\u2013May)",
       "region": "Eagle River / Chugiak",
       "governingBody": "Chugiak Youth Sports Association",
       "sanctioning": "None listed",
       "website": "https://clubs.bluesombrero.com/CHUGIAK",
       "sourceUrl": "https://clubs.bluesombrero.com/CHUGIAK",
-      "notes": "Two seasons per year; 1,600+ participants; founded 1991; 5 skill-age divisions"
+      "notes": "Two seasons per year; 1,600+ participants; founded 1991; 5 skill-age divisions",
+      "sourcePlatform": "blue-sombrero"
     },
     {
       "id": "cysa-r1se-up-competitive-basketball",
@@ -154,7 +163,8 @@
       "sanctioning": "None listed",
       "website": "https://clubs.bluesombrero.com/CHUGIAK",
       "sourceUrl": "https://clubs.bluesombrero.com/Default.aspx?tabid=1451814",
-      "notes": "Tryout-based competitive tier within CYSA; separate from rec program"
+      "notes": "Tryout-based competitive tier within CYSA; separate from rec program",
+      "sourcePlatform": "blue-sombrero"
     },
     {
       "id": "boys-and-girls-clubs-of-southcentral-alaska-basketball",
@@ -169,6 +179,21 @@
       "website": "https://athletics.bgcalaska.org/",
       "sourceUrl": "https://athletics.bgcalaska.org/",
       "notes": "3,000+ youth served annually across sports; schedules and rosters via Sports Engine app"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "platform-reclassification",
+      "rows_changed": 4,
+      "min_confidence": 0.9,
+      "source": "platform-reclassification-2026-04-15.csv"
+    },
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 6,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

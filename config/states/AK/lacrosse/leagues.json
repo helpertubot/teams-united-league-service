@@ -1,12 +1,12 @@
 {
   "_description": "AK lacrosse leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "anchorage-lacrosse-flex-6-summer-league",
-      "name": "Anchorage Lacrosse — Flex-6 Summer League",
+      "name": "Anchorage Lacrosse \u2014 Flex-6 Summer League",
       "level": "Recreational",
-      "ageGroups": "8U / 10U / 14U (ages 8–16)",
+      "ageGroups": "8U / 10U / 14U (ages 8\u201316)",
       "gender": "Boys+Girls",
       "season": "Summer",
       "region": "Anchorage, AK",
@@ -18,9 +18,9 @@
     },
     {
       "id": "flax-fairbanks-lacrosse-fall-mini-season",
-      "name": "FLAX (Fairbanks Lacrosse) — Fall Mini-Season",
+      "name": "FLAX (Fairbanks Lacrosse) \u2014 Fall Mini-Season",
       "level": "Recreational / Developmental",
-      "ageGroups": "Grades 1–12 (approx. ages 6–18)",
+      "ageGroups": "Grades 1\u201312 (approx. ages 6\u201318)",
       "gender": "Boys+Girls",
       "season": "Fall",
       "region": "Fairbanks, AK",
@@ -28,7 +28,17 @@
       "sanctioning": "USA Lacrosse",
       "website": "https://sports.bluesombrero.com/Default.aspx?tabid=1021786",
       "sourceUrl": "https://www.usalacrosse.com/news-media-blog/fairbanks-capitalizing-small-sided-gameplay",
-      "notes": "6-week recurring season with weekly play (Tue/Wed/Thu); Flex-6 small-sided non-contact format; run under FYSA umbrella; no formal published standings; USA Lacrosse equipment grant recipient"
+      "notes": "6-week recurring season with weekly play (Tue/Wed/Thu); Flex-6 small-sided non-contact format; run under FYSA umbrella; no formal published standings; USA Lacrosse equipment grant recipient",
+      "sourcePlatform": "blue-sombrero"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "platform-reclassification",
+      "rows_changed": 1,
+      "min_confidence": 0.9,
+      "source": "platform-reclassification-2026-04-15.csv"
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "_description": "AK soccer leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "united-anchorage-youth-soccer-league-indoor-session",
-      "name": "United Anchorage Youth Soccer League — Indoor Session",
+      "name": "United Anchorage Youth Soccer League \u2014 Indoor Session",
       "level": "Recreational / Competitive",
-      "ageGroups": "U8–U19",
+      "ageGroups": "U8\u2013U19",
       "gender": "Boys / Girls",
-      "season": "Winter–Spring (Jan–May)",
+      "season": "Winter\u2013Spring (Jan\u2013May)",
       "region": "Anchorage / Eagle River / Mat-Su Valley",
       "governingBody": "United Anchorage Youth Soccer League",
       "sanctioning": "AYSA / US Youth Soccer",
@@ -18,11 +18,11 @@
     },
     {
       "id": "united-anchorage-youth-soccer-league-outdoor-session",
-      "name": "United Anchorage Youth Soccer League — Outdoor Session",
+      "name": "United Anchorage Youth Soccer League \u2014 Outdoor Session",
       "level": "Recreational / Competitive",
-      "ageGroups": "U8–U19",
+      "ageGroups": "U8\u2013U19",
       "gender": "Boys / Girls",
-      "season": "Summer (May–Jul)",
+      "season": "Summer (May\u2013Jul)",
       "region": "Anchorage / Eagle River / Mat-Su Valley",
       "governingBody": "United Anchorage Youth Soccer League",
       "sanctioning": "AYSA / US Youth Soccer",
@@ -32,9 +32,9 @@
     },
     {
       "id": "anchorage-youth-soccer-club-recreational-leagues",
-      "name": "Anchorage Youth Soccer Club — Recreational Leagues",
+      "name": "Anchorage Youth Soccer Club \u2014 Recreational Leagues",
       "level": "Recreational",
-      "ageGroups": "U6–U17",
+      "ageGroups": "U6\u2013U17",
       "gender": "Boys+Girls",
       "season": "Year-round (Fall / Winter / Spring / Summer)",
       "region": "Anchorage",
@@ -46,9 +46,9 @@
     },
     {
       "id": "alaska-rush-soccer-club-recreational-league",
-      "name": "Alaska Rush Soccer Club — Recreational League",
+      "name": "Alaska Rush Soccer Club \u2014 Recreational League",
       "level": "Recreational",
-      "ageGroups": "U3–U12",
+      "ageGroups": "U3\u2013U12",
       "gender": "Boys+Girls",
       "season": "Fall / Winter / Summer",
       "region": "Anchorage",
@@ -56,15 +56,15 @@
       "sanctioning": "AYSA / US Youth Soccer",
       "website": "akrush.com",
       "sourceUrl": "https://akrush.com/recreational/",
-      "notes": "Saturday program at Fox Hollow Sports Dome; born 2013–2023; U11-U18 competitive arm competes in UAYSL"
+      "notes": "Saturday program at Fox Hollow Sports Dome; born 2013\u20132023; U11-U18 competitive arm competes in UAYSL"
     },
     {
       "id": "fairbanks-youth-soccer-association-youth-rec-league",
-      "name": "Fairbanks Youth Soccer Association — Youth Rec League",
+      "name": "Fairbanks Youth Soccer Association \u2014 Youth Rec League",
       "level": "Recreational",
-      "ageGroups": "U3–U18",
+      "ageGroups": "U3\u2013U18",
       "gender": "Boys+Girls",
-      "season": "Summer (late May–late Jul)",
+      "season": "Summer (late May\u2013late Jul)",
       "region": "Interior Alaska / Fairbanks",
       "governingBody": "Fairbanks Youth Soccer Association",
       "sanctioning": "AYSA / US Youth Soccer",
@@ -74,11 +74,11 @@
     },
     {
       "id": "wasilla-youth-soccer-association-recreational-leagues",
-      "name": "Wasilla Youth Soccer Association — Recreational Leagues",
+      "name": "Wasilla Youth Soccer Association \u2014 Recreational Leagues",
       "level": "Recreational / Competitive",
-      "ageGroups": "U4–U18",
+      "ageGroups": "U4\u2013U18",
       "gender": "Coed / Boys / Girls",
-      "season": "Summer (May–Jul) / Fall (Aug–Sep)",
+      "season": "Summer (May\u2013Jul) / Fall (Aug\u2013Sep)",
       "region": "Mat-Su Valley (Houston to Palmer)",
       "governingBody": "Wasilla Youth Soccer Association",
       "sanctioning": "AYSA / US Youth Soccer",
@@ -88,37 +88,39 @@
     },
     {
       "id": "city-of-juneau-zgyc-outdoor-youth-soccer",
-      "name": "City of Juneau ZGYC — Outdoor Youth Soccer",
+      "name": "City of Juneau ZGYC \u2014 Outdoor Youth Soccer",
       "level": "Recreational",
-      "ageGroups": "U5–U14",
+      "ageGroups": "U5\u2013U14",
       "gender": "Boys+Girls",
-      "season": "Summer (Jul–Aug)",
+      "season": "Summer (Jul\u2013Aug)",
       "region": "Juneau / Southeast Alaska",
       "governingBody": "City and Borough of Juneau Parks & Recreation",
       "sanctioning": "Unaffiliated municipal",
       "website": "juneau.org/parks-recreation/zach-gordon/outdoor-soccer",
       "sourceUrl": "https://juneau.org/parks-recreation/zach-gordon/outdoor-soccer",
-      "notes": "8-week season; skill development focus; ages 5–14"
+      "notes": "8-week season; skill development focus; ages 5\u201314 [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "city-of-juneau-zgyc-indoor-youth-soccer",
-      "name": "City of Juneau ZGYC — Indoor Youth Soccer",
+      "name": "City of Juneau ZGYC \u2014 Indoor Youth Soccer",
       "level": "Recreational",
-      "ageGroups": "U5–U14",
+      "ageGroups": "U5\u2013U14",
       "gender": "Boys+Girls",
-      "season": "Fall (mid-Oct–mid-Dec)",
+      "season": "Fall (mid-Oct\u2013mid-Dec)",
       "region": "Juneau / Southeast Alaska",
       "governingBody": "City and Borough of Juneau Parks & Recreation",
       "sanctioning": "Unaffiliated municipal",
       "website": "juneau.org/parks-recreation/zach-gordon/indoor-soccer",
       "sourceUrl": "https://juneau.org/parks-recreation/zach-gordon/indoor-soccer",
-      "notes": "Indoor facility; approximately 8-week session"
+      "notes": "Indoor facility; approximately 8-week session [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "juneau-soccer-club-recreational-competitive-leagues",
-      "name": "Juneau Soccer Club — Recreational / Competitive Leagues",
+      "name": "Juneau Soccer Club \u2014 Recreational / Competitive Leagues",
       "level": "Recreational / Competitive",
-      "ageGroups": "U5–U18",
+      "ageGroups": "U5\u2013U18",
       "gender": "Boys / Girls",
       "season": "Year-round (indoor fall/winter; outdoor spring/summer)",
       "region": "Juneau / Southeast Alaska",
@@ -126,35 +128,46 @@
       "sanctioning": "AYSA / US Youth Soccer",
       "website": "juneausoccer.org",
       "sourceUrl": "https://www.juneausoccer.org/register",
-      "notes": "Alaska Rush affiliate; recreational / developmental academy / competitive tiers; hosts indoor league tournaments"
+      "notes": "Alaska Rush affiliate; recreational / developmental academy / competitive tiers; hosts indoor league tournaments [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-high-school-soccer-division-i",
-      "name": "ASAA High School Soccer — Division I",
+      "name": "ASAA High School Soccer \u2014 Division I",
       "level": "High School",
-      "ageGroups": "14–18",
+      "ageGroups": "14\u201318",
       "gender": "Boys / Girls",
-      "season": "Fall (Jul–Oct) / Spring (Mar–May)",
+      "season": "Fall (Jul\u2013Oct) / Spring (Mar\u2013May)",
       "region": "Statewide",
       "governingBody": "Alaska School Activities Association",
       "sanctioning": "ASAA / NFHS",
       "website": "asaa365.com/soccer/d1-soccer/",
       "sourceUrl": "https://www.asaa365.com/soccer/d1-soccer/",
-      "notes": "Conference-based regular-season schedules with standings; 2026 state championship May 28–30 at Mat-Su Valley (Colony/Palmer/Wasilla)"
+      "notes": "Conference-based regular-season schedules with standings; 2026 state championship May 28\u201330 at Mat-Su Valley (Colony/Palmer/Wasilla) [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-high-school-soccer-division-ii",
-      "name": "ASAA High School Soccer — Division II",
+      "name": "ASAA High School Soccer \u2014 Division II",
       "level": "High School",
-      "ageGroups": "14–18",
+      "ageGroups": "14\u201318",
       "gender": "Boys / Girls",
-      "season": "Fall (Jul–Oct) / Spring (Mar–May)",
+      "season": "Fall (Jul\u2013Oct) / Spring (Mar\u2013May)",
       "region": "Statewide",
       "governingBody": "Alaska School Activities Association",
       "sanctioning": "ASAA / NFHS",
       "website": "asaa365.com/soccer/d2-soccer/",
       "sourceUrl": "https://www.asaa365.com/soccer/d2-soccer/",
-      "notes": "Smaller schools; coed classification also available but no state tournament for coed"
+      "notes": "Smaller schools; coed classification also available but no state tournament for coed [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 5,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

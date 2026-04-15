@@ -1,10 +1,10 @@
 {
   "_description": "TX soccer leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "stysa-eastern-district-players-league-div-i-super-2",
-      "name": "STYSA Eastern District Players League — Div I / Super 2",
+      "name": "STYSA Eastern District Players League \u2014 Div I / Super 2",
       "level": "competitive",
       "ageGroups": "11U-19U",
       "gender": "Boys / Girls",
@@ -18,7 +18,7 @@
     },
     {
       "id": "stysa-eastern-district-players-league-div-ii",
-      "name": "STYSA Eastern District Players League — Div II",
+      "name": "STYSA Eastern District Players League \u2014 Div II",
       "level": "competitive",
       "ageGroups": "11U-19U",
       "gender": "Boys / Girls",
@@ -60,7 +60,7 @@
     },
     {
       "id": "stysa-frontier-conference-premier-i",
-      "name": "STYSA Frontier Conference — Premier I",
+      "name": "STYSA Frontier Conference \u2014 Premier I",
       "level": "elite",
       "ageGroups": "13U-19U",
       "gender": "Boys / Girls",
@@ -74,7 +74,7 @@
     },
     {
       "id": "stysa-frontier-conference-development-league",
-      "name": "STYSA Frontier Conference — Development League",
+      "name": "STYSA Frontier Conference \u2014 Development League",
       "level": "competitive",
       "ageGroups": "13U-19U",
       "gender": "Girls",
@@ -88,7 +88,7 @@
     },
     {
       "id": "south-texas-champions-league-ecnl-regional-league",
-      "name": "South Texas Champions League — ECNL Regional League",
+      "name": "South Texas Champions League \u2014 ECNL Regional League",
       "level": "competitive",
       "ageGroups": "13U-19U",
       "gender": "Boys / Girls",
@@ -102,7 +102,7 @@
     },
     {
       "id": "south-texas-champions-league-eastern-conference",
-      "name": "South Texas Champions League — Eastern Conference",
+      "name": "South Texas Champions League \u2014 Eastern Conference",
       "level": "competitive",
       "ageGroups": "13U-19U",
       "gender": "Boys / Girls",
@@ -116,7 +116,7 @@
     },
     {
       "id": "south-texas-champions-league-western-conference-tier-1-tier-2-qu",
-      "name": "South Texas Champions League — Western Conference (Tier 1 / Tier 2 / Qualifying)",
+      "name": "South Texas Champions League \u2014 Western Conference (Tier 1 / Tier 2 / Qualifying)",
       "level": "competitive",
       "ageGroups": "13U-19U",
       "gender": "Boys / Girls",
@@ -130,7 +130,7 @@
     },
     {
       "id": "south-texas-champions-league-npl-division",
-      "name": "South Texas Champions League — NPL Division",
+      "name": "South Texas Champions League \u2014 NPL Division",
       "level": "competitive",
       "ageGroups": "13U-19U",
       "gender": "Boys / Girls",
@@ -144,7 +144,7 @@
     },
     {
       "id": "texas-club-soccer-league-tcsl-academy-saturday-sunday",
-      "name": "Texas Club Soccer League (TCSL) — Academy (Saturday / Sunday)",
+      "name": "Texas Club Soccer League (TCSL) \u2014 Academy (Saturday / Sunday)",
       "level": "recreational",
       "ageGroups": "6U-16U",
       "gender": "Boys / Girls",
@@ -158,7 +158,7 @@
     },
     {
       "id": "texas-club-soccer-league-tcsl-select",
-      "name": "Texas Club Soccer League (TCSL) — Select",
+      "name": "Texas Club Soccer League (TCSL) \u2014 Select",
       "level": "competitive",
       "ageGroups": "6U-16U",
       "gender": "Boys / Girls",
@@ -200,7 +200,7 @@
     },
     {
       "id": "ecnl-girls-texas-conference",
-      "name": "ECNL Girls — Texas Conference",
+      "name": "ECNL Girls \u2014 Texas Conference",
       "level": "elite",
       "ageGroups": "13U-18U/19U",
       "gender": "Girls",
@@ -214,7 +214,7 @@
     },
     {
       "id": "ecnl-boys-texas-conference",
-      "name": "ECNL Boys — Texas Conference",
+      "name": "ECNL Boys \u2014 Texas Conference",
       "level": "elite",
       "ageGroups": "11U-18U/19U",
       "gender": "Boys",
@@ -228,7 +228,7 @@
     },
     {
       "id": "ecnl-regional-league-girls-north-texas",
-      "name": "ECNL Regional League Girls — North Texas",
+      "name": "ECNL Regional League Girls \u2014 North Texas",
       "level": "competitive",
       "ageGroups": "13U-18U/19U",
       "gender": "Girls",
@@ -242,7 +242,7 @@
     },
     {
       "id": "ecnl-regional-league-boys-north-texas",
-      "name": "ECNL Regional League Boys — North Texas",
+      "name": "ECNL Regional League Boys \u2014 North Texas",
       "level": "competitive",
       "ageGroups": "13U-18U/19U",
       "gender": "Boys",
@@ -270,7 +270,7 @@
     },
     {
       "id": "girls-academy-league-texas",
-      "name": "Girls Academy League — Texas",
+      "name": "Girls Academy League \u2014 Texas",
       "level": "elite",
       "ageGroups": "13U-18U/19U",
       "gender": "Girls",
@@ -280,11 +280,12 @@
       "sanctioning": "Girls Academy",
       "website": "https://girlsacademyleague.com",
       "sourceUrl": "https://girlsacademyleague.com/",
-      "notes": "GA Aspire sub-tier also active; TX clubs include HTX North / HTX South / BVB IA / Capital City SC / Dallas Surf / GFI Academy / Houston Surf / San Antonio City SC"
+      "notes": "GA Aspire sub-tier also active; TX clubs include HTX North / HTX South / BVB IA / Capital City SC / Dallas Surf / GFI Academy / Houston Surf / San Antonio City SC [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "mls-next-texas",
-      "name": "MLS NEXT — Texas",
+      "name": "MLS NEXT \u2014 Texas",
       "level": "elite",
       "ageGroups": "13U-19U",
       "gender": "Boys",
@@ -298,7 +299,7 @@
     },
     {
       "id": "usys-national-league-texas",
-      "name": "USYS National League — Texas",
+      "name": "USYS National League \u2014 Texas",
       "level": "elite",
       "ageGroups": "13U-19U",
       "gender": "Boys / Girls",
@@ -308,7 +309,8 @@
       "sanctioning": "USYS",
       "website": "https://www.usyouthsoccer.org",
       "sourceUrl": "https://playclubsoccer.org/directory/soccer-clubs-in-texas/leagues/usys-nl",
-      "notes": "TX clubs include Atlético Dallas Youth / Dallas Surf / Houston Surf; pathway to USYS National Championships; NPL/USYS integration begins 2026-27"
+      "notes": "TX clubs include Atl\u00e9tico Dallas Youth / Dallas Surf / Houston Surf; pathway to USYS National Championships; NPL/USYS integration begins 2026-27 [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "girls-classic-league-gcl",
@@ -368,7 +370,7 @@
     },
     {
       "id": "texas-youth-premier-league-central-texas",
-      "name": "Texas Youth Premier League — Central Texas",
+      "name": "Texas Youth Premier League \u2014 Central Texas",
       "level": "competitive",
       "ageGroups": "6U-15U",
       "gender": "Boys / Girls",
@@ -378,11 +380,12 @@
       "sanctioning": "Independent",
       "website": "https://www.playtxypl.com",
       "sourceUrl": "https://www.playtxypl.com/copy-of-houston",
-      "notes": "8 regular-season games plus playoffs; Sunday-primary schedule; venues include Heritage Park Belton and Georgetown"
+      "notes": "8 regular-season games plus playoffs; Sunday-primary schedule; venues include Heritage Park Belton and Georgetown [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "texas-youth-premier-league-houston",
-      "name": "Texas Youth Premier League — Houston",
+      "name": "Texas Youth Premier League \u2014 Houston",
       "level": "competitive",
       "ageGroups": "6U-15U",
       "gender": "Boys / Girls",
@@ -392,11 +395,12 @@
       "sanctioning": "Independent",
       "website": "https://www.playtxypl.com",
       "sourceUrl": "https://www.playtxypl.com/houston",
-      "notes": "Separate Houston conference; partnership with La Escondida facility"
+      "notes": "Separate Houston conference; partnership with La Escondida facility [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "uil-soccer-texas-high-school-district-play-boys",
-      "name": "UIL Soccer — Texas High School District Play (Boys)",
+      "name": "UIL Soccer \u2014 Texas High School District Play (Boys)",
       "level": "high school",
       "ageGroups": "9-12 grade",
       "gender": "Boys",
@@ -410,7 +414,7 @@
     },
     {
       "id": "uil-soccer-texas-high-school-district-play-girls",
-      "name": "UIL Soccer — Texas High School District Play (Girls)",
+      "name": "UIL Soccer \u2014 Texas High School District Play (Girls)",
       "level": "high school",
       "ageGroups": "9-12 grade",
       "gender": "Girls",
@@ -424,7 +428,7 @@
     },
     {
       "id": "ayso-section-12-texas-regions",
-      "name": "AYSO Section 12 — Texas Regions",
+      "name": "AYSO Section 12 \u2014 Texas Regions",
       "level": "recreational",
       "ageGroups": "4U-19U",
       "gender": "Boys / Girls",
@@ -449,6 +453,14 @@
       "website": "https://www.tylersoccer.com",
       "sourceUrl": "https://www.tylersoccer.com/page/show/845418-east-texas-premier-league-information",
       "notes": "Serves independent club teams throughout East Texas; professional coaching model"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 4,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }
