@@ -1,6 +1,6 @@
 {
-  "_description": "WA soccer leagues — extracted from scripts/setup/wa-soccer-expansion.js",
-  "_lastUpdated": "2026-04-13",
+  "_description": "WA soccer leagues \u2014 extracted from scripts/setup/wa-soccer-expansion.js",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "rcl-wa",
@@ -112,7 +112,7 @@
       "region": "Olympia / Thurston County",
       "sourcePlatform": "demosphere",
       "tier": 2,
-      "notes": "Uses TeamSideline — no adapter exists."
+      "notes": "Uses TeamSideline \u2014 no adapter exists."
     },
     {
       "id": "demosphere-whatcom-wa",
@@ -160,7 +160,7 @@
       "region": "Snoqualmie Valley",
       "sourcePlatform": "leagueapps",
       "tier": 3,
-      "notes": "Uses SportsEngine — no adapter exists."
+      "notes": "Uses SportsEngine \u2014 no adapter exists."
     },
     {
       "id": "lewis-county-wa",
@@ -168,13 +168,13 @@
       "region": "Centralia / Chehalis",
       "sourcePlatform": "demosphere",
       "tier": 3,
-      "notes": "Uses TeamSideline — no adapter exists."
+      "notes": "Uses TeamSideline \u2014 no adapter exists."
     },
     {
       "id": "regional-club-league-division-1",
-      "name": "Regional Club League — Division 1",
+      "name": "Regional Club League \u2014 Division 1",
       "level": "competitive",
-      "ageGroups": "U9–U19",
+      "ageGroups": "U9\u2013U19",
       "gender": "boys / girls",
       "season": "fall / spring",
       "region": "statewide (WA)",
@@ -182,13 +182,14 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://www.rclwashington.com/",
       "sourceUrl": "https://washingtonyouthsoccer.org/leagues/regional-club-league/",
-      "notes": "Top tier of WYS club league with promotion / relegation between divisions."
+      "notes": "Top tier of WYS club league with promotion / relegation between divisions. [auto-quarantine 2026-04-15: generic-platform:squarespace]",
+      "status": "quarantine"
     },
     {
       "id": "regional-club-league-division-2",
-      "name": "Regional Club League — Division 2",
+      "name": "Regional Club League \u2014 Division 2",
       "level": "competitive",
-      "ageGroups": "U9–U19",
+      "ageGroups": "U9\u2013U19",
       "gender": "boys / girls",
       "season": "fall / spring",
       "region": "statewide (WA)",
@@ -196,13 +197,14 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://www.rclwashington.com/",
       "sourceUrl": "https://washingtonyouthsoccer.org/leagues/regional-club-league/",
-      "notes": "Second tier of RCL with promotion / relegation."
+      "notes": "Second tier of RCL with promotion / relegation. [auto-quarantine 2026-04-15: generic-platform:squarespace]",
+      "status": "quarantine"
     },
     {
       "id": "regional-club-league-division-3",
-      "name": "Regional Club League — Division 3",
+      "name": "Regional Club League \u2014 Division 3",
       "level": "competitive",
-      "ageGroups": "U9–U19",
+      "ageGroups": "U9\u2013U19",
       "gender": "boys / girls",
       "season": "fall / spring",
       "region": "statewide (WA)",
@@ -210,13 +212,14 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://www.rclwashington.com/",
       "sourceUrl": "https://washingtonyouthsoccer.org/leagues/regional-club-league/",
-      "notes": "Third tier of RCL with promotion / relegation."
+      "notes": "Third tier of RCL with promotion / relegation. [auto-quarantine 2026-04-15: generic-platform:squarespace]",
+      "status": "quarantine"
     },
     {
       "id": "regional-club-league-division-4",
-      "name": "Regional Club League — Division 4",
+      "name": "Regional Club League \u2014 Division 4",
       "level": "competitive",
-      "ageGroups": "U9–U19",
+      "ageGroups": "U9\u2013U19",
       "gender": "boys / girls",
       "season": "fall / spring",
       "region": "statewide (WA)",
@@ -224,27 +227,29 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://www.rclwashington.com/",
       "sourceUrl": "https://washingtonyouthsoccer.org/leagues/regional-club-league/",
-      "notes": "Fourth tier of RCL with promotion / relegation."
+      "notes": "Fourth tier of RCL with promotion / relegation. [auto-quarantine 2026-04-15: generic-platform:squarespace]",
+      "status": "quarantine"
     },
     {
       "id": "north-puget-sound-league-npsl",
       "name": "North Puget Sound League (NPSL)",
       "level": "competitive",
-      "ageGroups": "U9–U19",
+      "ageGroups": "U9\u2013U19",
       "gender": "boys / girls",
-      "season": "fall (U11–U14) / winter (HS girls) / spring",
+      "season": "fall (U11\u2013U14) / winter (HS girls) / spring",
       "region": "Puget Sound region (Districts 1 / 2)",
       "governingBody": "Washington Youth Soccer",
       "sanctioning": "US Youth Soccer",
       "website": "https://www.northpugetsoundleague.org/",
       "sourceUrl": "https://www.northpugetsoundleague.org/",
-      "notes": "Team-based select league across 11 associations with schedules and standings."
+      "notes": "Team-based select league across 11 associations with schedules and standings. [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "south-sound-united-league-ssul",
       "name": "South Sound United League (SSUL)",
       "level": "rec / select",
-      "ageGroups": "U9–U19",
+      "ageGroups": "U9\u2013U19",
       "gender": "boys / girls",
       "season": "fall / spring",
       "region": "South King / Pierce counties",
@@ -256,9 +261,9 @@
     },
     {
       "id": "washington-premier-league-npl-league",
-      "name": "Washington Premier League — NPL League",
+      "name": "Washington Premier League \u2014 NPL League",
       "level": "competitive",
-      "ageGroups": "U11–U19",
+      "ageGroups": "U11\u2013U19",
       "gender": "boys / girls",
       "season": "fall / winter / spring (by age)",
       "region": "statewide (WA)",
@@ -270,9 +275,9 @@
     },
     {
       "id": "washington-premier-league-classic-league",
-      "name": "Washington Premier League — Classic League",
+      "name": "Washington Premier League \u2014 Classic League",
       "level": "competitive",
-      "ageGroups": "U11–U19",
+      "ageGroups": "U11\u2013U19",
       "gender": "boys / girls",
       "season": "fall / spring",
       "region": "Puget Sound (West) / Eastern WA (East)",
@@ -284,9 +289,9 @@
     },
     {
       "id": "washington-premier-league-copa-league",
-      "name": "Washington Premier League — Copa League",
+      "name": "Washington Premier League \u2014 Copa League",
       "level": "competitive / rec-select",
-      "ageGroups": "U11–U19",
+      "ageGroups": "U11\u2013U19",
       "gender": "boys / girls",
       "season": "fall / spring",
       "region": "regionalized in WA",
@@ -298,9 +303,9 @@
     },
     {
       "id": "washington-premier-league-development-league",
-      "name": "Washington Premier League — Development League",
+      "name": "Washington Premier League \u2014 Development League",
       "level": "developmental",
-      "ageGroups": "U8–U10",
+      "ageGroups": "U8\u2013U10",
       "gender": "boys / girls",
       "season": "fall / spring",
       "region": "regionalized in WA",
@@ -312,9 +317,9 @@
     },
     {
       "id": "usys-national-league-northwest-premier-1",
-      "name": "USYS National League — Northwest (Premier 1)",
+      "name": "USYS National League \u2014 Northwest (Premier 1)",
       "level": "competitive (regional)",
-      "ageGroups": "U13–U19",
+      "ageGroups": "U13\u2013U19",
       "gender": "boys / girls",
       "season": "late fall / winter event-based",
       "region": "WA / OR / ID / AK / MT / WY",
@@ -326,9 +331,9 @@
     },
     {
       "id": "ecnl-boys-northwest-conference",
-      "name": "ECNL Boys — Northwest Conference",
+      "name": "ECNL Boys \u2014 Northwest Conference",
       "level": "elite competitive",
-      "ageGroups": "U13–U19",
+      "ageGroups": "U13\u2013U19",
       "gender": "boys",
       "season": "fall / winter / spring (by age)",
       "region": "Pacific Northwest (incl. WA clubs)",
@@ -336,13 +341,14 @@
       "sanctioning": "ECNL",
       "website": "https://www.eliteclubsnationalleague.com/",
       "sourceUrl": "https://www.washingtonpremierfc.com/da-program/",
-      "notes": "National club league with WA clubs (e.g., Crossfire Premier / WPFC / Seattle United / PacNW)."
+      "notes": "National club league with WA clubs (e.g., Crossfire Premier / WPFC / Seattle United / PacNW). [auto-quarantine 2026-04-15: network:URLError]",
+      "status": "quarantine"
     },
     {
       "id": "ecnl-girls-northwest-conference",
-      "name": "ECNL Girls — Northwest Conference",
+      "name": "ECNL Girls \u2014 Northwest Conference",
       "level": "elite competitive",
-      "ageGroups": "U13–U19",
+      "ageGroups": "U13\u2013U19",
       "gender": "girls",
       "season": "late fall / winter / spring (by age)",
       "region": "Pacific Northwest (incl. WA clubs)",
@@ -350,13 +356,14 @@
       "sanctioning": "ECNL",
       "website": "https://www.eliteclubsnationalleague.com/",
       "sourceUrl": "https://theecnl.com/news/2025/8/8/ecnl-girls-northwest-wins-ecnl-girls-conference-cup-presented-by-discount-tire-best-xi-named.aspx",
-      "notes": "National club league with WA clubs (e.g., Crossfire Premier / Eastside FC / WPFC / PacNW / Seattle United / Snohomish United)."
+      "notes": "National club league with WA clubs (e.g., Crossfire Premier / Eastside FC / WPFC / PacNW / Seattle United / Snohomish United). [auto-quarantine 2026-04-15: network:URLError]",
+      "status": "quarantine"
     },
     {
       "id": "league-washington-inter-association-rec",
-      "name": "League Washington (Inter‑Association Rec)",
+      "name": "League Washington (Inter\u2011Association Rec)",
       "level": "rec",
-      "ageGroups": "U13–U19",
+      "ageGroups": "U13\u2013U19",
       "gender": "boys / girls",
       "season": "fall",
       "region": "Greater Eastside / Seattle / Snohomish / Everett",
@@ -364,13 +371,14 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://washingtonyouthsoccer.org/leagues/leaguewashington/",
       "sourceUrl": "https://washingtonyouthsoccer.org/leagues/leaguewashington/",
-      "notes": "WYS-run schedule and standings across multiple associations."
+      "notes": "WYS-run schedule and standings across multiple associations. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "seattle-youth-soccer-association-citywide-rec-league",
-      "name": "Seattle Youth Soccer Association — Citywide Rec League",
+      "name": "Seattle Youth Soccer Association \u2014 Citywide Rec League",
       "level": "rec",
-      "ageGroups": "U10–U19",
+      "ageGroups": "U10\u2013U19",
       "gender": "boys / girls",
       "season": "fall (with city tournament) / spring",
       "region": "Seattle / Shoreline",
@@ -378,13 +386,14 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://www.sysa.org/",
       "sourceUrl": "https://www.sysa.org/recreational-fall",
-      "notes": "Association-run citywide schedules and standings by division."
+      "notes": "Association-run citywide schedules and standings by division. [auto-quarantine 2026-04-15: generic-platform:squarespace]",
+      "status": "quarantine"
     },
     {
       "id": "pierce-county-soccer-association-home-league",
-      "name": "Pierce County Soccer Association — Home League",
+      "name": "Pierce County Soccer Association \u2014 Home League",
       "level": "rec",
-      "ageGroups": "U8–U19",
+      "ageGroups": "U8\u2013U19",
       "gender": "boys / girls",
       "season": "fall (some spring)",
       "region": "Pierce County",
@@ -392,13 +401,14 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://www.piercecountysoccer.com/",
       "sourceUrl": "https://www.piercecountysoccer.com/league-schedules/",
-      "notes": "PCSA schedules and posts scores for home league play."
+      "notes": "PCSA schedules and posts scores for home league play. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "thurston-county-youth-soccer-association-league",
       "name": "Thurston County Youth Soccer Association League",
       "level": "rec",
-      "ageGroups": "U6–U19",
+      "ageGroups": "U6\u2013U19",
       "gender": "boys / girls",
       "season": "spring / fall",
       "region": "Thurston County",
@@ -412,7 +422,7 @@
       "id": "northwest-sound-youth-soccer-association-league",
       "name": "Northwest Sound Youth Soccer Association League",
       "level": "rec / select",
-      "ageGroups": "U5–U19",
+      "ageGroups": "U5\u2013U19",
       "gender": "boys / girls",
       "season": "fall / spring",
       "region": "Kitsap / Clallam / Jefferson / North Mason",
@@ -426,7 +436,7 @@
       "id": "whatcom-county-youth-soccer-association-rec-league",
       "name": "Whatcom County Youth Soccer Association Rec League",
       "level": "rec",
-      "ageGroups": "U6–U14 (rec)",
+      "ageGroups": "U6\u2013U14 (rec)",
       "gender": "boys / girls",
       "season": "spring / fall",
       "region": "Whatcom County",
@@ -434,13 +444,14 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://whatcomsoccer.com/",
       "sourceUrl": "https://whatcomsoccer.com/youth-soccer/",
-      "notes": "Rec league with posted seasonal schedules."
+      "notes": "Rec league with posted seasonal schedules. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "spokane-youth-sports-association-soccer-leagues",
-      "name": "Spokane Youth Sports Association — Soccer Leagues",
+      "name": "Spokane Youth Sports Association \u2014 Soccer Leagues",
       "level": "rec",
-      "ageGroups": "U6–U14",
+      "ageGroups": "U6\u2013U14",
       "gender": "boys / girls",
       "season": "spring / fall / winter indoor",
       "region": "Spokane County",
@@ -452,9 +463,9 @@
     },
     {
       "id": "lake-washington-ysa-recreational-league",
-      "name": "Lake Washington YSA — Recreational League",
+      "name": "Lake Washington YSA \u2014 Recreational League",
       "level": "rec",
-      "ageGroups": "U7–U19",
+      "ageGroups": "U7\u2013U19",
       "gender": "boys / girls",
       "season": "fall / spring",
       "region": "Kirkland / Redmond / LWSD area",
@@ -462,13 +473,13 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://www.lwysa.org/",
       "sourceUrl": "https://www.lwysa.org/Default.aspx?tabid=1050292",
-      "notes": "U17–U19 participates in League Washington; schedules / rules linked."
+      "notes": "U17\u2013U19 participates in League Washington; schedules / rules linked."
     },
     {
       "id": "eastside-ysa-eysa-recreational-leagues",
-      "name": "Eastside YSA (EYSA) — Recreational Leagues",
+      "name": "Eastside YSA (EYSA) \u2014 Recreational Leagues",
       "level": "rec",
-      "ageGroups": "U8–U12 (association) / U13–U19 (League WA)",
+      "ageGroups": "U8\u2013U12 (association) / U13\u2013U19 (League WA)",
       "gender": "boys / girls",
       "season": "fall / spring",
       "region": "Bellevue / Mercer Island / Issaquah",
@@ -476,13 +487,14 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://www.eysa.org/",
       "sourceUrl": "https://www.issaquahfc.org/schedules",
-      "notes": "EYSA clubs publish schedules and link to League Washington for older ages."
+      "notes": "EYSA clubs publish schedules and link to League Washington for older ages. [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "kingco-league-high-school",
       "name": "KingCo League (High School)",
       "level": "school",
-      "ageGroups": "approx. ages 14–18",
+      "ageGroups": "approx. ages 14\u201318",
       "gender": "boys / girls",
       "season": "boys spring / girls fall",
       "region": "King County (Eastside)",
@@ -496,7 +508,7 @@
       "id": "metro-league-seattle",
       "name": "Metro League (Seattle)",
       "level": "school",
-      "ageGroups": "approx. ages 14–18",
+      "ageGroups": "approx. ages 14\u201318",
       "gender": "boys / girls",
       "season": "boys spring / girls fall",
       "region": "Seattle",
@@ -510,7 +522,7 @@
       "id": "wesco-wesco-athletics",
       "name": "Wesco (WESCO Athletics)",
       "level": "school",
-      "ageGroups": "approx. ages 14–18",
+      "ageGroups": "approx. ages 14\u201318",
       "gender": "boys / girls",
       "season": "boys spring / girls fall",
       "region": "Snohomish County",
@@ -524,7 +536,7 @@
       "id": "spsl-4a-south-puget-sound-league",
       "name": "SPSL 4A (South Puget Sound League)",
       "level": "school",
-      "ageGroups": "approx. ages 14–18",
+      "ageGroups": "approx. ages 14\u201318",
       "gender": "boys / girls",
       "season": "boys spring / girls fall",
       "region": "South Puget Sound (Pierce / S. King)",
@@ -538,7 +550,7 @@
       "id": "greater-spokane-league-gsl",
       "name": "Greater Spokane League (GSL)",
       "level": "school",
-      "ageGroups": "approx. ages 14–18",
+      "ageGroups": "approx. ages 14\u201318",
       "gender": "boys / girls",
       "season": "boys spring / girls fall",
       "region": "Spokane area",
@@ -550,9 +562,9 @@
     },
     {
       "id": "greater-st-helens-league-4a-3a",
-      "name": "Greater St. Helens League — 4A/3A",
+      "name": "Greater St. Helens League \u2014 4A/3A",
       "level": "school",
-      "ageGroups": "approx. ages 14–18",
+      "ageGroups": "approx. ages 14\u201318",
       "gender": "boys / girls",
       "season": "boys spring / girls fall",
       "region": "Clark County / SW Washington",
@@ -564,9 +576,9 @@
     },
     {
       "id": "greater-st-helens-league-2a",
-      "name": "Greater St. Helens League — 2A",
+      "name": "Greater St. Helens League \u2014 2A",
       "level": "school",
-      "ageGroups": "approx. ages 14–18",
+      "ageGroups": "approx. ages 14\u201318",
       "gender": "boys / girls",
       "season": "boys spring / girls fall",
       "region": "Clark / Cowlitz area",
@@ -580,7 +592,7 @@
       "id": "northwest-conference-nwc",
       "name": "Northwest Conference (NWC)",
       "level": "school",
-      "ageGroups": "approx. ages 14–18",
+      "ageGroups": "approx. ages 14\u201318",
       "gender": "boys / girls",
       "season": "boys spring / girls fall",
       "region": "Whatcom / Skagit / Island / San Juan",
@@ -594,7 +606,7 @@
       "id": "olympic-league",
       "name": "Olympic League",
       "level": "school",
-      "ageGroups": "approx. ages 14–18",
+      "ageGroups": "approx. ages 14\u201318",
       "gender": "boys / girls",
       "season": "boys spring / girls fall",
       "region": "Kitsap / Olympic Peninsula",
@@ -603,6 +615,14 @@
       "website": "https://www.olympicleague.com/",
       "sourceUrl": "https://www.olympicleague.com/standings/",
       "notes": "League site lists seasonal standings and fixtures."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 12,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

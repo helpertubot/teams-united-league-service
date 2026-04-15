@@ -1,104 +1,111 @@
 {
   "_description": "OR football leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "osaa-6a-football",
-      "name": "OSAA — 6A Football",
+      "name": "OSAA \u2014 6A Football",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "Fall (Aug–Nov)",
-      "region": "Statewide OR — Class 6A leagues",
+      "season": "Fall (Aug\u2013Nov)",
+      "region": "Statewide OR \u2014 Class 6A leagues",
       "governingBody": "Oregon School Activities Association (OSAA)",
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org",
       "sourceUrl": "https://www.osaa.org/activities/fbl/teams-leagues",
-      "notes": "Schedules and standings by league for 6A schools."
+      "notes": "Schedules and standings by league for 6A schools. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-5a-football",
-      "name": "OSAA — 5A Football",
+      "name": "OSAA \u2014 5A Football",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "Fall (Aug–Nov)",
-      "region": "Statewide OR — Class 5A leagues",
+      "season": "Fall (Aug\u2013Nov)",
+      "region": "Statewide OR \u2014 Class 5A leagues",
       "governingBody": "Oregon School Activities Association (OSAA)",
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org",
       "sourceUrl": "https://www.osaa.org/activities/fbl/teams-leagues",
-      "notes": "Schedules and standings by league for 5A schools."
+      "notes": "Schedules and standings by league for 5A schools. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-4a-football",
-      "name": "OSAA — 4A Football",
+      "name": "OSAA \u2014 4A Football",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "Fall (Aug–Nov)",
-      "region": "Statewide OR — Class 4A leagues",
+      "season": "Fall (Aug\u2013Nov)",
+      "region": "Statewide OR \u2014 Class 4A leagues",
       "governingBody": "Oregon School Activities Association (OSAA)",
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org",
       "sourceUrl": "https://www.osaa.org/activities/fbl/teams-leagues",
-      "notes": "Schedules and standings by league for 4A schools."
+      "notes": "Schedules and standings by league for 4A schools. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-3a-football",
-      "name": "OSAA — 3A Football",
+      "name": "OSAA \u2014 3A Football",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "Fall (Aug–Nov)",
-      "region": "Statewide OR — Class 3A leagues",
+      "season": "Fall (Aug\u2013Nov)",
+      "region": "Statewide OR \u2014 Class 3A leagues",
       "governingBody": "Oregon School Activities Association (OSAA)",
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org",
       "sourceUrl": "https://www.osaa.org/activities/fbl/teams-leagues",
-      "notes": "Schedules and standings by league for 3A schools."
+      "notes": "Schedules and standings by league for 3A schools. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-2a-football",
-      "name": "OSAA — 2A Football",
+      "name": "OSAA \u2014 2A Football",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "Fall (Aug–Nov)",
-      "region": "Statewide OR — Class 2A leagues",
+      "season": "Fall (Aug\u2013Nov)",
+      "region": "Statewide OR \u2014 Class 2A leagues",
       "governingBody": "Oregon School Activities Association (OSAA)",
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org",
       "sourceUrl": "https://www.osaa.org/activities/fbl/teams-leagues",
-      "notes": "Schedules and standings by league for 2A schools."
+      "notes": "Schedules and standings by league for 2A schools. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-1a-8-player-football",
-      "name": "OSAA — 1A (8-player) Football",
+      "name": "OSAA \u2014 1A (8-player) Football",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "Fall (Aug–Nov)",
-      "region": "Statewide OR — Class 1A 8-player",
+      "season": "Fall (Aug\u2013Nov)",
+      "region": "Statewide OR \u2014 Class 1A 8-player",
       "governingBody": "Oregon School Activities Association (OSAA)",
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org",
       "sourceUrl": "https://www.osaa.org/activities/fbl/teams-leagues",
-      "notes": "Schedules and standings for 1A 8-player leagues."
+      "notes": "Schedules and standings for 1A 8-player leagues. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-1a-6-player-football",
-      "name": "OSAA — 1A (6-player) Football",
+      "name": "OSAA \u2014 1A (6-player) Football",
       "level": "high school",
       "ageGroups": "grades 9-12",
       "gender": "boys",
-      "season": "Fall (Aug–Nov)",
-      "region": "Statewide OR — Class 1A 6-player",
+      "season": "Fall (Aug\u2013Nov)",
+      "region": "Statewide OR \u2014 Class 1A 6-player",
       "governingBody": "Oregon School Activities Association (OSAA)",
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org",
       "sourceUrl": "https://www.osaa.org/activities/fbl/teams-leagues",
-      "notes": "Schedules and standings for 1A 6-player leagues."
+      "notes": "Schedules and standings for 1A 6-player leagues. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "tualatin-valley-youth-football-league-tvyfl",
@@ -121,12 +128,20 @@
       "ageGroups": "K-8",
       "gender": "Boys+Girls",
       "season": "Fall",
-      "region": "Mid-Willamette Valley OR — Albany / Corvallis / Dallas / Lebanon / Monmouth / Sweet Home",
+      "region": "Mid-Willamette Valley OR \u2014 Albany / Corvallis / Dallas / Lebanon / Monmouth / Sweet Home",
       "governingBody": "MidValley Pop Warner",
       "sanctioning": "Pop Warner Little Scholars",
       "website": "https://www.mvpopwarner.com",
       "sourceUrl": "https://mvpopwarner.sportngin.com/",
       "notes": "Divisions include Rookie Tackle K-2 / Division II 3-4 / Division I 5-6 / Middle School 7-8; schedules posted via league and team pages."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 7,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

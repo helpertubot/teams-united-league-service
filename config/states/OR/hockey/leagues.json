@@ -1,20 +1,21 @@
 {
   "_description": "OR hockey leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "winterhawks-varsity-hockey-league-wvhl",
       "name": "Winterhawks Varsity Hockey League (WVHL)",
       "level": "high school competitive",
-      "ageGroups": "HS 14–18",
+      "ageGroups": "HS 14\u201318",
       "gender": "Boys+Girls",
-      "season": "Oct–Mar",
+      "season": "Oct\u2013Mar",
       "region": "Portland metro (OR)",
       "governingBody": "Oregon State Hockey Association / USA Hockey",
       "sanctioning": "USA Hockey",
       "website": "https://chl.ca/whl-winterhawks/wvhl/",
       "sourceUrl": "https://chl.ca/whl-winterhawks/wvhl/",
-      "notes": "High school club league with recurring season play and published champions / schedules each season."
+      "notes": "High school club league with recurring season play and published champions / schedules each season. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "jr-winterhawks-metro-league",
@@ -22,7 +23,7 @@
       "level": "rec house",
       "ageGroups": "6U / 8U / 10U / 12U / 14U / 16U / 18U",
       "gender": "Boys+Girls",
-      "season": "Sep–Feb",
+      "season": "Sep\u2013Feb",
       "region": "Portland metro (OR)",
       "governingBody": "Oregon State Hockey Association / USA Hockey",
       "sanctioning": "USA Hockey",
@@ -32,12 +33,12 @@
     },
     {
       "id": "pacific-girls-hockey-league-12u-red",
-      "name": "Pacific Girls Hockey League — 12U Red",
+      "name": "Pacific Girls Hockey League \u2014 12U Red",
       "level": "competitive",
       "ageGroups": "12U",
       "gender": "girls",
-      "season": "Sep–Feb",
-      "region": "Pacific District multi‑state with OR teams",
+      "season": "Sep\u2013Feb",
+      "region": "Pacific District multi\u2011state with OR teams",
       "governingBody": "USA Hockey Pacific District",
       "sanctioning": "USA Hockey",
       "website": "https://www.pacificgirlshockey.com/",
@@ -46,12 +47,12 @@
     },
     {
       "id": "pacific-girls-hockey-league-14u-tier-2",
-      "name": "Pacific Girls Hockey League — 14U Tier 2",
+      "name": "Pacific Girls Hockey League \u2014 14U Tier 2",
       "level": "competitive",
       "ageGroups": "14U",
       "gender": "girls",
-      "season": "Sep–Feb",
-      "region": "Pacific District multi‑state with OR teams",
+      "season": "Sep\u2013Feb",
+      "region": "Pacific District multi\u2011state with OR teams",
       "governingBody": "USA Hockey Pacific District",
       "sanctioning": "USA Hockey",
       "website": "https://www.pacificgirlshockey.com/",
@@ -60,17 +61,25 @@
     },
     {
       "id": "pacific-girls-hockey-league-16u-19u-tier-2",
-      "name": "Pacific Girls Hockey League — 16U/19U Tier 2",
+      "name": "Pacific Girls Hockey League \u2014 16U/19U Tier 2",
       "level": "competitive",
       "ageGroups": "16U / 19U",
       "gender": "girls",
-      "season": "Sep–Feb",
-      "region": "Pacific District multi‑state with OR teams",
+      "season": "Sep\u2013Feb",
+      "region": "Pacific District multi\u2011state with OR teams",
       "governingBody": "USA Hockey Pacific District",
       "sanctioning": "USA Hockey",
       "website": "https://www.pacificgirlshockey.com/",
       "sourceUrl": "https://www.pacificgirlshockey.com/news/updated-aaa-standings",
-      "notes": "Combined upper‑age tiers with league tables; includes seasons where Portland Jr. Winterhawks fields teams."
+      "notes": "Combined upper\u2011age tiers with league tables; includes seasons where Portland Jr. Winterhawks fields teams."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 1,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

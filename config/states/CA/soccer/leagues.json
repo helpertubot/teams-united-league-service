@@ -1,6 +1,6 @@
 {
-  "_description": "CA soccer leagues — extracted from scripts/setup/expand-soccer-ca-id-mt.js",
-  "_lastUpdated": "2026-04-13",
+  "_description": "CA soccer leagues \u2014 extracted from scripts/setup/expand-soccer-ca-id-mt.js",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "socal-soccer-league",
@@ -8,7 +8,7 @@
       "region": "Southern California",
       "sourcePlatform": "gotsport",
       "eventId": "43086",
-      "notes": "Largest SoCal competitive youth soccer league. 170+ clubs, U7-U19. Pending groups — too large for WebFetch."
+      "notes": "Largest SoCal competitive youth soccer league. 170+ clubs, U7-U19. Pending groups \u2014 too large for WebFetch."
     },
     {
       "id": "ccsl-cal-north",
@@ -32,11 +32,11 @@
       "region": "Northern California",
       "sourcePlatform": "gotsport",
       "eventId": "44142",
-      "notes": "Updated event ID to 44142 (Fall 2025-26). Pending groups — too large for WebFetch."
+      "notes": "Updated event ID to 44142 (Fall 2025-26). Pending groups \u2014 too large for WebFetch."
     },
     {
       "id": "norcal-youth-premier-league-state-premier-league",
-      "name": "NorCal Youth Premier League – State Premier League",
+      "name": "NorCal Youth Premier League \u2013 State Premier League",
       "level": "premier",
       "ageGroups": "U13-U19",
       "gender": "Boys+Girls",
@@ -46,11 +46,12 @@
       "sanctioning": "US Club Soccer",
       "website": "https://norcalpremier.com",
       "sourceUrl": "https://norcalpremier.com/competition/youth-premier-league-u14-u19/resource/league-overview-14-19/",
-      "notes": "Tier row: “State Premier League (U13-U19 only)” listed as top division; year-round seasonal options described."
+      "notes": "Tier row: \u201cState Premier League (U13-U19 only)\u201d listed as top division; year-round seasonal options described. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "norcal-youth-premier-league-premier",
-      "name": "NorCal Youth Premier League – Premier",
+      "name": "NorCal Youth Premier League \u2013 Premier",
       "level": "premier",
       "ageGroups": "U14-U19",
       "gender": "Boys+Girls",
@@ -60,11 +61,12 @@
       "sanctioning": "US Club Soccer",
       "website": "https://norcalpremier.com",
       "sourceUrl": "https://norcalpremier.com/competition/youth-premier-league-u14-u19/resource/league-overview-14-19/",
-      "notes": "Tier row: “Premier” division in NorCal Youth Premier League hierarchy."
+      "notes": "Tier row: \u201cPremier\u201d division in NorCal Youth Premier League hierarchy. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "norcal-youth-premier-league-gold",
-      "name": "NorCal Youth Premier League – Gold",
+      "name": "NorCal Youth Premier League \u2013 Gold",
       "level": "competitive",
       "ageGroups": "U14-U19",
       "gender": "Boys+Girls",
@@ -74,11 +76,12 @@
       "sanctioning": "US Club Soccer",
       "website": "https://norcalpremier.com",
       "sourceUrl": "https://norcalpremier.com/competition/youth-premier-league-u14-u19/resource/league-overview-14-19/",
-      "notes": "Tier row: “Gold” division."
+      "notes": "Tier row: \u201cGold\u201d division. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "norcal-youth-premier-league-silver",
-      "name": "NorCal Youth Premier League – Silver",
+      "name": "NorCal Youth Premier League \u2013 Silver",
       "level": "competitive",
       "ageGroups": "U14-U19",
       "gender": "Boys+Girls",
@@ -88,11 +91,12 @@
       "sanctioning": "US Club Soccer",
       "website": "https://norcalpremier.com",
       "sourceUrl": "https://norcalpremier.com/competition/youth-premier-league-u14-u19/resource/league-overview-14-19/",
-      "notes": "Tier row: “Silver” division."
+      "notes": "Tier row: \u201cSilver\u201d division. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "norcal-youth-premier-league-bronze",
-      "name": "NorCal Youth Premier League – Bronze",
+      "name": "NorCal Youth Premier League \u2013 Bronze",
       "level": "competitive",
       "ageGroups": "U14-U19",
       "gender": "Boys+Girls",
@@ -102,11 +106,12 @@
       "sanctioning": "US Club Soccer",
       "website": "https://norcalpremier.com",
       "sourceUrl": "https://norcalpremier.com/competition/youth-premier-league-u14-u19/resource/league-overview-14-19/",
-      "notes": "Tier row: “Bronze” division."
+      "notes": "Tier row: \u201cBronze\u201d division. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "norcal-youth-premier-league-copper",
-      "name": "NorCal Youth Premier League – Copper",
+      "name": "NorCal Youth Premier League \u2013 Copper",
       "level": "competitive",
       "ageGroups": "U14-U19",
       "gender": "Boys+Girls",
@@ -116,11 +121,12 @@
       "sanctioning": "US Club Soccer",
       "website": "https://norcalpremier.com",
       "sourceUrl": "https://norcalpremier.com/competition/youth-premier-league-u14-u19/resource/league-overview-14-19/",
-      "notes": "Tier row: “Copper” division."
+      "notes": "Tier row: \u201cCopper\u201d division. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "norcal-premier-spring-league-state-premier",
-      "name": "NorCal Premier Spring League – State Premier",
+      "name": "NorCal Premier Spring League \u2013 State Premier",
       "level": "premier",
       "ageGroups": "U11-U19",
       "gender": "Boys+Girls",
@@ -130,11 +136,12 @@
       "sanctioning": "US Club Soccer",
       "website": "https://norcalpremier.com",
       "sourceUrl": "https://norcalpremier.com/u11-u19-norcal-premier-spring-league-applications-open/",
-      "notes": "Tier row: spring league lists “State Premier … divisions available” and timeline."
+      "notes": "Tier row: spring league lists \u201cState Premier \u2026 divisions available\u201d and timeline. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "norcal-premier-spring-league-gold",
-      "name": "NorCal Premier Spring League – Gold",
+      "name": "NorCal Premier Spring League \u2013 Gold",
       "level": "competitive",
       "ageGroups": "U11-U19",
       "gender": "Boys+Girls",
@@ -144,11 +151,12 @@
       "sanctioning": "US Club Soccer",
       "website": "https://norcalpremier.com",
       "sourceUrl": "https://norcalpremier.com/u11-u19-norcal-premier-spring-league-applications-open/",
-      "notes": "Tier row: spring league includes Gold."
+      "notes": "Tier row: spring league includes Gold. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "norcal-premier-spring-league-silver",
-      "name": "NorCal Premier Spring League – Silver",
+      "name": "NorCal Premier Spring League \u2013 Silver",
       "level": "competitive",
       "ageGroups": "U11-U19",
       "gender": "Boys+Girls",
@@ -158,11 +166,12 @@
       "sanctioning": "US Club Soccer",
       "website": "https://norcalpremier.com",
       "sourceUrl": "https://norcalpremier.com/u11-u19-norcal-premier-spring-league-applications-open/",
-      "notes": "Tier row: spring league includes Silver."
+      "notes": "Tier row: spring league includes Silver. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "norcal-premier-spring-league-bronze",
-      "name": "NorCal Premier Spring League – Bronze",
+      "name": "NorCal Premier Spring League \u2013 Bronze",
       "level": "competitive",
       "ageGroups": "U11-U19",
       "gender": "Boys+Girls",
@@ -172,11 +181,12 @@
       "sanctioning": "US Club Soccer",
       "website": "https://norcalpremier.com",
       "sourceUrl": "https://norcalpremier.com/u11-u19-norcal-premier-spring-league-applications-open/",
-      "notes": "Tier row: spring league includes Bronze."
+      "notes": "Tier row: spring league includes Bronze. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "norcal-premier-spring-league-copper",
-      "name": "NorCal Premier Spring League – Copper",
+      "name": "NorCal Premier Spring League \u2013 Copper",
       "level": "competitive",
       "ageGroups": "U11-U19",
       "gender": "Boys+Girls",
@@ -186,7 +196,8 @@
       "sanctioning": "US Club Soccer",
       "website": "https://norcalpremier.com",
       "sourceUrl": "https://norcalpremier.com/u11-u19-norcal-premier-spring-league-applications-open/",
-      "notes": "Tier row: spring league includes Copper."
+      "notes": "Tier row: spring league includes Copper. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "coast-soccer-league",
@@ -200,7 +211,7 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://www.coastsoccer.com",
       "sourceUrl": "https://www.coastsoccer.com/index.html",
-      "notes": "League site includes schedule/standings and an “open” level-based system."
+      "notes": "League site includes schedule/standings and an \u201copen\u201d level-based system."
     },
     {
       "id": "csl-premier",
@@ -214,7 +225,7 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://www.coastsoccer.com",
       "sourceUrl": "https://www.coastsoccer.com/index.html",
-      "notes": "Tier / sub-platform called out on league navigation (“CSL Premier”)."
+      "notes": "Tier / sub-platform called out on league navigation (\u201cCSL Premier\u201d)."
     },
     {
       "id": "crl-coast-league-platform",
@@ -228,7 +239,7 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://www.coastsoccer.com",
       "sourceUrl": "https://www.coastsoccer.com/index.html",
-      "notes": "Listed in Coast Soccer League quick links (“CRL”); treated as separate league platform row."
+      "notes": "Listed in Coast Soccer League quick links (\u201cCRL\u201d); treated as separate league platform row."
     },
     {
       "id": "southern-california-ncsl-coast",
@@ -242,11 +253,12 @@
       "sanctioning": "USSSA (site mentions)",
       "website": "https://www.nationalpremierleague.com",
       "sourceUrl": "https://www.nationalpremierleague.com/team",
-      "notes": "Coast Soccer League announcing “Southern California NCSL” as Coast’s upgrade from SCNPL/CRL; positioned as “youth component” league."
+      "notes": "Coast Soccer League announcing \u201cSouthern California NCSL\u201d as Coast\u2019s upgrade from SCNPL/CRL; positioned as \u201cyouth component\u201d league. [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "cal-north-ccsl-district-7",
-      "name": "Cal North CCSL – District 7",
+      "name": "Cal North CCSL \u2013 District 7",
       "level": "competitive",
       "ageGroups": "U12, U14",
       "gender": "Boys+Girls",
@@ -260,7 +272,7 @@
     },
     {
       "id": "california-select-league-cal-north-boys",
-      "name": "California Select League (Cal North) – Boys",
+      "name": "California Select League (Cal North) \u2013 Boys",
       "level": "development",
       "ageGroups": "U10, U12, U14",
       "gender": "Boys",
@@ -270,11 +282,11 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://www.calnorth.org",
       "sourceUrl": "https://www.calnorth.org/csl",
-      "notes": "Cal North CSL described as “recreational select” pathway with league play Jan–Feb."
+      "notes": "Cal North CSL described as \u201crecreational select\u201d pathway with league play Jan\u2013Feb."
     },
     {
       "id": "california-select-league-cal-north-girls",
-      "name": "California Select League (Cal North) – Girls",
+      "name": "California Select League (Cal North) \u2013 Girls",
       "level": "development",
       "ageGroups": "U10, U12, U14",
       "gender": "Girls",
@@ -288,7 +300,7 @@
     },
     {
       "id": "california-youth-soccer-league-boys",
-      "name": "California Youth Soccer League – Boys",
+      "name": "California Youth Soccer League \u2013 Boys",
       "level": "rec",
       "ageGroups": "U-4 to U-16",
       "gender": "Boys",
@@ -302,7 +314,7 @@
     },
     {
       "id": "california-youth-soccer-league-girls",
-      "name": "California Youth Soccer League – Girls",
+      "name": "California Youth Soccer League \u2013 Girls",
       "level": "rec",
       "ageGroups": "U-4 to U-16",
       "gender": "Girls",
@@ -340,7 +352,7 @@
       "sanctioning": "US Soccer (ecosystem)",
       "website": "https://www.aysos1.org",
       "sourceUrl": "https://www.aysos1.org/section1",
-      "notes": "Section 1 site supports AYSO league programs; “league playoffs” references indicate seasonal league structure."
+      "notes": "Section 1 site supports AYSO league programs; \u201cleague playoffs\u201d references indicate seasonal league structure."
     },
     {
       "id": "ayso-section-1-alliance-program",
@@ -354,11 +366,11 @@
       "sanctioning": "US Soccer (ecosystem)",
       "website": "https://www.aysos1.org",
       "sourceUrl": "https://www.aysos1.org/Default.aspx?tabid=957197",
-      "notes": "Alliance described as “club soccer” pathway under AYSO Section 1."
+      "notes": "Alliance described as \u201cclub soccer\u201d pathway under AYSO Section 1."
     },
     {
       "id": "usys-national-league-pacific-conference-cal-south-context",
-      "name": "USYS National League – Pacific Conference (Cal South context)",
+      "name": "USYS National League \u2013 Pacific Conference (Cal South context)",
       "level": "elite",
       "ageGroups": "U13-U19",
       "gender": "Boys+Girls",
@@ -368,11 +380,12 @@
       "sanctioning": "US Youth Soccer",
       "website": "https://calsouth.com",
       "sourceUrl": "https://calsouth.com/usys-national-league/",
-      "notes": "Cal South page describes National League and Pacific Conference participation for 2025-26."
+      "notes": "Cal South page describes National League and Pacific Conference participation for 2025-26. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "ecnl-boys-northern-cal-conference",
-      "name": "ECNL Boys – Northern Cal Conference",
+      "name": "ECNL Boys \u2013 Northern Cal Conference",
       "level": "elite",
       "ageGroups": "U13-U19",
       "gender": "Boys",
@@ -386,7 +399,7 @@
     },
     {
       "id": "ecnl-girls-northern-cal-conference",
-      "name": "ECNL Girls – Northern Cal Conference",
+      "name": "ECNL Girls \u2013 Northern Cal Conference",
       "level": "elite",
       "ageGroups": "U13-U19",
       "gender": "Girls",
@@ -400,7 +413,7 @@
     },
     {
       "id": "ecnl-regional-league-norcal-top-division",
-      "name": "ECNL Regional League – NorCal (top division)",
+      "name": "ECNL Regional League \u2013 NorCal (top division)",
       "level": "elite",
       "ageGroups": "U13-U19",
       "gender": "Boys+Girls",
@@ -410,7 +423,8 @@
       "sanctioning": "none stated",
       "website": "https://norcalpremier.com",
       "sourceUrl": "https://norcalpremier.com/norcal-premier-soccer-announces-25-clubs-selected-for-realigned-ecnl-regional-league-for-the-2025-26-season/",
-      "notes": "NorCal Premier announcement describes ECNL RL – NorCal (first-team league) administered by NorCal Premier with promotion pathway."
+      "notes": "NorCal Premier announcement describes ECNL RL \u2013 NorCal (first-team league) administered by NorCal Premier with promotion pathway. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "pre-ecnl-boys-northern-cal",
@@ -428,7 +442,7 @@
     },
     {
       "id": "cif-southern-section-south-coast-league-boys-soccer",
-      "name": "CIF Southern Section – South Coast League (Boys Soccer)",
+      "name": "CIF Southern Section \u2013 South Coast League (Boys Soccer)",
       "level": "competitive",
       "ageGroups": "Grades 9-12",
       "gender": "Boys",
@@ -442,7 +456,7 @@
     },
     {
       "id": "cif-southern-section-605-league-boys-soccer",
-      "name": "CIF Southern Section – 605 League (Boys Soccer)",
+      "name": "CIF Southern Section \u2013 605 League (Boys Soccer)",
       "level": "competitive",
       "ageGroups": "Grades 9-12",
       "gender": "Boys",
@@ -456,7 +470,7 @@
     },
     {
       "id": "cif-southern-section-southwestern-league-boys-soccer",
-      "name": "CIF Southern Section – Southwestern League (Boys Soccer)",
+      "name": "CIF Southern Section \u2013 Southwestern League (Boys Soccer)",
       "level": "competitive",
       "ageGroups": "Grades 9-12",
       "gender": "Boys",
@@ -470,7 +484,7 @@
     },
     {
       "id": "cif-southern-section-olympic-league-boys-soccer",
-      "name": "CIF Southern Section – Olympic League (Boys Soccer)",
+      "name": "CIF Southern Section \u2013 Olympic League (Boys Soccer)",
       "level": "competitive",
       "ageGroups": "Grades 9-12",
       "gender": "Boys",
@@ -484,21 +498,22 @@
     },
     {
       "id": "socal-soccer-league-npl",
-      "name": "SOCAL Soccer League — NPL",
+      "name": "SOCAL Soccer League \u2014 NPL",
       "level": "competitive-elite",
       "ageGroups": "U13-U19",
       "gender": "Boys / Girls",
       "season": "Fall / Spring",
       "region": "Southern CA",
       "governingBody": "SOCAL Soccer League",
-      "sanctioning": "US Club Soccer — National Premier League",
+      "sanctioning": "US Club Soccer \u2014 National Premier League",
       "website": "https://www.socalsoccerleague.org",
       "sourceUrl": "https://www.socalsoccerleague.org/socalnpl",
-      "notes": "Largest youth competitive league in US (4,600+ teams / 180+ clubs); NPL pathway to national finals"
+      "notes": "Largest youth competitive league in US (4,600+ teams / 180+ clubs); NPL pathway to national finals [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "socal-soccer-league-flight-1",
-      "name": "SOCAL Soccer League — Flight 1",
+      "name": "SOCAL Soccer League \u2014 Flight 1",
       "level": "competitive",
       "ageGroups": "U7-U19",
       "gender": "Boys / Girls",
@@ -508,11 +523,12 @@
       "sanctioning": "US Club Soccer",
       "website": "https://www.socalsoccerleague.org",
       "sourceUrl": "https://socalpitch.com/competitive-leagues/",
-      "notes": "Promotion/relegation with NPL; structured regional play"
+      "notes": "Promotion/relegation with NPL; structured regional play [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "socal-soccer-league-flight-2",
-      "name": "SOCAL Soccer League — Flight 2",
+      "name": "SOCAL Soccer League \u2014 Flight 2",
       "level": "competitive",
       "ageGroups": "U7-U19",
       "gender": "Boys / Girls",
@@ -522,11 +538,12 @@
       "sanctioning": "US Club Soccer",
       "website": "https://www.socalsoccerleague.org",
       "sourceUrl": "https://socalpitch.com/competitive-leagues/",
-      "notes": "Geographically scheduled matches; solid competitive level"
+      "notes": "Geographically scheduled matches; solid competitive level [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "socal-soccer-league-flight-3-discovery",
-      "name": "SOCAL Soccer League — Flight 3 / Discovery",
+      "name": "SOCAL Soccer League \u2014 Flight 3 / Discovery",
       "level": "competitive",
       "ageGroups": "U7-U19",
       "gender": "Boys / Girls",
@@ -536,7 +553,8 @@
       "sanctioning": "US Club Soccer",
       "website": "https://www.socalsoccerleague.org",
       "sourceUrl": "https://socalpitch.com/competitive-leagues/",
-      "notes": "Entry competitive flights; local/county scheduling"
+      "notes": "Entry competitive flights; local/county scheduling [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "southern-california-developmental-soccer-league-scdsl",
@@ -550,7 +568,8 @@
       "sanctioning": "US Club Soccer",
       "website": "https://scdslsoccer.com",
       "sourceUrl": "https://scdslsoccer.com/overview/",
-      "notes": "Founded 2011; club-controlled model; extended season into winter/spring; includes SCDSL State Cup"
+      "notes": "Founded 2011; club-controlled model; extended season into winter/spring; includes SCDSL State Cup [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "sgv-soccer-league",
@@ -564,29 +583,31 @@
       "sanctioning": "Cal South / US Youth Soccer",
       "website": "https://www.sgvsoccerleague.com",
       "sourceUrl": "https://www.sgvsoccerleague.com/",
-      "notes": "Community-based competitive league serving SGV region"
+      "notes": "Community-based competitive league serving SGV region [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "girls-academy-league-california-clubs",
-      "name": "Girls Academy League — California clubs",
+      "name": "Girls Academy League \u2014 California clubs",
       "level": "competitive-elite",
       "ageGroups": "U13-U19",
       "gender": "Girls",
-      "season": "Fall / Spring (Aug–May)",
+      "season": "Fall / Spring (Aug\u2013May)",
       "region": "Statewide (CA clubs in GA conference)",
       "governingBody": "Girls Academy League",
       "sanctioning": "Girls Academy (independent)",
       "website": "https://girlsacademyleague.com",
       "sourceUrl": "https://www.soccerwire.com/news/girls-academy-club-membership-and-conference-alignment-revealed-for-2025-26/",
-      "notes": "120+ clubs nationally; ASPIRE is the second-tier pathway conference; 2025-26 season ongoing"
+      "notes": "120+ clubs nationally; ASPIRE is the second-tier pathway conference; 2025-26 season ongoing [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "mls-next-california-academies",
-      "name": "MLS NEXT — California Academies",
+      "name": "MLS NEXT \u2014 California Academies",
       "level": "competitive-elite",
       "ageGroups": "U13-U19",
       "gender": "Boys",
-      "season": "Fall / Spring (Sep–Mar)",
+      "season": "Fall / Spring (Sep\u2013Mar)",
       "region": "Statewide (academy-based)",
       "governingBody": "MLS NEXT / Major League Soccer",
       "sanctioning": "US Soccer",
@@ -596,7 +617,7 @@
     },
     {
       "id": "ayso-recreational-soccer-california-sections",
-      "name": "AYSO Recreational Soccer — California Sections",
+      "name": "AYSO Recreational Soccer \u2014 California Sections",
       "level": "recreational",
       "ageGroups": "U4-U18",
       "gender": "Boys / Girls / Co-ed",
@@ -606,21 +627,30 @@
       "sanctioning": "AYSO",
       "website": "https://ayso.org",
       "sourceUrl": "https://ayso.org/",
-      "notes": "Regional play within areas and sections; area playoffs; programs include Core, Open, VIP, EXTRA"
+      "notes": "Regional play within areas and sections; area playoffs; programs include Core, Open, VIP, EXTRA [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "cif-interscholastic-soccer-california-sections",
-      "name": "CIF Interscholastic Soccer — California Sections",
+      "name": "CIF Interscholastic Soccer \u2014 California Sections",
       "level": "high school",
       "ageGroups": "9th-12th grade (14-18)",
       "gender": "Boys / Girls",
-      "season": "Winter (Nov–Feb)",
+      "season": "Winter (Nov\u2013Feb)",
       "region": "Statewide (8 CIF sections)",
       "governingBody": "CIF (California Interscholastic Federation)",
       "sanctioning": "CIF / NFHS",
       "website": "https://www.cifstate.org/sports/soccer/index",
       "sourceUrl": "https://www.cifstate.org/sports/soccer/index",
       "notes": "8 sections (SS, NCS, CCS, SJS, SDS, LACS, etc.); league play feeds section playoffs then CIF State Championships"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 22,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

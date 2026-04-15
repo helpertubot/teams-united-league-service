@@ -1,6 +1,6 @@
 {
   "_description": "NV hockey leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "city-national-arena-youth-house-league",
@@ -8,13 +8,14 @@
       "level": "Recreational",
       "ageGroups": "8U / 10U / 12U / 14U / High School",
       "gender": "Boys+Girls",
-      "season": "Sep–Feb (Fall/Winter); Spring season also offered",
+      "season": "Sep\u2013Feb (Fall/Winter); Spring season also offered",
       "region": "Las Vegas, NV",
       "governingBody": "Vegas Jr. Golden Knights / City National Arena",
       "sanctioning": "USA Hockey / NAHA",
       "website": "citynationalarena.com/house-hockey",
       "sourceUrl": "citynationalarena.com/house-hockey",
-      "notes": "Operated at NHL Golden Knights' official practice facility; weekly game schedule and standings via SportsEngine; multiple seasons per year"
+      "notes": "Operated at NHL Golden Knights' official practice facility; weekly game schedule and standings via SportsEngine; multiple seasons per year [auto-quarantine 2026-04-15: no-url-recorded]",
+      "status": "quarantine"
     },
     {
       "id": "las-vegas-ice-center-youth-house-league",
@@ -22,13 +23,14 @@
       "level": "Recreational",
       "ageGroups": "8U / 10U / 12U / 14U / High School",
       "gender": "Boys+Girls",
-      "season": "Three seasons: Jan–Apr / May–Aug / Sep–Dec",
+      "season": "Three seasons: Jan\u2013Apr / May\u2013Aug / Sep\u2013Dec",
       "region": "Las Vegas, NV",
       "governingBody": "Las Vegas Ice Center",
       "sanctioning": "USA Hockey / NAHA",
       "website": "lasvegasice.com/hockey/house-league/",
       "sourceUrl": "lasvegasice.com/hockey/house-league/",
-      "notes": "Year-round program; USA Hockey registration required; $750 (8U) / $915 (10U–HS); feeds into LV Storm travel tryouts"
+      "notes": "Year-round program; USA Hockey registration required; $750 (8U) / $915 (10U\u2013HS); feeds into LV Storm travel tryouts [auto-quarantine 2026-04-15: no-url-recorded]",
+      "status": "quarantine"
     },
     {
       "id": "sobe-ice-warriors-recreational-league",
@@ -42,7 +44,8 @@
       "sanctioning": "USA Hockey",
       "website": "sobeicewarriors.com",
       "sourceUrl": "sobeicewarriors.com",
-      "notes": "8 regular-season games + 1 guaranteed playoff game per season; not-for-profit; also fields competitive travel teams"
+      "notes": "8 regular-season games + 1 guaranteed playoff game per season; not-for-profit; also fields competitive travel teams [auto-quarantine 2026-04-15: no-url-recorded]",
+      "status": "quarantine"
     },
     {
       "id": "reno-ice-city-league",
@@ -50,111 +53,127 @@
       "level": "Recreational",
       "ageGroups": "8U / 10U / 12U / 14U / High School Tier 2",
       "gender": "Boys+Girls",
-      "season": "Sep–Mar",
+      "season": "Sep\u2013Mar",
       "region": "Reno, NV",
       "governingBody": "Reno Ice",
       "sanctioning": "USA Hockey / NAHA",
       "website": "renoice.com/hockey",
       "sourceUrl": "renoice.com/hockey",
-      "notes": "Weekly practices and weekend games; summer 5v5 league sessions also offered May–Jun; travel arm competes in NorCal Youth Hockey"
+      "notes": "Weekly practices and weekend games; summer 5v5 league sessions also offered May\u2013Jun; travel arm competes in NorCal Youth Hockey [auto-quarantine 2026-04-15: no-url-recorded]",
+      "status": "quarantine"
     },
     {
       "id": "norcal-youth-hockey-association-a",
-      "name": "NorCal Youth Hockey Association — A",
-      "level": "Competitive — A",
+      "name": "NorCal Youth Hockey Association \u2014 A",
+      "level": "Competitive \u2014 A",
       "ageGroups": "10U / 12U / 14U / 16U",
       "gender": "Boys",
-      "season": "Sep–Mar",
+      "season": "Sep\u2013Mar",
       "region": "Northern CA / Northern NV",
       "governingBody": "Northern California Hockey Association",
       "sanctioning": "USA Hockey / Pacific District",
       "website": "norcalyouthhockey.org",
       "sourceUrl": "norcalyouthhockey.org/Standings.php",
-      "notes": "Reno Ice confirmed in 12U A division (12-3-1 record as division leader 2025-26); league also has AA / BB / B tiers; regional league based on seasonal schedules and standings"
+      "notes": "Reno Ice confirmed in 12U A division (12-3-1 record as division leader 2025-26); league also has AA / BB / B tiers; regional league based on seasonal schedules and standings [auto-quarantine 2026-04-15: no-url-recorded]",
+      "status": "quarantine"
     },
     {
       "id": "arizona-youth-hockey-league-azyhl-pinnacle",
-      "name": "Arizona Youth Hockey League (AZYHL) — Pinnacle",
-      "level": "Competitive — AA",
+      "name": "Arizona Youth Hockey League (AZYHL) \u2014 Pinnacle",
+      "level": "Competitive \u2014 AA",
       "ageGroups": "10U / 12U",
       "gender": "Boys",
-      "season": "Aug–Mar",
+      "season": "Aug\u2013Mar",
       "region": "AZ / NV / TX",
       "governingBody": "Arizona Amateur Hockey Association",
       "sanctioning": "USA Hockey",
       "website": "azamateurhockey.org/page/show/1339841-azyhl",
       "sourceUrl": "myhockeyrankings.com/league-info?l=565",
-      "notes": "LV Storm 10U AA (10U Pinnacle/Cactus division) and 12U AA (12U Pinnacle) confirmed 2025-26; top competitive tier; includes Las Vegas Ice Center venue"
+      "notes": "LV Storm 10U AA (10U Pinnacle/Cactus division) and 12U AA (12U Pinnacle) confirmed 2025-26; top competitive tier; includes Las Vegas Ice Center venue [auto-quarantine 2026-04-15: no-url-recorded]",
+      "status": "quarantine"
     },
     {
       "id": "arizona-youth-hockey-league-azyhl-cactus",
-      "name": "Arizona Youth Hockey League (AZYHL) — Cactus",
-      "level": "Competitive — A",
+      "name": "Arizona Youth Hockey League (AZYHL) \u2014 Cactus",
+      "level": "Competitive \u2014 A",
       "ageGroups": "12U / 14U",
       "gender": "Boys",
-      "season": "Aug–Mar",
+      "season": "Aug\u2013Mar",
       "region": "AZ / NV / TX",
       "governingBody": "Arizona Amateur Hockey Association",
       "sanctioning": "USA Hockey",
       "website": "azamateurhockey.org/page/show/1339841-azyhl",
       "sourceUrl": "myhockeyrankings.com/league-info?l=565",
-      "notes": "LV Storm 12U A (Cactus) and 14U A (Cactus) confirmed 2025-26; second tier within AZYHL structure"
+      "notes": "LV Storm 12U A (Cactus) and 14U A (Cactus) confirmed 2025-26; second tier within AZYHL structure [auto-quarantine 2026-04-15: no-url-recorded]",
+      "status": "quarantine"
     },
     {
       "id": "arizona-youth-hockey-league-azyhl-mesquite",
-      "name": "Arizona Youth Hockey League (AZYHL) — Mesquite",
-      "level": "Competitive — B",
+      "name": "Arizona Youth Hockey League (AZYHL) \u2014 Mesquite",
+      "level": "Competitive \u2014 B",
       "ageGroups": "10U",
       "gender": "Boys",
-      "season": "Aug–Mar",
+      "season": "Aug\u2013Mar",
       "region": "AZ / NV / TX",
       "governingBody": "Arizona Amateur Hockey Association",
       "sanctioning": "USA Hockey",
       "website": "azamateurhockey.org/page/show/1339841-azyhl",
       "sourceUrl": "myhockeyrankings.com/league-info?l=565",
-      "notes": "LV Storm 10U A (Mesquite) confirmed 2025-26; third competitive tier in AZYHL; Canyon tier also exists below Mesquite"
+      "notes": "LV Storm 10U A (Mesquite) confirmed 2025-26; third competitive tier in AZYHL; Canyon tier also exists below Mesquite [auto-quarantine 2026-04-15: no-url-recorded]",
+      "status": "quarantine"
     },
     {
       "id": "pacific-girls-hockey-league-pghl",
       "name": "Pacific Girls Hockey League (PGHL)",
-      "level": "Competitive — AA / A",
+      "level": "Competitive \u2014 AA / A",
       "ageGroups": "12U / 14U / 16U / 19U",
       "gender": "Girls",
-      "season": "Sep–Mar",
+      "season": "Sep\u2013Mar",
       "region": "CA / NV / OR / WA",
       "governingBody": "Pacific Girls Hockey League",
       "sanctioning": "USA Hockey / Pacific District",
       "website": "pacificgirlshockey.com",
       "sourceUrl": "pacificgirlshockey.com/news/pghl-clubs-in-2025-26-season",
-      "notes": "Vegas Jr. Golden Knights and Las Vegas Storm both confirmed 2025-26 members; 13 clubs across 4 states; PGHL is Pacific regional affiliate of National Girls Hockey League (NGHL); season opened Sep 13 2025"
+      "notes": "Vegas Jr. Golden Knights and Las Vegas Storm both confirmed 2025-26 members; 13 clubs across 4 states; PGHL is Pacific regional affiliate of National Girls Hockey League (NGHL); season opened Sep 13 2025 [auto-quarantine 2026-04-15: no-url-recorded]",
+      "status": "quarantine"
     },
     {
       "id": "tier-1-elite-hockey-league-t1ehl",
       "name": "Tier 1 Elite Hockey League (T1EHL)",
-      "level": "Competitive — AAA",
+      "level": "Competitive \u2014 AAA",
       "ageGroups": "10U / 11U / 12U",
       "gender": "Boys",
-      "season": "Oct–Mar",
+      "season": "Oct\u2013Mar",
       "region": "National (US)",
       "governingBody": "Tier 1 Elite Hockey League",
       "sanctioning": "USA Hockey",
       "website": "tier1elitehockeyleague.com",
       "sourceUrl": "myhockeyrankings.com/association_info.php?a=332",
-      "notes": "Vegas Jr. Golden Knights 10U AAA (95.5 rating) / 11U AAA / 12U AAA all confirmed 2025-26; showcase-based national format; 20+ clubs coast to coast"
+      "notes": "Vegas Jr. Golden Knights 10U AAA (95.5 rating) / 11U AAA / 12U AAA all confirmed 2025-26; showcase-based national format; 20+ clubs coast to coast [auto-quarantine 2026-04-15: no-url-recorded]",
+      "status": "quarantine"
     },
     {
       "id": "t1er-league-north-american-t1er-hockey-league",
       "name": "T1ER League (North American T1ER Hockey League)",
-      "level": "Competitive — AAA",
+      "level": "Competitive \u2014 AAA",
       "ageGroups": "13U / 14U / 15U / 16U",
       "gender": "Boys",
-      "season": "Oct–Mar",
+      "season": "Oct\u2013Mar",
       "region": "National (US)",
       "governingBody": "North American T1ER",
       "sanctioning": "USA Hockey",
       "website": "nat1hl.com",
       "sourceUrl": "myhockeyrankings.com/association_info.php?a=332",
-      "notes": "Vegas Jr. Golden Knights 14U AAA / 15U AAA / 16U AAA all confirmed 2025-26; nationally bound format for USA Hockey Tier I elite teams"
+      "notes": "Vegas Jr. Golden Knights 14U AAA / 15U AAA / 16U AAA all confirmed 2025-26; nationally bound format for USA Hockey Tier I elite teams [auto-quarantine 2026-04-15: no-url-recorded]",
+      "status": "quarantine"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 11,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

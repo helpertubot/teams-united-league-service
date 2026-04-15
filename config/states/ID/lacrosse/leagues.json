@@ -1,70 +1,73 @@
 {
   "_description": "ID lacrosse leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "southwest-idaho-lacrosse-association-swila-boys-hs",
-      "name": "Southwest Idaho Lacrosse Association (SWILA) — Boys HS",
+      "name": "Southwest Idaho Lacrosse Association (SWILA) \u2014 Boys HS",
       "level": "competitive",
       "ageGroups": "Grades 9-12",
       "gender": "boys",
-      "season": "Spring (Mar–May)",
+      "season": "Spring (Mar\u2013May)",
       "region": "Treasure Valley / Southwest Idaho",
       "governingBody": "Southwest Idaho Lacrosse Association",
       "sanctioning": "Club / USA Lacrosse rules",
       "website": "https://swila.org/",
       "sourceUrl": "https://swila.org/schedule/",
-      "notes": "14 teams / two divisions / league schedule and playoffs (championship May 16 at College of Idaho)."
+      "notes": "14 teams / two divisions / league schedule and playoffs (championship May 16 at College of Idaho). [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "treasure-valley-women-s-lacrosse-league-tvwll-varsity",
-      "name": "Treasure Valley Women’s Lacrosse League (TVWLL) — Varsity",
+      "name": "Treasure Valley Women\u2019s Lacrosse League (TVWLL) \u2014 Varsity",
       "level": "competitive",
       "ageGroups": "Grades 9-12",
       "gender": "girls",
       "season": "Spring",
       "region": "Idaho statewide (focus Treasure Valley)",
-      "governingBody": "Treasure Valley Women’s Lacrosse League",
+      "governingBody": "Treasure Valley Women\u2019s Lacrosse League",
       "sanctioning": "Club / USA Lacrosse rules",
       "website": "https://tvwll.org/",
       "sourceUrl": "https://tvwll.org/wp-content/uploads/2025/03/TVWLL-Rules-Rev-231031.pdf",
-      "notes": "League schedules games / state playoffs; varsity tier governed by TVWLL."
+      "notes": "League schedules games / state playoffs; varsity tier governed by TVWLL. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "treasure-valley-women-s-lacrosse-league-tvwll-junior-varsity",
-      "name": "Treasure Valley Women’s Lacrosse League (TVWLL) — Junior Varsity",
+      "name": "Treasure Valley Women\u2019s Lacrosse League (TVWLL) \u2014 Junior Varsity",
       "level": "competitive",
       "ageGroups": "Grades 9-12",
       "gender": "girls",
       "season": "Spring",
       "region": "Idaho statewide (focus Treasure Valley)",
-      "governingBody": "Treasure Valley Women’s Lacrosse League",
+      "governingBody": "Treasure Valley Women\u2019s Lacrosse League",
       "sanctioning": "Club / USA Lacrosse rules",
       "website": "https://tvwll.org/",
       "sourceUrl": "https://tvwll.org/wp-content/uploads/2025/03/TVWLL-Rules-Rev-231031.pdf",
-      "notes": "League-run JV tier with recurring seasonal schedule and postseason structure."
+      "notes": "League-run JV tier with recurring seasonal schedule and postseason structure. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "great-western-lacrosse-league-gwll-varsity-idaho-members",
-      "name": "Great Western Lacrosse League (GWLL) — Varsity (Idaho members)",
+      "name": "Great Western Lacrosse League (GWLL) \u2014 Varsity (Idaho members)",
       "level": "competitive",
       "ageGroups": "Grades 9-12",
       "gender": "boys",
-      "season": "Spring (Mar–May)",
+      "season": "Spring (Mar\u2013May)",
       "region": "North Idaho / Eastern Idaho / Multi-state (ID / WA / MT / WY)",
       "governingBody": "Great Western Lacrosse League Inc.",
       "sanctioning": "Club / USA Lacrosse rules",
       "website": "https://www.gwlax.org/",
       "sourceUrl": "https://www.gwlax.org/stats/league_instance/191305",
-      "notes": "Cross-border HS league with Idaho programs (Coeur d’Alene / Sandpoint / Idaho Falls / Sun Valley / Teton Valley) and published schedules / results / standings."
+      "notes": "Cross-border HS league with Idaho programs (Coeur d\u2019Alene / Sandpoint / Idaho Falls / Sun Valley / Teton Valley) and published schedules / results / standings."
     },
     {
       "id": "great-western-lacrosse-league-gwll-junior-varsity-idaho-members",
-      "name": "Great Western Lacrosse League (GWLL) — Junior Varsity (Idaho members)",
+      "name": "Great Western Lacrosse League (GWLL) \u2014 Junior Varsity (Idaho members)",
       "level": "competitive",
       "ageGroups": "Grades 9-12",
       "gender": "boys",
-      "season": "Spring (Mar–May)",
+      "season": "Spring (Mar\u2013May)",
       "region": "North Idaho / Eastern Idaho / Multi-state (ID / WA / MT / WY)",
       "governingBody": "Great Western Lacrosse League Inc.",
       "sanctioning": "Club / USA Lacrosse rules",
@@ -78,7 +81,7 @@
       "level": "rec",
       "ageGroups": "8U (K-2) / 10U (3-4) / 12U (5-6) / 14U girls (7-8)",
       "gender": "boys / girls",
-      "season": "Spring (Mar–May)",
+      "season": "Spring (Mar\u2013May)",
       "region": "Treasure Valley (Boise / Meridian / Eagle / Star / Kuna / Nampa / Caldwell)",
       "governingBody": "Treasure Valley Youth Lacrosse League",
       "sanctioning": "USA Lacrosse membership required",
@@ -92,13 +95,21 @@
       "level": "rec",
       "ageGroups": "Grades 1-8 (coed 1/2 / boys 3/4 / 5/6 / 7/8 / girls 3-5 / 6-8)",
       "gender": "boys / girls / coed",
-      "season": "Spring (Mar–Jun)",
-      "region": "Greater Coeur d’Alene / North Idaho",
+      "season": "Spring (Mar\u2013Jun)",
+      "region": "Greater Coeur d\u2019Alene / North Idaho",
       "governingBody": "North Idaho Youth Lacrosse",
       "sanctioning": "USA Lacrosse membership required",
       "website": "https://www.northidahoyouthlacrosse.org/",
       "sourceUrl": "https://www.northidahoyouthlacrosse.org/resources",
       "notes": "Spring club league with local games and published calendar; USA Lacrosse certified coaches and rules."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 3,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

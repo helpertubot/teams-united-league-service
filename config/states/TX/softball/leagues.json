@@ -1,20 +1,20 @@
 {
   "_description": "TX softball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "uil-high-school-softball-district-play",
-      "name": "UIL High School Softball — District Play",
+      "name": "UIL High School Softball \u2014 District Play",
       "level": "high school",
-      "ageGroups": "14U–18U",
+      "ageGroups": "14U\u201318U",
       "gender": "Girls",
-      "season": "Spring (Jan–May)",
+      "season": "Spring (Jan\u2013May)",
       "region": "Texas statewide",
       "governingBody": "University Interscholastic League (UIL)",
       "sanctioning": "UIL",
       "website": "https://www.uiltexas.org/softball",
       "sourceUrl": "https://www.uiltexas.org/softball",
-      "notes": "6 conference classifications (1A–6A); district schedules & standings feed playoff bracket; state tournament late May"
+      "notes": "6 conference classifications (1A\u20136A); district schedules & standings feed playoff bracket; state tournament late May"
     },
     {
       "id": "texas-fastpitch-league-tfl",
@@ -28,13 +28,14 @@
       "sanctioning": "The Alliance Fastpitch",
       "website": "https://thealliancefastpitch.com/tfl/",
       "sourceUrl": "https://thealliancefastpitch.com/tfl/standings/",
-      "notes": "Points-based standings across season; Championship Series in July; team and individual stats tracked nationally"
+      "notes": "Points-based standings across season; Championship Series in July; team and individual stats tracked nationally [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "usa-softball-of-texas-district-league-play",
-      "name": "USA Softball of Texas — District League Play",
+      "name": "USA Softball of Texas \u2014 District League Play",
       "level": "recreational / competitive",
-      "ageGroups": "6U–18U",
+      "ageGroups": "6U\u201318U",
       "gender": "Girls",
       "season": "Spring / Fall",
       "region": "Texas (non-metro areas)",
@@ -48,7 +49,7 @@
       "id": "usa-softball-of-houston",
       "name": "USA Softball of Houston",
       "level": "recreational / competitive",
-      "ageGroups": "6U–18U",
+      "ageGroups": "6U\u201318U",
       "gender": "Girls",
       "season": "Spring / Fall",
       "region": "Houston metro area",
@@ -62,7 +63,7 @@
       "id": "dfw-mid-cities-softball-interlock",
       "name": "DFW Mid Cities Softball Interlock",
       "level": "recreational",
-      "ageGroups": "6U–14U (approx.)",
+      "ageGroups": "6U\u201314U (approx.)",
       "gender": "Girls",
       "season": "Spring / Fall",
       "region": "N Tarrant / NW Dallas / S Denton counties",
@@ -84,13 +85,13 @@
       "sanctioning": "USA Softball",
       "website": "https://www.kgsa.org/",
       "sourceUrl": "https://www.kgsa.org/aboutus",
-      "notes": "500–700 players per season; 50–60 teams; KTX Blaze / Katy Fire travel arm also offered"
+      "notes": "500\u2013700 players per season; 50\u201360 teams; KTX Blaze / Katy Fire travel arm also offered"
     },
     {
       "id": "west-university-softball-association-wusa",
       "name": "West University Softball Association (WUSA)",
       "level": "recreational / competitive (tournament teams)",
-      "ageGroups": "5U–15U (rec) / 7U–16U (tournament)",
+      "ageGroups": "5U\u201315U (rec) / 7U\u201316U (tournament)",
       "gender": "Girls",
       "season": "Spring / Fall (rec); Summer / Fall (tournament)",
       "region": "West University Place / Houston, TX",
@@ -104,7 +105,7 @@
       "id": "spring-branch-memorial-sports-association-sbmsa",
       "name": "Spring Branch-Memorial Sports Association (SBMSA)",
       "level": "recreational",
-      "ageGroups": "6U–14U",
+      "ageGroups": "6U\u201314U",
       "gender": "Girls",
       "season": "Spring (main) / Summer (developmental)",
       "region": "Spring Branch / Memorial, Houston, TX",
@@ -118,7 +119,7 @@
       "id": "spring-area-youth-softball-says",
       "name": "Spring Area Youth Softball (SAYS)",
       "level": "recreational",
-      "ageGroups": "3U–18U",
+      "ageGroups": "3U\u201318U",
       "gender": "Girls",
       "season": "Spring / Fall",
       "region": "Spring, TX (N Houston)",
@@ -132,9 +133,9 @@
       "id": "garland-girls-softball-association",
       "name": "Garland Girls Softball Association",
       "level": "recreational",
-      "ageGroups": "3U–18U (incl. HS summer league)",
+      "ageGroups": "3U\u201318U (incl. HS summer league)",
       "gender": "Girls",
-      "season": "Spring (Mar–Jun) / Fall (Sep–Nov) / HS Summer (Jun–Jul)",
+      "season": "Spring (Mar\u2013Jun) / Fall (Sep\u2013Nov) / HS Summer (Jun\u2013Jul)",
       "region": "Garland, TX (DFW)",
       "governingBody": "Independent",
       "sanctioning": "None stated",
@@ -160,7 +161,7 @@
       "id": "sugar-land-girls-softball-association-slgsa",
       "name": "Sugar Land Girls Softball Association (SLGSA)",
       "level": "recreational / tournament teams",
-      "ageGroups": "4U–18U",
+      "ageGroups": "4U\u201318U",
       "gender": "Girls",
       "season": "Spring / Fall",
       "region": "Sugar Land, TX (SW Houston suburb)",
@@ -168,7 +169,8 @@
       "sanctioning": "Not stated",
       "website": "https://leagues.bluesombrero.com/Default.aspx?tabid=1159421",
       "sourceUrl": "https://www.facebook.com/sugarlandgsa/",
-      "notes": "Home base Imperial Park; 501(c)(3) nonprofit; spring registration opens December"
+      "notes": "Home base Imperial Park; 501(c)(3) nonprofit; spring registration opens December",
+      "sourcePlatform": "blue-sombrero"
     },
     {
       "id": "texas-city-girls-youth-softball-tcgys",
@@ -210,11 +212,11 @@
       "sanctioning": "State-chartered TX association",
       "website": "https://www.texasteenage.org/",
       "sourceUrl": "https://www.texasteenage.org/page/show/3114231-divisions-",
-      "notes": "70+ year history; ages 5–18; separate girls softball divisions alongside boys baseball"
+      "notes": "70+ year history; ages 5\u201318; separate girls softball divisions alongside boys baseball"
     },
     {
       "id": "pony-softball-south-region-texas",
-      "name": "PONY Softball — South Region (Texas)",
+      "name": "PONY Softball \u2014 South Region (Texas)",
       "level": "recreational / competitive",
       "ageGroups": "Shetland (6U) / Pinto (8U) / Mustang (10U) / Bronco (12U) / Pony (14U) / Colt (16U) / Palomino (18U)",
       "gender": "Girls",
@@ -228,9 +230,9 @@
     },
     {
       "id": "little-league-softball-texas-districts-sw-region",
-      "name": "Little League Softball — Texas Districts (SW Region)",
+      "name": "Little League Softball \u2014 Texas Districts (SW Region)",
       "level": "recreational",
-      "ageGroups": "Minor (9–11) / Major (10–12) / Junior (12–14) / Senior (13–16)",
+      "ageGroups": "Minor (9\u201311) / Major (10\u201312) / Junior (12\u201314) / Senior (13\u201316)",
       "gender": "Girls / Co-ed",
       "season": "Spring",
       "region": "Texas statewide (multiple districts)",
@@ -238,7 +240,8 @@
       "sanctioning": "Little League International",
       "website": "https://www.littleleague.org/region/southwest-region/",
       "sourceUrl": "https://www.littleleague.org/play-little-league/softball/",
-      "notes": "Multiple TX districts (7, 9, 12, 26, 27, etc.); local league play feeds into district / state / regional tournaments"
+      "notes": "Multiple TX districts (7, 9, 12, 26, 27, etc.); local league play feeds into district / state / regional tournaments [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "heart-of-texas-softball-league",
@@ -252,7 +255,8 @@
       "sanctioning": "None stated",
       "website": "https://www.leaguelineup.com/welcome.asp?url=heartoftexas",
       "sourceUrl": "https://www.leaguelineup.com/welcome.asp?url=heartoftexas",
-      "notes": "Communities include West / Itasca / Blum / Abbott / Whitney / Maypearl; North / South / East geographic divisions"
+      "notes": "Communities include West / Itasca / Blum / Abbott / Whitney / Maypearl; North / South / East geographic divisions",
+      "sourcePlatform": "leaguelineup"
     },
     {
       "id": "el-paso-youth-fastpitch-softball-city-parks-and-rec",
@@ -266,7 +270,23 @@
       "sanctioning": "USSSA Fastpitch / City of El Paso",
       "website": "https://www.quickscores.com/Orgs/ExtraMsg.php?OrgDir=elpaso",
       "sourceUrl": "https://www.quickscores.com/Orgs/ExtraMsg.php?OrgDir=elpaso&ExtraMsgID=3350",
-      "notes": "Administered by Parks & Rec; 4 annual in-house tournaments; schedules/standings via QuickScores"
+      "notes": "Administered by Parks & Rec; 4 annual in-house tournaments; schedules/standings via QuickScores [auto-quarantine 2026-04-15: http-404]",
+      "status": "quarantine"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "platform-reclassification",
+      "rows_changed": 2,
+      "min_confidence": 0.9,
+      "source": "platform-reclassification-2026-04-15.csv"
+    },
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 3,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

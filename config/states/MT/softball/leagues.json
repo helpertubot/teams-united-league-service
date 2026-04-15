@@ -1,6 +1,6 @@
 {
   "_description": "MT softball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "bozeman-girls-fastpitch-softball-rec-league",
@@ -8,7 +8,7 @@
       "level": "rec",
       "ageGroups": "8U / 10U / 12U / 14U",
       "gender": "girls",
-      "season": "Mar 23–May 16, 2026",
+      "season": "Mar 23\u2013May 16, 2026",
       "region": "Gallatin Valley and surrounding towns",
       "governingBody": "Bozeman Girls Fastpitch Softball",
       "sanctioning": "Independent",
@@ -20,9 +20,9 @@
       "id": "helena-girls-softball-association-league",
       "name": "Helena Girls Softball Association League",
       "level": "rec",
-      "ageGroups": "Rookies K–2 / Minors 3–4 / Majors 5–6 / Seniors 7–9",
+      "ageGroups": "Rookies K\u20132 / Minors 3\u20134 / Majors 5\u20136 / Seniors 7\u20139",
       "gender": "girls",
-      "season": "Mar 30–Jul 17, 2026",
+      "season": "Mar 30\u2013Jul 17, 2026",
       "region": "Helena area",
       "governingBody": "Helena Girls Softball Association",
       "sanctioning": "Independent",
@@ -32,17 +32,18 @@
     },
     {
       "id": "kalispell-fastpitch-kysa",
-      "name": "Kalispell Fastpitch — KYSA",
+      "name": "Kalispell Fastpitch \u2014 KYSA",
       "level": "rec",
       "ageGroups": "8U / 10U / 12U / 14U",
       "gender": "girls",
-      "season": "Spring (Apr–Jun)",
+      "season": "Spring (Apr\u2013Jun)",
       "region": "Flathead Valley / Kalispell",
       "governingBody": "Kalispell Youth Softball Association",
       "sanctioning": "USA Softball of Montana",
       "website": "https://kalispellfastpitch.net/",
       "sourceUrl": "https://kalispellfastpitch.net/asa-background-check/",
-      "notes": "League play with posted practice and game schedules"
+      "notes": "League play with posted practice and game schedules [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "garden-city-softball-little-league-missoula",
@@ -50,21 +51,21 @@
       "level": "rec",
       "ageGroups": "Tee Ball / Coach Pitch / Minors / Majors / Juniors / Seniors",
       "gender": "girls",
-      "season": "Spring (Apr–Jun)",
+      "season": "Spring (Apr\u2013Jun)",
       "region": "Missoula",
-      "governingBody": "Little League International — local league",
+      "governingBody": "Little League International \u2014 local league",
       "sanctioning": "Little League Softball",
       "website": "https://www.gcsll.org/",
       "sourceUrl": "https://www.gcsll.org/",
-      "notes": "Missoula’s integrated LL girls’ softball program with seasonal league play"
+      "notes": "Missoula\u2019s integrated LL girls\u2019 softball program with seasonal league play"
     },
     {
       "id": "mhsa-eastern-aa-softball",
       "name": "MHSA Eastern AA Softball",
       "level": "school",
-      "ageGroups": "HS 14–18",
+      "ageGroups": "HS 14\u201318",
       "gender": "girls",
-      "season": "Spring (Mar–May)",
+      "season": "Spring (Mar\u2013May)",
       "region": "Billings / Bozeman / Great Falls region",
       "governingBody": "Montana High School Association",
       "sanctioning": "MHSA / NFHS rules",
@@ -76,9 +77,9 @@
       "id": "mhsa-western-aa-softball",
       "name": "MHSA Western AA Softball",
       "level": "school",
-      "ageGroups": "HS 14–18",
+      "ageGroups": "HS 14\u201318",
       "gender": "girls",
-      "season": "Spring (Mar–May)",
+      "season": "Spring (Mar\u2013May)",
       "region": "Helena / Butte / Missoula / Kalispell region",
       "governingBody": "Montana High School Association",
       "sanctioning": "MHSA / NFHS rules",
@@ -88,11 +89,11 @@
     },
     {
       "id": "mhsa-class-a-northeast",
-      "name": "MHSA Class A — Northeast",
+      "name": "MHSA Class A \u2014 Northeast",
       "level": "school",
-      "ageGroups": "HS 14–18",
+      "ageGroups": "HS 14\u201318",
       "gender": "girls",
-      "season": "Spring (Mar–May)",
+      "season": "Spring (Mar\u2013May)",
       "region": "Lewistown / Havre / Glendive / Sidney / Miles City",
       "governingBody": "Montana High School Association",
       "sanctioning": "MHSA / NFHS rules",
@@ -102,17 +103,25 @@
     },
     {
       "id": "mhsa-class-a-southwest",
-      "name": "MHSA Class A — Southwest",
+      "name": "MHSA Class A \u2014 Southwest",
       "level": "school",
-      "ageGroups": "HS 14–18",
+      "ageGroups": "HS 14\u201318",
       "gender": "girls",
-      "season": "Spring (Mar–May)",
+      "season": "Spring (Mar\u2013May)",
       "region": "Frenchtown / Dillon / Hamilton / Stevensville / Butte Central / Corvallis",
       "governingBody": "Montana High School Association",
       "sanctioning": "MHSA / NFHS rules",
       "website": "https://www.mhsa.org/softball",
       "sourceUrl": "https://www.montanasports.com/high-school-sports/standings/2025-class-a-high-school-softball-standings",
       "notes": "Class A league with standings by conference"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 1,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

@@ -1,12 +1,12 @@
 {
   "_description": "WA softball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "kingco-fastpitch-softball-4a-3a",
-      "name": "KingCo — Fastpitch Softball (4A/3A)",
+      "name": "KingCo \u2014 Fastpitch Softball (4A/3A)",
       "level": "high school",
-      "ageGroups": "HS (9–12)",
+      "ageGroups": "HS (9\u201312)",
       "gender": "girls",
       "season": "spring (fastpitch) / fall (slowpitch)",
       "region": "King County / Eastside",
@@ -18,9 +18,9 @@
     },
     {
       "id": "wesco-fastpitch-softball",
-      "name": "Wesco — Fastpitch Softball",
+      "name": "Wesco \u2014 Fastpitch Softball",
       "level": "high school",
-      "ageGroups": "HS (9–12)",
+      "ageGroups": "HS (9\u201312)",
       "gender": "girls",
       "season": "spring (fastpitch) / fall (slowpitch)",
       "region": "Snohomish / North King",
@@ -32,9 +32,9 @@
     },
     {
       "id": "metro-league-seattle-fastpitch-softball",
-      "name": "Metro League (Seattle) — Fastpitch Softball",
+      "name": "Metro League (Seattle) \u2014 Fastpitch Softball",
       "level": "high school",
-      "ageGroups": "HS (9–12)",
+      "ageGroups": "HS (9\u201312)",
       "gender": "girls",
       "season": "spring (fastpitch) / fall (slowpitch)",
       "region": "Seattle",
@@ -46,9 +46,9 @@
     },
     {
       "id": "spsl-4a-fastpitch-softball",
-      "name": "SPSL 4A — Fastpitch Softball",
+      "name": "SPSL 4A \u2014 Fastpitch Softball",
       "level": "high school",
-      "ageGroups": "HS (9–12)",
+      "ageGroups": "HS (9\u201312)",
       "gender": "girls",
       "season": "spring (fastpitch) / fall (slowpitch)",
       "region": "South Puget Sound (Pierce / S King)",
@@ -60,9 +60,9 @@
     },
     {
       "id": "gshl-4a-3a-fastpitch-softball",
-      "name": "GSHL 4A/3A — Fastpitch Softball",
+      "name": "GSHL 4A/3A \u2014 Fastpitch Softball",
       "level": "high school",
-      "ageGroups": "HS (9–12)",
+      "ageGroups": "HS (9\u201312)",
       "gender": "girls",
       "season": "spring",
       "region": "SW Washington (Clark / Cowlitz)",
@@ -74,9 +74,9 @@
     },
     {
       "id": "gshl-2a-fastpitch-softball",
-      "name": "GSHL 2A — Fastpitch Softball",
+      "name": "GSHL 2A \u2014 Fastpitch Softball",
       "level": "high school",
-      "ageGroups": "HS (9–12)",
+      "ageGroups": "HS (9\u201312)",
       "gender": "girls",
       "season": "spring",
       "region": "SW Washington",
@@ -88,9 +88,9 @@
     },
     {
       "id": "cwac-fastpitch-softball",
-      "name": "CWAC — Fastpitch Softball",
+      "name": "CWAC \u2014 Fastpitch Softball",
       "level": "high school",
-      "ageGroups": "HS (9–12)",
+      "ageGroups": "HS (9\u201312)",
       "gender": "girls",
       "season": "spring",
       "region": "Central Washington (D5/D6)",
@@ -102,9 +102,9 @@
     },
     {
       "id": "olympic-league-fastpitch-softball",
-      "name": "Olympic League — Fastpitch Softball",
+      "name": "Olympic League \u2014 Fastpitch Softball",
       "level": "high school",
-      "ageGroups": "HS (9–12)",
+      "ageGroups": "HS (9\u201312)",
       "gender": "girls",
       "season": "spring",
       "region": "Kitsap / Olympic Peninsula",
@@ -116,9 +116,9 @@
     },
     {
       "id": "greater-spokane-league-fastpitch-softball",
-      "name": "Greater Spokane League — Fastpitch Softball",
+      "name": "Greater Spokane League \u2014 Fastpitch Softball",
       "level": "high school",
-      "ageGroups": "HS (9–12)",
+      "ageGroups": "HS (9\u201312)",
       "gender": "girls",
       "season": "spring (fastpitch) / fall (slowpitch)",
       "region": "Spokane area",
@@ -134,27 +134,27 @@
       "level": "rec",
       "ageGroups": "6U / 8U / 10U / Middle School / High School",
       "gender": "girls",
-      "season": "summer (Jun–Jul)",
+      "season": "summer (Jun\u2013Jul)",
       "region": "Spokane Valley",
       "governingBody": "Spokane Valley Girls Softball Assn.",
       "sanctioning": "Local league (USA Softball rules)",
       "website": "Spokane Valley Girls Softball",
       "sourceUrl": "https://svgsa.com/",
-      "notes": "Rec league since 1967; publishes schedules / standings and end‑of‑season tournament."
+      "notes": "Rec league since 1967; publishes schedules / standings and end\u2011of\u2011season tournament."
     },
     {
       "id": "tri-cities-girls-fastpitch-softball-association-tcgfsa",
-      "name": "Tri‑Cities Girls Fastpitch Softball Association (TCGFSA)",
+      "name": "Tri\u2011Cities Girls Fastpitch Softball Association (TCGFSA)",
       "level": "rec",
       "ageGroups": "6U / 8U / 10U / 12U / 14U / 16U / 18U",
       "gender": "girls",
       "season": "spring",
-      "region": "Tri‑Cities (Richland / Kennewick / Pasco)",
-      "governingBody": "Tri‑Cities Girls Fastpitch Softball Assn.",
+      "region": "Tri\u2011Cities (Richland / Kennewick / Pasco)",
+      "governingBody": "Tri\u2011Cities Girls Fastpitch Softball Assn.",
       "sanctioning": "Local",
       "website": "TCGFSA",
       "sourceUrl": "https://tcgfsa.org/",
-      "notes": "Community league offering age‑grouped divisions; seasonal play with events."
+      "notes": "Community league offering age\u2011grouped divisions; seasonal play with events."
     },
     {
       "id": "greater-wenatchee-girls-softball-association-gwgsa",
@@ -168,7 +168,8 @@
       "sanctioning": "Local",
       "website": "GWGSA",
       "sourceUrl": "https://www.gwgsa.org/",
-      "notes": "Area girls fastpitch league; runs registration / league play each spring."
+      "notes": "Area girls fastpitch league; runs registration / league play each spring. [auto-quarantine 2026-04-15: network:URLError]",
+      "status": "quarantine"
     },
     {
       "id": "seattle-pony-softball-seattle-pony-baseball-and-softball",
@@ -180,13 +181,13 @@
       "region": "Seattle",
       "governingBody": "Seattle Pony Baseball & Softball",
       "sanctioning": "PONY",
-      "website": "Seattle Pony — Softball",
+      "website": "Seattle Pony \u2014 Softball",
       "sourceUrl": "https://www.seattleponybaseball.org/Default.aspx?tabid=2114186",
       "notes": "Divisional fastpitch with set season timeline and league games."
     },
     {
       "id": "snohomish-little-league-softball",
-      "name": "Snohomish Little League — Softball",
+      "name": "Snohomish Little League \u2014 Softball",
       "level": "rec",
       "ageGroups": "Rookies / 89ers / Minors / Majors / Juniors / Seniors",
       "gender": "girls",
@@ -196,11 +197,11 @@
       "sanctioning": "Little League",
       "website": "Snohomish Little League",
       "sourceUrl": "https://www.snohomishll.com/Default.aspx?tabid=1195658",
-      "notes": "LL‑sanctioned softball with interleague seasonal play."
+      "notes": "LL\u2011sanctioned softball with interleague seasonal play."
     },
     {
       "id": "north-spokane-little-league-softball",
-      "name": "North Spokane Little League — Softball",
+      "name": "North Spokane Little League \u2014 Softball",
       "level": "rec",
       "ageGroups": "Coach/Machine Pitch / Minors / Majors (varies)",
       "gender": "girls",
@@ -210,11 +211,11 @@
       "sanctioning": "Little League",
       "website": "North Spokane Little League",
       "sourceUrl": "https://www.northspokanelittleleague.com/Default.aspx?tabid=1955004",
-      "notes": "LL softball divisions with defined season dates (Apr–Jun)."
+      "notes": "LL softball divisions with defined season dates (Apr\u2013Jun)."
     },
     {
       "id": "whatcom-county-youth-baseball-softball-league-fastpitch",
-      "name": "Whatcom County Youth Baseball/Softball League — Fastpitch",
+      "name": "Whatcom County Youth Baseball/Softball League \u2014 Fastpitch",
       "level": "rec",
       "ageGroups": "10U / 12U / 14U",
       "gender": "girls",
@@ -222,9 +223,10 @@
       "region": "Whatcom County",
       "governingBody": "Boys & Girls Clubs of Whatcom County",
       "sanctioning": "Local (Babe Ruth rules used)",
-      "website": "Boys & Girls Clubs — Athletics",
+      "website": "Boys & Girls Clubs \u2014 Athletics",
       "sourceUrl": "https://whatcomclubs.org/athletics/baseball/",
-      "notes": "County rec league; co‑managed rules include 10U/12U/14U fastpitch divisions."
+      "notes": "County rec league; co\u2011managed rules include 10U/12U/14U fastpitch divisions. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "south-kitsap-girls-softball-association-skgsa",
@@ -232,7 +234,7 @@
       "level": "rec",
       "ageGroups": "6U / 8U / 10U / 12U / 14U / 16U",
       "gender": "girls",
-      "season": "spring (Mar–Jun)",
+      "season": "spring (Mar\u2013Jun)",
       "region": "Port Orchard / Kitsap",
       "governingBody": "South Kitsap GSA",
       "sanctioning": "Local (KPYFC council play)",
@@ -246,7 +248,7 @@
       "level": "rec",
       "ageGroups": "8U / 10U / 12U / 14U",
       "gender": "girls",
-      "season": "spring (Apr–Jul)",
+      "season": "spring (Apr\u2013Jul)",
       "region": "Olympia / Lacey / Tumwater / Yelm",
       "governingBody": "Thurston County Fastpitch Assn.",
       "sanctioning": "Local",
@@ -258,7 +260,7 @@
       "id": "northshore-girls-slowpitch-softball-association-ngssa",
       "name": "Northshore Girls Slowpitch Softball Association (NGSSA)",
       "level": "rec",
-      "ageGroups": "K–12 (grade‑based)",
+      "ageGroups": "K\u201312 (grade\u2011based)",
       "gender": "girls",
       "season": "spring / summer",
       "region": "Northshore area (Bothell / Kenmore / Woodinville)",
@@ -266,35 +268,43 @@
       "sanctioning": "Local",
       "website": "NGSSA",
       "sourceUrl": "https://www.ngssa.org/",
-      "notes": "Long‑running girls slowpitch league with recurring seasonal play."
+      "notes": "Long\u2011running girls slowpitch league with recurring seasonal play."
     },
     {
       "id": "metro-parks-tacoma-school-rec-league-softball",
-      "name": "Metro Parks Tacoma — School Rec League (Softball)",
+      "name": "Metro Parks Tacoma \u2014 School Rec League (Softball)",
       "level": "rec",
-      "ageGroups": "Grades K–5 (school‑based)",
+      "ageGroups": "Grades K\u20135 (school\u2011based)",
       "gender": "girls / coed",
-      "season": "summer (Jun–Aug)",
+      "season": "summer (Jun\u2013Aug)",
       "region": "Tacoma",
       "governingBody": "Metro Parks Tacoma",
       "sanctioning": "City parks",
       "website": "Parks Tacoma Youth Baseball & Softball",
       "sourceUrl": "https://www.parkstacoma.gov/activities-and-sports/category/youth-sports/youth-baseball/",
-      "notes": "School‑based rec league; schedules / standings published via parks portal."
+      "notes": "School\u2011based rec league; schedules / standings published via parks portal."
     },
     {
       "id": "metro-parks-tacoma-community-competitive-softball",
-      "name": "Metro Parks Tacoma — Community Competitive Softball",
+      "name": "Metro Parks Tacoma \u2014 Community Competitive Softball",
       "level": "competitive",
-      "ageGroups": "Ages 10–14 (by age group)",
+      "ageGroups": "Ages 10\u201314 (by age group)",
       "gender": "girls",
-      "season": "summer (Jun–Aug)",
+      "season": "summer (Jun\u2013Aug)",
       "region": "Tacoma",
       "governingBody": "Metro Parks Tacoma",
       "sanctioning": "City parks",
-      "website": "Parks Tacoma — T‑ball / Baseball & Softball Leagues",
+      "website": "Parks Tacoma \u2014 T\u2011ball / Baseball & Softball Leagues",
       "sourceUrl": "https://www.parkstacoma.gov/activities-and-sports/category/youth-sports/youth-baseball/baseball-fastpitch-esp/",
       "notes": "Open community league with weekday practices and Saturday games; playoff at season end."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 2,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

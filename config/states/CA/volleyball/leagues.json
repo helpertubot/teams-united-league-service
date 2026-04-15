@@ -1,10 +1,10 @@
 {
   "_description": "CA volleyball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "ncva-power-league-girls-11s",
-      "name": "NCVA Power League (Girls) – 11s",
+      "name": "NCVA Power League (Girls) \u2013 11s",
       "level": "premier",
       "ageGroups": "11s",
       "gender": "Girls",
@@ -14,11 +14,12 @@
       "sanctioning": "USAV",
       "website": "https://ncva.com",
       "sourceUrl": "https://ncva.com/rules/handbook-girls-division/",
-      "notes": "Girls handbook lists Power League age groups including 11s; treated as separate age-tier row."
+      "notes": "Girls handbook lists Power League age groups including 11s; treated as separate age-tier row. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "ncva-power-league-girls-12s",
-      "name": "NCVA Power League (Girls) – 12s",
+      "name": "NCVA Power League (Girls) \u2013 12s",
       "level": "premier",
       "ageGroups": "12s",
       "gender": "Girls",
@@ -28,11 +29,12 @@
       "sanctioning": "USAV",
       "website": "https://ncva.com",
       "sourceUrl": "https://ncva.com/rules/handbook-girls-division/",
-      "notes": "Separate age-tier row."
+      "notes": "Separate age-tier row. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "ncva-power-league-girls-13s",
-      "name": "NCVA Power League (Girls) – 13s",
+      "name": "NCVA Power League (Girls) \u2013 13s",
       "level": "premier",
       "ageGroups": "13s",
       "gender": "Girls",
@@ -42,11 +44,12 @@
       "sanctioning": "USAV",
       "website": "https://ncva.com",
       "sourceUrl": "https://ncva.com/rules/handbook-girls-division/",
-      "notes": "Separate age-tier row."
+      "notes": "Separate age-tier row. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "ncva-power-league-girls-14s",
-      "name": "NCVA Power League (Girls) – 14s",
+      "name": "NCVA Power League (Girls) \u2013 14s",
       "level": "premier",
       "ageGroups": "14s",
       "gender": "Girls",
@@ -56,11 +59,12 @@
       "sanctioning": "USAV",
       "website": "https://ncva.com",
       "sourceUrl": "https://ncva.com/rules/handbook-girls-division/",
-      "notes": "Separate age-tier row."
+      "notes": "Separate age-tier row. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "ncva-power-league-girls-15s",
-      "name": "NCVA Power League (Girls) – 15s",
+      "name": "NCVA Power League (Girls) \u2013 15s",
       "level": "premier",
       "ageGroups": "15s",
       "gender": "Girls",
@@ -70,11 +74,12 @@
       "sanctioning": "USAV",
       "website": "https://ncva.com",
       "sourceUrl": "https://ncva.com/rules/handbook-girls-division/",
-      "notes": "Separate age-tier row."
+      "notes": "Separate age-tier row. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "ncva-power-league-girls-16s",
-      "name": "NCVA Power League (Girls) – 16s",
+      "name": "NCVA Power League (Girls) \u2013 16s",
       "level": "premier",
       "ageGroups": "16s",
       "gender": "Girls",
@@ -84,11 +89,12 @@
       "sanctioning": "USAV",
       "website": "https://ncva.com",
       "sourceUrl": "https://ncva.com/rules/handbook-girls-division/",
-      "notes": "Separate age-tier row."
+      "notes": "Separate age-tier row. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "ncva-power-league-girls-17s",
-      "name": "NCVA Power League (Girls) – 17s",
+      "name": "NCVA Power League (Girls) \u2013 17s",
       "level": "premier",
       "ageGroups": "17s",
       "gender": "Girls",
@@ -98,11 +104,12 @@
       "sanctioning": "USAV",
       "website": "https://ncva.com",
       "sourceUrl": "https://ncva.com/rules/handbook-girls-division/",
-      "notes": "Separate age-tier row."
+      "notes": "Separate age-tier row. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "ncva-power-league-girls-18s",
-      "name": "NCVA Power League (Girls) – 18s",
+      "name": "NCVA Power League (Girls) \u2013 18s",
       "level": "premier",
       "ageGroups": "18s",
       "gender": "Girls",
@@ -112,7 +119,8 @@
       "sanctioning": "USAV",
       "website": "https://ncva.com",
       "sourceUrl": "https://ncva.com/rules/handbook-girls-division/",
-      "notes": "Separate age-tier row."
+      "notes": "Separate age-tier row. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "ncva-power-league-schedule-hub-girls",
@@ -126,11 +134,12 @@
       "sanctioning": "USAV",
       "website": "https://ncva.com",
       "sourceUrl": "https://ncva.com/girls/powerleague/",
-      "notes": "Schedule page for 2025-2026 Power League; included as general league hub row."
+      "notes": "Schedule page for 2025-2026 Power League; included as general league hub row. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "west-coast-volleyball-association-wcvba-girls-power-league",
-      "name": "West Coast Volleyball Association (WCVBA) – Girls Power League",
+      "name": "West Coast Volleyball Association (WCVBA) \u2013 Girls Power League",
       "level": "premier",
       "ageGroups": "12s-18s",
       "gender": "Girls",
@@ -140,11 +149,11 @@
       "sanctioning": "USAV",
       "website": "https://www.wcvba.com",
       "sourceUrl": "https://www.wcvba.com/",
-      "notes": "WCVBA homepage lists “2026 Girls Power League”."
+      "notes": "WCVBA homepage lists \u201c2026 Girls Power League\u201d."
     },
     {
       "id": "west-coast-volleyball-association-wcvba-regional-league",
-      "name": "West Coast Volleyball Association (WCVBA) – Regional League",
+      "name": "West Coast Volleyball Association (WCVBA) \u2013 Regional League",
       "level": "competitive",
       "ageGroups": "12s-18s",
       "gender": "Boys+Girls",
@@ -154,11 +163,11 @@
       "sanctioning": "USAV",
       "website": "https://www.wcvba.com",
       "sourceUrl": "https://www.wcvba.com/",
-      "notes": "WCVBA homepage lists “2026 Regional League”."
+      "notes": "WCVBA homepage lists \u201c2026 Regional League\u201d."
     },
     {
       "id": "west-coast-volleyball-association-wcvba-juniors-league",
-      "name": "West Coast Volleyball Association (WCVBA) – Juniors League",
+      "name": "West Coast Volleyball Association (WCVBA) \u2013 Juniors League",
       "level": "development",
       "ageGroups": "12s-18s",
       "gender": "Boys+Girls",
@@ -168,11 +177,11 @@
       "sanctioning": "USAV",
       "website": "https://www.wcvba.com",
       "sourceUrl": "https://www.wcvba.com/",
-      "notes": "WCVBA homepage lists “2026 Juniors League”."
+      "notes": "WCVBA homepage lists \u201c2026 Juniors League\u201d."
     },
     {
       "id": "southern-california-volleyball-association-scva-girls-schedule-h",
-      "name": "Southern California Volleyball Association (SCVA) – Girls schedule hub",
+      "name": "Southern California Volleyball Association (SCVA) \u2013 Girls schedule hub",
       "level": "premier",
       "ageGroups": "12s-18s",
       "gender": "Girls",
@@ -182,7 +191,8 @@
       "sanctioning": "USAV",
       "website": "https://www.scvavolleyball.org",
       "sourceUrl": "https://www.scvavolleyball.org/page/girls-schedule",
-      "notes": "SCVA site includes girls schedule hub; treated as league scheduling entry point."
+      "notes": "SCVA site includes girls schedule hub; treated as league scheduling entry point. [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "valley-heat-league-central-valley-volleyball-league",
@@ -196,11 +206,12 @@
       "sanctioning": "none stated",
       "website": "https://www.valleyheatleague.com",
       "sourceUrl": "https://www.valleyheatleague.com/",
-      "notes": "League site explicitly references schedules/standings and divisions."
+      "notes": "League site explicitly references schedules/standings and divisions. [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "usyvl-huntington-beach-spring-2026-youth-volleyball-league",
-      "name": "USYVL – Huntington Beach Spring 2026 Youth Volleyball League",
+      "name": "USYVL \u2013 Huntington Beach Spring 2026 Youth Volleyball League",
       "level": "rec",
       "ageGroups": "ages 7-15",
       "gender": "Boys+Girls",
@@ -210,11 +221,11 @@
       "sanctioning": "none stated",
       "website": "https://huntingtonbeach.youthvolleyball.com",
       "sourceUrl": "https://huntingtonbeach.youthvolleyball.com/",
-      "notes": "Eight-week youth volleyball league with dates Apr–Jun 2026."
+      "notes": "Eight-week youth volleyball league with dates Apr\u2013Jun 2026."
     },
     {
       "id": "santa-clara-valley-athletic-league-scval-girls-volleyball-standi",
-      "name": "Santa Clara Valley Athletic League (SCVAL) – Girls volleyball standings",
+      "name": "Santa Clara Valley Athletic League (SCVAL) \u2013 Girls volleyball standings",
       "level": "competitive",
       "ageGroups": "Grades 9-12",
       "gender": "Girls",
@@ -224,11 +235,12 @@
       "sanctioning": "CIF",
       "website": "https://www.scval.com",
       "sourceUrl": "https://www.scval.com/standings/index.html",
-      "notes": "SCVAL standings page includes “Volleyball (girls)” entries; treated as HS league."
+      "notes": "SCVAL standings page includes \u201cVolleyball (girls)\u201d entries; treated as HS league. [auto-quarantine 2026-04-15: network:URLError]",
+      "status": "quarantine"
     },
     {
       "id": "cccyo-marin-fall-girls-volleyball",
-      "name": "CCCYO Marin – Fall Girls Volleyball",
+      "name": "CCCYO Marin \u2013 Fall Girls Volleyball",
       "level": "competitive",
       "ageGroups": "Grades 5-8 (division labels)",
       "gender": "Girls",
@@ -238,7 +250,7 @@
       "sanctioning": "CYO",
       "website": "https://athletics.cccyo.org",
       "sourceUrl": "https://athletics.cccyo.org/schedules",
-      "notes": "CCCYO schedules list “Fall Girls Volleyball – MARIN” with division breakdowns."
+      "notes": "CCCYO schedules list \u201cFall Girls Volleyball \u2013 MARIN\u201d with division breakdowns."
     },
     {
       "id": "socal-cup-volleyball-league",
@@ -252,7 +264,8 @@
       "sanctioning": "Independent",
       "website": "https://socalcupvolleyball.com/",
       "sourceUrl": "https://socalcupvolleyball.com/standings/2025-2026-standings/",
-      "notes": "400+ teams with cumulative point standings across multiple events; 2025-26 standings published; season culminates in national events (Winter Formal / Open Championship / Showcase / Equinox)"
+      "notes": "400+ teams with cumulative point standings across multiple events; 2025-26 standings published; season culminates in national events (Winter Formal / Open Championship / Showcase / Equinox) [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "scsn-junior-girls-league",
@@ -260,9 +273,9 @@
       "level": "competitive",
       "ageGroups": "11U / 12U / 13U / 14U / 15U / 16U / 17U / 18U",
       "gender": "girls",
-      "season": "November – May",
+      "season": "November \u2013 May",
       "region": "Southern California / Southern Nevada",
-      "governingBody": "SCSN — USAV Southern California Southern Nevada Region",
+      "governingBody": "SCSN \u2014 USAV Southern California Southern Nevada Region",
       "sanctioning": "USA Volleyball",
       "website": "https://usavolleyball.org/scsn/scsn-junior-girls/",
       "sourceUrl": "https://usavolleyball.org/scsn/scsn-junior-girls/",
@@ -270,17 +283,18 @@
     },
     {
       "id": "united-states-youth-volleyball-league-california",
-      "name": "United States Youth Volleyball League — California",
+      "name": "United States Youth Volleyball League \u2014 California",
       "level": "recreational",
       "ageGroups": "Ages 7-8 / 9-10 / 11-12 / 13-15",
       "gender": "Boys+Girls",
-      "season": "Spring (Mar–Jun) / Fall (Aug–Nov)",
+      "season": "Spring (Mar\u2013Jun) / Fall (Aug\u2013Nov)",
       "region": "Statewide California (79 local programs)",
       "governingBody": "United States Youth Volleyball League (USYVL)",
       "sanctioning": "USYVL",
       "website": "https://usyvl.org/locations/california/",
       "sourceUrl": "https://usyvl.org/about-the-league/",
-      "notes": "8-week seasonal programs; instructional non-competitive format; no formal standings; programs in Los Angeles / San Diego / Sacramento / Orange County and many other CA cities"
+      "notes": "8-week seasonal programs; instructional non-competitive format; no formal standings; programs in Los Angeles / San Diego / Sacramento / Orange County and many other CA cities [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "socal-elite-sports-volleyball-spring-league",
@@ -288,49 +302,51 @@
       "level": "recreational",
       "ageGroups": "Grades 4-5 (Div 2) / Grades 6-7 (Div 2) / Grades 7-9 (Div 1)",
       "gender": "Boys+Girls",
-      "season": "Spring (March – May)",
+      "season": "Spring (March \u2013 May)",
       "region": "Irvine / Tustin, Orange County",
       "governingBody": "SoCal Elite Sports",
       "sanctioning": "Independent (501c3 nonprofit)",
       "website": "https://socalelite.org/volleyball/spring/",
       "sourceUrl": "https://socalelite.org/volleyball/spring/",
-      "notes": "6-week Saturday league; each session = practice clinic + match; mandatory pre-season skill evaluations; skill-based team placement; 2026 season Mar 21 – May 16"
+      "notes": "6-week Saturday league; each session = practice clinic + match; mandatory pre-season skill evaluations; skill-based team placement; 2026 season Mar 21 \u2013 May 16"
     },
     {
       "id": "cif-southern-section-girls-volleyball",
-      "name": "CIF Southern Section — Girls Volleyball",
+      "name": "CIF Southern Section \u2014 Girls Volleyball",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "girls",
-      "season": "Fall (August – October)",
+      "season": "Fall (August \u2013 October)",
       "region": "Southern California (200+ member schools)",
       "governingBody": "CIF Southern Section",
       "sanctioning": "California Interscholastic Federation (CIF)",
       "website": "https://cifss.org/sports/girls-volleyball/",
       "sourceUrl": "https://cifss.org/sports/girls-volleyball/",
-      "notes": "League standings published (updated Dec 10 2025); multiple competitive divisions (Div 1-5+); last league contest Oct 15; section playoffs + CIF State Championships Nov"
+      "notes": "League standings published (updated Dec 10 2025); multiple competitive divisions (Div 1-5+); last league contest Oct 15; section playoffs + CIF State Championships Nov [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "cif-southern-section-boys-volleyball",
-      "name": "CIF Southern Section — Boys Volleyball",
+      "name": "CIF Southern Section \u2014 Boys Volleyball",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "boys",
-      "season": "Spring (February – April)",
+      "season": "Spring (February \u2013 April)",
       "region": "Southern California",
       "governingBody": "CIF Southern Section",
       "sanctioning": "CIF",
       "website": "https://cifss.org/sports/boys-volleyball/",
       "sourceUrl": "https://cifss.org/sports/boys-volleyball/",
-      "notes": "League standings published; multiple divisions; section playoffs + CIF State Championships in May"
+      "notes": "League standings published; multiple divisions; section playoffs + CIF State Championships in May [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "cif-north-coast-section-girls-volleyball",
-      "name": "CIF North Coast Section — Girls Volleyball",
+      "name": "CIF North Coast Section \u2014 Girls Volleyball",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "girls",
-      "season": "Fall (August – October)",
+      "season": "Fall (August \u2013 October)",
       "region": "Bay Area / North Bay / East Bay / Diablo Valley",
       "governingBody": "CIF North Coast Section",
       "sanctioning": "CIF",
@@ -340,11 +356,11 @@
     },
     {
       "id": "cif-north-coast-section-boys-volleyball",
-      "name": "CIF North Coast Section — Boys Volleyball",
+      "name": "CIF North Coast Section \u2014 Boys Volleyball",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "boys",
-      "season": "Spring (February – May)",
+      "season": "Spring (February \u2013 May)",
       "region": "Bay Area / North Bay / East Bay / Diablo Valley",
       "governingBody": "CIF North Coast Section",
       "sanctioning": "CIF",
@@ -354,11 +370,11 @@
     },
     {
       "id": "cif-central-coast-section-girls-volleyball",
-      "name": "CIF Central Coast Section — Girls Volleyball",
+      "name": "CIF Central Coast Section \u2014 Girls Volleyball",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "girls",
-      "season": "Fall (August – October)",
+      "season": "Fall (August \u2013 October)",
       "region": "San Jose / Monterey / Santa Cruz / Santa Clara area",
       "governingBody": "CIF Central Coast Section",
       "sanctioning": "CIF",
@@ -368,11 +384,11 @@
     },
     {
       "id": "cif-san-diego-section-girls-volleyball",
-      "name": "CIF San Diego Section — Girls Volleyball",
+      "name": "CIF San Diego Section \u2014 Girls Volleyball",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "girls",
-      "season": "Fall (August – October)",
+      "season": "Fall (August \u2013 October)",
       "region": "San Diego County",
       "governingBody": "CIF San Diego Section",
       "sanctioning": "CIF",
@@ -382,11 +398,11 @@
     },
     {
       "id": "cif-los-angeles-city-section-girls-volleyball",
-      "name": "CIF Los Angeles City Section — Girls Volleyball",
+      "name": "CIF Los Angeles City Section \u2014 Girls Volleyball",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "girls",
-      "season": "Fall (August – October)",
+      "season": "Fall (August \u2013 October)",
       "region": "Los Angeles City (LAUSD + charter schools)",
       "governingBody": "CIF Los Angeles City Section",
       "sanctioning": "CIF",
@@ -396,17 +412,25 @@
     },
     {
       "id": "cif-los-angeles-city-section-boys-volleyball",
-      "name": "CIF Los Angeles City Section — Boys Volleyball",
+      "name": "CIF Los Angeles City Section \u2014 Boys Volleyball",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "boys",
-      "season": "Spring (February – April)",
+      "season": "Spring (February \u2013 April)",
       "region": "Los Angeles City (LAUSD + charter schools)",
       "governingBody": "CIF Los Angeles City Section",
       "sanctioning": "CIF",
       "website": "https://www.cif-la.org/",
       "sourceUrl": "https://www.cif-la.org/",
       "notes": "League play with standings; section playoffs + CIF State qualifiers in May"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 16,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

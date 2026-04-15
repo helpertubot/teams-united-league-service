@@ -1,6 +1,6 @@
 {
   "_description": "OR basketball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "osaa-6a-portland-interscholastic-league-high-school",
@@ -14,7 +14,8 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org/",
       "sourceUrl": "https://www.osaa.org/activities/bbx/schedules?date=2026-02-06&div=6A",
-      "notes": "Conference league with published schedules and scores."
+      "notes": "Conference league with published schedules and scores. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-6a-metro-league-high-school",
@@ -28,7 +29,8 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org/",
       "sourceUrl": "https://www.osaa.org/activities/bbx/schedules?date=2026-02-06&div=6A",
-      "notes": "Conference league with published schedules and scores."
+      "notes": "Conference league with published schedules and scores. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-6a-pacific-conference-high-school",
@@ -42,7 +44,8 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org/",
       "sourceUrl": "https://www.osaa.org/activities/bbx/schedules?date=2026-02-06&div=6A",
-      "notes": "Conference league with published schedules and scores."
+      "notes": "Conference league with published schedules and scores. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-6a-mt-hood-conference-high-school",
@@ -56,7 +59,8 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org/",
       "sourceUrl": "https://www.osaa.org/activities/bbx/schedules?date=2026-02-06&div=6A",
-      "notes": "Conference league with published schedules and scores."
+      "notes": "Conference league with published schedules and scores. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-6a-southwest-conference-high-school",
@@ -70,7 +74,8 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org/",
       "sourceUrl": "https://www.osaa.org/activities/bbx/schedules?date=2026-02-06&div=6A",
-      "notes": "Conference league with published schedules and scores."
+      "notes": "Conference league with published schedules and scores. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-5a-northwest-oregon-conference-high-school",
@@ -84,11 +89,12 @@
       "sanctioning": "OSAA",
       "website": "https://www.osaa.org/",
       "sourceUrl": "https://www.osaa.org/activities/bbx/schedules?date=2026-02-06",
-      "notes": "Conference league with published schedules and scores."
+      "notes": "Conference league with published schedules and scores. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "portland-parks-and-recreation-goldenball-youth-basketball",
-      "name": "Portland Parks & Recreation — Goldenball Youth Basketball",
+      "name": "Portland Parks & Recreation \u2014 Goldenball Youth Basketball",
       "level": "rec",
       "ageGroups": "Grades 3-7",
       "gender": "boys / girls",
@@ -102,7 +108,7 @@
     },
     {
       "id": "cyo-camp-howard-grade-school-blue-green-division",
-      "name": "CYO/Camp Howard Grade School — Blue/Green Division",
+      "name": "CYO/Camp Howard Grade School \u2014 Blue/Green Division",
       "level": "competitive",
       "ageGroups": "Grades 3-8",
       "gender": "boys / girls",
@@ -116,7 +122,7 @@
     },
     {
       "id": "cyo-camp-howard-grade-school-orange-division",
-      "name": "CYO/Camp Howard Grade School — Orange Division",
+      "name": "CYO/Camp Howard Grade School \u2014 Orange Division",
       "level": "rec",
       "ageGroups": "Grades 3-8",
       "gender": "boys / girls",
@@ -130,7 +136,7 @@
     },
     {
       "id": "cyo-camp-howard-high-school-blue-league",
-      "name": "CYO/Camp Howard High School — Blue League",
+      "name": "CYO/Camp Howard High School \u2014 Blue League",
       "level": "competitive",
       "ageGroups": "Grades 9-12",
       "gender": "boys",
@@ -144,7 +150,7 @@
     },
     {
       "id": "pil-youth-sports-middle-school-boys-basketball",
-      "name": "PIL Youth Sports — Middle School Boys Basketball",
+      "name": "PIL Youth Sports \u2014 Middle School Boys Basketball",
       "level": "school-based competitive",
       "ageGroups": "Grades 6-8",
       "gender": "boys",
@@ -158,7 +164,7 @@
     },
     {
       "id": "pil-youth-sports-middle-school-girls-basketball",
-      "name": "PIL Youth Sports — Middle School Girls Basketball",
+      "name": "PIL Youth Sports \u2014 Middle School Girls Basketball",
       "level": "school-based competitive",
       "ageGroups": "Grades 6-8",
       "gender": "girls",
@@ -172,7 +178,7 @@
     },
     {
       "id": "thprd-youth-basketball-winter-league",
-      "name": "THPRD Youth Basketball — Winter League",
+      "name": "THPRD Youth Basketball \u2014 Winter League",
       "level": "rec",
       "ageGroups": "Grades 5-8 / 9-12",
       "gender": "boys / girls",
@@ -196,11 +202,12 @@
       "sanctioning": "HPRD",
       "website": "https://www.hillsboro-oregon.gov/",
       "sourceUrl": "https://www.hillsboro-oregon.gov/our-city/departments/parks-recreation/classes-programs/youth-sports",
-      "notes": "City-run league; games and practices referenced via Team Sideline."
+      "notes": "City-run league; games and practices referenced via Team Sideline. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "bend-park-and-recreation-middle-school-boys-basketball",
-      "name": "Bend Park & Recreation — Middle School Boys Basketball",
+      "name": "Bend Park & Recreation \u2014 Middle School Boys Basketball",
       "level": "rec",
       "ageGroups": "Grades 6-8",
       "gender": "boys",
@@ -210,11 +217,12 @@
       "sanctioning": "BPRD",
       "website": "https://www.bendparksandrec.org/",
       "sourceUrl": "https://www.bendparksandrec.org/activities/sports/youth-sports/",
-      "notes": "District program with weekday games in season."
+      "notes": "District program with weekday games in season. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "bend-park-and-recreation-middle-school-girls-basketball",
-      "name": "Bend Park & Recreation — Middle School Girls Basketball",
+      "name": "Bend Park & Recreation \u2014 Middle School Girls Basketball",
       "level": "rec",
       "ageGroups": "Grades 6-8",
       "gender": "girls",
@@ -224,11 +232,12 @@
       "sanctioning": "BPRD",
       "website": "https://www.bendparksandrec.org/",
       "sourceUrl": "https://www.bendparksandrec.org/activities/sports/youth-sports/",
-      "notes": "District program with weekday games in season."
+      "notes": "District program with weekday games in season. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "kidsports-eugene-basketball-grades-6-8",
-      "name": "KIDSPORTS Eugene — Basketball (Grades 6-8)",
+      "name": "KIDSPORTS Eugene \u2014 Basketball (Grades 6-8)",
       "level": "rec / competitive",
       "ageGroups": "Grades 6-8",
       "gender": "boys / girls",
@@ -242,7 +251,7 @@
     },
     {
       "id": "hoopsource-youth-fall-league-d1",
-      "name": "HoopSource Youth Fall League — D1",
+      "name": "HoopSource Youth Fall League \u2014 D1",
       "level": "competitive",
       "ageGroups": "Grades 2-8",
       "gender": "boys / girls",
@@ -252,11 +261,12 @@
       "sanctioning": "independent",
       "website": "https://hoopsourcebasketball.com/",
       "sourceUrl": "https://hoopsourcebasketball.com/events/youth-hoopsource-fall-league/",
-      "notes": "10-game league with multiple skill levels; schedules posted via site/app."
+      "notes": "10-game league with multiple skill levels; schedules posted via site/app. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "hoopsource-youth-fall-league-d2",
-      "name": "HoopSource Youth Fall League — D2",
+      "name": "HoopSource Youth Fall League \u2014 D2",
       "level": "competitive",
       "ageGroups": "Grades 2-8",
       "gender": "boys / girls",
@@ -266,11 +276,12 @@
       "sanctioning": "independent",
       "website": "https://hoopsourcebasketball.com/",
       "sourceUrl": "https://hoopsourcebasketball.com/events/youth-hoopsource-fall-league/",
-      "notes": "10-game league with multiple skill levels; schedules posted via site/app."
+      "notes": "10-game league with multiple skill levels; schedules posted via site/app. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "hoopsource-youth-fall-league-d3",
-      "name": "HoopSource Youth Fall League — D3",
+      "name": "HoopSource Youth Fall League \u2014 D3",
       "level": "developmental",
       "ageGroups": "Grades 2-8",
       "gender": "boys / girls",
@@ -280,7 +291,16 @@
       "sanctioning": "independent",
       "website": "https://hoopsourcebasketball.com/",
       "sourceUrl": "https://hoopsourcebasketball.com/events/youth-hoopsource-fall-league/",
-      "notes": "10-game league with multiple skill levels; schedules posted via site/app."
+      "notes": "10-game league with multiple skill levels; schedules posted via site/app. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 12,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

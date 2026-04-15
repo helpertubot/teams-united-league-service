@@ -1,16 +1,16 @@
 {
   "_description": "AK volleyball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "alaska-region-usav-juniors-girls-club",
-      "name": "Alaska Region USAV Juniors — Girls Club",
+      "name": "Alaska Region USAV Juniors \u2014 Girls Club",
       "level": "Club / Junior",
       "ageGroups": "12U / 13U / 14U / 15U / 16U / 17U / 18U",
       "gender": "Girls",
-      "season": "Winter–Spring (Nov–July)",
+      "season": "Winter\u2013Spring (Nov\u2013July)",
       "region": "Statewide (Anchorage / Eagle River / Mat-Su primary venues)",
-      "governingBody": "Alaska Region — USA Volleyball",
+      "governingBody": "Alaska Region \u2014 USA Volleyball",
       "sanctioning": "USAV",
       "website": "https://www.alaskavolleyball.org",
       "sourceUrl": "https://www.alaskavolleyball.org/juniors",
@@ -18,73 +18,78 @@
     },
     {
       "id": "asaa-volleyball-4a",
-      "name": "ASAA Volleyball — 4A",
+      "name": "ASAA Volleyball \u2014 4A",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Girls",
-      "season": "Fall (first practice Sep 10 / first contest Sep 25 / state Nov 13–15)",
-      "region": "Statewide — 4 conferences: Cook Inlet / Mid-Alaska / Northern Lights / Southeast",
+      "season": "Fall (first practice Sep 10 / first contest Sep 25 / state Nov 13\u201315)",
+      "region": "Statewide \u2014 4 conferences: Cook Inlet / Mid-Alaska / Northern Lights / Southeast",
       "governingBody": "Alaska School Activities Association",
       "sanctioning": "ASAA / NFHS",
       "website": "https://www.asaa365.com/volleyball/4a-volleyball/",
       "sourceUrl": "https://www.asaa365.com/volleyball/4a-volleyball/",
-      "notes": "Largest-school classification; conference regular-season play feeds conference tournament then state championship at Alaska Airlines Center, Anchorage"
+      "notes": "Largest-school classification; conference regular-season play feeds conference tournament then state championship at Alaska Airlines Center, Anchorage [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-volleyball-3a",
-      "name": "ASAA Volleyball — 3A",
+      "name": "ASAA Volleyball \u2014 3A",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Girls",
-      "season": "Fall (first practice Sep 10 / first contest Sep 25 / state Nov 13–15)",
-      "region": "Statewide — 4 conferences: Aurora / Southcentral / Southeast / Western",
+      "season": "Fall (first practice Sep 10 / first contest Sep 25 / state Nov 13\u201315)",
+      "region": "Statewide \u2014 4 conferences: Aurora / Southcentral / Southeast / Western",
       "governingBody": "Alaska School Activities Association",
       "sanctioning": "ASAA / NFHS",
       "website": "https://www.asaa365.com/volleyball/3a-volleyball/",
       "sourceUrl": "https://www.asaa365.com/volleyball/3a-volleyball/",
-      "notes": "Conference regular-season play + conference tournament; state championship Nov 13–15 at Alaska Airlines Center, Anchorage"
+      "notes": "Conference regular-season play + conference tournament; state championship Nov 13\u201315 at Alaska Airlines Center, Anchorage [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-volleyball-2a",
-      "name": "ASAA Volleyball — 2A",
+      "name": "ASAA Volleyball \u2014 2A",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Girls",
-      "season": "Fall–Winter (first practice Aug 6 / first contest Aug 21 / state Dec 4–6)",
-      "region": "Statewide — 4 conferences: Aurora / Borealis / Southeast / Southwest",
+      "season": "Fall\u2013Winter (first practice Aug 6 / first contest Aug 21 / state Dec 4\u20136)",
+      "region": "Statewide \u2014 4 conferences: Aurora / Borealis / Southeast / Southwest",
       "governingBody": "Alaska School Activities Association",
       "sanctioning": "ASAA / NFHS",
       "website": "https://www.asaa365.com/volleyball/2a-volleyball/",
       "sourceUrl": "https://www.asaa365.com/volleyball/2a-volleyball/",
-      "notes": "Earlier start than 3A/4A; state championship Dec 4–6 at Dimond High School / Palmer"
+      "notes": "Earlier start than 3A/4A; state championship Dec 4\u20136 at Dimond High School / Palmer [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-volleyball-mix-six",
-      "name": "ASAA Volleyball — Mix Six",
+      "name": "ASAA Volleyball \u2014 Mix Six",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Girls / Coed",
-      "season": "Fall–Winter (first practice Aug 6 / first contest Aug 21 / state Dec 4–6)",
-      "region": "Statewide — 9 regional conferences: Alaska Coastal / Denali / Greater Kuskokwim / North Slope / Northwest / Southeast / Southwest / Western / Yukon River",
+      "season": "Fall\u2013Winter (first practice Aug 6 / first contest Aug 21 / state Dec 4\u20136)",
+      "region": "Statewide \u2014 9 regional conferences: Alaska Coastal / Denali / Greater Kuskokwim / North Slope / Northwest / Southeast / Southwest / Western / Yukon River",
       "governingBody": "Alaska School Activities Association",
       "sanctioning": "ASAA / NFHS",
       "website": "https://www.asaa365.com/volleyball/",
       "sourceUrl": "https://www.asaa365.com/volleyball/",
-      "notes": "Small-school six-player format serving rural and remote AK communities; seeding event mid-Oct; state Dec 4–6 at Dimond High School"
+      "notes": "Small-school six-player format serving rural and remote AK communities; seeding event mid-Oct; state Dec 4\u20136 at Dimond High School [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "alaska-outdoor-volleyball-association-aova-summer-league",
-      "name": "Alaska Outdoor Volleyball Association (AOVA) — Summer League",
+      "name": "Alaska Outdoor Volleyball Association (AOVA) \u2014 Summer League",
       "level": "Recreational / Competitive",
       "ageGroups": "High School / Adult",
       "gender": "Women's / Coed",
-      "season": "Summer (June–July, Mon–Thu)",
+      "season": "Summer (June\u2013July, Mon\u2013Thu)",
       "region": "Anchorage (Springer Park, 38th & Arctic)",
       "governingBody": "Alaska Outdoor Volleyball Association",
       "sanctioning": "Independent",
       "website": "https://aova.us/",
       "sourceUrl": "https://www.quickscores.com/alaskaoutdoorvolleyballassociation",
-      "notes": "Outdoor sand courts; Women's Div A/B/C / Coed Div B/C/D / dedicated High School division; Fur Rondy Traditional and Unlimited brackets annually"
+      "notes": "Outdoor sand courts; Women's Div A/B/C / Coed Div B/C/D / dedicated High School division; Fur Rondy Traditional and Unlimited brackets annually [auto-quarantine 2026-04-15: generic-platform:godaddy-sitebuilder]",
+      "status": "quarantine"
     },
     {
       "id": "anchorage-sports-association-volleyball",
@@ -92,13 +97,21 @@
       "level": "Recreational / Competitive",
       "ageGroups": "Adult (18+)",
       "gender": "Women's / Men's / Coed / Reverse Coed",
-      "season": "Fall (Sep–Dec) / Spring (Jan–Apr)",
+      "season": "Fall (Sep\u2013Dec) / Spring (Jan\u2013Apr)",
       "region": "Anchorage (O'Malley Sports Center)",
       "governingBody": "Anchorage Sports Association",
       "sanctioning": "Independent",
       "website": "https://www.anchoragesports.com/vball",
       "sourceUrl": "https://www.anchoragesports.com/vball",
       "notes": "16-game regular season per session; Women's A/B/C/D / Men's / Coed C/D/Rec / Reverse Coed B/C divisions; schedules and standings on site"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 5,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

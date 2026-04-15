@@ -1,6 +1,6 @@
 {
   "_description": "OR softball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "osaa-6a-1-portland-interscholastic-league-softball",
@@ -14,7 +14,8 @@
       "sanctioning": "NFHS / OSAA",
       "website": "https://www.osaa.org/softball",
       "sourceUrl": "https://www.osaa.org/activities/sbl/teams-leagues",
-      "notes": "OSAA conference with published schedules / standings."
+      "notes": "OSAA conference with published schedules / standings. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-6a-2-metro-league-softball",
@@ -28,7 +29,8 @@
       "sanctioning": "NFHS / OSAA",
       "website": "https://www.osaa.org/softball",
       "sourceUrl": "https://www.osaa.org/activities/sbl/teams-leagues",
-      "notes": "League play among Metro schools with schedules / scores."
+      "notes": "League play among Metro schools with schedules / scores. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-6a-3-pacific-conference-softball",
@@ -42,7 +44,8 @@
       "sanctioning": "NFHS / OSAA",
       "website": "https://www.osaa.org/softball",
       "sourceUrl": "https://osaa.org/activities/sbl/schedules?date=2026-04-29",
-      "notes": "Recurring seasonal games with standings on OSAA."
+      "notes": "Recurring seasonal games with standings on OSAA. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-6a-4-mt-hood-conference-softball",
@@ -56,7 +59,8 @@
       "sanctioning": "NFHS / OSAA",
       "website": "https://www.osaa.org/softball",
       "sourceUrl": "https://osaa.org/activities/sbl/schedules?date=2026-04-29",
-      "notes": "Conference schedule and results maintained by OSAA."
+      "notes": "Conference schedule and results maintained by OSAA. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-6a-5-three-rivers-league-softball",
@@ -70,7 +74,8 @@
       "sanctioning": "NFHS / OSAA",
       "website": "https://www.osaa.org/softball",
       "sourceUrl": "https://osaa.org/activities/sbl/schedules?date=2026-04-29",
-      "notes": "Full league slate with scores and standings."
+      "notes": "Full league slate with scores and standings. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-6a-6-central-valley-conference-softball",
@@ -79,16 +84,17 @@
       "ageGroups": "14-18",
       "gender": "girls",
       "season": "spring",
-      "region": "Salem‑Keizer (Marion / Polk)",
+      "region": "Salem\u2011Keizer (Marion / Polk)",
       "governingBody": "OSAA",
       "sanctioning": "NFHS / OSAA",
       "website": "https://www.osaa.org/softball",
       "sourceUrl": "https://osaa.org/activities/sbl/schedules?date=2026-04-29",
-      "notes": "Central Valley league play; schedules posted on OSAA."
+      "notes": "Central Valley league play; schedules posted on OSAA. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-5a-3-mid-willamette-conference-softball",
-      "name": "OSAA 5A-3 Mid‑Willamette Conference (Softball)",
+      "name": "OSAA 5A-3 Mid\u2011Willamette Conference (Softball)",
       "level": "competitive (interscholastic)",
       "ageGroups": "14-18",
       "gender": "girls",
@@ -98,7 +104,8 @@
       "sanctioning": "NFHS / OSAA",
       "website": "https://www.osaa.org/softball",
       "sourceUrl": "https://osaa.org/activities/sbl/schedules?date=2026-04-29",
-      "notes": "Conference with recurring seasonal play and standings."
+      "notes": "Conference with recurring seasonal play and standings. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "osaa-5a-4-intermountain-conference-softball",
@@ -112,11 +119,12 @@
       "sanctioning": "NFHS / OSAA",
       "website": "https://www.osaa.org/softball",
       "sourceUrl": "https://osaa.org/activities/sbl/schedules?date=2026-04-29",
-      "notes": "Intermountain league schedule / scores on OSAA."
+      "notes": "Intermountain league schedule / scores on OSAA. [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "clackamas-county-girls-softball-association-ccgsa-recreational-l",
-      "name": "Clackamas County Girls Softball Association (CCGSA) — Recreational League",
+      "name": "Clackamas County Girls Softball Association (CCGSA) \u2014 Recreational League",
       "level": "rec (community interleague)",
       "ageGroups": "8U / 10U / 12U / 14U",
       "gender": "girls",
@@ -140,7 +148,7 @@
       "sanctioning": "Little League",
       "website": "https://www.southbeavertonsoftball.com/",
       "sourceUrl": "https://www.thprd.org/activities/sports/youth-softball",
-      "notes": "Chartered softball‑only Little League serving BSD area; seasonal league play."
+      "notes": "Chartered softball\u2011only Little League serving BSD area; seasonal league play."
     },
     {
       "id": "willow-creek-softball-little-league",
@@ -168,11 +176,11 @@
       "sanctioning": "Little League",
       "website": "https://www.tualatinsoftball.com/",
       "sourceUrl": "https://www.tualatinsoftball.com/",
-      "notes": "House league by age divisions (T‑Ball through Juniors); recurring season."
+      "notes": "House league by age divisions (T\u2011Ball through Juniors); recurring season."
     },
     {
       "id": "happy-valley-softball-association-hvsa-rec-rec",
-      "name": "Happy Valley Softball Association (HVSA) — Rec / Rec+",
+      "name": "Happy Valley Softball Association (HVSA) \u2014 Rec / Rec+",
       "level": "rec",
       "ageGroups": "5-14",
       "gender": "girls",
@@ -182,7 +190,15 @@
       "sanctioning": "USA Softball (via CCGSA)",
       "website": "https://www.hvsoftball.org/",
       "sourceUrl": "https://www.hvsoftball.org/",
-      "notes": "Community league with April–June season and end‑of‑season event."
+      "notes": "Community league with April\u2013June season and end\u2011of\u2011season event."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 8,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

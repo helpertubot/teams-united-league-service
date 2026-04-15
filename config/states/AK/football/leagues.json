@@ -1,12 +1,12 @@
 {
   "_description": "AK football leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "asaa-di-football-cook-inlet-conference",
-      "name": "ASAA DI Football — Cook Inlet Conference",
+      "name": "ASAA DI Football \u2014 Cook Inlet Conference",
       "level": "High School / Division I",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Male",
       "season": "Fall (first practice ~Jul 30 / first contest ~Aug 14 / last contest ~Oct 11 / state final ~Oct 24)",
       "region": "Statewide (Anchorage metro / Juneau / Mat-Su)",
@@ -14,13 +14,14 @@
       "sanctioning": "ASAA",
       "website": "https://www.asaa365.com/football/d1-football/",
       "sourceUrl": "https://asaa.org/activities/football/",
-      "notes": "One of two DI conferences; ~10 DI teams total across Cook Inlet and Chugak conferences; scores and standings via MaxPreps"
+      "notes": "One of two DI conferences; ~10 DI teams total across Cook Inlet and Chugak conferences; scores and standings via MaxPreps [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-di-football-chugak-conference",
-      "name": "ASAA DI Football — Chugak Conference",
+      "name": "ASAA DI Football \u2014 Chugak Conference",
       "level": "High School / Division I",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Male",
       "season": "Fall (first practice ~Jul 30 / first contest ~Aug 14 / last contest ~Oct 11 / state final ~Oct 24)",
       "region": "Statewide (Anchorage metro / Mat-Su)",
@@ -28,13 +29,14 @@
       "sanctioning": "ASAA",
       "website": "https://www.asaa365.com/football/d1-football/",
       "sourceUrl": "https://asaa.org/activities/football/",
-      "notes": "Second DI conference alongside Cook Inlet; enrollment threshold 851+ students"
+      "notes": "Second DI conference alongside Cook Inlet; enrollment threshold 851+ students [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-dii-football-northern-lights-conference",
-      "name": "ASAA DII Football — Northern Lights Conference",
+      "name": "ASAA DII Football \u2014 Northern Lights Conference",
       "level": "High School / Division II",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Male",
       "season": "Fall (first practice ~Jul 30 / first contest ~Aug 14 / last contest ~Oct 4 / state final ~Oct 17)",
       "region": "Southcentral AK (Chugiak / Eagle River / Palmer / Soldotna / Wasilla)",
@@ -42,13 +44,14 @@
       "sanctioning": "ASAA",
       "website": "https://www.asaa365.com/football/",
       "sourceUrl": "https://asaa.org/activities/football/",
-      "notes": "~5 teams; Soldotna previously dominant with 8 straight state titles before 2021 reclassification"
+      "notes": "~5 teams; Soldotna previously dominant with 8 straight state titles before 2021 reclassification [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-dii-football-railbelt-conference",
-      "name": "ASAA DII Football — Railbelt Conference",
+      "name": "ASAA DII Football \u2014 Railbelt Conference",
       "level": "High School / Division II",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Male",
       "season": "Fall (first practice ~Jul 30 / first contest ~Aug 14 / last contest ~Oct 4 / state final ~Oct 17)",
       "region": "Interior / Southcentral AK (Kodiak / Lathrop / North Pole / West Valley)",
@@ -56,13 +59,14 @@
       "sanctioning": "ASAA",
       "website": "https://www.asaa365.com/football/",
       "sourceUrl": "https://asaa.org/activities/football/",
-      "notes": "~4 teams; 2 DII conference champions advance to state tournament"
+      "notes": "~4 teams; 2 DII conference champions advance to state tournament [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-diii-football-denali-conference",
-      "name": "ASAA DIII Football — Denali Conference",
+      "name": "ASAA DIII Football \u2014 Denali Conference",
       "level": "High School / Division III",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Male",
       "season": "Fall (first practice ~Jul 30 / first contest ~Aug 14 / last contest ~Oct 4 / state final ~Oct 17)",
       "region": "Statewide (Ben Eielson / Monroe Catholic / Nikiski / Seward / Valdez)",
@@ -70,13 +74,14 @@
       "sanctioning": "ASAA",
       "website": "https://www.asaa365.com/football/",
       "sourceUrl": "https://asaa.org/activities/football/",
-      "notes": "~5 teams; 1 state tournament berth from this conference"
+      "notes": "~5 teams; 1 state tournament berth from this conference [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-diii-football-mid-alaska-conference",
-      "name": "ASAA DIII Football — Mid Alaska Conference",
+      "name": "ASAA DIII Football \u2014 Mid Alaska Conference",
       "level": "High School / Division III",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Male",
       "season": "Fall (first practice ~Jul 30 / first contest ~Aug 14 / last contest ~Oct 4 / state final ~Oct 17)",
       "region": "Statewide (Barrow / Homer / Houston / Kenai Central / Redington)",
@@ -84,13 +89,14 @@
       "sanctioning": "ASAA",
       "website": "https://www.asaa365.com/football/",
       "sourceUrl": "https://asaa.org/activities/football/",
-      "notes": "~5 teams; 3 state tournament berths from this conference"
+      "notes": "~5 teams; 3 state tournament berths from this conference [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-9-man-football-denali-9-man-conference",
-      "name": "ASAA 9-Man Football — Denali 9-Man Conference",
+      "name": "ASAA 9-Man Football \u2014 Denali 9-Man Conference",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Male",
       "season": "Fall (first practice ~Jul 30 / first contest ~Aug 14 / last contest ~Oct 4)",
       "region": "Rural / Small-school statewide",
@@ -98,29 +104,31 @@
       "sanctioning": "ASAA",
       "website": "https://www.asaa365.com/football/9-man-football/",
       "sourceUrl": "https://asaa.org/activities/football/",
-      "notes": "Separate 9-player format for smallest-enrollment schools; scores and standings via MaxPreps"
+      "notes": "Separate 9-player format for smallest-enrollment schools; scores and standings via MaxPreps [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-flag-football",
       "name": "ASAA Flag Football",
       "level": "High School",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Female",
-      "season": "Fall (first practice ~Jul 30 / first contest ~Aug 14 / last contest ~Oct 4 / state championship Oct 9–11)",
+      "season": "Fall (first practice ~Jul 30 / first contest ~Aug 14 / last contest ~Oct 4 / state championship Oct 9\u201311)",
       "region": "Statewide",
       "governingBody": "Alaska School Activities Association (ASAA)",
       "sanctioning": "ASAA",
       "website": "https://www.asaa365.com/football/flag-football/",
       "sourceUrl": "https://asaa.org/activities/flag-football/",
-      "notes": "Girls' sanctioned activity; 2025 state championship at Wasilla High School; standings via MaxPreps"
+      "notes": "Girls' sanctioned activity; 2025 state championship at Wasilla High School; standings via MaxPreps [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "alaska-south-central-pop-warner-flag-football",
-      "name": "Alaska South Central Pop Warner — Flag Football",
+      "name": "Alaska South Central Pop Warner \u2014 Flag Football",
       "level": "Youth rec",
-      "ageGroups": "Ages 5–7",
+      "ageGroups": "Ages 5\u20137",
       "gender": "Boys+Girls",
-      "season": "Fall (season ~Jul 13–Oct 11)",
+      "season": "Fall (season ~Jul 13\u2013Oct 11)",
       "region": "Southcentral AK (Anchorage / Eagle River / Mat-Su Valley)",
       "governingBody": "Pop Warner Little Scholars",
       "sanctioning": "Pop Warner / USA Football (Gold LEP 2025)",
@@ -130,25 +138,25 @@
     },
     {
       "id": "alaska-south-central-pop-warner-rookie-tackle",
-      "name": "Alaska South Central Pop Warner — Rookie Tackle",
+      "name": "Alaska South Central Pop Warner \u2014 Rookie Tackle",
       "level": "Youth rec",
-      "ageGroups": "Ages 8–10 (approx.)",
+      "ageGroups": "Ages 8\u201310 (approx.)",
       "gender": "Boys+Girls",
-      "season": "Fall (season ~Jul 13–Oct 11)",
+      "season": "Fall (season ~Jul 13\u2013Oct 11)",
       "region": "Southcentral AK (Anchorage / Eagle River / Mat-Su Valley)",
       "governingBody": "Pop Warner Little Scholars",
       "sanctioning": "Pop Warner / USA Football (Gold LEP 2025)",
       "website": "https://www.alaskapopwarner.net/",
       "sourceUrl": "https://leaguefinder.usafootball.com/leagues/alaska-south-central-pop-warner-football",
-      "notes": "Bridge format between flag and 11-man; 8 players / 40×35⅓ yd field; coaches on field; no special teams"
+      "notes": "Bridge format between flag and 11-man; 8 players / 40\u00d735\u2153 yd field; coaches on field; no special teams"
     },
     {
       "id": "alaska-south-central-pop-warner-tackle-jr-pee-wee-pee-wee-midget",
-      "name": "Alaska South Central Pop Warner — Tackle (Jr. Pee Wee / Pee Wee / Midget)",
+      "name": "Alaska South Central Pop Warner \u2014 Tackle (Jr. Pee Wee / Pee Wee / Midget)",
       "level": "Youth rec",
-      "ageGroups": "Ages 8–14",
+      "ageGroups": "Ages 8\u201314",
       "gender": "Coed (teams)",
-      "season": "Fall (season ~Jul 13–Oct 11)",
+      "season": "Fall (season ~Jul 13\u2013Oct 11)",
       "region": "Southcentral AK (Anchorage / Eagle River / Mat-Su Valley)",
       "governingBody": "Pop Warner Little Scholars",
       "sanctioning": "Pop Warner / USA Football (Gold LEP 2025)",
@@ -158,11 +166,11 @@
     },
     {
       "id": "fairbanks-youth-football-and-cheer-tackle",
-      "name": "Fairbanks Youth Football & Cheer — Tackle",
+      "name": "Fairbanks Youth Football & Cheer \u2014 Tackle",
       "level": "Youth rec",
-      "ageGroups": "Grades 2–8 (ages ~7–14)",
+      "ageGroups": "Grades 2\u20138 (ages ~7\u201314)",
       "gender": "Boys+Girls",
-      "season": "Fall (season ~Jul 6–Sep 30)",
+      "season": "Fall (season ~Jul 6\u2013Sep 30)",
       "region": "Fairbanks / North Pole metro (Interior AK)",
       "governingBody": "American Youth Football / USA Football",
       "sanctioning": "USA Football (Bronze LEP 2025)",
@@ -172,31 +180,47 @@
     },
     {
       "id": "fairbanks-youth-football-and-cheer-flag-football",
-      "name": "Fairbanks Youth Football & Cheer — Flag Football",
+      "name": "Fairbanks Youth Football & Cheer \u2014 Flag Football",
       "level": "Youth rec",
-      "ageGroups": "Ages 4–8 (approx.)",
+      "ageGroups": "Ages 4\u20138 (approx.)",
       "gender": "Boys+Girls",
-      "season": "Spring (May–Jun) / Summer (Jul–Sep)",
+      "season": "Spring (May\u2013Jun) / Summer (Jul\u2013Sep)",
       "region": "Fairbanks / North Pole metro (Interior AK)",
       "governingBody": "American Youth Football / USA Football",
       "sanctioning": "USA Football (Bronze LEP 2025)",
       "website": "https://www.fairbanksyouthfc.org/",
       "sourceUrl": "https://leaguefinder.usafootball.com/leagues/fairbanks-youth-football-and-cheerleading",
-      "notes": "Spring flag session (May–Jun) and summer/fall flag session (Jul–Sep) run concurrently with tackle registration calendar"
+      "notes": "Spring flag session (May\u2013Jun) and summer/fall flag session (Jul\u2013Sep) run concurrently with tackle registration calendar"
     },
     {
       "id": "club-sports-alaska-flag-football-league",
-      "name": "Club Sports Alaska — Flag Football League",
+      "name": "Club Sports Alaska \u2014 Flag Football League",
       "level": "Youth rec",
       "ageGroups": "Youth (ages unspecified)",
       "gender": "Boys+Girls",
-      "season": "Summer (Jun–Jul) and Fall (Aug–Sep); two separate sessions per year",
+      "season": "Summer (Jun\u2013Jul) and Fall (Aug\u2013Sep); two separate sessions per year",
       "region": "Anchorage metro",
       "governingBody": "Independent",
       "sanctioning": "None listed",
       "website": "https://leagues.teamlinkt.com/clubsportsalaska",
       "sourceUrl": "https://www.clubsportsalaska.com/clubsportsalaska/FlagFootballLeague",
-      "notes": "Each session 4–7 weeks; games on Tuesdays and Thursdays; 30 min practice + 45 min game format"
+      "notes": "Each session 4\u20137 weeks; games on Tuesdays and Thursdays; 30 min practice + 45 min game format",
+      "sourcePlatform": "teamlinkt"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "platform-reclassification",
+      "rows_changed": 1,
+      "min_confidence": 0.9,
+      "source": "platform-reclassification-2026-04-15.csv"
+    },
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 8,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

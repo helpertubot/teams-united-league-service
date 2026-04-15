@@ -1,14 +1,14 @@
 {
   "_description": "AK hockey leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "asha-league-tier-1-boys",
-      "name": "ASHA League — Tier 1 (Boys)",
+      "name": "ASHA League \u2014 Tier 1 (Boys)",
       "level": "competitive-elite",
       "ageGroups": "14U / 16U / 18U",
       "gender": "boys",
-      "season": "Oct–Mar",
+      "season": "Oct\u2013Mar",
       "region": "Alaska (statewide)",
       "governingBody": "Alaska State Hockey Association (ASHA)",
       "sanctioning": "USA Hockey / Pacific District",
@@ -18,11 +18,11 @@
     },
     {
       "id": "asha-league-tier-1-girls",
-      "name": "ASHA League — Tier 1 (Girls)",
+      "name": "ASHA League \u2014 Tier 1 (Girls)",
       "level": "competitive-elite",
       "ageGroups": "14U / 16U",
       "gender": "girls",
-      "season": "Oct–Mar",
+      "season": "Oct\u2013Mar",
       "region": "Alaska (statewide)",
       "governingBody": "Alaska State Hockey Association (ASHA)",
       "sanctioning": "USA Hockey / Pacific District",
@@ -32,25 +32,25 @@
     },
     {
       "id": "asha-league-tier-2-boys",
-      "name": "ASHA League — Tier 2 (Boys)",
+      "name": "ASHA League \u2014 Tier 2 (Boys)",
       "level": "competitive",
       "ageGroups": "10U Maj AA / 10U Min A / 12U Maj AA / 12U Min A / 14U / 16U / 18U",
       "gender": "boys",
-      "season": "Oct–Mar",
+      "season": "Oct\u2013Mar",
       "region": "Alaska (statewide)",
       "governingBody": "Alaska State Hockey Association (ASHA)",
       "sanctioning": "USA Hockey / Pacific District",
       "website": "https://www.alaskastatehockey.com",
       "sourceUrl": "https://myhockeyrankings.com/league-info?l=134",
-      "notes": "Largest participation tier; 10U–12U designated Major (AA) and Minor (A); 14U–18U designated Tier 2; full standings via GameSheet"
+      "notes": "Largest participation tier; 10U\u201312U designated Major (AA) and Minor (A); 14U\u201318U designated Tier 2; full standings via GameSheet"
     },
     {
       "id": "asha-league-a-division-boys",
-      "name": "ASHA League — A Division (Boys)",
+      "name": "ASHA League \u2014 A Division (Boys)",
       "level": "competitive-developmental",
       "ageGroups": "14U / 16U / 18U",
       "gender": "boys",
-      "season": "Oct–Mar",
+      "season": "Oct\u2013Mar",
       "region": "Alaska (statewide)",
       "governingBody": "Alaska State Hockey Association (ASHA)",
       "sanctioning": "USA Hockey / Pacific District",
@@ -60,11 +60,11 @@
     },
     {
       "id": "asha-league-girls-tier-2",
-      "name": "ASHA League — Girls Tier 2",
+      "name": "ASHA League \u2014 Girls Tier 2",
       "level": "competitive",
       "ageGroups": "14U / 16U / 19U",
       "gender": "girls",
-      "season": "Oct–Mar",
+      "season": "Oct\u2013Mar",
       "region": "Alaska (statewide)",
       "governingBody": "Alaska State Hockey Association (ASHA)",
       "sanctioning": "USA Hockey / Pacific District",
@@ -74,59 +74,71 @@
     },
     {
       "id": "asaa-di-high-school-hockey-cook-inlet-conference",
-      "name": "ASAA DI High School Hockey — Cook Inlet Conference",
+      "name": "ASAA DI High School Hockey \u2014 Cook Inlet Conference",
       "level": "high school varsity",
-      "ageGroups": "9th–12th grade",
+      "ageGroups": "9th\u201312th grade",
       "gender": "boys (coed eligible)",
-      "season": "Oct 15–Feb 14",
+      "season": "Oct 15\u2013Feb 14",
       "region": "Southcentral Alaska (Anchorage area)",
       "governingBody": "Alaska School Activities Association (ASAA)",
       "sanctioning": "ASAA / NFHS",
       "website": "https://www.asaa365.com/hockey/",
       "sourceUrl": "https://www.asaa365.com/hockey/hockey-standings/",
-      "notes": "8 Anchorage-area schools; top 4 earn automatic DI state semis seeds; pools with Railbelt for at-large seeding via RPI; state championship Feb 12-14"
+      "notes": "8 Anchorage-area schools; top 4 earn automatic DI state semis seeds; pools with Railbelt for at-large seeding via RPI; state championship Feb 12-14 [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-di-high-school-hockey-railbelt-conference",
-      "name": "ASAA DI High School Hockey — Railbelt Conference",
+      "name": "ASAA DI High School Hockey \u2014 Railbelt Conference",
       "level": "high school varsity",
-      "ageGroups": "9th–12th grade",
+      "ageGroups": "9th\u201312th grade",
       "gender": "boys (coed eligible)",
-      "season": "Oct 15–Feb 14",
+      "season": "Oct 15\u2013Feb 14",
       "region": "Interior Alaska (Fairbanks area)",
       "governingBody": "Alaska School Activities Association (ASAA)",
       "sanctioning": "ASAA / NFHS",
       "website": "https://www.asaa365.com/hockey/",
       "sourceUrl": "https://www.asaa365.com/hockey/hockey-standings/",
-      "notes": "Interior-region schools (Fairbanks / Mat-Su); pools with Cook Inlet for at-large state seeding via RPI"
+      "notes": "Interior-region schools (Fairbanks / Mat-Su); pools with Cook Inlet for at-large state seeding via RPI [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-dii-high-school-hockey-aurora-conference",
-      "name": "ASAA DII High School Hockey — Aurora Conference",
+      "name": "ASAA DII High School Hockey \u2014 Aurora Conference",
       "level": "high school varsity",
-      "ageGroups": "9th–12th grade",
+      "ageGroups": "9th\u201312th grade",
       "gender": "boys (coed eligible)",
-      "season": "Oct 15–Jan 31",
+      "season": "Oct 15\u2013Jan 31",
       "region": "Southcentral Alaska",
       "governingBody": "Alaska School Activities Association (ASAA)",
       "sanctioning": "ASAA / NFHS",
       "website": "https://www.asaa365.com/hockey/",
       "sourceUrl": "https://www.asaa365.com/hockey/d2-hockey/",
-      "notes": "Smaller-school Division II; state championship Feb 5-7 at Palmer MTA Events Center"
+      "notes": "Smaller-school Division II; state championship Feb 5-7 at Palmer MTA Events Center [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-dii-high-school-hockey-northern-lights-conference",
-      "name": "ASAA DII High School Hockey — Northern Lights Conference",
+      "name": "ASAA DII High School Hockey \u2014 Northern Lights Conference",
       "level": "high school varsity",
-      "ageGroups": "9th–12th grade",
+      "ageGroups": "9th\u201312th grade",
       "gender": "boys (coed eligible)",
-      "season": "Oct 15–Jan 31",
+      "season": "Oct 15\u2013Jan 31",
       "region": "Interior / Northern Alaska",
       "governingBody": "Alaska School Activities Association (ASAA)",
       "sanctioning": "ASAA / NFHS",
       "website": "https://www.asaa365.com/hockey/",
       "sourceUrl": "https://www.asaa365.com/hockey/d2-hockey/",
-      "notes": "Smaller-school Division II; interior and northern region schools"
+      "notes": "Smaller-school Division II; interior and northern region schools [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 4,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

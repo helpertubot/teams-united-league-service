@@ -1,6 +1,6 @@
 {
   "_description": "WA lacrosse leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "greater-eastside-youth-lacrosse-league-gell",
@@ -42,7 +42,8 @@
       "sanctioning": "USA Lacrosse",
       "website": "https://www.wescoyouthlax.org/",
       "sourceUrl": "https://www.wescoyouthlax.org/",
-      "notes": "Community league for Wesco-feeder clubs; crowns champions each spring."
+      "notes": "Community league for Wesco-feeder clubs; crowns champions each spring. [auto-quarantine 2026-04-15: network:URLError]",
+      "status": "quarantine"
     },
     {
       "id": "central-washington-youth-lacrosse-league-cwll",
@@ -60,7 +61,7 @@
     },
     {
       "id": "spokane-youth-lacrosse-spring-league",
-      "name": "Spokane Youth Lacrosse — Spring League",
+      "name": "Spokane Youth Lacrosse \u2014 Spring League",
       "level": "rec",
       "ageGroups": "8U / 10U / 12U / 14U",
       "gender": "boys / girls",
@@ -70,11 +71,11 @@
       "sanctioning": "USA Lacrosse",
       "website": "https://www.spokaneyouthlacrosse.com/",
       "sourceUrl": "https://www.spokaneyouthlacrosse.com/Default.aspx?tabid=1167320",
-      "notes": "Spokane citywide spring league with weekly games April–June."
+      "notes": "Spokane citywide spring league with weekly games April\u2013June."
     },
     {
       "id": "wsla-varsity-metro-girls-hs",
-      "name": "WSLA — Varsity Metro (girls HS)",
+      "name": "WSLA \u2014 Varsity Metro (girls HS)",
       "level": "competitive",
       "ageGroups": "HS Varsity / JV",
       "gender": "girls",
@@ -88,12 +89,12 @@
     },
     {
       "id": "wsla-varsity-snoqualmie-girls-hs",
-      "name": "WSLA — Varsity Snoqualmie (girls HS)",
+      "name": "WSLA \u2014 Varsity Snoqualmie (girls HS)",
       "level": "competitive",
       "ageGroups": "HS Varsity",
       "gender": "girls",
       "season": "spring",
-      "region": "Eastside — Issaquah / Sammamish / Bellevue / Mercer Island",
+      "region": "Eastside \u2014 Issaquah / Sammamish / Bellevue / Mercer Island",
       "governingBody": "Washington State Girls Lacrosse (WSLA)",
       "sanctioning": "WSLA",
       "website": "https://www.wslax.org/",
@@ -102,7 +103,7 @@
     },
     {
       "id": "wsla-varsity-nisqually-girls-hs",
-      "name": "WSLA — Varsity Nisqually (girls HS)",
+      "name": "WSLA \u2014 Varsity Nisqually (girls HS)",
       "level": "competitive",
       "ageGroups": "HS Varsity",
       "gender": "girls",
@@ -116,7 +117,7 @@
     },
     {
       "id": "wsla-varsity-peninsula-girls-hs",
-      "name": "WSLA — Varsity Peninsula (girls HS)",
+      "name": "WSLA \u2014 Varsity Peninsula (girls HS)",
       "level": "competitive",
       "ageGroups": "HS Varsity",
       "gender": "girls",
@@ -130,7 +131,7 @@
     },
     {
       "id": "wsla-varsity-north-sound-girls-hs",
-      "name": "WSLA — Varsity North Sound (girls HS)",
+      "name": "WSLA \u2014 Varsity North Sound (girls HS)",
       "level": "competitive",
       "ageGroups": "HS Varsity",
       "gender": "girls",
@@ -144,7 +145,7 @@
     },
     {
       "id": "wsla-varsity-eastern-girls-hs",
-      "name": "WSLA — Varsity Eastern (girls HS)",
+      "name": "WSLA \u2014 Varsity Eastern (girls HS)",
       "level": "competitive",
       "ageGroups": "HS Varsity",
       "gender": "girls",
@@ -158,12 +159,12 @@
     },
     {
       "id": "whsbla-4a-boys-hs",
-      "name": "WHSBLA — 4A (boys HS)",
+      "name": "WHSBLA \u2014 4A (boys HS)",
       "level": "competitive",
       "ageGroups": "HS Varsity / JV",
       "gender": "boys",
       "season": "spring",
-      "region": "Statewide — large schools",
+      "region": "Statewide \u2014 large schools",
       "governingBody": "Washington High School Boys Lacrosse Association (WHSBLA)",
       "sanctioning": "WHSBLA",
       "website": "https://whsbla.org/",
@@ -172,12 +173,12 @@
     },
     {
       "id": "whsbla-3a-boys-hs",
-      "name": "WHSBLA — 3A (boys HS)",
+      "name": "WHSBLA \u2014 3A (boys HS)",
       "level": "competitive",
       "ageGroups": "HS Varsity / JV",
       "gender": "boys",
       "season": "spring",
-      "region": "Statewide — medium schools",
+      "region": "Statewide \u2014 medium schools",
       "governingBody": "Washington High School Boys Lacrosse Association (WHSBLA)",
       "sanctioning": "WHSBLA",
       "website": "https://whsbla.org/",
@@ -186,12 +187,12 @@
     },
     {
       "id": "whsbla-2a-boys-hs",
-      "name": "WHSBLA — 2A (boys HS)",
+      "name": "WHSBLA \u2014 2A (boys HS)",
       "level": "competitive",
       "ageGroups": "HS Varsity / JV",
       "gender": "boys",
       "season": "spring",
-      "region": "Statewide — small schools",
+      "region": "Statewide \u2014 small schools",
       "governingBody": "Washington High School Boys Lacrosse Association (WHSBLA)",
       "sanctioning": "WHSBLA",
       "website": "https://whsbla.org/",
@@ -200,17 +201,25 @@
     },
     {
       "id": "whsbla-private-open-boys-hs",
-      "name": "WHSBLA — Private / Open (boys HS)",
+      "name": "WHSBLA \u2014 Private / Open (boys HS)",
       "level": "competitive",
       "ageGroups": "HS Varsity / JV",
       "gender": "boys",
       "season": "spring",
-      "region": "Statewide — independent / private",
+      "region": "Statewide \u2014 independent / private",
       "governingBody": "Washington High School Boys Lacrosse Association (WHSBLA)",
       "sanctioning": "WHSBLA",
       "website": "https://whsbla.org/",
       "sourceUrl": "https://whsbla.org/league-info/playoffs/",
       "notes": "Separate bracket for private / open programs with schedules."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 1,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

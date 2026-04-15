@@ -1,10 +1,10 @@
 {
   "_description": "CA lacrosse leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "northern-california-junior-lacrosse-association-ncjla-boys",
-      "name": "Northern California Junior Lacrosse Association (NCJLA) – Boys",
+      "name": "Northern California Junior Lacrosse Association (NCJLA) \u2013 Boys",
       "level": "competitive",
       "ageGroups": "8U-14U (youth)",
       "gender": "Boys",
@@ -18,7 +18,7 @@
     },
     {
       "id": "northern-california-junior-lacrosse-association-ncjla-girls",
-      "name": "Northern California Junior Lacrosse Association (NCJLA) – Girls",
+      "name": "Northern California Junior Lacrosse Association (NCJLA) \u2013 Girls",
       "level": "competitive",
       "ageGroups": "youth (NCJLA girls program)",
       "gender": "Girls",
@@ -42,7 +42,8 @@
       "sanctioning": "USA Lacrosse",
       "website": "https://sbyl.org",
       "sourceUrl": "https://sbyl.org/",
-      "notes": "League explicitly describes itself as a youth lacrosse league spanning San Mateo through Monterey counties."
+      "notes": "League explicitly describes itself as a youth lacrosse league spanning San Mateo through Monterey counties. [auto-quarantine 2026-04-15: generic-platform:godaddy-sitebuilder]",
+      "status": "quarantine"
     },
     {
       "id": "socal-lacrosse-association-scla-youth-league",
@@ -60,7 +61,7 @@
     },
     {
       "id": "orange-county-lacrosse-association-ocla-boys-winter-season",
-      "name": "Orange County Lacrosse Association (OCLA) – Boys Winter season",
+      "name": "Orange County Lacrosse Association (OCLA) \u2013 Boys Winter season",
       "level": "rec",
       "ageGroups": "3rd-8th grade",
       "gender": "Boys",
@@ -74,7 +75,7 @@
     },
     {
       "id": "los-angeles-youth-lacrosse-league-layll-girls-spring",
-      "name": "Los Angeles Youth Lacrosse League (LAYLL) – Girls spring",
+      "name": "Los Angeles Youth Lacrosse League (LAYLL) \u2013 Girls spring",
       "level": "competitive",
       "ageGroups": "K-8",
       "gender": "Girls",
@@ -84,7 +85,7 @@
       "sanctioning": "USA Lacrosse",
       "website": "(no standalone URL found in crawl)",
       "sourceUrl": "https://southbaylax.com/springgirls/",
-      "notes": "SBLC page states LAYLL league participation and season timing Feb–mid-May."
+      "notes": "SBLC page states LAYLL league participation and season timing Feb\u2013mid-May."
     },
     {
       "id": "south-bay-junior-lacrosse-association-sbjla",
@@ -98,11 +99,11 @@
       "sanctioning": "USA Lacrosse",
       "website": "(no standalone URL found in crawl)",
       "sourceUrl": "https://www.tomahawkslacrosse.org/abouttomahawks",
-      "notes": "Club page states teams “compete in the South Bay Junior Lacrosse Association” with age divisions."
+      "notes": "Club page states teams \u201ccompete in the South Bay Junior Lacrosse Association\u201d with age divisions."
     },
     {
       "id": "south-bay-lacrosse-club-spring-rec-league",
-      "name": "South Bay Lacrosse Club – Spring Rec League",
+      "name": "South Bay Lacrosse Club \u2013 Spring Rec League",
       "level": "rec",
       "ageGroups": "K-8",
       "gender": "Boys+Girls",
@@ -126,7 +127,8 @@
       "sanctioning": "USA Lacrosse",
       "website": "https://www.sbulax.com",
       "sourceUrl": "https://www.sbulax.com/",
-      "notes": "Site advertises “PLL Fall Sixes League” (scheduled league format); included as development league-format row."
+      "notes": "Site advertises \u201cPLL Fall Sixes League\u201d (scheduled league format); included as development league-format row. [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "south-bay-outlaws-spring-rec-program-sd-area",
@@ -140,11 +142,12 @@
       "sanctioning": "USA Lacrosse",
       "website": "https://www.southbaylacrosse.com",
       "sourceUrl": "https://www.southbaylacrosse.com/",
-      "notes": "Club states spring season Feb–May with rec + competitive teams; treated as league-format program row."
+      "notes": "Club states spring season Feb\u2013May with rec + competitive teams; treated as league-format program row. [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "southern-california-lacrosse-association-boys-standard",
-      "name": "Southern California Lacrosse Association — Boys Standard",
+      "name": "Southern California Lacrosse Association \u2014 Boys Standard",
       "level": "youth recreational",
       "ageGroups": "8U / 10U / 12U / 14U / Elementary School / Middle School",
       "gender": "boys",
@@ -158,7 +161,7 @@
     },
     {
       "id": "southern-california-lacrosse-association-boys-12u-stripes",
-      "name": "Southern California Lacrosse Association — Boys 12U Stripes",
+      "name": "Southern California Lacrosse Association \u2014 Boys 12U Stripes",
       "level": "youth competitive",
       "ageGroups": "12U",
       "gender": "boys",
@@ -172,7 +175,7 @@
     },
     {
       "id": "southern-california-lacrosse-association-boys-14u-stripes",
-      "name": "Southern California Lacrosse Association — Boys 14U Stripes",
+      "name": "Southern California Lacrosse Association \u2014 Boys 14U Stripes",
       "level": "youth competitive",
       "ageGroups": "14U",
       "gender": "boys",
@@ -186,9 +189,9 @@
     },
     {
       "id": "southern-california-lacrosse-association-girls-middle-school",
-      "name": "Southern California Lacrosse Association — Girls Middle School",
+      "name": "Southern California Lacrosse Association \u2014 Girls Middle School",
       "level": "youth recreational/competitive",
-      "ageGroups": "grades 6–8",
+      "ageGroups": "grades 6\u20138",
       "gender": "girls",
       "season": "spring",
       "region": "Ventura / Los Angeles / Santa Barbara counties",
@@ -200,7 +203,7 @@
     },
     {
       "id": "san-diego-youth-lacrosse-association-a-division",
-      "name": "San Diego Youth Lacrosse Association — A Division",
+      "name": "San Diego Youth Lacrosse Association \u2014 A Division",
       "level": "youth competitive",
       "ageGroups": "grades 3-4 / 5-6 / 7-8",
       "gender": "boys",
@@ -210,11 +213,11 @@
       "sanctioning": "USA Lacrosse",
       "website": "https://www.sdyla.org",
       "sourceUrl": "https://www.sdyla.org/leagueschedule",
-      "notes": "Regular season Feb–May; playoffs May; K-2 developmental division also offered"
+      "notes": "Regular season Feb\u2013May; playoffs May; K-2 developmental division also offered"
     },
     {
       "id": "san-diego-youth-lacrosse-association-b-division",
-      "name": "San Diego Youth Lacrosse Association — B Division",
+      "name": "San Diego Youth Lacrosse Association \u2014 B Division",
       "level": "youth recreational",
       "ageGroups": "grades 3-4 / 5-6 / 7-8",
       "gender": "boys",
@@ -224,13 +227,13 @@
       "sanctioning": "USA Lacrosse",
       "website": "https://www.sdyla.org",
       "sourceUrl": "https://www.sdyla.org/leagueschedule",
-      "notes": "Regular season Feb–May; B division for lower-experience players"
+      "notes": "Regular season Feb\u2013May; B division for lower-experience players"
     },
     {
       "id": "los-angeles-youth-lacrosse-league",
       "name": "Los Angeles Youth Lacrosse League",
       "level": "youth recreational",
-      "ageGroups": "K–8th grade",
+      "ageGroups": "K\u20138th grade",
       "gender": "boys / girls",
       "season": "spring",
       "region": "Los Angeles County (Palos Verdes to West LA)",
@@ -238,13 +241,14 @@
       "sanctioning": "USA Lacrosse",
       "website": "https://www.losangelesyouthlacrosseleague.com",
       "sourceUrl": "https://plljuniors.com/location/los-angeles-youth-lacrosse-league-los-angeles/",
-      "notes": "Spring season Mar–May; also offers fall box lacrosse; 1–2 practices/week per age group"
+      "notes": "Spring season Mar\u2013May; also offers fall box lacrosse; 1\u20132 practices/week per age group [auto-quarantine 2026-04-15: http-401]",
+      "status": "quarantine"
     },
     {
       "id": "cif-southern-section-boys-lacrosse",
       "name": "CIF Southern Section Boys Lacrosse",
       "level": "high school",
-      "ageGroups": "9th–12th grade",
+      "ageGroups": "9th\u201312th grade",
       "gender": "boys",
       "season": "spring",
       "region": "Southern California",
@@ -252,13 +256,14 @@
       "sanctioning": "CIF / NFHS",
       "website": "https://cifss.org/sports/lacrosse/",
       "sourceUrl": "https://cifss.org/sports/lacrosse/",
-      "notes": "First contest Feb 14; last league contest Apr 22; CIF-SS playoffs through May; multiple CIF-SS divisions"
+      "notes": "First contest Feb 14; last league contest Apr 22; CIF-SS playoffs through May; multiple CIF-SS divisions [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "cif-southern-section-girls-lacrosse",
       "name": "CIF Southern Section Girls Lacrosse",
       "level": "high school",
-      "ageGroups": "9th–12th grade",
+      "ageGroups": "9th\u201312th grade",
       "gender": "girls",
       "season": "spring",
       "region": "Southern California",
@@ -266,13 +271,14 @@
       "sanctioning": "CIF / NFHS",
       "website": "https://cifss.org/sports/lacrosse/",
       "sourceUrl": "https://cifss.org/sports/lacrosse/",
-      "notes": "Season concurrent with boys; playoff brackets through May"
+      "notes": "Season concurrent with boys; playoff brackets through May [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "cif-central-coast-section-boys-lacrosse",
       "name": "CIF Central Coast Section Boys Lacrosse",
       "level": "high school",
-      "ageGroups": "9th–12th grade",
+      "ageGroups": "9th\u201312th grade",
       "gender": "boys",
       "season": "spring",
       "region": "San Mateo / Santa Clara / Monterey / Santa Cruz / San Benito counties",
@@ -286,7 +292,7 @@
       "id": "cif-central-coast-section-girls-lacrosse",
       "name": "CIF Central Coast Section Girls Lacrosse",
       "level": "high school",
-      "ageGroups": "9th–12th grade",
+      "ageGroups": "9th\u201312th grade",
       "gender": "girls",
       "season": "spring",
       "region": "San Mateo / Santa Clara / Monterey / Santa Cruz / San Benito counties",
@@ -300,7 +306,7 @@
       "id": "cif-sac-joaquin-section-boys-lacrosse",
       "name": "CIF Sac-Joaquin Section Boys Lacrosse",
       "level": "high school",
-      "ageGroups": "9th–12th grade",
+      "ageGroups": "9th\u201312th grade",
       "gender": "boys",
       "season": "spring",
       "region": "Sacramento / San Joaquin Valley region",
@@ -314,7 +320,7 @@
       "id": "cif-sac-joaquin-section-girls-lacrosse",
       "name": "CIF Sac-Joaquin Section Girls Lacrosse",
       "level": "high school",
-      "ageGroups": "9th–12th grade",
+      "ageGroups": "9th\u201312th grade",
       "gender": "girls",
       "season": "spring",
       "region": "Sacramento / San Joaquin Valley region",
@@ -328,7 +334,7 @@
       "id": "team-norcal-boys-hs-fall-ball-league",
       "name": "Team NorCal Boys HS Fall Ball League",
       "level": "high school competitive",
-      "ageGroups": "9th–12th grade",
+      "ageGroups": "9th\u201312th grade",
       "gender": "boys",
       "season": "fall",
       "region": "San Francisco Bay Area (Palo Alto)",
@@ -342,7 +348,7 @@
       "id": "team-norcal-girls-hs-fall-ball-league",
       "name": "Team NorCal Girls HS Fall Ball League",
       "level": "high school competitive",
-      "ageGroups": "9th–12th grade",
+      "ageGroups": "9th\u201312th grade",
       "gender": "girls",
       "season": "fall",
       "region": "San Francisco Bay Area (Palo Alto)",
@@ -365,6 +371,14 @@
       "website": "https://www.teamnorcal.com/fallball",
       "sourceUrl": "https://www.teamnorcal.com/fallball",
       "notes": "6-week season + playoff weekend; Sunday afternoons at Palo Alto HS; field lacrosse"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 6,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

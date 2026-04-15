@@ -1,10 +1,10 @@
 {
   "_description": "DE volleyball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "blue-hen-conference-flight-a-girls",
-      "name": "Blue Hen Conference — Flight A (Girls)",
+      "name": "Blue Hen Conference \u2014 Flight A (Girls)",
       "level": "competitive",
       "ageGroups": "HS 9-12",
       "gender": "girls",
@@ -14,11 +14,12 @@
       "sanctioning": "NFHS / DIAA",
       "website": "https://education.delaware.gov/diaa/sport_championships/fall_sports/girls-volleyball/",
       "sourceUrl": "https://www.si.com/high-school/stats/delaware/volleyball/leagues/6246-blue-hen-flight-a/standings",
-      "notes": "Public-school conference tier with recurring league schedule and standings."
+      "notes": "Public-school conference tier with recurring league schedule and standings. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "blue-hen-conference-flight-b-girls",
-      "name": "Blue Hen Conference — Flight B (Girls)",
+      "name": "Blue Hen Conference \u2014 Flight B (Girls)",
       "level": "competitive",
       "ageGroups": "HS 9-12",
       "gender": "girls",
@@ -28,11 +29,12 @@
       "sanctioning": "NFHS / DIAA",
       "website": "https://education.delaware.gov/diaa/sport_championships/fall_sports/girls-volleyball/",
       "sourceUrl": "https://www.si.com/high-school/stats/delaware/volleyball/leagues/6247-blue-hen-flight-b/standings",
-      "notes": "Public-school conference tier with recurring league schedule and standings."
+      "notes": "Public-school conference tier with recurring league schedule and standings. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "henlopen-conference-north-girls",
-      "name": "Henlopen Conference — North (Girls)",
+      "name": "Henlopen Conference \u2014 North (Girls)",
       "level": "competitive",
       "ageGroups": "HS 9-12",
       "gender": "girls",
@@ -42,11 +44,12 @@
       "sanctioning": "NFHS / DIAA",
       "website": "https://education.delaware.gov/diaa/sport_championships/fall_sports/girls-volleyball/",
       "sourceUrl": "https://www.si.com/high-school/stats/delaware/volleyball/leagues/6252-henlopen-north/standings",
-      "notes": "Conference division with recurring league play and standings."
+      "notes": "Conference division with recurring league play and standings. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "henlopen-conference-south-girls",
-      "name": "Henlopen Conference — South (Girls)",
+      "name": "Henlopen Conference \u2014 South (Girls)",
       "level": "competitive",
       "ageGroups": "HS 9-12",
       "gender": "girls",
@@ -56,11 +59,12 @@
       "sanctioning": "NFHS / DIAA",
       "website": "https://education.delaware.gov/diaa/sport_championships/fall_sports/girls-volleyball/",
       "sourceUrl": "https://www.si.com/high-school/stats/delaware/volleyball/leagues/6253-henlopen-south",
-      "notes": "Conference division with recurring league play and standings."
+      "notes": "Conference division with recurring league play and standings. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "diamond-state-athletic-conference-girls-volleyball",
-      "name": "Diamond State Athletic Conference — Girls Volleyball",
+      "name": "Diamond State Athletic Conference \u2014 Girls Volleyball",
       "level": "competitive",
       "ageGroups": "HS 9-12",
       "gender": "girls",
@@ -70,11 +74,12 @@
       "sanctioning": "NFHS / DIAA",
       "website": "https://en.wikipedia.org/wiki/Diamond_State_Athletic_Conference",
       "sourceUrl": "https://www.maxpreps.com/de/volleyball/25-26/league/diamond-state/?leagueid=aeeecdd3-ac14-499b-8c7a-91f0ff423168",
-      "notes": "Charter/private-school conference with league table and standings."
+      "notes": "Charter/private-school conference with league table and standings. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "diamond-state-athletic-conference-boys-volleyball",
-      "name": "Diamond State Athletic Conference — Boys Volleyball",
+      "name": "Diamond State Athletic Conference \u2014 Boys Volleyball",
       "level": "competitive",
       "ageGroups": "HS 9-12",
       "gender": "boys",
@@ -84,11 +89,12 @@
       "sanctioning": "NFHS / DIAA",
       "website": "https://en.wikipedia.org/wiki/Diamond_State_Athletic_Conference",
       "sourceUrl": "https://www.maxpreps.com/de/volleyball/boys/24-25/league/diamond-state/?leagueid=1bef941b-ae66-44b6-8f3e-8b592a710558",
-      "notes": "Boys volleyball conference with recurring league standings each spring."
+      "notes": "Boys volleyball conference with recurring league standings each spring. [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "cym-wilmington-diocese-of-wilmington-girls-volleyball-varsity-o-",
-      "name": "CYM Wilmington (Diocese of Wilmington) — Girls Volleyball Varsity O Division",
+      "name": "CYM Wilmington (Diocese of Wilmington) \u2014 Girls Volleyball Varsity O Division",
       "level": "rec",
       "ageGroups": "middle school (grades 6-8)",
       "gender": "girls",
@@ -99,6 +105,14 @@
       "website": "https://www.cymsports.com/",
       "sourceUrl": "https://www.cymsports.com/sites/DioceseWilmington/schedule/634764/Varsity-O-Division",
       "notes": "Parish-school youth league with posted schedules and standings."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 6,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

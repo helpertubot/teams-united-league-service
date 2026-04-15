@@ -1,44 +1,46 @@
 {
   "_description": "AK softball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "asaa-high-school-softball-division-i",
-      "name": "ASAA High School Softball — Division I",
+      "name": "ASAA High School Softball \u2014 Division I",
       "level": "High School Varsity",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Girls",
-      "season": "Spring (Mar 4 – May 30)",
+      "season": "Spring (Mar 4 \u2013 May 30)",
       "region": "Statewide AK",
       "governingBody": "Alaska School Activities Association (ASAA)",
       "sanctioning": "ASAA",
       "website": "https://asaa.org/activities/softball/",
       "sourceUrl": "https://asaa.org/activities/softball/",
-      "notes": "Schools 851+ students; regular-season schedules and standings on ASAA365.com; 2026 state championship June 4–6 in Fairbanks"
+      "notes": "Schools 851+ students; regular-season schedules and standings on ASAA365.com; 2026 state championship June 4\u20136 in Fairbanks [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "asaa-high-school-softball-division-ii",
-      "name": "ASAA High School Softball — Division II",
+      "name": "ASAA High School Softball \u2014 Division II",
       "level": "High School Varsity",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Girls",
-      "season": "Spring (Mar 4 – May 30)",
+      "season": "Spring (Mar 4 \u2013 May 30)",
       "region": "Statewide AK",
       "governingBody": "Alaska School Activities Association (ASAA)",
       "sanctioning": "ASAA",
       "website": "https://asaa.org/activities/softball/",
       "sourceUrl": "https://asaa.org/activities/softball/",
-      "notes": "Schools 1–850 students; schedules and standings on ASAA365.com; shares state championship event with DI (June 4–6 Fairbanks)"
+      "notes": "Schools 1\u2013850 students; schedules and standings on ASAA365.com; shares state championship event with DI (June 4\u20136 Fairbanks) [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "alaska-district-1-little-league-softball",
-      "name": "Alaska District 1 Little League — Softball",
+      "name": "Alaska District 1 Little League \u2014 Softball",
       "level": "Recreational / Developmental",
-      "ageGroups": "Minors (7–11) / Majors (9–12) / Juniors (12–14)",
+      "ageGroups": "Minors (7\u201311) / Majors (9\u201312) / Juniors (12\u201314)",
       "gender": "Girls",
-      "season": "Spring / Summer (Apr – Jun)",
+      "season": "Spring / Summer (Apr \u2013 Jun)",
       "region": "Statewide AK except SE panhandle; 18 member leagues",
-      "governingBody": "Little League International — Alaska District 1",
+      "governingBody": "Little League International \u2014 Alaska District 1",
       "sanctioning": "Little League International",
       "website": "https://www.akd1littleleague.org/",
       "sourceUrl": "https://www.akd1littleleague.org/Default.aspx?tabid=2292393",
@@ -46,13 +48,13 @@
     },
     {
       "id": "alaska-district-2-little-league-softball",
-      "name": "Alaska District 2 Little League — Softball",
+      "name": "Alaska District 2 Little League \u2014 Softball",
       "level": "Recreational / Developmental",
       "ageGroups": "Minors / Majors / Juniors",
       "gender": "Girls",
-      "season": "Spring / Summer (Apr – Jun)",
+      "season": "Spring / Summer (Apr \u2013 Jun)",
       "region": "Southeast Alaska (Ketchikan to Haines)",
-      "governingBody": "Little League International — Alaska District 2",
+      "governingBody": "Little League International \u2014 Alaska District 2",
       "sanctioning": "Little League International",
       "website": "https://www.akdistrict2ll.org/",
       "sourceUrl": "https://www.akdistrict2ll.org/",
@@ -60,7 +62,7 @@
     },
     {
       "id": "interior-girls-softball-association-igsa-recreational-summer-lea",
-      "name": "Interior Girls Softball Association (IGSA) — Recreational Summer League",
+      "name": "Interior Girls Softball Association (IGSA) \u2014 Recreational Summer League",
       "level": "Recreational",
       "ageGroups": "8U / 10U / 12U / 14U / 18U",
       "gender": "Girls",
@@ -70,15 +72,15 @@
       "sanctioning": "USA Softball of Alaska",
       "website": "https://www.igsaak.org/",
       "sourceUrl": "https://www.igsaak.org/home.html",
-      "notes": "300+ players ages 3–18; also supports local high school softball and indoor winter gym programs; North Star Travel teams for competitive play"
+      "notes": "300+ players ages 3\u201318; also supports local high school softball and indoor winter gym programs; North Star Travel teams for competitive play"
     },
     {
       "id": "anchorage-sports-association-middle-school-fastpitch-softball",
-      "name": "Anchorage Sports Association — Middle School Fastpitch Softball",
+      "name": "Anchorage Sports Association \u2014 Middle School Fastpitch Softball",
       "level": "Recreational / School League",
-      "ageGroups": "Middle School (grades 6–8, approx. 11–14)",
+      "ageGroups": "Middle School (grades 6\u20138, approx. 11\u201314)",
       "gender": "Girls",
-      "season": "Spring (practice late Mar; games May–Jun)",
+      "season": "Spring (practice late Mar; games May\u2013Jun)",
       "region": "Anchorage",
       "governingBody": "Anchorage Sports Association / Anchorage School District",
       "sanctioning": "Anchorage School District",
@@ -88,7 +90,7 @@
     },
     {
       "id": "anchorage-sports-association-usa-junior-olympic-fastpitch-softba",
-      "name": "Anchorage Sports Association — USA Junior Olympic Fastpitch Softball",
+      "name": "Anchorage Sports Association \u2014 USA Junior Olympic Fastpitch Softball",
       "level": "Competitive",
       "ageGroups": "10U / 12U / 14U / 16U / 18U",
       "gender": "Girls",
@@ -99,6 +101,14 @@
       "website": "https://www.anchoragesports.com/",
       "sourceUrl": "https://www.anchoragesports.com/page/show/7764400-usa-jo-softball-2023-",
       "notes": "Junior Olympic (JO) club-level fastpitch; managed through ASA Softball Council; teams compete in USA Softball of Alaska sanctioned play"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 2,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

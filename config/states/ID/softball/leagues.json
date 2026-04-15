@@ -1,6 +1,6 @@
 {
   "_description": "ID softball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "gals-fastpitch-softball-league-caldwell",
@@ -10,25 +10,27 @@
       "gender": "girls",
       "season": "spring / summer",
       "region": "Caldwell ID / Treasure Valley",
-      "governingBody": "Caldwell Girls’ Athletic League Softball",
+      "governingBody": "Caldwell Girls\u2019 Athletic League Softball",
       "sanctioning": "USA Softball of Idaho",
       "website": "GALS Softball",
       "sourceUrl": "https://galssoftball.com/league-schedule",
-      "notes": "Weeknight league play with roughly 2 games per week and 8–10 total games."
+      "notes": "Weeknight league play with roughly 2 games per week and 8\u201310 total games. [auto-quarantine 2026-04-15: generic-platform:godaddy-sitebuilder]",
+      "status": "quarantine"
     },
     {
       "id": "kootenai-girls-softball-association-kgsa",
       "name": "Kootenai Girls Softball Association (KGSA)",
       "level": "rec / competitive",
-      "ageGroups": "K–9 grades (approx 6U–14U)",
+      "ageGroups": "K\u20139 grades (approx 6U\u201314U)",
       "gender": "girls",
       "season": "spring",
-      "region": "Kootenai County ID / Coeur d’Alene area",
+      "region": "Kootenai County ID / Coeur d\u2019Alene area",
       "governingBody": "KGSA",
       "sanctioning": "USA Softball rules",
       "website": "KGSA Idaho",
       "sourceUrl": "https://www.kgsaidaho.com/rules-of-play",
-      "notes": "Community fastpitch league with published policies and league rules."
+      "notes": "Community fastpitch league with published policies and league rules. [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "kysba-softball-kuna",
@@ -42,7 +44,7 @@
       "sanctioning": "Babe Ruth Softball",
       "website": "Kuna Youth Softball & Baseball Association",
       "sourceUrl": "https://www.kysba.org/",
-      "notes": "Babe Ruth–affiliated league; site references Babe Ruth age and bat rules and GameChanger."
+      "notes": "Babe Ruth\u2013affiliated league; site references Babe Ruth age and bat rules and GameChanger."
     },
     {
       "id": "nampa-babe-ruth-softball",
@@ -56,7 +58,7 @@
       "sanctioning": "Babe Ruth Softball",
       "website": "Nampa Babe Ruth League",
       "sourceUrl": "https://www.nampababeruth.com/aboutus",
-      "notes": "Spring league with recurring seasonal play; Babe Ruth–chartered program."
+      "notes": "Spring league with recurring seasonal play; Babe Ruth\u2013chartered program."
     },
     {
       "id": "north-side-babe-ruth-softball-jerome",
@@ -70,7 +72,7 @@
       "sanctioning": "Babe Ruth Softball",
       "website": "North Side Baseball and Softball",
       "sourceUrl": "https://www.northsidebaberuth.com/",
-      "notes": "Local Babe Ruth–chartered league serving Jerome area; seasonal schedules via club site."
+      "notes": "Local Babe Ruth\u2013chartered league serving Jerome area; seasonal schedules via club site."
     },
     {
       "id": "idaho-falls-fastpitch-softball-night-leagues",
@@ -88,9 +90,9 @@
     },
     {
       "id": "ihsaa-5a-southern-idaho-conference-softball",
-      "name": "IHSAA — 5A Southern Idaho Conference Softball",
+      "name": "IHSAA \u2014 5A Southern Idaho Conference Softball",
       "level": "competitive (high school)",
-      "ageGroups": "HS 14–18",
+      "ageGroups": "HS 14\u201318",
       "gender": "girls",
       "season": "spring",
       "region": "Boise metro / Treasure Valley",
@@ -99,6 +101,14 @@
       "website": "IHSAA Softball",
       "sourceUrl": "https://www.maxpreps.com/id/softball/23-24/conference/5a-southern-idaho/?leagueid=32e85518-3c37-46fc-8bf8-e111c862bd3f",
       "notes": "Conference platform with published schedules and standings on MaxPreps."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 2,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

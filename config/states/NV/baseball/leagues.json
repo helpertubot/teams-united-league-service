@@ -1,12 +1,12 @@
 {
   "_description": "NV baseball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "little-league-nevada-district-1",
-      "name": "Little League — Nevada District 1",
+      "name": "Little League \u2014 Nevada District 1",
       "level": "Youth recreational",
-      "ageGroups": "Tee Ball–Senior (ages 4–16)",
+      "ageGroups": "Tee Ball\u2013Senior (ages 4\u201316)",
       "gender": "Boys / Co-ed",
       "season": "Spring",
       "region": "Reno / Carson City / NW Nevada / NE California",
@@ -14,13 +14,14 @@
       "sanctioning": "Little League International",
       "website": "https://tshq.bluesombrero.com/nevadad1ll",
       "sourceUrl": "https://unpage.org/nevada/nv-dist.htm",
-      "notes": "~12 local leagues incl. Reno American, Reno Continental, Reno National, Sparks Centennial, Sparks National, Carson City, Tahoe area"
+      "notes": "~12 local leagues incl. Reno American, Reno Continental, Reno National, Sparks Centennial, Sparks National, Carson City, Tahoe area",
+      "sourcePlatform": "blue-sombrero"
     },
     {
       "id": "little-league-nevada-district-2",
-      "name": "Little League — Nevada District 2",
+      "name": "Little League \u2014 Nevada District 2",
       "level": "Youth recreational",
-      "ageGroups": "Tee Ball–Senior (ages 4–16)",
+      "ageGroups": "Tee Ball\u2013Senior (ages 4\u201316)",
       "gender": "Boys / Co-ed",
       "season": "Spring",
       "region": "Las Vegas metro east of I-15 / Henderson",
@@ -28,13 +29,14 @@
       "sanctioning": "Little League International",
       "website": "https://tshq.bluesombrero.com/Default.aspx?tabid=1439698",
       "sourceUrl": "https://unpage.org/nevada/nv-dist.htm",
-      "notes": "~12 leagues incl. Boulder City, Henderson, Green Valley, Las Vegas Central, Legacy, Silverado"
+      "notes": "~12 leagues incl. Boulder City, Henderson, Green Valley, Las Vegas Central, Legacy, Silverado",
+      "sourcePlatform": "blue-sombrero"
     },
     {
       "id": "little-league-nevada-district-3",
-      "name": "Little League — Nevada District 3",
+      "name": "Little League \u2014 Nevada District 3",
       "level": "Youth recreational",
-      "ageGroups": "Tee Ball–Senior (ages 4–16)",
+      "ageGroups": "Tee Ball\u2013Senior (ages 4\u201316)",
       "gender": "Boys / Co-ed",
       "season": "Spring",
       "region": "Rural Nevada (Elko / Winnemucca / Battle Mountain / Fernley / Yerington)",
@@ -42,13 +44,14 @@
       "sanctioning": "Little League International",
       "website": "https://clubs.bluesombrero.com/Default.aspx?tabid=482852",
       "sourceUrl": "https://unpage.org/nevada/nv-dist.htm",
-      "notes": "14 leagues across Northern and Central Rural Nevada"
+      "notes": "14 leagues across Northern and Central Rural Nevada",
+      "sourcePlatform": "blue-sombrero"
     },
     {
       "id": "little-league-nevada-district-4",
-      "name": "Little League — Nevada District 4",
+      "name": "Little League \u2014 Nevada District 4",
       "level": "Youth recreational",
-      "ageGroups": "Tee Ball–Senior (ages 4–16)",
+      "ageGroups": "Tee Ball\u2013Senior (ages 4\u201316)",
       "gender": "Boys / Co-ed",
       "season": "Spring",
       "region": "Las Vegas metro west of I-15 / Summerlin / Spring Valley",
@@ -56,13 +59,14 @@
       "sanctioning": "Little League International",
       "website": "https://www.leaguelineup.com/miscinfo.asp?menuid=30&url=nvd4",
       "sourceUrl": "https://unpage.org/nevada/nv-dist.htm",
-      "notes": "~11 leagues incl. Cheyenne, Summerlin North, Summerlin South, Red Rock, Spring Valley"
+      "notes": "~11 leagues incl. Cheyenne, Summerlin North, Summerlin South, Red Rock, Spring Valley",
+      "sourcePlatform": "leaguelineup"
     },
     {
       "id": "city-of-las-vegas-parks-and-recreation-youth-baseball",
       "name": "City of Las Vegas Parks & Recreation Youth Baseball",
       "level": "Youth recreational",
-      "ageGroups": "Ages 4–10 (T-Ball 6U / Coach Pitch 8U / Kid Pitch 10U)",
+      "ageGroups": "Ages 4\u201310 (T-Ball 6U / Coach Pitch 8U / Kid Pitch 10U)",
       "gender": "Boys+Girls",
       "season": "Spring (starts mid-March)",
       "region": "Las Vegas, NV",
@@ -70,27 +74,28 @@
       "sanctioning": "Municipal",
       "website": "https://www.lasvegasnevada.gov/Government/Departments/Parks-Recreation/Sports/Youth-Sports-Leagues",
       "sourceUrl": "https://www.lasvegasnevada.gov/Government/Departments/Parks-Recreation/Sports/Youth-Sports-Leagues",
-      "notes": "7–9 week season; 7 officiated games per team; schedules and standings via registration portal"
+      "notes": "7\u20139 week season; 7 officiated games per team; schedules and standings via registration portal"
     },
     {
       "id": "city-of-henderson-parks-and-recreation-youth-baseball",
       "name": "City of Henderson Parks & Recreation Youth Baseball",
       "level": "Youth recreational",
-      "ageGroups": "Ages 6–18 (U6 / U8 / ages 9–18)",
-      "gender": "Co-ed (U6–U8) / Boys (9–18)",
+      "ageGroups": "Ages 6\u201318 (U6 / U8 / ages 9\u201318)",
+      "gender": "Co-ed (U6\u2013U8) / Boys (9\u201318)",
       "season": "Spring (starts mid-April)",
       "region": "Henderson, NV",
       "governingBody": "City of Henderson Parks & Recreation",
       "sanctioning": "Municipal",
       "website": "https://www.cityofhenderson.com/government/departments/parks-and-recreation/programs-classes/sports/youth-sports/youth-baseball-and-softball",
       "sourceUrl": "https://www.cityofhenderson.com/government/departments/parks-and-recreation/programs-classes/sports/youth-sports/youth-baseball-and-softball",
-      "notes": "U6 / U8 co-rec no scores or standings; ages 9–18 keep standings; $70 resident fee"
+      "notes": "U6 / U8 co-rec no scores or standings; ages 9\u201318 keep standings; $70 resident fee [auto-quarantine 2026-04-15: http-403]",
+      "status": "quarantine"
     },
     {
       "id": "nevada-youth-sports",
       "name": "Nevada Youth Sports",
       "level": "Youth recreational",
-      "ageGroups": "Ages 3–17",
+      "ageGroups": "Ages 3\u201317",
       "gender": "Boys+Girls",
       "season": "Spring / Fall",
       "region": "Las Vegas valley, NV",
@@ -104,7 +109,7 @@
       "id": "national-youth-sports-nevada",
       "name": "National Youth Sports Nevada",
       "level": "Youth recreational",
-      "ageGroups": "Ages 3–17",
+      "ageGroups": "Ages 3\u201317",
       "gender": "Boys+Girls",
       "season": "Spring / Fall",
       "region": "Las Vegas valley (Summerlin / North Las Vegas / Henderson), NV",
@@ -112,7 +117,8 @@
       "sanctioning": "Independent",
       "website": "https://nysnevada.leagueapps.com/leagues/baseball",
       "sourceUrl": "https://nysnevada.leagueapps.com/leagues/baseball",
-      "notes": "Spring 2026 registration opened January 9; multiple geographic divisions within the valley"
+      "notes": "Spring 2026 registration opened January 9; multiple geographic divisions within the valley",
+      "sourcePlatform": "leagueapps"
     },
     {
       "id": "miracle-league-of-las-vegas",
@@ -126,13 +132,14 @@
       "sanctioning": "Miracle League Association",
       "website": "https://miracleleaguelasvegas.com/",
       "sourceUrl": "https://miracleleaguelasvegas.com/miracle-league-las-vegas",
-      "notes": "For players with cognitive / physical challenges; Cactus League (younger youth) and Major League Competitive Division (adult) with standings; 2026 Spring opening day March 28"
+      "notes": "For players with cognitive / physical challenges; Cactus League (younger youth) and Major League Competitive Division (adult) with standings; 2026 Spring opening day March 28 [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "silver-state-cal-ripken-babe-ruth-league",
       "name": "Silver State Cal Ripken Babe Ruth League",
       "level": "Youth recreational",
-      "ageGroups": "Ages 4–12 (Cal Ripken divisions)",
+      "ageGroups": "Ages 4\u201312 (Cal Ripken divisions)",
       "gender": "Boys",
       "season": "Spring",
       "region": "North Valleys / West Reno, NV",
@@ -146,7 +153,7 @@
       "id": "reno-youth-sports-association-rysa-baseball",
       "name": "Reno Youth Sports Association (RYSA) Baseball",
       "level": "Youth recreational",
-      "ageGroups": "Youth (approx. ages 5–18)",
+      "ageGroups": "Youth (approx. ages 5\u201318)",
       "gender": "Boys / Co-ed",
       "season": "Spring",
       "region": "Reno / Northern Nevada",
@@ -154,13 +161,14 @@
       "sanctioning": "City of Reno partnership",
       "website": "https://www.renoyouthsports.org/baseball",
       "sourceUrl": "https://www.reno.gov/government/departments/parks-recreation-community-services/athletics/youth-sports",
-      "notes": "Official City of Reno youth baseball partner; also administers soccer, football, softball, lacrosse"
+      "notes": "Official City of Reno youth baseball partner; also administers soccer, football, softball, lacrosse [auto-quarantine 2026-04-15: generic-platform:wix]",
+      "status": "quarantine"
     },
     {
       "id": "american-legion-baseball-nevada",
-      "name": "American Legion Baseball — Nevada",
+      "name": "American Legion Baseball \u2014 Nevada",
       "level": "Competitive amateur",
-      "ageGroups": "Ages 14–19",
+      "ageGroups": "Ages 14\u201319",
       "gender": "Boys",
       "season": "Summer",
       "region": "Statewide, NV",
@@ -174,197 +182,212 @@
       "id": "niaa-5a-northern-league-baseball",
       "name": "NIAA 5A Northern League Baseball",
       "level": "High school",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys",
-      "season": "Spring (Feb–May)",
-      "region": "Northern Nevada — Reno / Sparks metro",
+      "season": "Spring (Feb\u2013May)",
+      "region": "Northern Nevada \u2014 Reno / Sparks metro",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/bsb/index",
       "sourceUrl": "https://www.niaa.com/sports/bsb/index",
-      "notes": "Largest-enrollment division; regional tournament May 1–9 at host sites; 5A State Tournament May 14–16 in Las Vegas"
+      "notes": "Largest-enrollment division; regional tournament May 1\u20139 at host sites; 5A State Tournament May 14\u201316 in Las Vegas"
     },
     {
       "id": "niaa-5a-south-desert-league-baseball",
-      "name": "NIAA 5A South — Desert League Baseball",
+      "name": "NIAA 5A South \u2014 Desert League Baseball",
       "level": "High school",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys",
-      "season": "Spring (Feb–May)",
-      "region": "Southern Nevada — Las Vegas desert communities",
+      "season": "Spring (Feb\u2013May)",
+      "region": "Southern Nevada \u2014 Las Vegas desert communities",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/bsb/index",
       "sourceUrl": "https://www.maxpreps.com/nv/baseball/",
-      "notes": "5A Southern Desert division; regional tournament April 29–May 9"
+      "notes": "5A Southern Desert division; regional tournament April 29\u2013May 9"
     },
     {
       "id": "niaa-5a-south-mountain-league-baseball",
-      "name": "NIAA 5A South — Mountain League Baseball",
+      "name": "NIAA 5A South \u2014 Mountain League Baseball",
       "level": "High school",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys",
-      "season": "Spring (Feb–May)",
-      "region": "Southern Nevada — Las Vegas mountain communities",
+      "season": "Spring (Feb\u2013May)",
+      "region": "Southern Nevada \u2014 Las Vegas mountain communities",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/bsb/index",
       "sourceUrl": "https://www.maxpreps.com/nv/baseball/",
-      "notes": "5A Southern Mountain division; regional tournament April 29–May 9"
+      "notes": "5A Southern Mountain division; regional tournament April 29\u2013May 9"
     },
     {
       "id": "niaa-4a-desert-league-baseball",
       "name": "NIAA 4A Desert League Baseball",
       "level": "High school",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys",
-      "season": "Spring (Feb–May)",
+      "season": "Spring (Feb\u2013May)",
       "region": "Southern Nevada",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/bsb/index",
       "sourceUrl": "https://www.maxpreps.com/nv/baseball/",
-      "notes": "4A State Tournament May 6–16 at sites TBD"
+      "notes": "4A State Tournament May 6\u201316 at sites TBD"
     },
     {
       "id": "niaa-4a-mountain-league-baseball",
       "name": "NIAA 4A Mountain League Baseball",
       "level": "High school",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys",
-      "season": "Spring (Feb–May)",
+      "season": "Spring (Feb\u2013May)",
       "region": "Southern Nevada",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/bsb/index",
       "sourceUrl": "https://www.maxpreps.com/nv/baseball/",
-      "notes": "4A State Tournament May 6–16; Mountain subdivision of 4A Southern region"
+      "notes": "4A State Tournament May 6\u201316; Mountain subdivision of 4A Southern region"
     },
     {
       "id": "niaa-4a-sky-league-baseball",
       "name": "NIAA 4A Sky League Baseball",
       "level": "High school",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys",
-      "season": "Spring (Feb–May)",
+      "season": "Spring (Feb\u2013May)",
       "region": "Southern Nevada",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/bsb/index",
       "sourceUrl": "https://www.maxpreps.com/nv/baseball/",
-      "notes": "4A Sky subdivision of Southern region; 4A State Tournament May 6–16"
+      "notes": "4A Sky subdivision of Southern region; 4A State Tournament May 6\u201316"
     },
     {
       "id": "niaa-3a-northern-league-baseball",
       "name": "NIAA 3A Northern League Baseball",
       "level": "High school",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys",
-      "season": "Spring (Feb–May)",
+      "season": "Spring (Feb\u2013May)",
       "region": "Northern Nevada",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/bsb/index",
       "sourceUrl": "https://www.niaa.com/sports/bsb/index",
-      "notes": "Regional tournament May 1–9 at host sites and Dayton"
+      "notes": "Regional tournament May 1\u20139 at host sites and Dayton"
     },
     {
       "id": "niaa-3a-south-desert-league-baseball",
-      "name": "NIAA 3A South — Desert League Baseball",
+      "name": "NIAA 3A South \u2014 Desert League Baseball",
       "level": "High school",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys",
-      "season": "Spring (Feb–May)",
+      "season": "Spring (Feb\u2013May)",
       "region": "Southern Nevada",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/bsb/index",
       "sourceUrl": "https://www.maxpreps.com/nv/baseball/",
-      "notes": "Regional tournament May 7–9 at Boulder City"
+      "notes": "Regional tournament May 7\u20139 at Boulder City"
     },
     {
       "id": "niaa-3a-south-mountain-league-baseball",
-      "name": "NIAA 3A South — Mountain League Baseball",
+      "name": "NIAA 3A South \u2014 Mountain League Baseball",
       "level": "High school",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys",
-      "season": "Spring (Feb–May)",
+      "season": "Spring (Feb\u2013May)",
       "region": "Southern Nevada",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/bsb/index",
       "sourceUrl": "https://www.maxpreps.com/nv/baseball/",
-      "notes": "3A Southern Mountain subdivision; regional tournament May 7–9 at Boulder City"
+      "notes": "3A Southern Mountain subdivision; regional tournament May 7\u20139 at Boulder City"
     },
     {
       "id": "niaa-2a-northern-league-baseball",
       "name": "NIAA 2A Northern League Baseball",
       "level": "High school",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys",
-      "season": "Spring (Feb–May)",
+      "season": "Spring (Feb\u2013May)",
       "region": "Northern / Rural Nevada",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/bsb/index",
       "sourceUrl": "https://www.niaa.com/sports/bsb/index",
-      "notes": "Regional tournament May 8–9 at Pershing County"
+      "notes": "Regional tournament May 8\u20139 at Pershing County"
     },
     {
       "id": "niaa-2a-southern-league-baseball",
       "name": "NIAA 2A Southern League Baseball",
       "level": "High school",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys",
-      "season": "Spring (Feb–May)",
+      "season": "Spring (Feb\u2013May)",
       "region": "Southern / Rural Nevada",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/bsb/index",
       "sourceUrl": "https://www.niaa.com/sports/bsb/index",
-      "notes": "Regional tournament May 7–9 at The Meadows"
+      "notes": "Regional tournament May 7\u20139 at The Meadows"
     },
     {
       "id": "niaa-1a-northern-league-baseball",
       "name": "NIAA 1A Northern League Baseball",
       "level": "High school",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys",
-      "season": "Spring (Feb–May)",
+      "season": "Spring (Feb\u2013May)",
       "region": "Rural Northern Nevada",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/bsb/index",
       "sourceUrl": "https://www.niaa.com/sports/bsb/index",
-      "notes": "Regional tournament May 8–9 at Wells; smallest-enrollment schools"
+      "notes": "Regional tournament May 8\u20139 at Wells; smallest-enrollment schools"
     },
     {
       "id": "niaa-1a-southern-central-league-baseball",
-      "name": "NIAA 1A Southern — Central League Baseball",
+      "name": "NIAA 1A Southern \u2014 Central League Baseball",
       "level": "High school",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys",
-      "season": "Spring (Feb–May)",
+      "season": "Spring (Feb\u2013May)",
       "region": "Rural Central Nevada",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/bsb/index",
       "sourceUrl": "https://www.niaa.com/sports/bsb/index",
-      "notes": "Regional tournament May 8–9 at Indian Springs"
+      "notes": "Regional tournament May 8\u20139 at Indian Springs"
     },
     {
       "id": "niaa-1a-southern-south-league-baseball",
-      "name": "NIAA 1A Southern — South League Baseball",
+      "name": "NIAA 1A Southern \u2014 South League Baseball",
       "level": "High school",
-      "ageGroups": "Grades 9–12",
+      "ageGroups": "Grades 9\u201312",
       "gender": "Boys",
-      "season": "Spring (Feb–May)",
+      "season": "Spring (Feb\u2013May)",
       "region": "Rural Southern Nevada",
       "governingBody": "Nevada Interscholastic Activities Association (NIAA)",
       "sanctioning": "NIAA / NFHS",
       "website": "https://www.niaa.com/sports/bsb/index",
       "sourceUrl": "https://www.niaa.com/sports/bsb/index",
-      "notes": "Regional tournament May 8–9 at Indian Springs"
+      "notes": "Regional tournament May 8\u20139 at Indian Springs"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "platform-reclassification",
+      "rows_changed": 5,
+      "min_confidence": 0.9,
+      "source": "platform-reclassification-2026-04-15.csv"
+    },
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 3,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

@@ -1,10 +1,10 @@
 {
   "_description": "ID basketball leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "treasure-valley-family-ymca-y-ball-youth-basketball",
-      "name": "Treasure Valley Family YMCA — Y-Ball Youth Basketball",
+      "name": "Treasure Valley Family YMCA \u2014 Y-Ball Youth Basketball",
       "level": "rec",
       "ageGroups": "Grades K-8",
       "gender": "coed / boys / girls",
@@ -14,11 +14,12 @@
       "sanctioning": "none",
       "website": "Treasure Valley Family YMCA",
       "sourceUrl": "https://www.ymcatvidaho.org/programs/youth-sports/",
-      "notes": "Recreational league with recurring seasons and posted schedules / standings by division."
+      "notes": "Recreational league with recurring seasons and posted schedules / standings by division. [auto-quarantine 2026-04-15: network:URLError]",
+      "status": "quarantine"
     },
     {
       "id": "boise-parks-and-recreation-youth-basketball-league",
-      "name": "Boise Parks and Recreation — Youth Basketball League",
+      "name": "Boise Parks and Recreation \u2014 Youth Basketball League",
       "level": "rec",
       "ageGroups": "Grades 1-8",
       "gender": "coed / boys / girls",
@@ -28,11 +29,12 @@
       "sanctioning": "none",
       "website": "City of Boise Parks and Recreation",
       "sourceUrl": "https://www.cityofboise.org/departments/parks-and-recreation/activities-sports/youth-sports/",
-      "notes": "City-run league with season schedules and standings by grade level."
+      "notes": "City-run league with season schedules and standings by grade level. [auto-quarantine 2026-04-15: http-404]",
+      "status": "quarantine"
     },
     {
       "id": "nampa-parks-and-recreation-youth-basketball",
-      "name": "Nampa Parks & Recreation — Youth Basketball",
+      "name": "Nampa Parks & Recreation \u2014 Youth Basketball",
       "level": "rec",
       "ageGroups": "Grades 1-8",
       "gender": "coed / boys / girls",
@@ -42,11 +44,12 @@
       "sanctioning": "none",
       "website": "City of Nampa Parks & Recreation",
       "sourceUrl": "https://www.nampaparksandrecreation.org/programs/youth-sports",
-      "notes": "Municipal seasonal league play with published schedules / results."
+      "notes": "Municipal seasonal league play with published schedules / results. [auto-quarantine 2026-04-15: http-404]",
+      "status": "quarantine"
     },
     {
       "id": "idaho-falls-parks-and-recreation-youth-basketball",
-      "name": "Idaho Falls Parks & Recreation — Youth Basketball",
+      "name": "Idaho Falls Parks & Recreation \u2014 Youth Basketball",
       "level": "rec",
       "ageGroups": "Grades 1-8",
       "gender": "coed / boys / girls",
@@ -60,7 +63,7 @@
     },
     {
       "id": "pocatello-recreation-jr-jazz-youth-basketball",
-      "name": "Pocatello Recreation — Jr. Jazz Youth Basketball",
+      "name": "Pocatello Recreation \u2014 Jr. Jazz Youth Basketball",
       "level": "rec",
       "ageGroups": "Grades 1-8",
       "gender": "coed / boys / girls",
@@ -74,7 +77,7 @@
     },
     {
       "id": "twin-falls-parks-and-recreation-youth-basketball",
-      "name": "Twin Falls Parks & Recreation — Youth Basketball",
+      "name": "Twin Falls Parks & Recreation \u2014 Youth Basketball",
       "level": "rec",
       "ageGroups": "Grades 1-8",
       "gender": "coed / boys / girls",
@@ -84,25 +87,26 @@
       "sanctioning": "none",
       "website": "City of Twin Falls Parks & Recreation",
       "sourceUrl": "https://www.tfid.org/283/Parks-Recreation",
-      "notes": "Community league with seasonal play and posted schedules."
+      "notes": "Community league with seasonal play and posted schedules. [auto-quarantine 2026-04-15: http-404]",
+      "status": "quarantine"
     },
     {
       "id": "coeur-d-alene-recreation-department-youth-basketball",
-      "name": "Coeur d’Alene Recreation Department — Youth Basketball",
+      "name": "Coeur d\u2019Alene Recreation Department \u2014 Youth Basketball",
       "level": "rec",
       "ageGroups": "Grades 1-8",
       "gender": "coed / boys / girls",
       "season": "winter",
-      "region": "Coeur d’Alene",
-      "governingBody": "City of Coeur d’Alene Recreation",
+      "region": "Coeur d\u2019Alene",
+      "governingBody": "City of Coeur d\u2019Alene Recreation",
       "sanctioning": "none",
-      "website": "City of Coeur d’Alene Recreation",
+      "website": "City of Coeur d\u2019Alene Recreation",
       "sourceUrl": "https://www.cdaid.org/parks",
       "notes": "City-run league with divisions by grade and standings."
     },
     {
       "id": "post-falls-parks-and-recreation-youth-basketball",
-      "name": "Post Falls Parks & Recreation — Youth Basketball",
+      "name": "Post Falls Parks & Recreation \u2014 Youth Basketball",
       "level": "rec",
       "ageGroups": "Grades 1-8",
       "gender": "coed / boys / girls",
@@ -112,11 +116,12 @@
       "sanctioning": "none",
       "website": "City of Post Falls Parks & Recreation",
       "sourceUrl": "https://www.postfallsidaho.org/departments/parks-recreation/",
-      "notes": "Seasonal league play with schedules and results posted."
+      "notes": "Seasonal league play with schedules and results posted. [auto-quarantine 2026-04-15: network:URLError]",
+      "status": "quarantine"
     },
     {
       "id": "ihsaa-5a-southern-idaho-conference-basketball",
-      "name": "IHSAA — 5A Southern Idaho Conference (Basketball)",
+      "name": "IHSAA \u2014 5A Southern Idaho Conference (Basketball)",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "boys / girls",
@@ -130,7 +135,7 @@
     },
     {
       "id": "ihsaa-5a-inland-empire-league-basketball",
-      "name": "IHSAA — 5A Inland Empire League (Basketball)",
+      "name": "IHSAA \u2014 5A Inland Empire League (Basketball)",
       "level": "high school",
       "ageGroups": "Grades 9-12",
       "gender": "boys / girls",
@@ -141,6 +146,14 @@
       "website": "Idaho High School Activities Association",
       "sourceUrl": "https://idhsaa.org/",
       "notes": "Conference league for North Idaho schools with schedules and standings."
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 5,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }

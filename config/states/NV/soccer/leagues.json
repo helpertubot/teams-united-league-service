@@ -1,6 +1,6 @@
 {
   "_description": "NV soccer leagues",
-  "_lastUpdated": "2026-04-13",
+  "_lastUpdated": "2026-04-15",
   "leagues": [
     {
       "id": "nevada-state-league-nsl",
@@ -14,16 +14,16 @@
       "sanctioning": "US Youth Soccer (USYS)",
       "website": "nevadayouthsoccer.org",
       "sourceUrl": "https://nevadayouthsoccer.org/programs/leagues/",
-      "notes": "8 games/season; fall participation required for State Cup eligibility; $480–$1,440/team by age group"
+      "notes": "8 games/season; fall participation required for State Cup eligibility; $480\u2013$1,440/team by age group"
     },
     {
       "id": "nevada-alliance-soccer-league-recreational",
-      "name": "Nevada Alliance Soccer League — Recreational",
+      "name": "Nevada Alliance Soccer League \u2014 Recreational",
       "level": "Recreational",
       "ageGroups": "U6 / U8 / U10 / U12 / U14",
       "gender": "Boys+Girls",
       "season": "Fall / Spring",
-      "region": "Las Vegas metro (SW — Desert Breeze Park / Henderson — Silver Bowl Park)",
+      "region": "Las Vegas metro (SW \u2014 Desert Breeze Park / Henderson \u2014 Silver Bowl Park)",
       "governingBody": "Nevada Alliance Soccer League",
       "sanctioning": "US Youth Soccer (USYS)",
       "website": "youthsoccerlv.org",
@@ -32,11 +32,11 @@
     },
     {
       "id": "alliance-select-soccer-league-select-1",
-      "name": "Alliance Select Soccer League — Select 1",
-      "level": "Competitive — Select 1 (Gold)",
+      "name": "Alliance Select Soccer League \u2014 Select 1",
+      "level": "Competitive \u2014 Select 1 (Gold)",
       "ageGroups": "U6-U19",
       "gender": "Boys / Girls",
-      "season": "Fall (U7–U14 Sep; U15–U19 Nov)",
+      "season": "Fall (U7\u2013U14 Sep; U15\u2013U19 Nov)",
       "region": "Las Vegas metro (Southern Nevada)",
       "governingBody": "Nevada Alliance Soccer League",
       "sanctioning": "Nevada Alliance Soccer League",
@@ -46,8 +46,8 @@
     },
     {
       "id": "alliance-select-soccer-league-select-2",
-      "name": "Alliance Select Soccer League — Select 2",
-      "level": "Competitive — Select 2 (Silver/Bronze)",
+      "name": "Alliance Select Soccer League \u2014 Select 2",
+      "level": "Competitive \u2014 Select 2 (Silver/Bronze)",
       "ageGroups": "U6-U19",
       "gender": "Boys / Girls",
       "season": "Fall",
@@ -60,8 +60,8 @@
     },
     {
       "id": "alliance-select-soccer-league-select-3",
-      "name": "Alliance Select Soccer League — Select 3",
-      "level": "Competitive — Select 3 (Bronze/Copper)",
+      "name": "Alliance Select Soccer League \u2014 Select 3",
+      "level": "Competitive \u2014 Select 3 (Bronze/Copper)",
       "ageGroups": "U6-U19",
       "gender": "Boys / Girls",
       "season": "Fall",
@@ -74,22 +74,23 @@
     },
     {
       "id": "great-basin-youth-soccer-league-gbysl-recreational",
-      "name": "Great Basin Youth Soccer League (GBYSL) — Recreational",
+      "name": "Great Basin Youth Soccer League (GBYSL) \u2014 Recreational",
       "level": "Recreational",
       "ageGroups": "U4-U12",
       "gender": "Boys / Girls",
-      "season": "Fall (Aug–Oct) / Spring (Apr–Jun)",
+      "season": "Fall (Aug\u2013Oct) / Spring (Apr\u2013Jun)",
       "region": "Northern Nevada (Reno / Sparks / Carson City / Lake Tahoe)",
       "governingBody": "Great Basin Youth Soccer League",
       "sanctioning": "Great Basin Youth Soccer League",
       "website": "gbysl.org",
       "sourceUrl": "https://gbysl.org/gbysl-recreational/",
-      "notes": "Nevada's largest league; 5,000+ registrations/year; est. 1984; teams assigned by zip code"
+      "notes": "Nevada's largest league; 5,000+ registrations/year; est. 1984; teams assigned by zip code [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "gbysl-select-gold",
-      "name": "GBYSL Select — Gold",
-      "level": "Competitive — Gold (Select)",
+      "name": "GBYSL Select \u2014 Gold",
+      "level": "Competitive \u2014 Gold (Select)",
       "ageGroups": "U10-U19",
       "gender": "Boys / Girls",
       "season": "Fall / Spring",
@@ -98,13 +99,14 @@
       "sanctioning": "US Club Soccer",
       "website": "gbysl.org/select/",
       "sourceUrl": "https://gbysl.org/select/",
-      "notes": "Gold = competitive club level; local cross-area play plus out-of-town tournaments; US Club Soccer sanctioned"
+      "notes": "Gold = competitive club level; local cross-area play plus out-of-town tournaments; US Club Soccer sanctioned [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "henderson-united-youth-soccer-snsa",
       "name": "Henderson United Youth Soccer (SNSA)",
       "level": "Recreational",
-      "ageGroups": "U5-U14 (born 6/1/2011–7/31/2021)",
+      "ageGroups": "U5-U14 (born 6/1/2011\u20137/31/2021)",
       "gender": "Boys / Girls",
       "season": "Fall / Spring",
       "region": "Henderson / Las Vegas (Southern Nevada)",
@@ -118,7 +120,7 @@
       "id": "southern-highlands-united-snsa",
       "name": "Southern Highlands United (SNSA)",
       "level": "Recreational",
-      "ageGroups": "U5-U14 (born 6/1/2011–7/31/2021)",
+      "ageGroups": "U5-U14 (born 6/1/2011\u20137/31/2021)",
       "gender": "Boys / Girls",
       "season": "Fall / Spring",
       "region": "Southern Highlands / Las Vegas (Southern Nevada)",
@@ -126,7 +128,7 @@
       "sanctioning": "Southern Nevada Soccer Association",
       "website": "snsasoccer.com",
       "sourceUrl": "https://www.snsasoccer.com/youthleagues",
-      "notes": "Sister program to Henderson United; spring games Mar–mid May; part of SNSA's 6,500+ member org"
+      "notes": "Sister program to Henderson United; spring games Mar\u2013mid May; part of SNSA's 6,500+ member org"
     },
     {
       "id": "nevada-south-youth-soccer-league-nvsysl",
@@ -134,31 +136,33 @@
       "level": "Recreational / Competitive",
       "ageGroups": "U5-U19",
       "gender": "Boys / Girls",
-      "season": "Fall (Sep–Feb) / Spring (Mar–May)",
+      "season": "Fall (Sep\u2013Feb) / Spring (Mar\u2013May)",
       "region": "Las Vegas / Southern Nevada",
       "governingBody": "Nevada South Youth Soccer League",
       "sanctioning": "US Youth Soccer (USYS)",
       "website": "nvsysl.com",
       "sourceUrl": "http://nvsysl.com/",
-      "notes": "~3,000 players; U10 and below rec (no stats); U11+ have Group 1 / Group 2 / Gold / Silver tiers; 9–10 games/season"
+      "notes": "~3,000 players; U10 and below rec (no stats); U11+ have Group 1 / Group 2 / Gold / Silver tiers; 9\u201310 games/season [auto-quarantine 2026-04-15: generic-platform:wordpress]",
+      "status": "quarantine"
     },
     {
       "id": "northern-nevada-youth-soccer-association-nnysa-recreation",
-      "name": "Northern Nevada Youth Soccer Association (NNYSA) — Recreation",
+      "name": "Northern Nevada Youth Soccer Association (NNYSA) \u2014 Recreation",
       "level": "Recreational",
       "ageGroups": "Mini-Kicker / U5 / U6 / U7 / U8 / U10 / U12 / U15",
       "gender": "Boys / Girls",
-      "season": "Spring (Apr 6–May 30)",
+      "season": "Spring (Apr 6\u2013May 30)",
       "region": "Northeastern Nevada (Elko / Spring Creek / Wells / Carlin / Wendover / Owyhee / Battle Mountain)",
       "governingBody": "Northern Nevada Youth Soccer Association (NNYSA)",
       "sanctioning": "NNYSA",
       "website": "nnysa.org",
       "sourceUrl": "https://nnysa.org/soccer-1",
-      "notes": "Draft-based team assignment; fields at Elko Mountain View Fields / Spring Creek Sports Complex"
+      "notes": "Draft-based team assignment; fields at Elko Mountain View Fields / Spring Creek Sports Complex [auto-quarantine 2026-04-15: generic-platform:godaddy-sitebuilder]",
+      "status": "quarantine"
     },
     {
       "id": "ayso-region-1315-core-league",
-      "name": "AYSO Region 1315 — Core League",
+      "name": "AYSO Region 1315 \u2014 Core League",
       "level": "Recreational",
       "ageGroups": "U6-U18",
       "gender": "Boys+Girls",
@@ -168,11 +172,11 @@
       "sanctioning": "AYSO",
       "website": "ayso1315.org",
       "sourceUrl": "https://www.ayso1315.org/Default.aspx?tabid=971909",
-      "notes": "100% volunteer org; also offers AYSO Playground (born 2021–2022) developmental program"
+      "notes": "100% volunteer org; also offers AYSO Playground (born 2021\u20132022) developmental program"
     },
     {
       "id": "ayso-region-1258-core-league",
-      "name": "AYSO Region 1258 — Core League",
+      "name": "AYSO Region 1258 \u2014 Core League",
       "level": "Recreational",
       "ageGroups": "5U-12U",
       "gender": "Boys+Girls",
@@ -187,7 +191,7 @@
     {
       "id": "desert-conference-usys-national-league",
       "name": "Desert Conference (USYS National League)",
-      "level": "Competitive — Elite (National League Conference)",
+      "level": "Competitive \u2014 Elite (National League Conference)",
       "ageGroups": "U11-U19",
       "gender": "Boys / Girls",
       "season": "Fall / Spring (event-based)",
@@ -200,8 +204,8 @@
     },
     {
       "id": "desert-states-npl-mojave-conference-nevada",
-      "name": "Desert States NPL — Mojave Conference (Nevada)",
-      "level": "Competitive — Elite (NPL)",
+      "name": "Desert States NPL \u2014 Mojave Conference (Nevada)",
+      "level": "Competitive \u2014 Elite (NPL)",
       "ageGroups": "U13-U17",
       "gender": "Boys",
       "season": "Fall / Spring",
@@ -216,7 +220,7 @@
       "id": "niaa-high-school-soccer",
       "name": "NIAA High School Soccer",
       "level": "Interscholastic (Varsity / JV)",
-      "ageGroups": "HS grades 9–12",
+      "ageGroups": "HS grades 9\u201312",
       "gender": "Boys / Girls",
       "season": "Fall",
       "region": "Statewide Nevada (Northern NV Region / Southern NV Region)",
@@ -232,13 +236,21 @@
       "level": "Recreational / Competitive",
       "ageGroups": "U6-U18",
       "gender": "Boys / Girls",
-      "season": "Fall / Spring (Spring: Mar–May)",
+      "season": "Fall / Spring (Spring: Mar\u2013May)",
       "region": "Northern Nevada (Reno / Sparks / Lake Tahoe / Carson City / Fallon / Fernley / Elko)",
       "governingBody": "Reno Sparks Soccer League",
       "sanctioning": "US Youth Soccer (USYS)",
       "website": "renosparkssoccerleague.org",
       "sourceUrl": "https://renosparkssoccerleague.org/rssl-spring-soccer-league-reno-sparks/",
       "notes": "Exclusive USYS-approved league and official NV State Cup representative for Northern Nevada; 8 regular games + 2-game playoff"
+    }
+  ],
+  "_history": [
+    {
+      "date": "2026-04-15",
+      "action": "auto-quarantine",
+      "rows_changed": 4,
+      "source": "dead-site-sweep + reclassification"
     }
   ]
 }
