@@ -50,6 +50,7 @@ const teamsideline = require('./adapters/teamsideline');
 const myhockey = require('./adapters/myhockey');
 const crossbar = require('./adapters/crossbar');
 const teamsnap = require('./adapters/teamsnap');
+const waConference = require('./adapters/wa-conference');
 
 const adapters = {
   [sportsaffinity.PLATFORM_ID]: sportsaffinity,
@@ -71,6 +72,7 @@ const adapters = {
   [myhockey.PLATFORM_ID]: myhockey,
   [crossbar.PLATFORM_ID]: crossbar,
   [teamsnap.PLATFORM_ID]: teamsnap,
+  [waConference.PLATFORM_ID]: waConference,
 };
 
 /**
