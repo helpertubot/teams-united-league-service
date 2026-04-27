@@ -94,14 +94,21 @@ Cloud Scheduler (weekly) → seasonMonitor → health checks, season discovery, 
 { teamName, position, gamesPlayed, wins, losses, ties, points, scored, allowed, differential, ... }
 ```
 
-## Current State (March 13, 2026)
+## Current State (April 27, 2026)
 
-### Stats
-- ~197 total leagues in Firestore
-- ~138 active, ~38 pending_config, 8 pending_tabid, 0 pending_groups
-- 1,623+ divisions, 16,587+ standings
-- 7 sports: Baseball (141), Soccer (49+), Hockey (2), Lacrosse (1), Softball (4 active), Basketball (discovery ran — 0 found)
-- 9 adapters: GameChanger, SportsConnect, SportsAffinity, SportsAffinity-ASP, GotSport, TGS, Demosphere, Pointstreak, LeagueApps
+> **For real-time numbers, run a fresh four-bucket audit** via the `teamsunited-league-service-ops` Hermes skill — these are point-in-time snapshots that drift weekly.
+
+### Stats (fresh as of 2026-04-27)
+- ~5,800 leagues truly collecting (>0 divisions, recent `collectedAt`)
+- ~17,354 `pending_adapter` (mostly SBL-universal placeholders awaiting the ScoreBookLive Firecrawl adapter)
+- ~3,848 active rows with no platform / awaiting research
+- 20 platform adapters live: sportsaffinity, sportsaffinity-asp, gotsport, pointstreak, demosphere, tgs, gamechanger, leagueapps, sportsconnect, blue-sombrero, teamlinkt, sportsengine, sportngin, sporngin, leaguelineup, teamsideline, myhockey, crossbar, teamsnap, **wa-conference**
+- WA HS coverage: 504 leagues collecting across 38 of 41 WIAA conferences (V/JV/C splits) via the wa-conference adapter shipped 2026-04-27.
+
+### Daily refresh path (canonical as of 2026-04-27)
+- **GCP Cloud Scheduler `league-standings-daily` was DECOMMISSIONED 2026-04-27.** The old `collectAll` Cloud Run target was structurally fragile past ~5K leagues (DEADLINE_EXCEEDED).
+- Canonical replacement: Hermes cron `fc9f02a31801` ("TU League Standings Nightly Refresh") at 5:00 AM PT on PC's Mac, fanning out `collectLeague` calls in parallel. Three-tier monitoring (collect 5:00 AM → freshness watchdog 8:00 AM → data-sanity check 8:15 AM).
+- All other GCP Cloud Schedulers (tournament-sweeper, freshness-sweeper, reclassify-pending, publish-summaries, batch-activate-urls, season-monitor, etc.) remain live and unchanged.
 
 ### Phase 1 Rollout States
 **WA** (Washington) — primary, most coverage. Baseball ~70 active, Soccer 8 active + 13 pending, Softball 4 active
