@@ -51,6 +51,8 @@ const myhockey = require('./adapters/myhockey');
 const crossbar = require('./adapters/crossbar');
 const teamsnap = require('./adapters/teamsnap');
 const waConference = require('./adapters/wa-conference');
+const scorebookliveSi = require('./adapters/scorebooklive-si');
+const maxprepsRankings = require('./adapters/maxpreps-rankings');
 
 const adapters = {
   [sportsaffinity.PLATFORM_ID]: sportsaffinity,
@@ -73,6 +75,8 @@ const adapters = {
   [crossbar.PLATFORM_ID]: crossbar,
   [teamsnap.PLATFORM_ID]: teamsnap,
   [waConference.PLATFORM_ID]: waConference,
+  [scorebookliveSi.PLATFORM_ID]: scorebookliveSi,
+  [maxprepsRankings.PLATFORM_ID]: maxprepsRankings,
 };
 
 /**

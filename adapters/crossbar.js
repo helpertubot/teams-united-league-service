@@ -49,7 +49,16 @@ async function collectStandings(leagueConfig) {
 
   for (const divisionId of divisionIds) {
     const configuredSubseasonId = resolveConfiguredSubseasonId(cfg, divisionId);
-    const page = await fetchDivisionStandingsPage(baseUrl, divisionId, configuredSubseasonId);
+    let page;
+    try {
+      page = await fetchDivisionStandingsPage(baseUrl, divisionId, configuredSubseasonId);
+    } catch (err) {
+      if (err.response && err.response.status === 404) {
+        console.warn(`Crossbar: Division ${divisionId} standings page returned 404; skipping stale division`);
+        continue;
+      }
+      throw err;
+    }
 
     if (page.rows.length === 0) {
       console.warn(`Crossbar: Division ${divisionId} returned no standings rows`);

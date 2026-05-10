@@ -69,7 +69,6 @@ async function collectStandings(leagueConfig) {
       continue;
     }
 
-    const $ = cheerio.load(html);
     const divisionId = `${leagueConfig.id}-${scheduleId}`;
     const divisionName = schedule.name || `Division ${scheduleId}`;
 
@@ -77,10 +76,8 @@ async function collectStandings(leagueConfig) {
     const ageGroup = schedule.ageGroup || parseAgeGroup(divisionName);
     const gender = schedule.gender || parseGender(divisionName);
 
-    // Find the standings grid (Telerik RadGrid)
-    const standingsTable = $('div[id*="standingsGrid"] table.rgMasterTable, div[id*="StandingsGrid"] table.rgMasterTable');
-
-    if (standingsTable.length === 0) {
+    const parsedRows = parseScheduleStandingsHtml(html, schedule);
+    if (parsedRows.length === 0) {
       console.warn(`TeamSideline: No standings table found for schedule ${scheduleId} (${divisionName})`);
       continue;
     }
@@ -97,47 +94,29 @@ async function collectStandings(leagueConfig) {
       status: 'active',
     });
 
-    // Parse standings rows (rgRow and rgAltRow)
-    const rows = standingsTable.find('tbody tr.rgRow, tbody tr.rgAltRow');
-    rows.each((rowIdx, row) => {
-      const cells = $(row).find('td');
-      if (cells.length < 6) return;
-
-      const teamName = $(cells[1]).text().trim();
-      if (!teamName) return;
-
-      const place = parseInt($(cells[0]).text().trim()) || (rowIdx + 1);
-      const wins = parseInt($(cells[2]).text().trim()) || 0;
-      const losses = parseInt($(cells[3]).text().trim()) || 0;
-      const ties = parseInt($(cells[4]).text().trim()) || 0;
-      const gamesPlayed = parseInt($(cells[5]).text().trim()) || 0;
-
-      // PCT and AGD may be '--' for teams with no games
-      const pctText = cells.length > 6 ? $(cells[6]).text().trim() : '--';
-      const agdText = cells.length > 8 ? $(cells[8]).text().trim() : '--';
-
+    for (const row of parsedRows) {
       standings.push({
-        teamName,
-        position: place,
-        gamesPlayed,
-        wins,
-        losses,
-        ties,
-        points: 0, // TeamSideline uses PCT not points
+        teamName: row.teamName,
+        position: row.position,
+        gamesPlayed: row.gamesPlayed,
+        wins: row.wins,
+        losses: row.losses,
+        ties: row.ties,
+        points: row.points,
         scored: 0, // Not available in standings table
         allowed: 0,
-        differential: agdText !== '--' ? parseFloat(agdText) || 0 : 0,
+        differential: row.differential,
         shutouts: 0,
         yellowCards: 0,
         redCards: 0,
         clubKey: null,
-        teamKey: null,
+        teamKey: row.teamKey,
         leagueId: leagueConfig.id,
         divisionId,
         seasonId: leagueConfig.seasonId || '2025-2026',
         collectedAt: now,
       });
-    });
+    }
 
     // Throttle requests
     await sleep(500);
@@ -200,6 +179,61 @@ async function discoverSchedules(baseUrl, siteName, schedulesUrl) {
 }
 
 /**
+ * Parse one TeamSideline schedule page into normalized standings rows.
+ * TeamSideline column order varies by org, so this is header-driven.
+ */
+function parseScheduleStandingsHtml(html, schedule = {}) {
+  const $ = cheerio.load(html);
+  const standingsTable = $('div[id*="standingsGrid"] table.rgMasterTable, div[id*="StandingsGrid"] table.rgMasterTable').first();
+  if (standingsTable.length === 0) return [];
+
+  const headers = standingsTable
+    .find('tr')
+    .first()
+    .find('th')
+    .map((_, th) => normalizeHeader($(th).text()))
+    .get();
+
+  const idx = {
+    place: findHeaderIndex(headers, ['place', 'rank', '#']),
+    team: findHeaderIndex(headers, ['team']),
+    wins: findHeaderIndex(headers, ['w', 'wins']),
+    losses: findHeaderIndex(headers, ['l', 'losses']),
+    ties: findHeaderIndex(headers, ['t', 'ties']),
+    gamesPlayed: findHeaderIndex(headers, ['gp', 'games', 'games played']),
+    points: findHeaderIndex(headers, ['pts', 'points']),
+    differential: findHeaderIndex(headers, ['agd', 'diff', 'differential', '+/-']),
+  };
+
+  const rows = [];
+  standingsTable.find('tbody tr.rgRow, tbody tr.rgAltRow, tr.rgRow, tr.rgAltRow').each((rowIdx, row) => {
+    const cells = $(row).find('td');
+    if (cells.length < 3) return;
+
+    const teamCell = cells.eq(idx.team >= 0 ? idx.team : 0);
+    const teamName = cleanText(teamCell.text());
+    if (!teamName || normalizeHeader(teamName) === 'team') return;
+
+    const teamHref = teamCell.find('a[href*="team"]').attr('href') || '';
+    const teamIdMatch = teamHref.match(/\/(?:team|teams)\/(\d+)/i);
+
+    rows.push({
+      teamName,
+      position: parseInteger(cellText($, cells, idx.place)) || rowIdx + 1,
+      gamesPlayed: parseInteger(cellText($, cells, idx.gamesPlayed)),
+      wins: parseInteger(cellText($, cells, idx.wins)),
+      losses: parseInteger(cellText($, cells, idx.losses)),
+      ties: parseInteger(cellText($, cells, idx.ties)),
+      points: parseNumber(cellText($, cells, idx.points)),
+      differential: parseNumber(cellText($, cells, idx.differential)),
+      teamKey: teamIdMatch ? teamIdMatch[1] : null,
+    });
+  });
+
+  return rows;
+}
+
+/**
  * Parse age group from division name
  * Examples: "2nd Grade Boys 7V7" -> "2nd Grade", "U12 Gold" -> "U12"
  */
@@ -231,4 +265,31 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-module.exports = { PLATFORM_ID, collectStandings, discoverSchedules };
+function cleanText(value) {
+  return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function normalizeHeader(value) {
+  return cleanText(value).toLowerCase();
+}
+
+function findHeaderIndex(headers, names) {
+  return headers.findIndex(h => names.includes(h));
+}
+
+function cellText($, cells, index) {
+  if (index < 0 || index >= cells.length) return '';
+  return cleanText($(cells[index]).text());
+}
+
+function parseInteger(value) {
+  const n = parseInt(String(value || '').replace(/[^\d-]/g, ''), 10);
+  return Number.isFinite(n) ? n : 0;
+}
+
+function parseNumber(value) {
+  const n = parseFloat(String(value || '').replace(/[^\d.-]/g, ''));
+  return Number.isFinite(n) ? n : 0;
+}
+
+module.exports = { PLATFORM_ID, collectStandings, discoverSchedules, parseScheduleStandingsHtml };

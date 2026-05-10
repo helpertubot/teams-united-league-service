@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "functions-framework --target=collectLeague --port=8080",
-    "test": "node --test scripts/coverage/__tests__/*.test.js",
-    "test:coverage": "node --test scripts/coverage/__tests__/*.test.js"
+    "test": "node --test scripts/coverage/__tests__/*.test.js scripts/quality/__tests__/*.test.js lib/__tests__/*.test.js adapters/__tests__/*.test.js",
+    "test:coverage": "node --test scripts/coverage/__tests__/*.test.js scripts/quality/__tests__/*.test.js lib/__tests__/*.test.js adapters/__tests__/*.test.js"
   }
 }
